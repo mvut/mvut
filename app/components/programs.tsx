@@ -1,51 +1,14 @@
-import WebImage from '../../public/resources/freelance.jpg';
-import Image from "next/image";
-import Ug from '@/public/resources/ug.jpg';
-import Gra from '@/public/resources/gra.jpg';
-import Doct from '@/public/resources/doct.jpg';
-import Dip from '@/public/resources/dip.jpg';
-
 export default function ProgramComponent(){
     return (
-        <div className="flex-col container mb-8 container mx-auto">
-            <h2 className="text-xl text-indigo-900 font-bold">Online Learning Skills for a Brighter Tomorrow</h2>
-
-            <div className="flex py-10 gap-4">
-                <div
-                    className="flex-col relative w-1/5 items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-                    <Image src={Ug} alt="" height={240} width={240}/>
-                    <button className="absolute left-0 bottom-0 bg-amber-400 p-2 hover:bg-gray-200 text-xs">Undergraduate
-                    </button>
-                </div>
-
-                <div
-                    className="flex-col relative w-1/5 items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-                    <Image src={Gra} alt="" height={240} width={240}/>
-                    <button className="absolute left-0 bottom-0 bg-amber-400 p-2 hover:bg-gray-200 text-xs">Graduate
-                    </button>
-                </div>
-
-                <div
-                    className="flex-col relative w-1/5 items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-                    <Image src={Doct} alt="" height={240} width={240}/>
-                    <button className="absolute left-0 bottom-0 bg-amber-400 p-2 hover:bg-gray-200 text-xs">Doctorate</button>
-                </div>
-
-                <div
-                    className="flex-col relative w-1/5 items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-                    <Image src={Dip} alt="" height={240} width={240}/>
-                    <button className="absolute left-0 bottom-0 bg-amber-400 p-2 hover:bg-gray-200 text-xs">Diploma</button>
-                </div>
-
-                <div
-                    className="flex-col relative w-1/5 items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-                    <Image src={WebImage} alt="" height={240} width={240}/>
-                    <button className="absolute left-0 bottom-0 bg-amber-400 p-2 hover:bg-gray-200 text-xs">Freelance
-                    </button>
-                </div>
-
-            </div>
-
+        <div className="flex flex-col container mb-8 mx-auto py-16 items-center justify-center text-center">
+            <p className="text-7xl text-teal-950 font-bold">Services</p>
+            <ul className={'flex flex-col md:flex-row text-3xl gap-8 pt-16 text-gray-50'}>
+                <li className={'flex text-center items-center justify-center bg-teal-900 p-4 rounded-full h-48 w-48 hover:bg-indigo-900 transition-all'}>Business Solutions</li>
+                <li className={'flex text-center items-center justify-center bg-teal-900 p-4 rounded-full h-48 w-48 hover:bg-indigo-900 transition-all'}>Research</li>
+                <li className={'flex text-center items-center justify-center bg-teal-900 p-4 rounded-full h-48 w-48 hover:bg-indigo-900 transition-all'}>Career Building</li>
+                <li className={'flex text-center items-center justify-center bg-teal-900 p-4 rounded-full h-48 w-48 hover:bg-indigo-900 transition-all'}>Internship</li>
+                <li className={'flex text-center items-center justify-center bg-teal-900 p-4 rounded-full h-48 w-48 hover:bg-indigo-900 transition-all'}>Education</li>
+            </ul>
         </div>
     )
 }

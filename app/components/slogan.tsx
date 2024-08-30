@@ -1,20 +1,17 @@
-import { CiSquareMore } from "react-icons/ci";
+import Students from '@/public/resources/welcome.jpg';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function SloganPage(){
     return (
-        <div className="flex flex-col bg-black items-center h-64 justify-center text-white gap-6 w-full">
-
-            <h2 className="text-xl font-bold ">
-                We Believe in the Quality of Education, Logic and Humanity.
-            </h2>
-            <p className="">Let`s Bring Clarity, Innovation and Peace Together</p>
-
-            <button
-                className="flex justify-center items-center bg-white hover:bg-red-900 hover:text-white text-red-600 rounded-lg gap-2 p-2">
-                <CiSquareMore size={23}/>
-                <p>Explore Programs</p>
-            </button>
-
+        <div className="flex flex-col md:flex-row md:p-4 py-16 bg-teal-900 w-full items-center justify-center">
+            <div className={'flex items-center justify-center flex-col w-1/2 md:leading-relaxed '}>
+                <p className={'text-xl leading-relaxed text-teal-200 md:text-5xl md:py-10'}> Admission open</p>
+                   <Link href={''} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>apply</Link>
+            </div>
+            <div className={'hidden md:flex items-center justify-center w-1/2'}>
+                <Image src={Students} alt={''} className={'md:h-96 md:w-auto shadow-amber-200 rounded-l-full border-l-4 border-r-2 border-amber-300 '}/>
+            </div>
         </div>
     )
 }

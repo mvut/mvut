@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
-import NavComponent from "@/app/components/nav";
+import NavbarComponent from "@/app/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Ubuntu({ subsets: ["latin"], weight:['400'] });
 
 export const metadata: Metadata = {
   title: "MVUT",
@@ -16,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={'scroll-smooth'}>
 
       <body className={inter.className}>
-      <NavComponent/>
+      <NavbarComponent/>
 
       {children}
       </body>
