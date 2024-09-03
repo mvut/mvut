@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import NavbarComponent from "@/app/components/navbar";
+import FooterComponent from "@/app/components/footer";
 
 const inter = Ubuntu({ subsets: ["latin"], weight:['400'] });
 
@@ -17,11 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={'scroll-smooth'}>
-
       <body className={inter.className}>
       <NavbarComponent/>
-
       {children}
+      <FooterComponent/>
       </body>
     </html>
   );

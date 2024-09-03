@@ -20,7 +20,7 @@ return(
                     Unlocking Potential through Quality Education, Logical Inquiry, Human Compassion, and Intelligent
                     Innovation. Join us on
                 </p>
-                <div className={'flex gap-2 text-teal-200'}>
+                <div className={'flex gap-2 text-teal-200 py-10'}>
 
                     <Link target="_blank" href="https://chat.whatsapp.com/CFrP44L2ZbP9V01e1lcTN7"
                           className="hover:text-teal-500">
