@@ -14,7 +14,7 @@ export default function Home() {
         <ProgramComponent/>
         <StrategicPartners />
         <ResearchComponent/>
-        <FooterComponent/>
+        {/*<FooterComponent/>*/}
     </main>
   );
 }
