@@ -11,7 +11,7 @@ export default function ApplicationForm(){
     ]
     return(
         <div className={'flex flex-row md:min-h-screen items-center justify-center'}>
-            <div className={'hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center'}>
+            <div className={'hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8'}>
                 <p className={'text-teal-100 text-5xl font-bold text-center'}>Build a Career</p>
                 <p className={'text-teal-500 text-6xl font-bold text-center'}>Admission Open</p>
             </div>
@@ -20,15 +20,20 @@ export default function ApplicationForm(){
                 <p className={'text-teal-900 text-2xl font-bold text-center'}>Application Form</p>
 
                 <input type={'text'} placeholder={'Enter your full name'}
-                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}/>
+                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                       required={true} name={'fullname'}/>
+
                 <input type={'text'} placeholder={'Enter your gmail account'}
-                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}/>
+                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                       required={true} name={'gmail'}/>
+
                 <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
-                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}/>
+                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                       required={true} name={'whatsapp'}/>
 
                 <div className={'flex flex-col'}>
                     <label className={'text-teal-900'}>Choose Program:</label>
-                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}>
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'program'}>
                         {
                             programs ?
                                 programs.map((program) => {
@@ -41,15 +46,15 @@ export default function ApplicationForm(){
 
                 <div className={'flex flex-col '}>
                     <label>Semester</label>
-                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}>
-                        <option value={1}>Fall 2024</option>
-                        {/*<option value={2}>Spring 2025</option>*/}
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'semester'}>
+                        <option value={1}>Spring 2024</option>
+                        <option value={2}>Fall 2024</option>
                     </select>
                 </div>
 
                 <div className={'flex flex-col '}>
                     <label>Classes</label>
-                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}>
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'classes'}>
                         <option value={1}>Online</option>
                         <option value={2}>Onsite</option>
                     </select>
@@ -57,7 +62,7 @@ export default function ApplicationForm(){
 
                 <div className={'flex flex-col '}>
                     <label>Country</label>
-                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}>
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'country'}>
                         <option value={1}>Pakistan</option>
                         {/*<option value={2}>Onsite</option>*/}
                     </select>
