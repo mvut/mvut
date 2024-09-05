@@ -2,7 +2,7 @@
 import Students from '@/public/resources/welcome.jpg';
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 
 export default function SloganPage(){
     // const [applicants, setApplicants] = useState<any[]>([]);
@@ -18,7 +18,10 @@ export default function SloganPage(){
         <div className="flex flex-col md:flex-row md:p-4 py-16 bg-teal-900 w-full items-center justify-center">
             <div className={'flex items-center justify-center flex-col w-1/2 md:leading-relaxed '}>
                 <p className={'text-xl leading-relaxed text-teal-200 md:text-5xl md:py-10'}> Admission open</p>
-                <Link href={'/pages/apply'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>apply</Link>
+                <div className={'flex items-center justify-center gap-2'}>
+                    <Link href={'/pages/apply'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>apply</Link>
+                    {/*<Link href={'/pages/faculty'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>faculty</Link>*/}
+                </div>
             </div>
             {/*<div className={'flex items-center justify-center flex-col w-1/3 md:leading-relaxed'}>*/}
             {/*    <p className={'flex flex-col items-center justify-center text-xl p-1 text-amber-200'}>Application Received</p>*/}

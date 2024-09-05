@@ -24,10 +24,18 @@ export default function MyHeaderComponent(){
             {/*        </Link>*/}
             {/*    </div>*/}
             {/*</div>*/}
-            <div className={'flex flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-teal-950 text-gray-50 '}>
-                <Link className={'font-bold text-2xl uppercase'} href={'/'}>Mvut</Link>
+            <div
+                className={'flex flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-teal-950 text-gray-50 '}>
+                <div className={'flex flex-col'}>
+                    <Link className={'font-bold text-2xl uppercase'} href={'/'}>Mvut</Link>
+                    <p className={'text-xs text-white uppercase'}>Empowering People for Next Century</p>
+                </div>
                 {/*<p className={'font-bold text-2xl uppercase'}>Mvut</p>*/}
-                <p className={'text-sm text-white uppercase'}>Empowering People for Next Century</p>
+                    <nav className={'flex items-center justify-center gap-2 '}>
+                        <Link href={'/'}>Home</Link>
+                        <Link href={'/pages/faculty'}>Faculty</Link>
+                        <Link href={'/pages/apply'}>Apply</Link>
+                    </nav>
             </div>
         </div>
     );
