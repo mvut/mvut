@@ -5,7 +5,7 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 
 export default function SloganPage(){
-    const [applicants, setApplicants] = useState([]);
+    const [applicants, setApplicants] = useState<any[]>([]);
     useEffect(() => {
         fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
@@ -23,8 +23,8 @@ export default function SloganPage(){
                 <Link href={'/pages/apply'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>apply</Link>
             </div>
             <div className={'flex items-center justify-center flex-col w-1/3 md:leading-relaxed'}>
-                <p className={'flex flex-col items-center justify-center text-4xl p-1 text-amber-200'}>Application Received</p>
-                <p className={'text-gray-50 text-5xl'}>{ applicants && applicants[0]?.applicants }</p>
+                <p className={'flex flex-col items-center justify-center text-xl p-1 text-amber-200'}>Application Received</p>
+                <p className={'text-gray-50 text-xl'}>{ applicants && applicants[0]?.applicants }</p>
             </div>
             <div className={'hidden md:flex items-center justify-center w-1/3'}>
                 <Image src={Students} alt={''}
