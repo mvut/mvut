@@ -20,7 +20,8 @@ export default function ApplicationForm(){
         {id:13, program:"UX/UI Development"},
         {id:14, program:"AI and Machine Learning"},
         {id:15, program:"Generative AI (GenAI)"},
-        {id:16, program:"Office Management (OMC)"},
+        {id:16, program:"Blockchain"},
+        {id:17, program:"Office Management (OMC)"},
     ];
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {

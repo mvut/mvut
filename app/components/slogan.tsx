@@ -6,15 +6,16 @@ import {useEffect, useState} from "react";
 
 export default function SloganPage(){
     const [applicants, setApplicants] = useState<any[]>([]);
+
     useEffect(() => {
         fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'PUT'})
             .then((res) => res.json())
             .then((applicants) => {
                 setApplicants(applicants)
             })
-    }, []);
+    }, [applicants]);
 
-    console.log(applicants)
+    // console.log(applicants)
     // @ts-ignore
     return (
         <div className="flex flex-col md:flex-row md:p-4 py-16 bg-teal-900 w-full items-center justify-center">
