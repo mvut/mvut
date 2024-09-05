@@ -15,6 +15,7 @@ export default function SloganPage(){
     }, []);
 
     console.log(applicants)
+    // @ts-ignore
     return (
         <div className="flex flex-col md:flex-row md:p-4 py-16 bg-teal-900 w-full items-center justify-center">
             <div className={'flex items-center justify-center flex-col w-1/3 md:leading-relaxed '}>
@@ -23,7 +24,7 @@ export default function SloganPage(){
             </div>
             <div className={'flex items-center justify-center flex-col w-1/3 md:leading-relaxed'}>
                 <p className={'flex flex-col items-center justify-center text-4xl p-1 text-amber-200'}>Application Received</p>
-                <p className={'text-gray-50 text-5xl'}>{ applicants[0]?.applicants }</p>
+                <p className={'text-gray-50 text-5xl'}>{ applicants && applicants[0]?.applicants }</p>
             </div>
             <div className={'hidden md:flex items-center justify-center w-1/3'}>
                 <Image src={Students} alt={''}
