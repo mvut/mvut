@@ -21,7 +21,7 @@ export default function FooterComponent(){
                     {/*</p>*/}
                 </div>
                 <p className={'text-xs'}>Powered by
-                    <Link className={'text-amber-300'} href={'https://www.linkedin.com/in/drsagher/'} target={'_blank'}> Abubakar</Link>
+                    <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> Mvut.us</Link>
                 </p>
             </div>
 

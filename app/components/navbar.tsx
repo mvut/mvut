@@ -10,32 +10,24 @@ export default function MyHeaderComponent(){
         setMenuOpen(!menuOpen);
     }
     return(
-        <div className={'flex flex-col'}>
-            {/*<div className={'flex px-2 items-center justify-center bg-gradient-to-r from-amber-300 to-amber-500'}>*/}
-            {/*    <p className={''}>Let`s Bring Clarity, Innovation and Peace Together. Join us on</p>*/}
-            {/*    <div className={'sm:flex '}>*/}
-            {/*        <Link target="_blank" href="https://chat.whatsapp.com/CFrP44L2ZbP9V01e1lcTN7"*/}
-            {/*              className="hover:text-pink-600">*/}
-            {/*            <FaWhatsapp size={20}/>*/}
-            {/*        </Link>*/}
-
-            {/*        <Link target="_blank" href="https://web.facebook.com/mvutus" className=" hover:text-pink-600">*/}
-            {/*            <FaFacebook size={20}/>*/}
-            {/*        </Link>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+        <div className={'flex flex-col '}>
             <div
-                className={'flex flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-teal-950 text-gray-50 '}>
-                <div className={'flex flex-col'}>
+                className={'flex h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-teal-950 text-gray-50 '}>
+                <div className={'flex flex-row  justify-center sm:flex-col'}>
                     <Link className={'font-bold text-2xl uppercase'} href={'/'}>Mvut</Link>
-                    <p className={'text-xs text-white uppercase'}>Empowering People for Next Century</p>
+                    <p className={'hidden sm:flex text-xs text-white uppercase'}>Empowering People for Next Century</p>
                 </div>
-                {/*<p className={'font-bold text-2xl uppercase'}>Mvut</p>*/}
-                    <nav className={'flex items-center justify-center gap-2 uppercase'}>
+                <div className={'flex flex-col gap-2'}>
+                    <div className={'text-xs'}>
+                        <Link href={'/pages/news'}>News & Events</Link>
+                    </div>
+                    <nav className={'flex items-center justify-center uppercase gap-2'}>
                         <Link href={'/'} className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Home</Link>
-                        <Link href={'/pages/faculty'} className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Faculty</Link>
-                        <Link href={'/pages/apply'} className={'bg-red-600 rounded-lg py-2 px-6 hover:bg-amber-600'}>Apply</Link>
+                        <Link href={'/pages/faculty'}
+                              className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Faculty</Link>
+                        <Link href={'/pages/apply'} className={'bg-red-600 rounded-lg py-2 px-6 hover:bg-indigo-800'}>Apply</Link>
                     </nav>
+                </div>
             </div>
         </div>
     );
