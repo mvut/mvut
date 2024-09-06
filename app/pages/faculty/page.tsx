@@ -8,6 +8,7 @@ import Daha from '@/public/faculty/daha.jpg';
 import Arshad from '@/public/faculty/arshad.jpg';
 import Gami from '@/public/faculty/gami.jpg';
 import Image from "next/image";
+
 export default function FacultyComponent(){
     return(
         <div className={'container mx-auto flex flex-col items-center justify-center py-6'}>
@@ -15,7 +16,7 @@ export default function FacultyComponent(){
             <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-6 px-6 '}>
                 {/*    */}
                 <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
                     <Image src={ArshadIqbal} alt={''} className={'h-96 w-full'}/>
                     <h2 className={'font-bold text-lg text-white'}>Arshad Iqbal</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>

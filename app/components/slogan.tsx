@@ -19,7 +19,7 @@ export default function SloganPage(){
             <div className={'flex items-center justify-center flex-col w-1/2 md:leading-relaxed '}>
                 <p className={'text-xl leading-relaxed text-teal-200 md:text-5xl md:py-10'}> Admission open</p>
                 <div className={'flex items-center justify-center gap-2'}>
-                    <Link href={'/pages/apply'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>apply</Link>
+                    <Link href={'/pages/apply'} className={'text-md bg-red-600 text-gray-50 rounded-lg uppercase hover:bg-amber-600 p-2 px-6'}>apply</Link>
                     {/*<Link href={'/pages/faculty'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>faculty</Link>*/}
                 </div>
             </div>

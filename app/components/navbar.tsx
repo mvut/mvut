@@ -31,10 +31,10 @@ export default function MyHeaderComponent(){
                     <p className={'text-xs text-white uppercase'}>Empowering People for Next Century</p>
                 </div>
                 {/*<p className={'font-bold text-2xl uppercase'}>Mvut</p>*/}
-                    <nav className={'flex items-center justify-center gap-2 '}>
-                        <Link href={'/'}>Home</Link>
-                        <Link href={'/pages/faculty'}>Faculty</Link>
-                        <Link href={'/pages/apply'}>Apply</Link>
+                    <nav className={'flex items-center justify-center gap-2 uppercase'}>
+                        <Link href={'/'} className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Home</Link>
+                        <Link href={'/pages/faculty'} className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Faculty</Link>
+                        <Link href={'/pages/apply'} className={'bg-red-600 rounded-lg py-2 px-6 hover:bg-amber-600'}>Apply</Link>
                     </nav>
             </div>
         </div>
