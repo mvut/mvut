@@ -31,7 +31,7 @@ export default function NewsComponents(){
                         <h2 className="text-xl font-bold text-amber-200">
                             <Countdown/>
                         </h2>
-                        <Link href={'pages/apply'} className={'hover:text-amber-200 text-3xl text-red-600 font-bold'}>Apply Now</Link>
+                        <Link href={'/pages/apply'} className={'hover:text-amber-200 text-3xl text-red-600 font-bold'}>Apply Now</Link>
                     </div>
                     <div className="flex-col md:w-1/4 bg-gray-400 p-2 hover:scale-110 transition-all delay-100 ">
                         <Image src={WebImage} alt=""/>
