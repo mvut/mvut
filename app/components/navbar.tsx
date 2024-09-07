@@ -12,13 +12,13 @@ export default function MyHeaderComponent(){
     return(
         <div className={'flex flex-col '}>
             <div
-                className={'flex h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-teal-950 text-gray-50 '}>
+                className={'flex h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-gray-950 text-gray-50 '}>
                 <div className={'flex flex-row  justify-center sm:flex-col'}>
                     <Link className={'font-bold text-2xl uppercase'} href={'/'}>Mvut</Link>
                     <p className={'hidden sm:flex text-xs text-white uppercase'}>Empowering People for Next Century</p>
                 </div>
                 <div className={'flex flex-col gap-2'}>
-                    <div className={'text-xs'}>
+                    <div className={'text-xs text-amber-200'}>
                         <Link href={'/pages/news'}>News & Events</Link>
                     </div>
                     <nav className={'flex items-center justify-center uppercase gap-2'}>

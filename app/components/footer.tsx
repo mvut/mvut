@@ -5,7 +5,7 @@ import { TfiEmail } from "react-icons/tfi";
 
 export default function FooterComponent(){
     return (
-        <div className="flex flex-col w-full bg-teal-900">
+        <div className="flex flex-col w-full bg-gray-950">
 
             <div className="flex flex-col sm:flex-row justify-between items-center text-white py-6 px-6">
                 <div className="flex flex-col justify-center items-start gap-2 py-2 ">
