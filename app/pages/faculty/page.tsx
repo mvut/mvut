@@ -7,6 +7,9 @@ import GhulamAbbas from '@/public/faculty/gabbas.jpg';
 import Daha from '@/public/faculty/daha.jpg';
 import Arshad from '@/public/faculty/arshad.jpg';
 import Gami from '@/public/faculty/gami.jpg';
+import Abid from '@/public/faculty/abid.jpg';
+import Haris from '@/public/faculty/haris.jpg';
+
 import Image from "next/image";
 
 export default function FacultyComponent(){
@@ -21,6 +24,16 @@ export default function FacultyComponent(){
                     <h2 className={'font-bold text-lg text-white'}>Arshad Iqbal</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
                         Data Scientist
+                    </p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={Abid} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Abid Hussain</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Blockchain / AI Expert
                     </p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
@@ -101,6 +114,16 @@ export default function FacultyComponent(){
                     <h2 className={'font-bold text-lg text-white'}>Ghulam Muhammad</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
                         Amazon VA Expert
+                    </p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={Haris} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Muhammad Haris</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Frontend Designer
                     </p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
