@@ -5,14 +5,14 @@ import {useRouter} from "next/navigation";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-        {id:1, program:"Full Stack Development (FSD)", open:true},
-        {id:2, program:"Artificial Intelligence (AI)", open:true},
+        {id:1, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
+        {id:2, program:"Artificial Intelligence (AI)", open:false},
         {id:3, program:"Web Designing and Graphics (WD&G)", open:false},
         {id:4, program:"Data Science (DS)", open:false},
         {id:5, program:"Research and Development (R&D)", open:false},
         {id:6, program:"Interpersonal Skills (IPS)", open:false},
         {id:7, program:"Core Web Technologies (CWT)", open:false},
-        {id:8, program:"Python Programming for AI (PyAI)", open:true},
+        {id:8, program:"Python Programming for AI (PyAI)", open:false},
         {id:9, program:"PHP Web Programming Course (PWPC)", open:false},
         {id:10, program:"JavaScript Programming Course (JSC)", open:false},
         {id:11, program:"Web Development Techniques (WDT)", open:false},
@@ -20,7 +20,7 @@ export default function ApplicationForm(){
         {id:13, program:"UX/UI Development", open:false},
         {id:14, program:"AI and Machine Learning", open:false},
         {id:15, program:"Generative AI (GenAI)", open:false},
-        {id:16, program:"Blockchain Technology", open:true},
+        {id:16, program:"Full Stack Blockchain Applications (FSBA)", open:true},
         {id:17, program:"Office Management (OMC)", open:false},
         {id:18, program:"Leadership and Management Dynamics", open:false},
         {id:19, program:"Primary School Certificate (PSC)", open:false},
