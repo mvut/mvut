@@ -5,23 +5,32 @@ import {useRouter} from "next/navigation";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-        {id:1, program:"Full Stack Development (FSD)"},
-        {id:2, program:"Artificial Intelligence (AI)"},
-        {id:3, program:"Web Designing and Graphics (WD&G)"},
-        {id:4, program:"Data Science (DS)"},
-        {id:5, program:"Research and Development (R&D)"},
-        {id:6, program:"Interpersonal Skills (IPS)"},
-        {id:7, program:"Core Web Technologies (CWT)"},
-        {id:8, program:"Python Programming Course (PPC)"},
-        {id:9, program:"PHP Web Programming Course (PWPC)"},
-        {id:10, program:"JavaScript Programming Course (JSC)"},
-        {id:11, program:"Web Development Techniques (WDT)"},
-        {id:12, program:"C/C++ & OOP"},
-        {id:13, program:"UX/UI Development"},
-        {id:14, program:"AI and Machine Learning"},
-        {id:15, program:"Generative AI (GenAI)"},
-        {id:16, program:"Blockchain"},
-        {id:17, program:"Office Management (OMC)"},
+        {id:1, program:"Full Stack Development (FSD)", open:true},
+        {id:2, program:"Artificial Intelligence (AI)", open:true},
+        {id:3, program:"Web Designing and Graphics (WD&G)", open:false},
+        {id:4, program:"Data Science (DS)", open:false},
+        {id:5, program:"Research and Development (R&D)", open:false},
+        {id:6, program:"Interpersonal Skills (IPS)", open:false},
+        {id:7, program:"Core Web Technologies (CWT)", open:false},
+        {id:8, program:"Python Programming for AI (PyAI)", open:true},
+        {id:9, program:"PHP Web Programming Course (PWPC)", open:false},
+        {id:10, program:"JavaScript Programming Course (JSC)", open:false},
+        {id:11, program:"Web Development Techniques (WDT)", open:false},
+        {id:12, program:"C/C++ & OOP", open:false},
+        {id:13, program:"UX/UI Development", open:false},
+        {id:14, program:"AI and Machine Learning", open:false},
+        {id:15, program:"Generative AI (GenAI)", open:false},
+        {id:16, program:"Blockchain Technology", open:true},
+        {id:17, program:"Office Management (OMC)", open:false},
+        {id:18, program:"Leadership and Management Dynamics", open:false},
+        {id:19, program:"Primary School Certificate (PSC)", open:false},
+        {id:20, program:"Elementary School Certificate (ESC)", open:false},
+        {id:21, program:"Secondary School Certificate (SSC)", open:false},
+        {id:22, program:"Higher Secondary School Certificate (HSSC)", open:false},
+        {id:23, program:"BS of Computer Science", open:false},
+        {id:24, program:"PGD in Computer Science", open:false},
+        {id:25, program:"MS in Computer Science", open:false},
+        {id:26, program:"Ph.D. in Computer Science", open:false},
     ];
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
@@ -32,6 +41,7 @@ export default function ApplicationForm(){
             body: JSON.stringify({
                 fullname:formData.get("fullname"),
                 gmail:formData.get("gmail"),
+                dob:formData.get("dob"),
                 whatsapp:formData.get("whatsapp"),
                 program:formData.get("program"),
                 semester:formData.get("semester"),
@@ -55,20 +65,29 @@ export default function ApplicationForm(){
                 <p className={'text-teal-500 text-6xl font-bold text-center'}>Admission Open</p>
             </div>
 
-            <form onSubmit={handleSubmit} className={'flex flex-col md:w-1/2 items-start justify-center md:gap-6 p-2 lg:pl-16'}>
+            <form onSubmit={handleSubmit}
+                  className={'flex flex-col md:w-1/2 items-start justify-center md:gap-6 p-2 lg:pl-16'}>
                 <p className={'text-teal-900 text-2xl font-bold text-center'}>Application Form</p>
 
                 <input type={'text'} placeholder={'Enter your full name'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                        required={true} name={'fullname'}/>
 
-                <input type={'text'} placeholder={'Enter your gmail account'}
+                <input type={'text'} placeholder={'Enter your Email'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                        required={true} name={'gmail'}/>
 
+                <div className={'flex flex-col'}>
+                    <label className={'text-teal-900'}>Date of Birth:</label>
+                    <input type={'date'} placeholder={'Enter your Email account'}
+                           className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                           required={true} name={'dob'}/>
+                </div>
+
                 <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                       required={true} name={'whatsapp'}/>
+                       required={true} name={'whatsapp'} pattern={'^(?:\\+?\\d{1,3}[- ]?)?\\(?\\d{3}\\)?[- ]?\\d{3}[- ]?\\d{4}$'}
+                />
 
                 <div className={'flex flex-col'}>
                     <label className={'text-teal-900'}>Choose Program:</label>
@@ -76,8 +95,9 @@ export default function ApplicationForm(){
                         {
                             programs ?
                                 programs.map((program) => {
-                                    return <option key={program["id"]}
-                                                   value={program["program"]}>{program["id"]} {program["program"]}</option>
+                                    return program["open"] && <option key={program["id"]} value={program["program"]}>
+                                        {program["program"]}
+                                    </option>
                                 }) : null
                         }
                     </select>

@@ -1,20 +1,16 @@
-import FullStackImage from '../../public/resources/webdesign.jpg';
-import AIIntroImage from '../../public/resources/ai.jpg';
-import DataScImage from '../../public/resources/datasc.jpg';
-import ResearchDevImage from '../../public/resources/researchdev.jpg';
-import GraphicsImage from '../../public/resources/graphics.jpg';
-import Ug from '../../public/resources/ug.jpg';
+import AIIntroImage from '../../public/resources/ai2.png';
 import Image from "next/image";
 
 export default function CoursesPage(){
     return (
         <div className="flex flex-col items-center justify-center py-6 lg:py-12">
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Available Programs</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Skill Development Programs</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {/**/}
-                <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96 ">
-                        <Image src={FullStackImage} alt={''}
+                        <Image src={AIIntroImage} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
 
                     </div>
@@ -51,7 +47,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={GraphicsImage} alt={''}
+                        <Image src={AIIntroImage} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -69,7 +65,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={DataScImage} alt={''}
+                        <Image src={AIIntroImage} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -87,7 +83,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={ResearchDevImage} alt={''}
+                        <Image src={AIIntroImage} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -105,15 +101,163 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={Ug} alt={''}
+                        <Image src={AIIntroImage} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
                         className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
                         <h1 className="text-2xl font-bold text-white">Interpersonal Skills</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Our Interpersonal Skills and Microsoft Office Management course combines essential communication and productivity training to help you excel in the workplace. Learn to develop strong relationships, resolve conflicts, and master Microsoft Office applications like Word, Excel, and PowerPoint. Improve your written and verbal communication skills, enhance your productivity, and work effectively with others to achieve success in your career.
+                            Our Interpersonal Skills and Microsoft Office Management course combines essential
+                            communication and productivity training to help you excel in the workplace. Learn to develop
+                            strong relationships, resolve conflicts, and master Microsoft Office applications like Word,
+                            Excel, and PowerPoint. Improve your written and verbal communication skills, enhance your
+                            productivity, and work effectively with others to achieve success in your career.
                         </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Certificate Courses in Computer Science</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Certificate Courses in Computer Science provide specialized training in specific areas of computer science, such as programming, data analysis, cybersecurity, or artificial intelligence. These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white"> Leadership and Management Dynamics</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Leadership and Management Dynamics program is a transformative learning experience that equips professionals to lead and manage high-performing teams. Through interactive modules and expert insights, participants explore the dynamic interplay between leadership and management, developing skills in strategic planning, communication, and adaptive leadership. This program empowers leaders to drive innovation and achieve sustainable success.                        </p>
+                    </div>
+                </div>
+            </div>
+            {/*-----------------------*/}
+            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10'}>Academic Programs</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Primary School Certificate (PSC)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Primary School Certificate in Computer Science introduces young learners to digital literacy, coding, and problem-solving. This foundational program explores interactive topics like algorithms and computer safety, sparking curiosity and creativity. It prepares students for future academic and professional opportunities in the digital world.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Elementary School Certificate (ESC)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Elementary School Certificate (ESC) in Computer Science introduces young learners to the exciting world of computer science. This program fosters curiosity, develops basic programming skills, and encourages digital literacy through interactive lessons and hands-on activities. It provides a solid foundation for further studies in computer science and prepares boys and girls for future careers in STEM fields.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Secondary School Certificate (SSC)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Secondary School Certificate (SSC) in Computer Science builds on foundational knowledge, equipping students with advanced programming skills, data analysis, and software development expertise. This program enhances problem-solving abilities, logical thinking, and digital literacy, preparing students for higher education and careers in technology. Through comprehensive lessons and projects, students gain a deeper understanding of computer systems, networks, and cybersecurity.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Higher Secondary School Certificate (HSSC)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Higher Secondary School Certificate (HSSC) in Computer Science refines programming skills, focusing on algorithms, software engineering, and practical applications. This program prepares students for higher education, careers, and entrepreneurship in tech through project-based learning and industry-specific technologies. Students gain expertise in computer systems, networks, and cybersecurity, setting them up for success in the digital landscape.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">BS of Computer Science</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Bachelor of Science in Computer Science (BSCS) is a comprehensive program that covers theoretical foundations and practical applications. Students explore advanced topics, developing strong programming skills and problem-solving abilities. This program prepares graduates for careers in software development, data analysis, AI, cybersecurity, and other emerging tech fields.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">PGD in Computer Science</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Postgraduate Diploma (PGD) in Computer Science enhances students&apos; skills and knowledge in computer science. This program covers advanced topics in software development, data structures, and computer systems, preparing students for tech and IT careers. Ideal for professionals seeking to upgrade skills or transition into tech, it provides a solid foundation for further studies or career advancement.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">MS in Computer Science</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Master of Science in Computer Science (MSCS) is a graduate program that advances students&apos; knowledge and skills in cutting-edge computer science fields. Students explore specialized topics like artificial intelligence, data science, cybersecurity, and cloud computing, developing expertise through research, projects, and collaboration. This program prepares graduates for leadership roles, advanced research, and innovative careers in tech, as well as for Ph.D. studies in computer science.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={AIIntroImage} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-2xl font-bold text-white">Ph.D. in Computer Science</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            The Doctor of Philosophy (PhD) in Computer Science is a research-focused program that advances computer science knowledge. Students conduct original research, contributing to the field, and produce innovative solutions. Under expert guidance, PhD candidates develop expertise in specialized areas, preparing them for careers in academia, research, or industry leadership, driving technological innovation.                        </p>
                     </div>
                 </div>
 
