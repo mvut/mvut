@@ -6,9 +6,9 @@ import StrategicPartners from "@/app/components/partners";
 import NavComponent from "@/app/components/nav";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="flex flex-col">
         <NavComponent/>
-        <CoursesPage/>
+        {/*<CoursesPage/>*/}
         <SloganPage/>
         <ProgramComponent/>
         <StrategicPartners />

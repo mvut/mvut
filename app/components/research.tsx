@@ -2,8 +2,8 @@ export default function ResearchComponent(){
     return (
         <div className="flex flex-col text-teal-200 text-center w-full bg-teal-950 py-10">
 
-            <h2 className="text-7xl font-bold text-center">Career</h2>
-            <p className="flex py-6 px-2 text-center items-center justify-center text-3xl leading-relaxed">
+            <h2 className="text-3xl font-bold text-center">Career</h2>
+            <p className="flex py-6 px-2 text-center items-center justify-center text-lg leading-relaxed">
                 Mvut Ignite Curiosity and Illuminate Possibilities. We empower people by offering Online and On-Site Career Building Opportunities and Lifelong Learning, Leading in Computer Science, Information Technology, Business Management, Custom Software, Web Application, Communication Skill, Leadership Training and Research Methodologies
             </p>
 

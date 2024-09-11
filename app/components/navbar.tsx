@@ -10,25 +10,25 @@ export default function MyHeaderComponent(){
         setMenuOpen(!menuOpen);
     }
     return(
-        <div className={'flex flex-col '}>
-            <div
-                className={'flex h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-gray-950 text-gray-50 '}>
-                <div className={'flex flex-row  justify-center sm:flex-col'}>
-                    <Link className={'font-bold text-2xl uppercase'} href={'/'}>Mvut</Link>
-                    <p className={'hidden sm:flex text-xs text-white uppercase'}>Empowering People for Next Century</p>
+
+            <div className={'flex w-full h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-gray-950 text-gray-50 shadow-amber-200'}>
+                <div className={'flex flex-col justify-center sm:flex-col items-center'}>
+                    <Link className={'font-bold text-sm sm:text-2xl uppercase'} href={'/'}>Mvut</Link>
+                    {/*<p className={'text-xs text-gray-50'}>Empowering People for Next Century</p>*/}
                 </div>
                 <div className={'flex flex-col gap-2'}>
-                    <div className={'text-xs text-amber-200'}>
-                        <Link href={'/pages/news'}>News & Events</Link>
+                    <div className={'flex gap-2 text-xs text-amber-200'}>
+                        {/*<Link href={'/pages/news'}>News & Events</Link>*/}
+                        <Link href={'/pages/study'}>Study Scheme</Link>
                     </div>
-                    <nav className={'flex items-center justify-center uppercase gap-2'}>
-                        <Link href={'/'} className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Home</Link>
+                    <nav className={'flex text-sm items-center justify-center uppercase gap-2'}>
+                        <Link href={'/'} className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Home</Link>
                         <Link href={'/pages/faculty'}
-                              className={'bg-teal-900 rounded-lg py-2 px-6 hover:bg-amber-600'}>Faculty</Link>
-                        <Link href={'/pages/apply'} className={'bg-red-600 rounded-lg py-2 px-6 hover:bg-indigo-800'}>Apply</Link>
+                              className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Faculty</Link>
+                        <Link href={'/pages/apply'} className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Apply</Link>
                     </nav>
                 </div>
             </div>
-        </div>
+
     );
 }

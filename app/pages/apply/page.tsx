@@ -129,10 +129,10 @@ export default function ApplicationForm(){
 
                 <div className={'flex gap-2'}>
                     <button type={'submit'}
-                            className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 md:p-2 md:px-6 py-2 mt-2'}>Apply
+                            className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
                     </button>
                     <Link href={'/'}
-                          className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 md:p-2 md:px-6 py-2 mt-2'}>Back</Link>
+                          className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back</Link>
 
                 </div>
             </form>

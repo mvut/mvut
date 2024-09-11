@@ -22,24 +22,24 @@ export default function Countdown(){
     },[])
 
     return(
-        <div className={'flex flex-col gap-4 text-white py-4'}>
-            <p className={'text-2xl sm:text-5xl'}>Deadline</p>
-            <div className={'flex gap-2 text-xl'}>
+        <div className={'flex flex-col sm:gap-4 text-white py-4'}>
+            <p className={'text-lg sm:text-2xl'}>Deadline</p>
+            <div className={'flex flex-col sm:flex-row gap-2 text-xs'}>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-700'}>Days</label>
-                    <h1 className={'text-4xl'}>{days < 10 ? '0' + days : days}</h1>
+                    <label className={'text-teal-400'}>Days</label>
+                    <h1 className={'text-xl'}>{days < 10 ? '0' + days : days}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-700'}>Hours</label>
-                    <h1 className={'text-4xl'}>{hours < 10 ? '0' + hours : hours}</h1>
+                    <label className={'text-teal-400'}>Hours</label>
+                    <h1 className={'text-xl'}>{hours < 10 ? '0' + hours : hours}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-700'}>Minutes</label>
-                    <h1 className={'text-4xl'}>{minutes < 10 ? '0' + minutes : minutes}</h1>
+                    <label className={'text-teal-400'}>Minutes</label>
+                    <h1 className={'text-xl'}>{minutes < 10 ? '0' + minutes : minutes}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-700'}>Seconds</label>
-                    <h1 className={'text-4xl'}>{seconds < 10 ? '0' + seconds : seconds}</h1>
+                    <label className={'text-teal-400'}>Seconds</label>
+                    <h1 className={'text-xl'}>{seconds < 10 ? '0' + seconds : seconds}</h1>
                 </div>
             </div>
         </div>
