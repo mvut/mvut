@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import WebImage from "@/public/resources/webinar.jpg";
 import CareerImage from "@/public/resources/career.jpg";
-import Hacka from '@/public/resources/hacka.jpg';
-import TechExpo from '@/public/resources/tecexpo.jpg';
-import Wrksp from '@/public/resources/wrksp.jpg';
-import Startup from '@/public/resources/startup.jpg';
+import Hacka from '@/public/resources/img1.jpg';
+import TechExpo from '@/public/resources/img2.jpg';
+import Wrksp from '@/public/resources/img3.jpg';
+import Startup from '@/public/resources/img4.jpg';
 import Countdown from "@/app/components/countdown";
 
 export default function NewsComponents(){
