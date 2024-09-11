@@ -19,7 +19,7 @@ export default function FooterComponent(){
                         <p>+17472094775</p>
                     </div>
                 </div>
-                <div className={'flex items-center justify-center text-center'}>
+                <div className={'flex items-center justify-center text-center py-4'}>
 
                     <Link target="_blank" href="https://chat.whatsapp.com/CFrP44L2ZbP9V01e1lcTN7"
                           className="hover:text-green-400">

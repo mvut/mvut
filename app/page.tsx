@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex flex-col">
         <NavComponent/>
-        {/*<CoursesPage/>*/}
+        <CoursesPage/>
         <SloganPage/>
         <ProgramComponent/>
         <StrategicPartners />

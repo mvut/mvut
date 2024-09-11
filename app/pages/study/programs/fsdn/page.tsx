@@ -14,7 +14,7 @@ export default function StudySchemeComponent(){
                 </div>
                 <div className={'flex text-lg'}>
                     <label className={'text-indigo-700'}>Total Semester: </label>
-                    <p className={'text-red-700'}>3</p>
+                    <p className={'text-red-700'}>4</p>
                 </div>
                 <div className={'flex text-lg'}>
                     <label className={'text-indigo-700'}>Total credit hours: </label>
@@ -65,7 +65,7 @@ export default function StudySchemeComponent(){
                     <td>5</td>
                     <td>MVC-13</td>
                     <td className={'text-start'}>Database Management Systems</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
@@ -93,14 +93,14 @@ export default function StudySchemeComponent(){
                     <td>9</td>
                     <td>MVC-28</td>
                     <td className={'text-start'}>Typescript Programming</td>
-                    <td>2</td>
+                    <td>3</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>MVC-05</td>
                     <td className={'text-start'}>Entrepreneurship</td>
-                    <td>2</td>
+                    <td>3</td>
                     <td>3 (Theory:3, Practical:0)</td>
                 </tr>
                 <tr>
@@ -121,21 +121,21 @@ export default function StudySchemeComponent(){
                     <td>13</td>
                     <td>MVC-16</td>
                     <td className={'text-start'}>Full Stack Application Development</td>
-                    <td>3</td>
+                    <td>4</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>14</td>
                     <td>MVC-32</td>
                     <td className={'text-start'}>MERN Stack Development</td>
-                    <td>3</td>
+                    <td>4</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>15</td>
                     <td>MVC-48</td>
                     <td className={'text-start'}>Final Project</td>
-                    <td>3</td>
+                    <td>4</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 </tbody>

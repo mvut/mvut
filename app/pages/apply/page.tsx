@@ -20,7 +20,7 @@ export default function ApplicationForm(){
         {id:13, program:"UX/UI Development", open:false},
         {id:14, program:"AI and Machine Learning", open:false},
         {id:15, program:"Generative AI (GenAI)", open:false},
-        {id:16, program:"Full Stack Blockchain Applications (FSBA)", open:true},
+        {id:16, program:"Full Stack Blockchain Applications (FSBA)", open:false},
         {id:17, program:"Office Management (OMC)", open:false},
         {id:18, program:"Leadership and Management Dynamics", open:false},
         {id:19, program:"Primary School Certificate (PSC)", open:false},

@@ -1,16 +1,33 @@
-import AIIntroImage from '../../public/resources/ai2.png';
+import AIIntroImage from '../../public/resources/img1.jpg';
+import Img1 from '../../public/resources/img1.jpg';
+import Img2 from '../../public/resources/img2.jpg';
+import Img3 from '../../public/resources/img3.jpg';
+import Img4 from '../../public/resources/img4.jpg';
+import Img5 from '../../public/resources/img5.jpg';
+import Img6 from '../../public/resources/img6.jpg';
+import Img7 from '../../public/resources/img7.jpg';
+import Img8 from '../../public/resources/img8.jpg';
+import Img9 from '../../public/resources/img9.jpg';
+import Img10 from '../../public/resources/img10.jpg';
+import Img11 from '../../public/resources/img11.jpg';
+import Img12 from '../../public/resources/img12.jpg';
+import Img13 from '../../public/resources/img13.jpg';
+import Img14 from '../../public/resources/img14.jpg';
+import Img15 from '../../public/resources/img15.jpg';
+import Img16 from '../../public/resources/img16.jpg';
+
 import Image from "next/image";
 
 export default function CoursesPage(){
     return (
-        <div className="flex flex-col items-center justify-center py-6 lg:py-12">
+        <div className="flex flex-col items-center justify-center py-6 lg:py-12 mt-10">
             <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Skill Development Programs</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-                    <div className="h-72 w-96 ">
-                        <Image src={AIIntroImage} alt={''}
+                    <div className="h-72 w-96">
+                        <Image src={Img1} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
 
                     </div>
@@ -29,7 +46,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img2} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -47,7 +64,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img3} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -65,7 +82,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img4} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -83,7 +100,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img5} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -101,7 +118,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img6} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -120,12 +137,12 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img7} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
                         className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Certificate Courses in Computer Science</h1>
+                        <h1 className="text-2xl font-bold text-white">Certificate Courses</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                             Certificate Courses in Computer Science provide specialized training in specific areas of computer science, such as programming, data analysis, cybersecurity, or artificial intelligence. These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>
                     </div>
@@ -134,7 +151,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img8} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -146,13 +163,13 @@ export default function CoursesPage(){
                 </div>
             </div>
             {/*-----------------------*/}
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10'}>Academic Programs</p>
+            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Academic Programs</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img9} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -166,7 +183,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img10} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -180,7 +197,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img11} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -194,7 +211,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img12} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -208,7 +225,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img13} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -222,7 +239,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img14} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -236,7 +253,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img15} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
@@ -250,7 +267,7 @@ export default function CoursesPage(){
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-72 w-96">
-                        <Image src={AIIntroImage} alt={''}
+                        <Image src={Img16} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
