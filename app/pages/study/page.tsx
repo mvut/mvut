@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MdWebhook } from "react-icons/md";
+import { MdArrowBackIos } from "react-icons/md";
 
 export default function StudySchemeComponent(){
     return(

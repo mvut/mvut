@@ -20,6 +20,7 @@ export default function MyHeaderComponent(){
                     <div className={'flex gap-2 text-xs text-amber-200'}>
                         {/*<Link href={'/pages/news'}>News & Events</Link>*/}
                         <Link href={'/pages/study'}>Study Scheme</Link>
+                        <Link href={'/pages/study/fee'}>Fee Structure</Link>
                     </div>
                     <nav className={'flex text-sm items-center justify-center uppercase gap-2'}>
                         <Link href={'/'} className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Home</Link>
