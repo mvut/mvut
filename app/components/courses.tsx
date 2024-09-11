@@ -163,7 +163,7 @@ export default function CoursesPage(){
                 </div>
             </div>
             {/*-----------------------*/}
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Academic Programs</p>
+            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Non-Academic Programs</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {/**/}
                 <div

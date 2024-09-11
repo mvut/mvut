@@ -10,6 +10,9 @@ import Gami from '@/public/faculty/gami.jpg';
 import Abid from '@/public/faculty/abid.jpg';
 import Haris from '@/public/faculty/haris.jpg';
 import Mike from '@/public/faculty/mike2.jpg';
+import SARFRAZ from '@/public/faculty/SARFRAZ.jpg';
+import AliIjaz from '@/public/faculty/ali.png';
+import Babar from '@/public/faculty/babar.jpg';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +35,16 @@ export default function FacultyComponent(){
                 {/*    */}
                 <div
                     className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={SARFRAZ} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Sarfraz Ahmad</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Legal Advisor
+                    </p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
                     <Image src={Abs} alt={''} className={'h-96 w-full'}/>
                     <h2 className={'font-bold text-lg text-white'}>Abubakar Siddique</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
@@ -46,6 +59,16 @@ export default function FacultyComponent(){
                     <h2 className={'font-bold text-lg text-white'}>Arshad Iqbal</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
                         Data Scientist
+                    </p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={Babar} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Babar Hussain</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Mathematics and Algorithms
                     </p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
@@ -106,6 +129,16 @@ export default function FacultyComponent(){
                     <h2 className={'font-bold text-lg text-white'}>Muhammad Younas Alam</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
                         Technical English Language Expert
+                    </p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={AliIjaz} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Ali Ijaz</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Web Developer
                     </p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
