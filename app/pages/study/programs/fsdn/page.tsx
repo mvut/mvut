@@ -14,7 +14,7 @@ export default function StudySchemeComponent(){
                 </div>
                 <div className={'flex text-lg'}>
                     <label className={'text-indigo-700'}>Total Semester: </label>
-                    <p className={'text-red-700'}>4</p>
+                    <p className={'text-red-700'}>04</p>
                 </div>
                 <div className={'flex text-lg'}>
                     <label className={'text-indigo-700'}>Total credit hours: </label>

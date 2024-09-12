@@ -29,8 +29,17 @@ export default function FeeStructure(){
                     <td>5000</td>
                     <td>130000</td>
                 </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Office Management and Work Ethics (OM&WE)</td>
+                    <td>Online</td>
+                    <td>1 Year</td>
+                    <td>10000</td>
+                    <td>5000</td>
+                    <td>70000</td>
+                </tr>
                 </tbody>
             </table>
         </div>
-)
+    )
 }
