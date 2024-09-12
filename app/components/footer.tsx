@@ -16,12 +16,12 @@ export default function FooterComponent(){
                     </div>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
                         <FaWhatsapp/>
-                        <p>+17472094775</p>
+                        <p>+923017362696</p>
                     </div>
                 </div>
                 <div className={'flex items-center justify-center text-center py-4'}>
 
-                    <Link target="_blank" href="https://chat.whatsapp.com/CFrP44L2ZbP9V01e1lcTN7"
+                    <Link target="_blank" href="https://chat.whatsapp.com/IpG66lObuHo3MUelWoH6tu"
                           className="hover:text-green-400">
                         <FaWhatsapp size={25}/>
                     </Link>
@@ -37,7 +37,7 @@ export default function FooterComponent(){
             </div>
             <div className={'flex items-center justify-center text-gray-50 text-center bg-gray-950 h-10'}>
                 <p className={'text-xs'}>Powered by
-                    <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> Mvut.us</Link>
+                    <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> MVIT</Link>
                 </p>
             </div>
         </div>

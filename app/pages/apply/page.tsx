@@ -11,7 +11,7 @@ export default function ApplicationForm(){
         {id:4, program:"Data Science (DS)", open:false},
         {id:5, program:"Research and Development (R&D)", open:false},
         {id:6, program:"Interpersonal Skills (IPS)", open:false},
-        {id:7, program:"Core Web Technologies (CWT)", open:false},
+        {id:7, program:"Core Web Technologies (CWT)", open:true},
         {id:8, program:"Python Programming for AI (PyAI)", open:false},
         {id:9, program:"PHP Web Programming Course (PWPC)", open:false},
         {id:10, program:"JavaScript Programming Course (JSC)", open:false},
@@ -90,8 +90,9 @@ export default function ApplicationForm(){
                 />
 
                 <div className={'flex flex-col'}>
-                    <label className={'text-teal-900'}>Choose Program:</label>
-                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'program'}>
+                    <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'} className={'text-xs text-red-500 hover:text-teal-900'}>Study Scheme </Link>
+                        , <Link href={'/pages/study/fee'} className={'text-xs text-red-500 hover:text-teal-900'}>Fee Structure </Link>)</label>
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '} name={'program'}>
                         {
                             programs ?
                                 programs.map((program) => {
@@ -115,7 +116,7 @@ export default function ApplicationForm(){
                     <label>Classes</label>
                     <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'classes'}>
                         <option value={'Online'}>Online</option>
-                        {/*<option value={2}>Onsite</option>*/}
+                        <option value={'Onsite'}>Onsite (in Pakpattan)</option>
                     </select>
                 </div>
 
@@ -132,8 +133,8 @@ export default function ApplicationForm(){
                             className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
                     </button>
                     <Link href={'/'}
-                          className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back</Link>
-
+                          className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
+                    </Link>
                 </div>
             </form>
 

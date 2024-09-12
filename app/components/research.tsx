@@ -10,15 +10,15 @@ export default function ResearchComponent(){
             <div className="flex flex-col md:flex-row justify-between p-4 items-center border-t-2 border-b-2 gap-8 mt-8">
                 <div>
                     <h2 className="text-xl font-bold">Artificial Intelligence</h2>
-                    <p>Unlock the future with our comprehensive suite of over 15 courses</p>
+                    <p>Unlock the future with our comprehensive suite of Emerging AI Courses</p>
                 </div>
                 <div>
                     <h2 className="text-xl font-bold">Computer Science and IT</h2>
-                    <p>Explore over 25 diverse fields of professional growth and scientific inquiry</p>
+                    <p>Explore over 25+ diverse fields of professional growth and scientific Inquiry</p>
                 </div>
                 <div>
                     <h2 className="text-xl font-bold">Research and Development </h2>
-                    <p>Go from zero to hero in emerging technologies with our courses, transforming you from a complete beginner to a skilled professional</p>
+                    <p>Go from Beginner to Confident Pro in Emerging Technologies with Our Research and Development Programs</p>
                 </div>
             </div>
 
