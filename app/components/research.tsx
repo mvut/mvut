@@ -4,7 +4,7 @@ export default function ResearchComponent(){
 
             <h2 className="text-3xl font-bold text-center">Career</h2>
             <p className="flex py-6 px-2 text-center items-center justify-center text-lg leading-relaxed">
-                Mvut Ignite Curiosity and Illuminate Possibilities. We empower people by offering Online and On-Site Career Building Opportunities and Lifelong Learning, Leading in Computer Science, Information Technology, Business Management, Custom Software, Web Application, Communication Skill, Leadership Training and Research Methodologies
+                Mvit Ignite Curiosity and Illuminate Possibilities. We empower people by offering Online and On-Site Career Building Opportunities and Lifelong Learning, Leading in Computer Science, Information Technology, Business Management, Custom Software, Web Application, Communication Skill, Leadership Training and Research Methodologies
             </p>
 
             <div className="flex flex-col md:flex-row justify-between p-4 items-center border-t-2 border-b-2 gap-8 mt-8">

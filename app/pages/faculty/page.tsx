@@ -19,9 +19,9 @@ import Link from "next/link";
 
 export default function FacultyComponent(){
     return(
-        <div className={'container mx-auto flex flex-col items-center justify-center py-6'}>
+        <div className={' flex flex-col items-center justify-center py-6'}>
             <p className={'text-lg md:text-3xl font-bold text-center py-2 lg:py-10 uppercase'}>Faculty</p>
-            <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-6 px-6 '}>
+            <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-6 px-6 '}>
                 {/*    */}
                 <div
                     className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>

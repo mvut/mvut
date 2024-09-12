@@ -1,5 +1,5 @@
 'use client'
-import Logo from "@/public/mvut_logo.png";
+import Logo from "@/public/mvit_logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import {FaWhatsapp} from "react-icons/fa";

@@ -13,7 +13,7 @@ export default function MyHeaderComponent(){
 
             <div className={'flex w-full h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-gray-950 text-gray-50 shadow-amber-200'}>
                 <div className={'flex flex-col justify-center sm:flex-col items-center'}>
-                    <Link className={'font-bold text-sm sm:text-2xl uppercase'} href={'/'}>Mvut</Link>
+                    <Link className={'font-bold text-sm sm:text-2xl uppercase'} href={'/'}>Mvit</Link>
                     {/*<p className={'text-xs text-gray-50'}>Empowering People for Next Century</p>*/}
                 </div>
                 <div className={'flex flex-col gap-2'}>
