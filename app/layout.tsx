@@ -7,7 +7,7 @@ import FooterComponent from "@/app/components/footer";
 const inter = Saira({ subsets: ["latin"], weight:['400'] });
 
 export const metadata: Metadata = {
-  title: "MVUT",
+  title: "MVIT",
   description: "Empowering People",
 };
 

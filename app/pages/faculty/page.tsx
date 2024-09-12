@@ -38,7 +38,7 @@ export default function FacultyComponent(){
                     <Image src={SARFRAZ} alt={''} className={'h-96 w-full'}/>
                     <h2 className={'font-bold text-lg text-white'}>Sarfraz Ahmad</h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Legal Advisor
+                        Legal Advisor, Criminologist
                     </p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
