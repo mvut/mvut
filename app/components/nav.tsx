@@ -10,7 +10,7 @@ export default function NavComponent(){
 return(
     <div className={'flex sm:w-full bg-teal-800 items-center justify-center'}>
         <div
-            className={'flex flex-col sm:flex-row sm:p-6 text-center sm:min-h-screen items-center justify-center sm:justify-between '}>
+            className={'flex flex-col sm:flex-row sm:p-6 text-center lg:min-h-screen items-center justify-center sm:justify-between '}>
             <div className={'flex items-center justify-center sm:w-1/2 h-full'}>
                 <Image src={Logo} alt="MVUT Logo"
                        className={'h-32 w-32 sm:h-72 sm:w-72 md:h-96 md:w-96 '}/>

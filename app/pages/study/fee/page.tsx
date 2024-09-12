@@ -19,7 +19,7 @@ export default function FeeStructure(){
                     <th>Program Fee (PKR)</th>
                 </tr>
                 </thead>
-                <tbody className={'odd:bg-red-400'}>
+                <tbody>
                 <tr>
                     <td>01</td>
                     <td>Full Stack Development with Next.js (FSDN)</td>
