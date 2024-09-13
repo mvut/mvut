@@ -5,32 +5,19 @@ import {useRouter} from "next/navigation";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-        {id:1, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
-        {id:2, program:"Artificial Intelligence (AI)", open:false},
-        {id:3, program:"Web Designing and Graphics (WD&G)", open:false},
-        {id:4, program:"Data Science (DS)", open:false},
-        {id:5, program:"Research and Development (R&D)", open:false},
-        {id:6, program:"Interpersonal Skills (IPS)", open:false},
-        {id:7, program:"Core Web Technologies (CWT)", open:true},
-        {id:8, program:"Python Programming for AI (PyAI)", open:false},
-        {id:9, program:"PHP Web Programming Course (PWPC)", open:false},
-        {id:10, program:"JavaScript Programming Course (JSC)", open:false},
-        {id:11, program:"Web Development Techniques (WDT)", open:false},
-        {id:12, program:"C/C++ & OOP", open:false},
-        {id:13, program:"UX/UI Development", open:false},
-        {id:14, program:"AI and Machine Learning", open:false},
-        {id:15, program:"Generative AI (GenAI)", open:false},
-        {id:16, program:"Full Stack Blockchain Applications (FSBA)", open:false},
-        {id:17, program:"Office Management and Work Ethics (OM&WE)", open:true},
-        {id:18, program:"Leadership and Management Dynamics", open:false},
-        {id:19, program:"Primary School Certificate (PSC)", open:false},
-        {id:20, program:"Elementary School Certificate (ESC)", open:false},
-        {id:21, program:"Secondary School Certificate (SSC)", open:false},
-        {id:22, program:"Higher Secondary School Certificate (HSSC)", open:false},
-        {id:23, program:"BS of Computer Science", open:false},
-        {id:24, program:"PGD in Computer Science", open:false},
-        {id:25, program:"MS in Computer Science", open:false},
-        {id:26, program:"Ph.D. in Computer Science", open:false},
+        {id:1, program:"Office Management and Work Ethics (OM&WE)", open:true},
+        {id:2, program:"Core Web Technologies (CWT)", open:true},
+        {id:3, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
+        {id:4, program:"Full Stack PHP Development (FSP)", open:true},
+        {id:5, program:"Primary School Certificate (PSC)", open:true},
+        {id:6, program:"Elementary School Certificate (ESC)", open:true},
+        {id:7, program:"Secondary School Certificate (SSC)", open:true},
+        {id:8, program:"Higher Secondary School Certificate (HSSC)", open:true},
+        {id:9, program:"Bachelor of Science in Computer Science (BSCS)", open:true},
+        {id:10, program:"PGD in Full Stack Next.js (PGD FSN)", open:true},
+        {id:11, program:"PGD in Full Stack PHP (PGD FSP)", open:true},
+        {id:12, program:"Master of Science in Full Stack Development MS(FSD)", open:true},
+        {id:13, program:"Ph.D. in Full Stack Development (Ph.D. FSD)", open:true},
     ];
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
@@ -116,7 +103,7 @@ export default function ApplicationForm(){
                     <label>Classes</label>
                     <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'classes'}>
                         <option value={'Online'}>Online</option>
-                        <option value={'Onsite'}>Onsite (in Pakpattan)</option>
+                        <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
                     </select>
                 </div>
 

@@ -6,7 +6,7 @@ export default function StudySchemeComponent(){
         <div className={'container flex flex-col sm:py-16'}>
             <Link href={'/pages/study'} className={'flex text-xs hover:text-red-500 items-center'}><MdArrowBackIos />Back</Link>
             <h1 className={'text-3xl text-gray-500 py-4'}>Scheme of Study</h1>
-            <h2 className={'text-4xl'}>Full Stack Development with Next.js (FSDN)</h2>
+            <h2 className={'text-4xl'}>Master of Science in Full Stack Development MS(FSD)</h2>
             <div className={'flex flex-col items-center justify-center py-10'}>
                 <div className={'flex text-lg gap-2'}>
                     <label className={'text-indigo-700'}>Classes: </label>
@@ -18,7 +18,7 @@ export default function StudySchemeComponent(){
                 </div>
                 <div className={'flex text-lg'}>
                     <label className={'text-indigo-700'}>Total credit hours: </label>
-                    <p className={'text-red-700'}>81(Theory:45, Practical:36)</p>
+                    <p className={'text-red-700'}>114(Theory:60, Practical:54)</p>
                 </div>
             </div>
             <p className={'text-2xl'}>Roadmap</p>
@@ -35,106 +35,141 @@ export default function StudySchemeComponent(){
                 <tbody>
                 <tr>
                     <td>1</td>
-                    <td>MVC-01</td>
-                    <td className={'text-start'}>Artificial Intelligence</td>
+                    <td>MVC-08</td>
+                    <td className={'text-start'}>Introduction to Python Programming</td>
                     <td>1</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>MVC-33</td>
-                    <td className={'text-start'}>English Comprehension</td>
+                    <td>MVC-15</td>
+                    <td className={'text-start'}>Introduction to JavaScript Programming</td>
                     <td>1</td>
-                    <td>3 (Theory:3, Practical:0)</td>
+                    <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>MVC-07</td>
-                    <td className={'text-start'}>Object Oriented Programming</td>
+                    <td>MVC-17</td>
+                    <td className={'text-start'}>Introduction to C++ Programming</td>
                     <td>1</td>
-                    <td>3 (Theory:3, Practical:0)</td>
+                    <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>MVC-09</td>
-                    <td className={'text-start'}>Web Technologies</td>
+                    <td>MVC-96</td>
+                    <td className={'text-start'}>PHP Fundamentals</td>
                     <td>1</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>MVC-13</td>
-                    <td className={'text-start'}>Database Management Systems</td>
-                    <td>2</td>
+                    <td>MVC-104</td>
+                    <td className={'text-start'}>Introduction to React Programming</td>
+                    <td>1</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>6</td>
-                    <td>MVC-14</td>
-                    <td className={'text-start'}>Introduction to Web Designing</td>
+                    <td>MVC-96</td>
+                    <td className={'text-start'}>Responsive Web Design and Bootstrap</td>
                     <td>2</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>7</td>
-                    <td>MVC-15</td>
-                    <td className={'text-start'}>Introduction to JavaScript Programming</td>
+                    <td>MVC-100</td>
+                    <td className={'text-start'}>Tailwind CSS</td>
                     <td>2</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>8</td>
-                    <td>MVC-18</td>
-                    <td className={'text-start'}>Generative AI Fundamentals</td>
+                    <td>MVC-28</td>
+                    <td className={'text-start'}>Typescript Programming</td>
                     <td>2</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>9</td>
-                    <td>MVC-28</td>
-                    <td className={'text-start'}>Typescript Programming</td>
-                    <td>3</td>
+                    <td>MVC-26</td>
+                    <td className={'text-start'}>Next.js and Vercel Deployment </td>
+                    <td>2</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>10</td>
-                    <td>MVC-05</td>
-                    <td className={'text-start'}>Entrepreneurship</td>
-                    <td>3</td>
-                    <td>3 (Theory:3, Practical:0)</td>
+                    <td>MVC-97</td>
+                    <td className={'text-start'}>PHP and MySQL Integration</td>
+                    <td>2</td>
+                    <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>11</td>
-                    <td>MVC-34</td>
-                    <td className={'text-start'}>Designing UI/UX and Frontend Tools</td>
+                    <td>MVC-53</td>
+                    <td className={'text-start'}>Distributed DBMS</td>
                     <td>3</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>12</td>
-                    <td>MVC-35</td>
-                    <td className={'text-start'}>Advanced Backend Development Techniques</td>
+                    <td>MVC-58</td>
+                    <td className={'text-start'}>Information Retrieval Techniques</td>
                     <td>3</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>13</td>
-                    <td>MVC-16</td>
-                    <td className={'text-start'}>Full Stack Application Development</td>
-                    <td>4</td>
+                    <td>MVC-105</td>
+                    <td className={'text-start'}>PostgresSQL and Next.js Full Stack Applications</td>
+                    <td>3</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>14</td>
-                    <td>MVC-32</td>
-                    <td className={'text-start'}>MERN Stack Development</td>
-                    <td>4</td>
+                    <td>MVC-102</td>
+                    <td className={'text-start'}>Full Stack Development with Laravel</td>
+                    <td>3</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
                 <tr>
                     <td>15</td>
-                    <td>MVC-48</td>
-                    <td className={'text-start'}>Final Project</td>
+                    <td>MVC-103</td>
+                    <td className={'text-start'}>Full Stack Development with Python</td>
+                    <td>3</td>
+                    <td>6 (Theory:3, Practical:3)</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>MVC-106</td>
+                    <td className={'text-start'}>Modern Applications, Trends and AI Role</td>
+                    <td>4</td>
+                    <td>3 (Theory:3, Practical:0)</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>MVC-18</td>
+                    <td className={'text-start'}>Generative AI Fundamentals</td>
+                    <td>4</td>
+                    <td>6 (Theory:3, Practical:3)</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>MVC-30</td>
+                    <td className={'text-start'}>Video Editing Tools and Techniques</td>
+                    <td>4</td>
+                    <td>6 (Theory:3, Practical:3)</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>MVC-05</td>
+                    <td className={'text-start'}>Entrepreneurship</td>
+                    <td>4</td>
+                    <td>3 (Theory:3, Practical:0)</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>MVC-24</td>
+                    <td className={'text-start'}>Graphics and Creative Art</td>
                     <td>4</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>

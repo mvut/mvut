@@ -21,7 +21,7 @@ import Image from "next/image";
 export default function CoursesPage(){
     return (
         <div className="flex flex-col items-center justify-center py-6 lg:py-12 mt-10">
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Skill Development Programs</p>
+            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Skill Development Professional Programs</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {/**/}
                 <div
