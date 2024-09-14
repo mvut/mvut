@@ -27,6 +27,8 @@ export default function ApplicationForm(){
             method: 'POST',
             body: JSON.stringify({
                 fullname:formData.get("fullname"),
+                fathername:formData.get("fathername"),
+                qualification:formData.get("qualification"),
                 gmail:formData.get("gmail"),
                 dob:formData.get("dob"),
                 whatsapp:formData.get("whatsapp"),
@@ -53,12 +55,32 @@ export default function ApplicationForm(){
             </div>
 
             <form onSubmit={handleSubmit}
-                  className={'flex flex-col md:w-1/2 items-start justify-center md:gap-6 p-2 lg:pl-16'}>
+                  className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 lg:pl-12'}>
                 <p className={'text-teal-900 text-2xl font-bold text-center'}>Application Form</p>
 
                 <input type={'text'} placeholder={'Enter your full name'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                        required={true} name={'fullname'}/>
+
+                <input type={'text'} placeholder={'Enter your father name'}
+                       className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                       required={true} name={'fathername'}/>
+
+                <div className={'flex flex-col '}>
+                    <label>Latest Qualification</label>
+                    <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'} name={'qualification'}>
+                        <option value={'Online'}>Primary School Certificate (PSC)</option>
+                        <option value={'Onsite'}>Elementary School Certificate (ESC)</option>
+                        <option value={'Onsite'}>Secondary School Certificate (SSC)</option>
+                        <option value={'Onsite'}>Higher Secondary School Certificate (HSSC)</option>
+                        <option value={'Onsite'}>Bachelor of Science (B.S.)</option>
+                        <option value={'Onsite'}>Bachelor of Arts (B.A.)</option>
+                        <option value={'Onsite'}>Post Graduate Diploma</option>
+                        <option value={'Onsite'}>Master of Science</option>
+                        <option value={'Onsite'}>Master of Arts</option>
+                        <option value={'Onsite'}>Doctor of Philosophy (Ph.D.)</option>
+                    </select>
+                </div>
 
                 <input type={'text'} placeholder={'Enter your Email'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
@@ -73,12 +95,16 @@ export default function ApplicationForm(){
 
                 <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
                        className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                       required={true} name={'whatsapp'} pattern={'^(?:\\+?\\d{1,3}[- ]?)?\\(?\\d{3}\\)?[- ]?\\d{3}[- ]?\\d{4}$'}
+                       required={true} name={'whatsapp'}
+                       pattern={'^(?:\\+?\\d{1,3}[- ]?)?\\(?\\d{3}\\)?[- ]?\\d{3}[- ]?\\d{4}$'}
                 />
 
                 <div className={'flex flex-col'}>
-                    <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'} className={'text-xs text-red-500 hover:text-teal-900'}>Study Scheme </Link>
-                        , <Link href={'/pages/study/fee'} className={'text-xs text-red-500 hover:text-teal-900'}>Fee Structure </Link>)</label>
+                    <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'}
+                                                                            className={'text-xs text-red-500 hover:text-teal-900'}>Study
+                        Scheme </Link>
+                        , <Link href={'/pages/study/fee'} className={'text-xs text-red-500 hover:text-teal-900'}>Fee
+                            Structure </Link>)</label>
                     <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '} name={'program'}>
                         {
                             programs ?

@@ -3,9 +3,9 @@ import { sql } from '@vercel/postgres';
 
 export async function POST(request: Request) {
     try {
-        const { fullname, gmail, dob, whatsapp, program, semester, classes, country } = await request.json();
-        console.log({ fullname, gmail, dob, whatsapp, program, semester, classes, country });
-        await sql`INSERT INTO applications (fullname, gmail, dob, whatsapp, program, semester, classes, country) VALUES (${fullname}, ${gmail}, ${dob}, ${whatsapp}, ${program}, ${semester}, ${classes}, ${country})`;
+        const { fullname, fathername, qualification, gmail, dob, whatsapp, program, semester, classes, country } = await request.json();
+        console.log({ fullname, fathername, qualification, gmail, dob, whatsapp, program, semester, classes, country });
+        await sql`INSERT INTO applications (fullname, fathername, qualification, gmail, dob, whatsapp, program, semester, classes, country) VALUES (${fullname}, ${fathername}, ${qualification}, ${gmail}, ${dob}, ${whatsapp}, ${program}, ${semester}, ${classes}, ${country})`;
         return NextResponse.json({ message: "Your Application has been received successfully" });
     } catch (e) {
         console.log({ e });
