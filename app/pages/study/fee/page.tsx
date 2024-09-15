@@ -14,9 +14,9 @@ export default function FeeStructure(){
                     <th>Program</th>
                     <th>Classes</th>
                     <th>Semesters</th>
-                    <th>Admission Fee (PKR)</th>
-                    <th>Monthly Fee (PKR)</th>
-                    <th>Program Fee (PKR)</th>
+                    <th>Registration</th>
+                    <th>Monthly</th>
+                    <th>Program</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,117 +25,117 @@ export default function FeeStructure(){
                     <td>Full Stack Development with Next.js (FSDN)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>130000</td>
+                    <td>$50</td>
+                    <td>$20</td>
+                    <td>$530</td>
                 </tr>
                 <tr>
                     <td>02</td>
                     <td>Office Management and Work Ethics (OM&WE)</td>
                     <td>Online</td>
                     <td>02</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>70000</td>
+                    <td>$50</td>
+                    <td>$20</td>
+                    <td>$290</td>
                 </tr>
                 <tr>
                     <td>03</td>
                     <td>Core Web Technologies (CWT)</td>
                     <td>Online</td>
                     <td>01</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>40000</td>
+                    <td>$50</td>
+                    <td>$20</td>
+                    <td>$170</td>
                 </tr>
                 <tr>
                     <td>04</td>
                     <td>Full Stack PHP Development (FSP)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>130000</td>
+                    <td>$50</td>
+                    <td>$20</td>
+                    <td>$530</td>
                 </tr>
                 <tr>
                     <td>05</td>
                     <td>Primary School Certificate (PSC)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>2500</td>
-                    <td>2000</td>
-                    <td>50500</td>
+                    <td>$50</td>
+                    <td>$10</td>
+                    <td>$290</td>
                 </tr>
                 <tr>
                     <td>06</td>
                     <td>Elementary School Certificate (ESC)</td>
                     <td>Online</td>
                     <td>06</td>
-                    <td>5000</td>
-                    <td>3000</td>
-                    <td>113000</td>
+                    <td>$50</td>
+                    <td>$13</td>
+                    <td>$518</td>
                 </tr>
                 <tr>
                     <td>07</td>
                     <td>Secondary School Certificate (SSC)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>7500</td>
-                    <td>3000</td>
-                    <td>79500</td>
+                    <td>$50</td>
+                    <td>$15</td>
+                    <td>$410</td>
                 </tr>
                 <tr>
                     <td>08</td>
                     <td>Higher Secondary School Certificate (HSSC)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>8000</td>
-                    <td>3500</td>
-                    <td>92000</td>
+                    <td>$50</td>
+                    <td>$16</td>
+                    <td>$434</td>
                 </tr>
                 <tr>
                     <td>09</td>
                     <td>Bachelor of Science in Computer Science (BSCS)</td>
                     <td>Online</td>
                     <td>08</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>250000</td>
+                    <td>$50</td>
+                    <td>$25</td>
+                    <td>$1250</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>PGD in Full Stack Next.js (PGD FSN)</td>
                     <td>Online</td>
                     <td>02</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>70000</td>
+                    <td>$50</td>
+                    <td>$30</td>
+                    <td>$410</td>
                 </tr>
                 <tr>
                     <td>11</td>
                     <td>PGD in Full Stack PHP (PGD FSP)</td>
                     <td>Online</td>
                     <td>02</td>
-                    <td>10000</td>
-                    <td>5000</td>
-                    <td>70000</td>
+                    <td>$50</td>
+                    <td>$30</td>
+                    <td>$410</td>
                 </tr>
                 <tr>
                     <td>12</td>
                     <td>Master of Science in Full Stack Development MS(FSD)</td>
                     <td>Online</td>
                     <td>04</td>
-                    <td>10000</td>
-                    <td>6000</td>
-                    <td>154000</td>
+                    <td>$75</td>
+                    <td>$50</td>
+                    <td>$1275</td>
                 </tr>
                 <tr>
                     <td>13</td>
                     <td>Ph.D. in Full Stack Development (Ph.D. FSD)</td>
                     <td>Online</td>
                     <td>06</td>
-                    <td>10000</td>
-                    <td>6000</td>
-                    <td>226000</td>
+                    <td>$100</td>
+                    <td>$60</td>
+                    <td>$2260</td>
                 </tr>
                 </tbody>
             </table>
