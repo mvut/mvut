@@ -1814,21 +1814,21 @@ export default function ApplicationForm(){
                     <div className={'flex flex-col '}>
                         <label>Full Name</label>
                         <input type={'text'} placeholder={'Enter your full name'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'fullname'}/>
                     </div>
 
                     <div className={'flex flex-col '}>
                         <label>Father/Mother Name</label>
                         <input type={'text'} placeholder={'Enter your father or mother name'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'fathername'}/>
                     </div>
 
                     <div className={'flex flex-col '}>
                         <label>Latest Qualification</label>
                         <input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'qualification'}/>
 
                         {/*<select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
@@ -1856,19 +1856,19 @@ export default function ApplicationForm(){
                     <div className={'flex flex-col '}>
                         <label>Email</label>
                         <input type={'text'} placeholder={'Enter your Email'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'gmail'}/>
                     </div>
                     <div className={'flex flex-col'}>
                         <label className={'text-teal-900'}>Date of Birth</label>
                         <input type={'date'} placeholder={'Enter your Email account'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'dob'}/>
                     </div>
                     <div className={'flex flex-col '}>
                         <label>WhatsApp</label>
                         <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
-                               className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                required={true} name={'whatsapp'}
                         />
                     </div>
@@ -1877,7 +1877,7 @@ export default function ApplicationForm(){
                                                                                     className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
                                 , <Link href={'/pages/study/fee'}
                                         className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>
-                            <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '}
+                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '}
                                     name={'program'}>
                                 {
                                     programs ?
@@ -1893,7 +1893,7 @@ export default function ApplicationForm(){
 
                         <div className={'flex flex-col '}>
                             <label>Semester</label>
-                            <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                     name={'semester'}>
                                 {/*<option value={1}>Spring 2024</option>*/}
                                 <option value={'Fall 2024'}>Fall 2024</option>
@@ -1902,7 +1902,7 @@ export default function ApplicationForm(){
 
                         <div className={'flex flex-col '}>
                             <label>Classes</label>
-                            <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                     name={'classes'}>
                                 <option value={'Online'}>Online</option>
                                 {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
@@ -1911,7 +1911,7 @@ export default function ApplicationForm(){
 
                         <div className={'flex flex-col'}>
                             <label>Country</label>
-                            <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                            <select className={'h-10 w-64  md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                     name={'country'}>
                                 {
                                     Countries.map(country => <option key={country.isoCode}

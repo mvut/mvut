@@ -3,11 +3,11 @@ import {MdArrowBackIos} from "react-icons/md";
 
 export default function FeeStructure(){
     return (
-        <div className={'container flex flex-col py-16 min-h-screen'}>
+        <div className={'container flex flex-col overflow-auto py-10'}>
             <Link href={'/pages/study'} className={'flex text-xs hover:text-red-500 items-center'}><MdArrowBackIos />Back</Link>
 
             <p className={'text-3xl py-10'}>Fee Structure</p>
-            <table className="table-auto text-center text-xs sm:text-lg overflow-auto">
+            <table className="table-auto text-center text-xs sm:text-lg">
                 <thead>
                 <tr>
                     <th>Sr.</th>

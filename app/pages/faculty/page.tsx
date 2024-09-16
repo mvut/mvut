@@ -15,7 +15,6 @@ import AliIjaz from '@/public/faculty/ali.png';
 import Babar from '@/public/faculty/babar.jpg';
 import Sabar from '@/public/faculty/sabar.jpg';
 import Amir from '@/public/faculty/amir.jpg';
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,13 +25,16 @@ export default function FacultyComponent(){
             <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-6 px-6 '}>
                 {/*    */}
                 <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
                     <Image src={Abs} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Abubakar Siddique</h2>
+                    <h2 className={'font-bold text-lg text-white'}>Abubakar Siddique<Link
+                        href={'https://www.linkedin.com/in/drsagher/'} target={'_blank'}
+                        className={'text-xs text-amber-200'}>(Profile)</Link></h2>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Software Engineer
+                        Full Stack Developer
                     </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Computer Science, Bachelor of Education</p>
+                    <p className={'text-xs sm:text-sm text-white'}>MS in Computer Science (MDS, WSN, MCS), B. Ed., LCC (AMAP), BTI (CIT, Australia), LDT (open SAP), CLC (Peking University, China), CAC (TEVTA, PAK), ICSC (The Open University, UK), Data Science (SAP), RPJ (VU, PAK) </p>
+
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
                 {/*    */}

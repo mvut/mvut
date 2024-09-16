@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarComponent from "@/app/components/navbar";
 import FooterComponent from "@/app/components/footer";
 import Template from "@/app/template";
+import MyHeaderComponent from "@/app/components/myheader";
 // Saira, Ubuntu
 const inter = Saira({ subsets: ["latin"], weight:['400'] });
 
@@ -22,7 +23,8 @@ export default function RootLayout({
 
       <body className={inter.className}>
       <Template>
-      <NavbarComponent/>
+         <MyHeaderComponent />
+      {/*<NavbarComponent/>*/}
       {children}
       <FooterComponent/>
     </Template>
