@@ -1802,9 +1802,9 @@ export default function ApplicationForm(){
         return (
             <div className={'flex flex-row md:min-h-screen items-center justify-center'}>
                 <div
-                    className={'hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8'}>
-                    <p className={'text-teal-100 text-5xl font-bold text-center'}>Build a Career</p>
-                    <p className={'text-teal-500 text-6xl font-bold text-center'}>Admission Open</p>
+                    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/welcome.jpg')]  bg-cover"}>
+                    <p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a Career</p>
+                    <p className={'text-gray-50 text-6xl font-bold text-center bg-blue-700 p-2 rounded-xl'}>Admission Open</p>
                 </div>
 
                 <form onSubmit={handleSubmit}

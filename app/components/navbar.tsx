@@ -1,38 +1,36 @@
 'use client'
 import Link from "next/link";
-import {usePathname} from "next/navigation";
-import {useState} from "react";
-import {FaWhatsapp} from "react-icons/fa";
-import {FaFacebook} from "react-icons/fa6";
-import {signIn} from "next-auth/react";
+import Logo from '@/public/mvit_logo_1.png';
+import Image from "next/image";
+import { Ubuntu } from "next/font/google";
+
+const ubuntu = Ubuntu({ subsets: ["latin"], weight:['400'] });
+
 export default function MyHeaderComponent(){
-    const [menuOpen, setMenuOpen] = useState(false);
-    const handlerNav =()=>{
-        setMenuOpen(!menuOpen);
-    }
     return(
-
-            <div className={'flex w-full h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-gray-950 text-gray-50 shadow-amber-200'}>
-                <div className={'flex flex-col justify-center sm:flex-col items-center'}>
-                    <Link className={'font-bold text-sm sm:text-2xl uppercase'} href={'/'}>Mvit</Link>
-                    {/*<p className={'text-xs text-gray-50'}>Empowering People for Next Century</p>*/}
-                </div>
-                <div className={'flex flex-col gap-2'}>
-                    <div className={'flex gap-2 text-xs text-amber-200'}>
-                        {/*<Link href={'/pages/news'}>News & Events</Link>*/}
-                        <Link href={'/pages/study'}>Studies</Link>
-                        <Link href={'/pages/study/fee'}>Fee</Link>
-                    </div>
-                    <nav className={'flex text-sm items-center justify-center gap-2'}>
-                        <Link href={'/'} className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Home</Link>
-                        <Link href={'/pages/faculty'}
-                              className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Faculty</Link>
-                        <Link href={'/pages/apply'} className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Apply</Link>
-                        {/*<button onClick={()=>signIn('google')}*/}
-                        {/*    className={'hover:underline hover:underline-offset-4 hover:text-amber-600'}>Apply</button>*/}
-                    </nav>
-                </div>
+        <div className={`${ubuntu.className} flex w-full h-auto flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-4 sm:py-4 bg-stone-950 text-gray-50 shadow-amber-200`}>
+            <div className={'flex flex-row justify-center sm:flex-col items-center'}>
+                <Link
+                    className={'flex flex-row items-center justify-center font-bold text-sm sm:text-2xl uppercase gap-2'}
+                    href={'/'}>
+                    <Image src={Logo} alt={''} height={85} width={85}/>
+                    Mansha Virtual Institute of Technologies
+                </Link>
             </div>
-
+            <div className={'flex flex-col py-2 '}>
+                <nav className={'flex text-sm items-center justify-center uppercase'}>
+                    <Link href={'/'}
+                          className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-4 lg:px-6 py-2 bg-stone-700 rounded-lg'}>Home</Link>
+                    <Link href={'/pages/faculty'}
+                          className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Faculty</Link>
+                    <Link href={'/pages/study'}
+                          className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Studies</Link>
+                    <Link href={'/pages/study/fee'}
+                          className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Fee</Link>
+                    <Link href={'/pages/apply'}
+                          className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-r-full'}>Apply</Link>
+                </nav>
+            </div>
+        </div>
     );
 }
