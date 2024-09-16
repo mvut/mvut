@@ -14,18 +14,25 @@ export default function SloganPage(){
     //         .then((applicants) => {
     //             setApplicants(applicants)
     //         })
-    // }, [applicants]);
+    // }, []);
+    // console.log(applicants);
     return (
         <div className="flex flex-col md:flex-row bg-gray-950 w-full items-center justify-center">
             <div className={'flex items-center justify-center flex-col md:w-1/3 md:leading-relaxed '}>
-                <p className={'text-xl sm:py-4 leading-relaxed text-teal-200 md:text-3xl md:py-10'}> Admission open</p>
+                {/*<div className={'flex items-center justify-center'}>*/}
+                {/*    <p className={'text-xl text-gray-50'}>Total Applicants</p>*/}
+                {/*    <p className={'bg-red-500 p-2 text-xl rounded-full font-bold text-amber-200'}>0{Number(applicants)}</p>*/}
+                {/*</div>*/}
+                <p className={'text-xl sm:py-4 leading-relaxed text-teal-200 md:text-3xl '}> Admission open</p>
                 <div className={'flex items-center justify-center gap-2'}>
-                    <Link href={'/pages/apply'} className={'text-md bg-red-600 text-gray-50 rounded-lg uppercase hover:bg-amber-600 p-2 px-4'}>apply</Link>
-                    {/*<Link href={'/pages/faculty'} className={'text-md bg-teal-950 text-teal-300 rounded-full uppercase hover:bg-teal-800 p-2 px-6'}>faculty</Link>*/}
+                    <Link href={'/pages/apply'}
+                          className={'text-md bg-red-600 text-gray-50 rounded-lg uppercase hover:bg-amber-600 p-2 px-4'}>apply</Link>
                 </div>
             </div>
+
             <div className={'flex items-center justify-center flex-col w-1/3 md:leading-relaxed'}>
-                <Countdown />
+                <Countdown/>
+
             </div>
             <div className={'hidden lg:flex items-center justify-center w-1/3'}>
                 <Image src={Students} alt={''}

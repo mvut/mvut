@@ -2,7 +2,6 @@ import Link from "next/link";
 import {FaFacebookF, FaWhatsapp} from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import {CiYoutube} from "react-icons/ci";
-// import { TfiLocationPin } from "react-icons/tfi";
 
 export default function FooterComponent(){
     return (
@@ -16,7 +15,7 @@ export default function FooterComponent(){
                     </div>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
                         <FaWhatsapp/>
-                        <p>+923017362696</p>
+                        <p>+1(747)209-4775</p>
                     </div>
                 </div>
                 <div className={'flex items-center justify-center text-center py-4'}>
