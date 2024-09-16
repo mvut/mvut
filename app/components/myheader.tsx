@@ -43,20 +43,20 @@ export default function MyHeaderComponent(){
                 </div>
             </div>
             <div
-                className={menuOpen ? 'fixed right-0 z-20 sm:hidden h-auto bg-red-900 p-4 ease-in duration-500' : 'h-auto fixed left-[100%] top-0 z-20 ease-in duration-500'}>
+                className={menuOpen ? 'fixed right-0 z-20 sm:hidden h-auto bg-stone-950 p-4 ease-in duration-500' : 'h-auto fixed left-[100%] top-0 z-20 ease-in duration-500'}>
                 <div className={'flex items-center justify-end w-full'}>
-                    <div onClick={handlerNav} className={'flex items-start cursor-pointer justify-between gap-8'}>
+                    <div onClick={handlerNav} className={'flex items-start cursor-pointer justify-between gap-8 text-gray-50 text-xl'}>
                         <div className={'grid grid-cols-1 gap-4 sm:text-sm lg:text-base'}>
                             <Link href={'/'}
-                                  className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 rounded-lg'}>Home</Link>
+                                  className={''}>Home</Link>
                             <Link href={'/pages/faculty'}
-                                  className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Faculty</Link>
+                                  className={''}>Faculty</Link>
                             <Link href={'/pages/study'}
-                                  className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Studies</Link>
+                                  className={''}>Studies</Link>
                             <Link href={'/pages/study/fee'}
-                                  className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Fee</Link>
+                                  className={''}>Fee</Link>
                             <Link href={'/pages/apply'}
-                                  className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-r-full'}>Apply</Link>
+                                  className={''}>Apply</Link>
                         </div>
                         <div className={'text-gray-50'}>
                             <RiMenuFold2Fill size={35}/>
