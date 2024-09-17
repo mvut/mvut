@@ -8,13 +8,13 @@ export default function StatisticsComponent(){
         const intervalId = setInterval(() => {
             fetch('/api/auth/getapplicants', {
                 method: 'PUT',
-                next: { revalidate: 1 },
+                next: { revalidate: 0 },
             })
                 .then((res) => res.json())
                 .then((applicants) => {
                     setApplicants(applicants);
                 });
-        }, 5000); // update every 5 seconds
+        }, 1000); // update every 5 seconds
 
         return () => clearInterval(intervalId);
     }, []);

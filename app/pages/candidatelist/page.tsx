@@ -13,7 +13,7 @@ export default function CandidateList(){
                 .then((applicants) => {
                     setApplicants(applicants);
                 });
-        }, 5000); // update every 5 seconds
+        }, 1000); // update every 5 seconds
 
         return () => clearInterval(intervalId);
     }, []);
