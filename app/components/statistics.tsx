@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 
 export default function StatisticsComponent(){
-    const [applicants, setApplicants] = useState<any[]>([]);
+    const [applicants, setApplicants] = useState<[]>([]);
 
     useEffect(() => {
         fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'PUT'})
