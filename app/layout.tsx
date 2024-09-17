@@ -10,7 +10,7 @@ const inter = Saira({ subsets: ["latin"], weight:['400'] });
 
 export const metadata: Metadata = {
   title: "MVIT",
-  description: "Empowering People",
+  description: "Mansha Institute of Technologies (MVIT) is a beacon of excellence in technology education, empowering individuals to unlock their full potential. By offering comprehensive programs in Computer Science from primary to PhD levels, MVIT fosters a culture of logical inquiry, human compassion, and intelligent innovation. With a focus on academic excellence, integrity, and empathy, MVIT produces well-rounded professionals equipped to drive technological progress and positively impact society. Through its certifications and non-academic degrees, MVIT bridges the gap between theory and practice, preparing students for successful careers and lifelong learning. By joining MVIT, individuals become part of a vibrant community that values diversity, creativity, and entrepreneurship, shaping the next generation of technology leaders.",
 };
 
 export default function RootLayout({
