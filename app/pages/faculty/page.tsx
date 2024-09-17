@@ -15,6 +15,8 @@ import AliIjaz from '@/public/faculty/ali.png';
 import Babar from '@/public/faculty/babar.jpg';
 import Sabar from '@/public/faculty/sabar.jpg';
 import Amir from '@/public/faculty/amir.jpg';
+import Mabbas from '@/public/faculty/mabbas.jpg';
+import Sohail from '@/public/faculty/sohail2.jpg';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -71,6 +73,28 @@ export default function FacultyComponent(){
                         Data Scientist
                     </p>
                     <p className={'text-xs sm:text-sm text-white'}>M.Phil. in Statistics, Master of Education</p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={Mabbas} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Abbas Muhammad</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Sr. Software Engineer/ Technologist
+                    </p>
+                    <p className={'text-xs sm:text-sm text-white'}>Ph.D. Scholar (Space Science), MS(CS), M.Sc Mathematics, M.Ed.</p>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
+                </div>
+                {/*    */}
+                <div
+                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
+                    <Image src={Sohail} alt={''} className={'h-96 w-full'}/>
+                    <h2 className={'font-bold text-lg text-white'}>Sohail Ahmed</h2>
+                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
+                        Research Assistant/ Simulation Analyst
+                    </p>
+                    <p className={'text-xs sm:text-sm text-white'}>Ph.D. Scholar(CS), MS(CS), M.Ed.</p>
                     <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
                 </div>
                 {/*    */}

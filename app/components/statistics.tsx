@@ -8,7 +8,7 @@ export default function StatisticsComponent(){
         const intervalId = setInterval(() => {
             fetch('/api/auth/getapplicants', {
                 method: 'PUT',
-                next: { revalidate: 0 },
+                next: { revalidate: 1 },
             })
                 .then((res) => res.json())
                 .then((applicants) => {
