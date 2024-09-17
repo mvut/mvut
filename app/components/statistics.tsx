@@ -4,14 +4,21 @@ import Link from "next/link";
 
 export default function StatisticsComponent(){
     const [applicants, setApplicants] = useState<any[]>([]);
-
     useEffect(() => {
-        fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'GET'})
-            .then((res) => res.json())
-            .then((applicants) => {
-                setApplicants(applicants)
+        const intervalId = setInterval(() => {
+            fetch('/api/auth/getapplicants', {
+                method: 'PUT',
+                next: { revalidate: 1 },
             })
+                .then((res) => res.json())
+                .then((applicants) => {
+                    setApplicants(applicants);
+                });
+        }, 5000); // update every 5 seconds
+
+        return () => clearInterval(intervalId);
     }, []);
+
     return(
         <div className={'flex flex-col sm:flex-row bg-teal-950 h-auto items-center justify-center gap-4 py-16'}>
             <div className={'flex flex-col items-center justify-center '}>

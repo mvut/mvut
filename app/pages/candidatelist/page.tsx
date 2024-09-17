@@ -4,12 +4,20 @@ import {useEffect, useState} from "react";
 export default function CandidateList(){
     const [applicants, setApplicants] = useState<any[]>([]);
     useEffect(() => {
-        fetch('/api/auth/getapplications',{next:{revalidate:1}, method: 'GET'})
-            .then((res) => res.json())
-            .then((applicants) => {
-                setApplicants(applicants)
+        const intervalId = setInterval(() => {
+            fetch('/api/auth/getapplications', {
+                method: 'PUT',
+                next: { revalidate: 1 },
             })
+                .then((res) => res.json())
+                .then((applicants) => {
+                    setApplicants(applicants);
+                });
+        }, 5000); // update every 5 seconds
+
+        return () => clearInterval(intervalId);
     }, []);
+
     return(
         <div className={'container flex flex-col overflow-auto py-10 min-h-screen'}>
             <p className={'text-lg md:text-5xl font-bold text-center py-2 lg:py-10 uppercase'}>List of Applicants</p>
