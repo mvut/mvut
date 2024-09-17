@@ -2,28 +2,15 @@
 import {useEffect, useState} from "react";
 
 export default function StatisticsComponent(){
-    const [applicants, setApplicants] = useState<[]>([]);
+    const [applicants, setApplicants] = useState<any[]>([]);
 
     useEffect(() => {
-        const fetchApplicants = async () => {
-            try {
-                const response = await fetch('/api/auth/getapplicants', {
-                    method: 'PUT',
-                    headers: {
-                        'Cache-Control': 'no-cache',
-                    },
-                });
-                const data = await response.json();
-                setApplicants(data);
-            } catch (error) {
-                console.log("Error");
-            } finally {
-                console.log("message");
-            }
-        };
-        fetchApplicants();
+        fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'GET'})
+            .then((res) => res.json())
+            .then((applicants) => {
+                setApplicants(applicants)
+            })
     }, []);
-
     return(
         <div className={'flex flex-col sm:flex-row bg-teal-950 h-auto items-center justify-center gap-4 py-16'}>
             <div className={'flex flex-col items-center justify-center '}>
