@@ -5,12 +5,25 @@ export default function StatisticsComponent(){
     const [applicants, setApplicants] = useState<[]>([]);
 
     useEffect(() => {
-        fetch('/api/auth/getapplicants',{next:{revalidate:1}, method: 'PUT'})
-            .then((res) => res.json())
-            .then((applicants) => {
-                setApplicants(applicants)
-            })
+        const fetchApplicants = async () => {
+            try {
+                const response = await fetch('/api/auth/getapplicants', {
+                    method: 'PUT',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                    },
+                });
+                const data = await response.json();
+                setApplicants(data);
+            } catch (error) {
+                console.log("Error");
+            } finally {
+                console.log("message");
+            }
+        };
+        fetchApplicants();
     }, []);
+
     return(
         <div className={'flex flex-col sm:flex-row bg-teal-950 h-auto items-center justify-center gap-4 py-16'}>
             <div className={'flex flex-col items-center justify-center '}>
