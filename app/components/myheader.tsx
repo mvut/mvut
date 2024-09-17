@@ -7,6 +7,10 @@ import { RiMenuFold2Fill } from "react-icons/ri";
 import { motion } from "framer-motion"
 import Image from "next/image";
 import Logo from "@/public/mvit_logo_1.png";
+
+import {Michroma} from "next/font/google";
+const inter = Michroma({ subsets: ["latin"], weight:['400'] });
+
 export default function MyHeaderComponent(){
     const pathname = usePathname();
     const isActive = (link: string) => link === pathname;
@@ -16,10 +20,10 @@ export default function MyHeaderComponent(){
     }
     return(
         <motion.header layout layoutRoot style={{ position: "sticky" }}
-            className={'flex flex-row justify-between p-2 lg:p-6 text-xs bg-stone-950'}>
+            className={`flex flex-row justify-between p-2 lg:p-6 text-xs bg-stone-950 ${inter.className}`}>
             <div className={'flex flex-col items-start gap-2 sm:grid-cols-1 md:grid-cols-1 w-full text-white'}>
                 <Link
-                    className={'flex flex-row items-center justify-center font-bold text-sm sm:text-2xl uppercase gap-2'}
+                    className={` flex flex-row items-center justify-center font-bold text-sm sm:text-2xl gap-2 `}
                     href={'/'}>
                     <Image src={Logo} alt={''} height={85} width={85}/>
                     Mansha Virtual Institute of Technologies
