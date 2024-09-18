@@ -45,7 +45,7 @@ export default function StatisticsComponent(){
             <div className={'flex flex-col items-center justify-center '}>
                 <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 rounded-lg'}>280+</p>
                 <p className={'flex items-center justify-center text-xl text-amber-200 bg-indigo-950 h-12 w-52'}>
-                    <Link href={''} className={'hover:underline hover:underline-offset-4 hover:text-gray-200'}>Courses</Link>
+                    <Link href={'/pages/courses'} className={'hover:underline hover:underline-offset-4 hover:text-gray-200'}>Courses</Link>
                 </p>
             </div>
         </div>

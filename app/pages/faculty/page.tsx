@@ -18,6 +18,7 @@ import Amir from '@/public/faculty/amir.jpg';
 import Mabbas from '@/public/faculty/mabbas.jpg';
 import Sohail from '@/public/faculty/sohail2.jpg';
 import Hameed from '@/public/faculty/hameed.jpg';
+import Yasir from '@/public/faculty/yasir.jpg';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -208,6 +209,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-sm'}>BCS</h2>
                         <h2 className={'text-sm'}>Instructor Computer Graphics</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Yasir} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Yasir Ali</h2>
+                        <h2 className={'text-sm'}>M.A. Education</h2>
+                        <h2 className={'text-sm'}>Instructor Educational Studies</h2>
+                        <h2 className={'text-sm'}>United Arab Emirates</h2>
                     </div>
                 </div>
                 {/* Leader */}

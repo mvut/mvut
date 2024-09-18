@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {MdArrowBackIos} from "react-icons/md";
+import {MdArrowBackIos, MdWebhook} from "react-icons/md";
 
 export default function FeeStructure(){
     return (
@@ -22,7 +22,11 @@ export default function FeeStructure(){
                 <tbody>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>01</td>
-                    <td>Full Stack Development with Next.js (FSDN)</td>
+                    <td><Link href={'/pages/study/programs/fsdn'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Full Stack Development with Next.js (FSDN)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$50</td>
@@ -31,7 +35,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>02</td>
-                    <td>Office Management and Work Ethics (OM&WE)</td>
+                    <td><Link href={'/pages/study/programs/omc'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Office Management and Work Ethics (OM&WE)
+                    </Link></td>
                     <td>Online</td>
                     <td>02</td>
                     <td>$50</td>
@@ -40,7 +48,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>03</td>
-                    <td>Core Web Technologies (CWT)</td>
+                    <td><Link href={'/pages/study/programs/cwt'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Core Web Technologies (CWT)
+                    </Link></td>
                     <td>Online</td>
                     <td>01</td>
                     <td>$50</td>
@@ -49,7 +61,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>04</td>
-                    <td>Full Stack PHP Development (FSP)</td>
+                    <td><Link href={'/pages/study/programs/php'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Full Stack PHP Development (FSP)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$50</td>
@@ -58,7 +74,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>05</td>
-                    <td>Junior Computer Science Certificate (JCSC)</td>
+                    <td><Link href={'/pages/study/programs/psc'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Junior Computer Science Certificate (JCSC)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$50</td>
@@ -67,7 +87,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>06</td>
-                    <td>Senior Computer Science Certificate (SCSC)</td>
+                    <td><Link href={'/pages/study/programs/esc'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Senior Computer Science Certificate (SCSC)
+                    </Link></td>
                     <td>Online</td>
                     <td>06</td>
                     <td>$50</td>
@@ -76,7 +100,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>07</td>
-                    <td>Advance Computer Science Certificate (ACSC)</td>
+                    <td><Link href={'/pages/study/programs/ssc'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Advance Computer Science Certificate (ACSC)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$50</td>
@@ -85,7 +113,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>08</td>
-                    <td>Professional Computer Science Certificate (PCSC)</td>
+                    <td><Link href={'/pages/study/programs/hssc'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Professional Computer Science Certificate (PCSC)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$50</td>
@@ -94,7 +126,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>09</td>
-                    <td>Premier Certificate in Computer Science (PCCS)</td>
+                    <td><Link href={'/pages/study/programs/bscs'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Premier Certificate in Computer Science (PCCS)
+                    </Link></td>
                     <td>Online</td>
                     <td>08</td>
                     <td>$50</td>
@@ -103,7 +139,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>10</td>
-                    <td>Certified Web Professional in Full Stack Next.js (CWP FSN)</td>
+                    <td><Link href={'/pages/study/programs/pgdfsn'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Certified Web Professional in Full Stack Next.js (CWP FSN)
+                    </Link></td>
                     <td>Online</td>
                     <td>02</td>
                     <td>$50</td>
@@ -112,7 +152,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>11</td>
-                    <td>Certified Web Professional in Full Stack PHP (CWP FSP)</td>
+                    <td><Link href={'/pages/study/programs/pgdfsp'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Certified Web Professional in Full Stack PHP (CWP FSP)
+                    </Link></td>
                     <td>Online</td>
                     <td>02</td>
                     <td>$50</td>
@@ -121,7 +165,11 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
                     <td className={'p-2'}>12</td>
-                    <td>Advance Professional Certificate in Web Development (APCWD)</td>
+                    <td><Link href={'/pages/study/programs/msfsd'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Advance Professional Certificate in Web Development (APCWD)
+                    </Link></td>
                     <td>Online</td>
                     <td>04</td>
                     <td>$75</td>
@@ -130,12 +178,29 @@ export default function FeeStructure(){
                 </tr>
                 <tr className={'odd:bg-gray-200 even:bg-teal-100'} >
                     <td className={'p-2'}>13</td>
-                    <td>Certificate of Philosophy in Web Development (CPWD)</td>
+                    <td><Link href={'/pages/study/programs/phdfsd'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Certificate of Philosophy in Web Development (CPWD)
+                    </Link></td>
                     <td>Online</td>
                     <td>06</td>
                     <td>$100</td>
                     <td>$60</td>
                     <td>$2260</td>
+                </tr>
+                <tr className={'odd:bg-gray-200 even:bg-teal-100'} >
+                    <td className={'p-2'}>14</td>
+                    <td><Link href={'/pages/courses'}
+                              className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Short Courses
+                    </Link></td>
+                    <td>Online</td>
+                    <td>1/2</td>
+                    <td>$10</td>
+                    <td>$20</td>
+                    <td>$70</td>
                 </tr>
                 </tbody>
             </table>

@@ -1,10 +1,15 @@
-import { MdArrowBackIos } from "react-icons/md";
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 import Link from "next/link";
 
 export default function StudySchemeComponent(){
     return(
         <div className={'container flex flex-col sm:py-16 my-10'}>
-            <Link href={'/pages/study'} className={'flex text-xs hover:text-red-500 items-center'}><MdArrowBackIos />Back</Link>
+            <div className={'flex gap-10 '}>
+                <Link href={'/pages/study'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Back</Link>
+                <Link href={'/pages/study/fee'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
+            </div>
             <h1 className={'text-lg sm:text-3xl text-gray-500 py-2 sm:py-4'}>Scheme of Study</h1>
             <h2 className={'text-lg sm:text-4xl'}>Certified Web Professional in Full Stack PHP (CWP FSP)</h2>
             <div className={'flex flex-col items-start justify-center py-4 sm:py-10'}>
