@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, {FormEvent, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 
 export default function ApplicationForm(){
     const router = useRouter();
@@ -1809,6 +1810,12 @@ export default function ApplicationForm(){
 
                 <form onSubmit={handleSubmit}
                       className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 lg:pl-12'}>
+                    <div className={'flex gap-10 my-6'}>
+                        <Link href={'/pages/study'}
+                              className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
+                        <Link href={'/pages/study/fee'}
+                              className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
+                    </div>
                     <p className={'text-teal-900 text-2xl font-bold text-center'}>Application Form</p>
 
                     <div className={'flex flex-col '}>
@@ -1872,66 +1879,66 @@ export default function ApplicationForm(){
                                required={true} name={'whatsapp'}
                         />
                     </div>
-                        <div className={'flex flex-col'}>
-                            <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'}
-                                                                                    className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
-                                , <Link href={'/pages/study/fee'}
-                                        className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>
-                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '}
-                                    name={'program'}>
-                                {
-                                    programs ?
-                                        programs.map((program) => {
-                                            return program["open"] &&
-                                                <option key={program["id"]} value={program["program"]}>
-                                                    {program["program"]}
-                                                </option>
-                                        }) : null
-                                }
-                            </select>
-                        </div>
+                    <div className={'flex flex-col'}>
+                        <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'}
+                                                                                className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
+                            , <Link href={'/pages/study/fee'}
+                                    className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>
+                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '}
+                                name={'program'}>
+                            {
+                                programs ?
+                                    programs.map((program) => {
+                                        return program["open"] &&
+                                            <option key={program["id"]} value={program["program"]}>
+                                                {program["program"]}
+                                            </option>
+                                    }) : null
+                            }
+                        </select>
+                    </div>
 
-                        <div className={'flex flex-col '}>
-                            <label>Semester</label>
-                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                    name={'semester'}>
-                                {/*<option value={1}>Spring 2024</option>*/}
-                                <option value={'Fall 2024'}>Fall 2024</option>
-                            </select>
-                        </div>
+                    <div className={'flex flex-col '}>
+                        <label>Semester</label>
+                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                                name={'semester'}>
+                            {/*<option value={1}>Spring 2024</option>*/}
+                            <option value={'Fall 2024'}>Fall 2024</option>
+                        </select>
+                    </div>
 
-                        <div className={'flex flex-col '}>
-                            <label>Classes</label>
-                            <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                    name={'classes'}>
-                                <option value={'Online'}>Online</option>
-                                {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
-                            </select>
-                        </div>
+                    <div className={'flex flex-col '}>
+                        <label>Classes</label>
+                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                                name={'classes'}>
+                            <option value={'Online'}>Online</option>
+                            {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
+                        </select>
+                    </div>
 
-                        <div className={'flex flex-col'}>
-                            <label>Country</label>
-                            <select className={'h-10 w-64  md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                    name={'country'}>
-                                {
-                                    Countries.map(country => <option key={country.isoCode}
-                                                                     value={country.name}>{country.name}</option>)
-                                }
+                    <div className={'flex flex-col'}>
+                        <label>Country</label>
+                        <select className={'h-10 w-64  md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                                name={'country'}>
+                            {
+                                Countries.map(country => <option key={country.isoCode}
+                                                                 value={country.name}>{country.name}</option>)
+                            }
 
-                                {/*<option value={2}>Onsite</option>*/}
-                            </select>
-                        </div>
+                            {/*<option value={2}>Onsite</option>*/}
+                        </select>
+                    </div>
 
-                        <div className={'flex gap-2'}>
-                            <button type={'submit'}
-                                    className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
-                            </button>
-                            <Link href={'/'}
-                                  className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
-                            </Link>
-                        </div>
+                    <div className={'flex gap-2'}>
+                        <button type={'submit'}
+                                className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
+                        </button>
+                        <Link href={'/'}
+                              className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
+                        </Link>
+                    </div>
                 </form>
 
             </div>
-)
+        )
 }
