@@ -6,7 +6,7 @@ export default function StudySchemeComponent(){
         <div className={'container flex flex-col sm:py-16'}>
             <Link href={'/pages/study'} className={'flex text-xs hover:text-red-500 items-center'}><MdArrowBackIos />Back</Link>
             <h1 className={'text-3xl text-gray-500 py-4'}>Scheme of Study</h1>
-            <h2 className={'text-4xl'}>Secondary School Certificate (SSC)</h2>
+            <h2 className={'text-4xl'}>Advance Computer Science Certificate (ACSC)</h2>
             <div className={'flex flex-col items-center justify-center py-10'}>
                 <div className={'flex text-lg gap-2'}>
                     <label className={'text-indigo-700'}>Classes: </label>

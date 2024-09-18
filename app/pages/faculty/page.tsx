@@ -17,233 +17,261 @@ import Sabar from '@/public/faculty/sabar.jpg';
 import Amir from '@/public/faculty/amir.jpg';
 import Mabbas from '@/public/faculty/mabbas.jpg';
 import Sohail from '@/public/faculty/sohail2.jpg';
+import Hameed from '@/public/faculty/hameed.jpg';
+
 import Image from "next/image";
 import Link from "next/link";
+import {Ham} from "lucide-react";
 
 export default function FacultyComponent(){
     return(
-        <div className={' flex flex-col items-center justify-center py-6'}>
-            <p className={'text-lg md:text-5xl font-bold text-center py-2 lg:py-10 uppercase'}>Faculty</p>
-            <div className={'container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-6 px-6 '}>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Abs} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Abubakar Siddique<Link
-                        href={'https://www.linkedin.com/in/drsagher/'} target={'_blank'}
-                        className={'text-xs text-amber-200'}>(Profile)</Link></h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Full Stack Developer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>MS in Computer Science (MDS, WSN, MCS), B. Ed., LCC (AMAP), BTI (CIT, Australia), LDT (open SAP), CLC (Peking University, China), CAC (TEVTA, PAK), ICSC (The Open University, UK), Data Science (SAP), RPJ (VU, PAK) </p>
+        <div className={' flex flex-col items-center justify-center py-16'}>
+            <p className={'text-3xl md:text-5xl font-bold text-center py-2 lg:py-10 '}>Faculty</p>
+            <div
+                className={'container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
+                {/*---------------------------------------*/}
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Mike} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Mike Litman</h2>
+                        <h2 className={'text-sm'}>MBA, CYD</h2>
+                        <h2 className={'text-sm'}>Global Thought Leader</h2>
+                        <h2 className={'text-sm'}>United States</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={SARFRAZ} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Sarfraz Ahmad</h2>
+                        <h2 className={'text-sm'}>M.Phil. in Sociology, LLB</h2>
+                        <h2 className={'text-sm'}>Legal Advisor</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Abs} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Abubakar Siddique</h2>
+                        <h2 className={'text-sm'}>MS (CS), B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor CS & IT</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={ArshadIqbal} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Arshad Iqbal</h2>
+                        <h2 className={'text-sm'}>M.Phil. Statistics, M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Data Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Mabbas} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Abbas Muhammad</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor SE & Databases</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Sohail} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Sohail Ahmed</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor R&D, Simulation</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Younas} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Younas Alam</h2>
+                        <h2 className={'text-sm'}>M.Phil. Linguistics, M.A. Edu, LLB</h2>
+                        <h2 className={'text-sm'}>Instructor English Language</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Sabar} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Sabar Hussain</h2>
+                        <h2 className={'text-sm'}>M.Phil. English, M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor English Language</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Babar} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Babar Hussain</h2>
+                        <h2 className={'text-sm'}>M.Phil. Mathematics, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Mathematics</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Amir} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Amir Shahzad</h2>
+                        <h2 className={'text-sm'}>M.Phil. Mathematics, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Computational Algorithms</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Abid} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Abid Hussain</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor CS & Simulations</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Arshad} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Arshad</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Software Engineering</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={GhulamAbbas} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Ghulam Abbas</h2>
+                        <h2 className={'text-sm'}>MS (CS), M.Sc Mathematics, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Programming & Algorithms</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Mst} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Shaban</h2>
+                        <h2 className={'text-sm'}>BCS</h2>
+                        <h2 className={'text-sm'}>Instructor Full Stack PHP Development</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Hussain} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Hussain</h2>
+                        <h2 className={'text-sm'}>BCS</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Graphics</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Hameed} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Abdul Hameed</h2>
+                        <h2 className={'text-sm'}>M.A. Islamic Studies, M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Islamic Studies</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={AliIjaz} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Ali Ijaz</h2>
+                        <h2 className={'text-sm'}>MCS, M.Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Daha} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Daha Qalbi</h2>
+                        <h2 className={'text-sm'}>BS (CS)</h2>
+                        <h2 className={'text-sm'}>Instructor MERN Stack</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Gami} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Ghulam Muhammad</h2>
+                        <h2 className={'text-sm'}>ICS</h2>
+                        <h2 className={'text-sm'}>Instructor Amazon VAk</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900'}>
+                        <Image src={Haris} alt={''} className={'h-44 w-44'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Haris</h2>
+                        <h2 className={'text-sm'}>ICS</h2>
+                        <h2 className={'text-sm'}>Instructor Frontend Design</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/*---------------------------------------*/}
 
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Mike} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Mike Litman <Link
-                        href={'https://www.mikeversity.com/'} target={'_blank'}
-                        className={'text-xs text-amber-200'}>(Profile)</Link></h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Global Thought Leader
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Honorary Doctorate, Master of Business Management, CYD</p>
-
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>United States</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={SARFRAZ} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Sarfraz Ahmad</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Legal Advisor
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.Phil. in Sociology, M. Sc. Criminology and Security Studies, Bachelor of Law</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={ArshadIqbal} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Arshad Iqbal</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Data Scientist
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.Phil. in Statistics, Master of Education</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Mabbas} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Abbas Muhammad</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Sr. Software Engineer/ Technologist
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Ph.D. Scholar (Space Science), MS(CS), M.Sc Mathematics, M.Ed.</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Sohail} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Sohail Ahmed</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Research Assistant/ Simulation Analyst
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Ph.D. Scholar(CS), MS(CS), M.Ed.</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Younas} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Muhammad Younas Alam</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Foreign Language Expert
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.Phil. in Linguistics, Master of Education, Bachelor of Law</p>
-
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Sabar} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Sabar Hussain</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Technical English Language Coach
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.Phil. in English, Bachelor of Education</p>
-
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Babar} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Babar Hussain</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Mathematician and Algorithm Analyst
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Mathematics, Bachelor of Education</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Amir} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Amir Shahzad</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Expert in Mathematical Computation and Simulation Modeling
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Mathematics</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-teal-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Abid} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Abid Hussain</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Blockchain / AI Expert
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Computer Science, Master of Education</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Arshad} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Muhammad Arshad</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Software Engineer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Computer Science, Master of Education</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={GhulamAbbas} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Ghulam Abbas</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Software Engineer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>M.S. in Computer Science, M.Sc. Mathematics, Bachelor of Education</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Mst} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Muhammad Shaban</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Full Stack PHP Developer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Bachelor of Computer Science, Certified in Computer Hardware</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Hussain} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Muhammad Hussain</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Graphics and Artist
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Bachelor of Computer Science, Certified in Computer Hardware</p>
-
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={AliIjaz} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Ali Ijaz</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Web Developer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Master of Computer Science, Master of Education</p>
-
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Daha} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Daha Qalbi</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        MERN Stack Developer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>B.S. of Computer Science</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Gami} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Ghulam Muhammad</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Amazon VA Expert
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Intermediate</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
-                {/*    */}
-                <div
-                    className={'w-auto h-full grid grid-cols-1 transition ease-in-out delay-150 odd:bg-blue-700 even:bg-red-700 p-2 hover:-translate-y-1 hover:scale-110 hover:bg-amber-700 rounded-xl duration-300 '}>
-                    <Image src={Haris} alt={''} className={'h-96 w-full'}/>
-                    <h2 className={'font-bold text-lg text-white'}>Muhammad Haris</h2>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white'}>
-                        Frontend Designer
-                    </p>
-                    <p className={'text-xs sm:text-sm text-white'}>Intermediate</p>
-                    <p className={'text-xs sm:text-sm md:text-md lg:text-lg text-white italic'}>Pakistan</p>
-                </div>
             </div>
         </div>
     )

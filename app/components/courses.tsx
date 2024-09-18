@@ -15,14 +15,16 @@ import Img13 from '../../public/resources/img13.jpg';
 import Img14 from '../../public/resources/img14.jpg';
 import Img15 from '../../public/resources/img15.jpg';
 import Img16 from '../../public/resources/img16.jpg';
+import Img17 from '../../public/resources/etm.jpg';
+import Img18 from '../../public/resources/cthe.jpg';
 
 import Image from "next/image";
 
 export default function CoursesPage(){
     return (
         <div className="flex flex-col items-center justify-center py-6 lg:py-12 mt-10">
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10'}>Skill Development Professional Programs</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10'}>Web Technology Specialist Training (WTST)</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -32,8 +34,8 @@ export default function CoursesPage(){
 
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Full Stack Development</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Full Stack Development (FSD)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                             Unlock the power of full stack development and bring your ideas to life! Learn to design,
                             build, and deploy dynamic web applications from scratch, mastering both front-end and
@@ -50,14 +52,14 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Artificial Intelligence</h1>
+                        className="absolute inset-0 flex translate-y-[47%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Artificial Intelligence (AI)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Uncover the fundamentals of Artificial Intelligence (AI) and unlock its potential! This
-                            beginner-friendly course introduces you to the basics of AI, including machine learning,
+                            This beginner-friendly course introduces you to the basics of AI, including machine learning,
                             deep learning, and neural networks. Learn how AI is transforming industries and daily life,
                             and gain hands-on experience with practical exercises and projects. No prior experience
-                            needed - just curiosity and enthusiasm! </p>
+                            needed - just curiosity and enthusiasm!
+                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -68,8 +70,8 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Web Designing and Graphics</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Web Designing and Graphics (WDG)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                             Bring your creativity to life on the web! Learn the art of web designing and graphics, from
                             visual storytelling to user-friendly interfaces. Master the skills to craft stunning
@@ -86,14 +88,13 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Data Science</h1>
+                        className="absolute inset-0 flex translate-y-[47%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Data Science (DS)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Unlock the power of AI and Data Science with Python! Learn to harness the potential of
+                           Learn to harness the potential of
                             machine learning, data analysis, and visualization using Python&apos;s popular libraries
                             like NumPy, pandas, and scikit-learn. Master the skills to extract insights, build
-                            predictive models, and drive business decisions with data-driven solutions. Dive into the
-                            world of AI and Data Science with Python and shape the future! </p>
+                            predictive models, and drive business decisions with data-driven solutions. </p>
                     </div>
                 </div>
                 {/**/}
@@ -104,14 +105,13 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Research and Development</h1>
+                        className="absolute inset-0 flex translate-y-[43%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Research and Development (R&D)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Drive innovation and shape the future! Learn the systematic approach to Research and
+                            Learn the systematic approach to Research and
                             Development (R&D), from idea generation to prototype development. Master the skills to
                             design experiments, collect data, and analyze results to bring cutting-edge solutions to
-                            life. Discover how to turn creativity into reality and make a meaningful impact in various
-                            industries and fields. </p>
+                            life.  </p>
                     </div>
                 </div>
                 {/**/}
@@ -122,11 +122,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Interpersonal Skills</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Interpersonal Skills (IPS)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Our Interpersonal Skills and Microsoft Office Management course combines essential
-                            communication and productivity training to help you excel in the workplace. Learn to develop
+                            Learn to develop
                             strong relationships, resolve conflicts, and master Microsoft Office applications like Word,
                             Excel, and PowerPoint. Improve your written and verbal communication skills, enhance your
                             productivity, and work effectively with others to achieve success in your career.
@@ -141,10 +140,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Certificate Courses</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Certificate Courses in Technology (CCT)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Certificate Courses in Computer Science provide specialized training in specific areas of computer science, such as programming, data analysis, cybersecurity, or artificial intelligence. These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>
+                            These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -155,16 +154,30 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white"> Leadership and Management Dynamics</h1>
+                        className="absolute inset-0 flex translate-y-[53%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white"> Leadership and Management Dynamics (LMD)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Leadership and Management Dynamics program is a transformative learning experience that equips professionals to lead and manage high-performing teams. Through interactive modules and expert insights, participants explore the dynamic interplay between leadership and management, developing skills in strategic planning, communication, and adaptive leadership. This program empowers leaders to drive innovation and achieve sustainable success.                        </p>
+                            Through interactive modules and expert insights, participants explore the dynamic interplay between leadership and management, developing skills in strategic planning, communication, and adaptive leadership. This program empowers leaders to drive innovation and achieve sustainable success.                        </p>
+                    </div>
+                </div>
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={Img17} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg py-2 font-bold text-white">Entrepreneurial Technology Management (ETM)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Master the art of tech entrepreneurship and learn to launch, grow, and scale successful tech businesses. This comprehensive course covers digital business strategy, technology management, innovation, and leadership, preparing you for the demands of the rapidly evolving tech industry                        </p>
                     </div>
                 </div>
             </div>
             {/*-----------------------*/}
-            <p className={'text-teal-900 text-xl lg:text-7xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Non-Academic Programs</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Computer Science Professional Studies (CSPS)</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -173,10 +186,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Primary School Certificate (PSC)</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Junior Computer Science Certificate (JCSC)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Primary School Certificate in Computer Science introduces young learners to digital literacy, coding, and problem-solving. This foundational program explores interactive topics like algorithms and computer safety, sparking curiosity and creativity. It prepares students for future academic and professional opportunities in the digital world.                        </p>
+                            The Junior Computer Science Certificate introduces young learners to digital literacy, coding, and problem-solving, sparking curiosity and creativity. This foundational program prepares students for future digital opportunities.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -187,10 +200,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Elementary School Certificate (ESC)</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Senior Computer Science Certificate (SCSC)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Elementary School Certificate (ESC) in Computer Science introduces young learners to the exciting world of computer science. This program fosters curiosity, develops basic programming skills, and encourages digital literacy through interactive lessons and hands-on activities. It provides a solid foundation for further studies in computer science and prepares boys and girls for future careers in STEM fields.                        </p>
+                            Unlock the world of computer science with the Senior Computer Science Certificate (SCSC). This interactive program develops programming skills, digital literacy, and curiosity, preparing students for STEM careers.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -201,10 +214,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Secondary School Certificate (SSC)</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Advance Computer Science Certificate (ACSC)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Secondary School Certificate (SSC) in Computer Science builds on foundational knowledge, equipping students with advanced programming skills, data analysis, and software development expertise. This program enhances problem-solving abilities, logical thinking, and digital literacy, preparing students for higher education and careers in technology. Through comprehensive lessons and projects, students gain a deeper understanding of computer systems, networks, and cybersecurity.                        </p>
+                            Elevate your skills in programming, data analysis, and software development. Enhance problem-solving, logical thinking, and digital literacy, preparing for tech careers and higher education.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -215,10 +228,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Higher Secondary School Certificate (HSSC)</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Professional Computer Science Certificate (PCSC)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Higher Secondary School Certificate (HSSC) in Computer Science refines programming skills, focusing on algorithms, software engineering, and practical applications. This program prepares students for higher education, careers, and entrepreneurship in tech through project-based learning and industry-specific technologies. Students gain expertise in computer systems, networks, and cybersecurity, setting them up for success in the digital landscape.                        </p>
+                            Refine programming skills, master algorithms, software engineering, and practical applications. Prepare for tech careers, entrepreneurship, and higher education through project-based learning.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -229,10 +242,11 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">BS of Computer Science</h1>
+                        className="absolute inset-0 flex translate-y-[57%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Premier Certificate in Computer Science (PCCS)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Bachelor of Science in Computer Science (BSCS) is a comprehensive program that covers theoretical foundations and practical applications. Students explore advanced topics, developing strong programming skills and problem-solving abilities. This program prepares graduates for careers in software development, data analysis, AI, cybersecurity, and other emerging tech fields.                        </p>
+                            The PCCS is a comprehensive program covering theoretical foundations and practical applications. Students develop strong programming skills and problem-solving abilities, preparing them for careers in software development, data analysis, AI, cybersecurity, and emerging tech fields.
+                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -243,10 +257,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">PGD in Computer Science</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Certified Web Professional (CWP)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Postgraduate Diploma (PGD) in Computer Science enhances students&apos; skills and knowledge in computer science. This program covers advanced topics in software development, data structures, and computer systems, preparing students for tech and IT careers. Ideal for professionals seeking to upgrade skills or transition into tech, it provides a solid foundation for further studies or career advancement.                        </p>
+                            The CWP enhances tech skills through advanced training in software development, data structures, and computer systems. This program prepares professionals for IT careers, skill upgrades, or transitions, providing a solid foundation for further studies or career advancement.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -257,10 +271,10 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">MS in Computer Science</h1>
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Advance Professional Certificate in Web Development (APCWD)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Master of Science in Computer Science (MSCS) is a graduate program that advances students&apos; knowledge and skills in cutting-edge computer science fields. Students explore specialized topics like artificial intelligence, data science, cybersecurity, and cloud computing, developing expertise through research, projects, and collaboration. This program prepares graduates for leadership roles, advanced research, and innovative careers in tech, as well as for Ph.D. studies in computer science.                        </p>
+                            The APCWD enhances graduate-level skills in cutting-edge tech fields. Explore AI, data science, cybersecurity, and cloud computing through research, projects, and collaboration. Prepare for leadership roles, advanced research, and innovative tech career.                        </p>
                     </div>
                 </div>
                 {/**/}
@@ -271,13 +285,27 @@ export default function CoursesPage(){
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
                     </div>
                     <div
-                        className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-2xl font-bold text-white">Ph.D. in Computer Science</h1>
+                        className="absolute inset-0 flex translate-y-[53%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Certificate of Philosophy in Web Development (CPWD)</h1>
                         <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            The Doctor of Philosophy (PhD) in Computer Science is a research-focused program that advances computer science knowledge. Students conduct original research, contributing to the field, and produce innovative solutions. Under expert guidance, PhD candidates develop expertise in specialized areas, preparing them for careers in academia, research, or industry leadership, driving technological innovation.                        </p>
+                            The CPWD program investigates philosophical dimensions of web development, including epistemology, ethics, and aesthetics. Students critically analyze technological innovation, user experience, and societal implications, cultivating a deeper understanding of web development&apos;s philosophical underpinnings                        </p>
                     </div>
                 </div>
-
+                {/**/}
+                <div
+                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <div className="h-72 w-96">
+                        <Image src={Img18} alt={''}
+                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
+                        <h1 className="text-lg font-bold text-white py-2">Certificate in Technological Humanism and Ethics (CTHE)</h1>
+                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            In this certificate program, explore the intersection of technology, humanity, and ethics. Delve into the social, cultural, and moral implications of emerging technologies and develop a deep understanding of the human-centered approach to technological innovation.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
