@@ -7,7 +7,7 @@ export default function StudySchemeComponent(){
         <div className={'container flex flex-col sm:py-16 my-10'}>
             <div className={'flex gap-10 '}>
                 <Link href={'/pages/study'}
-                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Back</Link>
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
                 <Link href={'/pages/study/fee'}
                       className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
             </div>

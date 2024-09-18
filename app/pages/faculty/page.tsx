@@ -19,6 +19,7 @@ import Mabbas from '@/public/faculty/mabbas.jpg';
 import Sohail from '@/public/faculty/sohail2.jpg';
 import Hameed from '@/public/faculty/hameed.jpg';
 import Yasir from '@/public/faculty/yasir.jpg';
+import Kamran from '@/public/faculty/kamran.jpg';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -76,6 +77,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Arshad Iqbal</h2>
                         <h2 className={'text-sm'}>M.Phil. Statistics, M. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor Data Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Kamran} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Kamran Shareef</h2>
+                        <h2 className={'text-sm'}>MBA</h2>
+                        <h2 className={'text-sm'}>Instructor Business Management</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
