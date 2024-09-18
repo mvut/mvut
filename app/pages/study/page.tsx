@@ -1,11 +1,18 @@
 import Link from "next/link";
 import { MdWebhook } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 
 export default function StudySchemeComponent(){
     return(
         <div className={'container flex flex-col py-8 sm:py-16 min-h-screen items-center gap-10'}>
             <p className={'text-4xl font-bold'}>Scheme of Studies</p>
+            <div className={'flex gap-10 '}>
+                <Link href={'/pages/apply'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Apply</Link>
+                <Link href={'/pages/study/fee'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
+            </div>
             <div className={'flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-16 py-2 sm:py-10'}>
                 {/*<Link href={'/pages/apply'} className={'text-lg hover:text-red-500 pt-4'}>Apply now </Link>*/}
                 <div className={'flex flex-col py-6 items-start gap-4'}>

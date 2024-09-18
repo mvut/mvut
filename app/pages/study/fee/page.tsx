@@ -1,17 +1,22 @@
 import Link from "next/link";
-import {MdArrowBackIos, MdWebhook} from "react-icons/md";
-
+import {MdWebhook} from "react-icons/md";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 export default function FeeStructure(){
     return (
         <div className={`container flex flex-col overflow-auto py-10 min-h-screen `}>
-            <Link href={'/pages/study'} className={'flex text-xs hover:text-red-500 items-center'}><MdArrowBackIos />Back</Link>
-
+            <div className={'flex gap-10 '}>
+                <Link href={'/pages/study'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
+                <Link href={'/pages/apply'}
+                      className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Apply</Link>
+            </div>
             <p className={'text-3xl py-10'}>Fee Structure</p>
             <table className="table-auto text-center text-xs sm:text-lg ">
                 <thead>
                 <tr className={'bg-stone-700 text-gray-50'}>
                     <th className={'p-2'}>Sr.</th>
-                    <th >Program</th>
+                    <th>Program</th>
                     <th>Classes</th>
                     <th>Semesters</th>
                     <th>Registration</th>
