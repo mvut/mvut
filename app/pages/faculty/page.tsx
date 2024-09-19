@@ -3,7 +3,7 @@ import Younas from '@/public/faculty/younis.jpg';
 import Mst from '@/public/faculty/mst.jpg';
 import Hussain from '@/public/faculty/hussain.jpg';
 import ArshadIqbal from '@/public/faculty/arshadiqbal.jpg';
-import GhulamAbbas from '@/public/faculty/gabbas.jpg';
+import GhulamAbbas from '@/public/faculty/gabbas2.jpeg';
 import Daha from '@/public/faculty/daha.jpg';
 import Arshad from '@/public/faculty/arshadit.jpg';
 import Gami from '@/public/faculty/gami.jpg';
@@ -20,10 +20,7 @@ import Sohail from '@/public/faculty/sohail2.jpg';
 import Hameed from '@/public/faculty/hameed.jpg';
 import Yasir from '@/public/faculty/yasir.jpg';
 import Kamran from '@/public/faculty/kamran.jpg';
-
 import Image from "next/image";
-import Link from "next/link";
-import {Ham} from "lucide-react";
 
 export default function FacultyComponent(){
     return(
@@ -99,7 +96,7 @@ export default function FacultyComponent(){
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
                         <h2 className={'text-lg font-bold'}>Abbas Muhammad</h2>
-                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>MS (CS), B. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor SE & Databases</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>

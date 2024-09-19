@@ -42,6 +42,13 @@ export default function StudySchemeComponent(){
                     > <MdWebhook size={20}/>
                         Core Web Technologies (CWT)
                     </Link>
+
+                    <Link href={'/pages/courses'}
+                          className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
+                    > <MdWebhook size={20}/>
+                        Short Courses
+                    </Link>
+
                 </div>
                 <div className={'flex flex-col py-6 items-start gap-4'}>
                     <p className={'text-xl text-teal-700 font-bold'}>Computer Science Professional Studies (CSPS)</p>
@@ -99,13 +106,6 @@ export default function StudySchemeComponent(){
                     > <MdWebhook size={20}/>
                         Certificate of Philosophy in Web Development (CPWD)
                     </Link>
-
-                    <Link href={'/pages/courses'}
-                          className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
-                        Short Courses
-                    </Link>
-
 
                 </div>
             </div>

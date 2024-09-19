@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import NavbarComponent from "@/app/components/navbar";
 import FooterComponent from "@/app/components/footer";
 import Template from "@/app/template";
 import MyHeaderComponent from "@/app/components/myheader";
@@ -20,16 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={'scroll-smooth'}>
-
       <body className={inter.className}>
       <Template>
          <MyHeaderComponent />
-      {/*<NavbarComponent/>*/}
       {children}
       <FooterComponent/>
     </Template>
       </body>
-
     </html>
   );
 }
