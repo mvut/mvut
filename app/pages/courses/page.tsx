@@ -66,7 +66,7 @@ export default function CoursesPage(){
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td>MVC-14</td>
+                    <td>MVC-17</td>
                     <td className={'text-start'}>Introduction to C++ Programming</td>
                     <td>12 Weeks</td>
                     <td>6 (Theory:3, Practical:3)</td>

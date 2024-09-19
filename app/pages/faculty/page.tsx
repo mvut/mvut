@@ -233,7 +233,7 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Yasir Ali</h2>
                         <h2 className={'text-sm'}>M.A. Education</h2>
                         <h2 className={'text-sm'}>Instructor Educational Studies</h2>
-                        <h2 className={'text-sm'}>United Arab Emirates</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
                 {/* Leader */}
