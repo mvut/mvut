@@ -1932,7 +1932,7 @@ export default function ApplicationForm(){
                         <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                 name={'classes'}>
                             <option value={'Online'}>Online</option>
-                            {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
+                            <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
                         </select>
                     </div>
 
