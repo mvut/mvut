@@ -7,7 +7,7 @@ import NavComponent from "@/app/components/nav";
 import StatisticsComponent from "@/app/components/statistics";
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main >
         <NavComponent/>
         <CoursesPage/>
         <SloganPage/>

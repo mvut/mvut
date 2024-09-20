@@ -4,24 +4,23 @@ import {compare} from "bcrypt";
 import {sql} from "@vercel/postgres";
 
 const handler = NextAuth({
-    session:{ strategy:"jwt"},
-    pages:{ signIn:"/"},
+    session:{maxAge:20*60, strategy:"jwt"},
+    pages:{ signIn:"/mvit"},
     providers: [ CredentialsProvider({
         credentials: {
-            email: { },
-            password: { },
-            usertype: { },
+            login_id: { },
+            login_key: { },
+            designation: { },
         },
         async authorize(credentials, req) {
-            const response = await sql`select * from users where email=${credentials?.email} and usertype=${credentials?.usertype}`;
+            const response = await sql`select * from sys_users where login_id=${credentials?.login_id} and designation=${credentials?.designation}`;
             const user = response.rows[0];
-            const passwordCorrect =  await compare(credentials?.password || "", user.password);
-            // console.log(passwordCorrect);
+            const passwordCorrect =  await compare(credentials?.login_key || "", user.login_key);
             if(passwordCorrect){
                 return {
                     id: user.id,
-                    email: user.email,
-                    usertype: user.usertype,
+                    login_id: user.login_id,
+                    designation: user.designation,
                 }
             }
             return null

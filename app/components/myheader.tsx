@@ -28,13 +28,13 @@ export default function MyHeaderComponent(){
             </div>
             <motion.div layout className={'hidden sm:flex items-center justify-center sm:text-sm lg:text-md text-gray-50'}>
                 <Link href={'/'}
-                      className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 rounded-lg'}>Home</Link>
+                      className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
                 <Link href={'/pages/faculty'}
-                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Faculty</Link>
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculty</Link>
                 <Link href={'/pages/study'}
-                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Studies</Link>
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Studies</Link>
                 <Link href={'/pages/study/fee'}
-                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-lg'}>Fee</Link>
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Fee</Link>
                 <Link href={'/pages/apply'}
                       className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-r-full'}>Apply</Link>
             </motion.div>
