@@ -21,7 +21,9 @@ export default function ManagementSystem(){
             </div>
             {/*Main*/}
             <div className={'flex min-h-screen items-center justify-center'}>
-               <div className={'flex flex-col items-center justify-center'}><ImsAddUser />Authorisation</div>
+               <div className={'flex flex-col items-center justify-center'}>
+                   <ImsAddUser />Authorisation
+               </div>
             </div>
         {/*  Main end  */}
         </div>
