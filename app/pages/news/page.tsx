@@ -21,7 +21,7 @@ import Alabrar6 from '@/public/alabrar/ablabrar6.jpg';
 
 export default function NewsComponents(){
     return(
-        <div className="container flex flex-col py-10">
+        <div className="flex flex-col p-6">
             <section className={'flex flex-col '}>
                 <div className="flex justify-between items-center py-2 w-full">
                     <h2 className="text-5xl font-extrabold animate-bounce text-red-700">News</h2>
@@ -77,7 +77,9 @@ export default function NewsComponents(){
                     </div>
                 </div>
             </section>
-            <section className={'py-16'}>
+
+            <h2 className="text-5xl font-extrabold animate-bounce text-red-700 pt-10">Certifications</h2>
+            <section className={''}>
                 <Carousel
                     plugins={[
                         Autoplay({
@@ -91,7 +93,7 @@ export default function NewsComponents(){
                     className=""
                 >
                     <CarouselContent className={'flex flex-col sm:flex-row gap-4'}>
-                        <CarouselItem className="w-96 h-96 basis-1/3 ">
+                        <CarouselItem className="w-full h-auto basis-1/3 ">
                             <div className="flex-col h-full">
                                 <p className="text-sm mt-2 text-white">11 Dec 2024</p>
                                 <h2 className="text-md text-amber-200 font-bold bg-red-800 p-2 ">Young Tech Explorers
@@ -110,7 +112,7 @@ export default function NewsComponents(){
                                 {/*<Link href="" className="hover:text-red-800 text-red-700 hover:font-bold">Register</Link>*/}
                             </div>
                         </CarouselItem>
-                        <CarouselItem className="w-96 h-96 basis-1/3 ">
+                        <CarouselItem className="w-full h-auto basis-1/3 ">
                             <div
                                 className="flex-col h-full ">
                                 {/*<Image src={CareerImage} alt=""/>*/}
@@ -134,7 +136,7 @@ export default function NewsComponents(){
                                 {/*<Link href="" className="hover:text-red-800 text-red-700 hover:font-bold">Register</Link>*/}
                             </div>
                         </CarouselItem>
-                        <CarouselItem className="w-96 h-96 basis-1/3 ">
+                        <CarouselItem className="w-full h-auto basis-1/3 ">
                             <div
                                 className="flex-col h-full ">
                                 {/*<Image src={CareerImage} alt=""/>*/}
@@ -156,7 +158,7 @@ export default function NewsComponents(){
                                 {/*<Link href="" className="hover:text-red-800 text-red-700 hover:font-bold">Register</Link>*/}
                             </div>
                         </CarouselItem>
-                        <CarouselItem className="w-96 h-96 basis-1/3 ">
+                        <CarouselItem className="w-full h-auto basis-1/3 ">
                             <div
                                 className="flex-col h-full ">
                                 {/*<Image src={CareerImage} alt=""/>*/}
@@ -179,7 +181,7 @@ export default function NewsComponents(){
                                 {/*<Link href="" className="hover:text-red-800 text-red-700 hover:font-bold">Register</Link>*/}
                             </div>
                         </CarouselItem>
-                        <CarouselItem className="w-96 h-96 basis-1/3 ">
+                        <CarouselItem className="w-full h-auto basis-1/3 ">
                             <div
                                 className="flex-col h-full ">
                                 {/*<Image src={CareerImage} alt=""/>*/}
@@ -210,12 +212,12 @@ export default function NewsComponents(){
 
             </section>
 
-            <h2 className="text-5xl font-extrabold animate-bounce text-red-700">Events</h2>
+            <h2 className="text-5xl font-extrabold animate-bounce text-red-700 pt-10">Events</h2>
 
             <section className="flex flex-col sm:flex-row gap-4 ">
                 <div className="flex flex-col py-2 sm:w-1/2 ">
                     <h2 className={'sm:text-xl font-bold '}>The Interpersonal Skills (IPS) Certification for Huffaz</h2>
-                    <p className="text-xs sm:text-lg text-stone-900 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-stone-900 leading-relaxed">
                         The Interpersonal Skills (IPS) Certification was proudly awarded to Huffaz of ALABRAR MADINA
                         TUL ILM REHMANIA High School, Pakpattan, following a collaborative course conducted by the
                         school and MVI Technologies (MVIT). This certification recognizes the participants&apos;

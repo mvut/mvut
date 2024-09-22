@@ -20,7 +20,7 @@ export default function StatisticsComponent(){
     }, []);
 
     return(
-        <div className={'flex flex-col sm:flex-row bg-teal-950 h-auto items-center justify-center gap-4 py-16'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:px-6 bg-teal-950 h-auto items-center justify-center gap-4 py-16'}>
             <div className={'flex flex-col items-center justify-center '}>
                 <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 rounded-lg'}>{Number(applicants)}+</p>
                 <p className={'flex items-center justify-center text-xl text-amber-200 bg-indigo-950 h-12 w-52  transition-all ease-linear delay-75'}>

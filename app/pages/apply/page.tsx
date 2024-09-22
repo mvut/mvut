@@ -1858,7 +1858,7 @@ export default function ApplicationForm(){
                         {/*       className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
                         {/*       required={true} name={'qualification'}/>*/}
 
-                        <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
                                 name={'qualification'}>
                             <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)
                             </option>

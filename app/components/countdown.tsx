@@ -24,7 +24,7 @@ export default function Countdown(){
     return(
         <div className={'flex flex-col sm:gap-4 text-white py-4'}>
             <p className={'text-lg sm:text-2xl'}>Deadline</p>
-            <div className={'flex flex-col sm:flex-row gap-2 text-xs'}>
+            <div className={'flex flex-row gap-2 text-xs'}>
                 <div className={'flex flex-col '}>
                     <label className={'text-teal-400'}>Days</label>
                     <h1 className={'text-xl'}>{days < 10 ? '0' + days : days}</h1>

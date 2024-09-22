@@ -16,7 +16,7 @@ export default function MyHeaderComponent(){
         setMenuOpen(!menuOpen);
     }
     return(
-        <motion.header layout layoutRoot style={{ position: "sticky" }}
+        <motion.header  layout layoutRoot style={{ position: "sticky" }}
             className={'flex flex-row justify-between p-2 lg:p-6 text-xs bg-stone-950'}>
             <div className={'flex flex-col items-start gap-2 sm:grid-cols-1 md:grid-cols-1 w-full text-white'}>
                 <Link
@@ -30,7 +30,7 @@ export default function MyHeaderComponent(){
                 <Link href={'/'}
                       className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
                 <Link href={'/pages/news'}
-                      className={'hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>News/Events</Link>
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Alerts</Link>
                 <Link href={'/pages/faculty'}
                       className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculty</Link>
                 <Link href={'/pages/study'}
@@ -53,7 +53,7 @@ export default function MyHeaderComponent(){
                             <Link href={'/'}
                                   className={''}>Home</Link>
                             <Link href={'/pages/news'}
-                                  className={''}>News/Events</Link>
+                                  className={''}>Alerts</Link>
                             <Link href={'/pages/faculty'}
                                   className={''}>Faculty</Link>
                             <Link href={'/pages/study'}

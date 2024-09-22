@@ -1,6 +1,5 @@
 'use client'
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import FooterComponent from "@/app/components/footer";
 import Template from "@/app/template";
@@ -9,7 +8,7 @@ import React from "react";
 import {usePathname} from "next/navigation";
 
 const inter = Open_Sans({ subsets: ["latin"], weight:['400'] });
-
+import { Open_Sans } from "next/font/google";
 // export const metadata: Metadata = {
 //   title: "MVIT",
 //   description: "Mansha Institute of Technologies (MVIT) is a beacon of excellence in technology education, empowering individuals to unlock their full potential. " +

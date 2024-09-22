@@ -22,9 +22,9 @@ import Image from "next/image";
 
 export default function CoursesPage(){
     return (
-        <div className="flex flex-col items-center justify-center py-6 lg:py-10">
+        <div className="flex flex-col items-center justify-center ">
             <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10'}>Web Technology Specialist Training (WTST)</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-10">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -176,8 +176,8 @@ export default function CoursesPage(){
                 </div>
             </div>
             {/*-----------------------*/}
-            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10 py-6 lg:py-10 mt-10'}>Computer Science Professional Studies (CSPS)</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-24">
+            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:py-10 '}>Computer Science Professional Studies (CSPS)</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-10">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">

@@ -1,4 +1,4 @@
-import Abs from '@/public/faculty/abs.png';
+import Abs from '@/public/faculty/abs3.jpg';
 import Younas from '@/public/faculty/younis.jpg';
 import Mst from '@/public/faculty/mst.jpg';
 import Hussain from '@/public/faculty/hussain.jpg';
@@ -341,7 +341,7 @@ export default function FacultyComponent(){
                     <div className={'flex flex-col items-center justify-center'}>
                         <h2 className={'text-lg font-bold'}>Ghulam Muhammad</h2>
                         <h2 className={'text-sm'}>ICS</h2>
-                        <h2 className={'text-sm'}>Instructor Amazon VAk</h2>
+                        <h2 className={'text-sm'}>Instructor Amazon VA</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>

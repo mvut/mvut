@@ -17,7 +17,7 @@ export default function SloganPage(){
     // }, []);
     // console.log(applicants);
     return (
-        <div className="flex flex-col md:flex-row bg-gray-950 w-full items-center justify-center">
+        <div className="flex flex-col sm:flex-row bg-gray-950 w-full items-center justify-center">
             <div className={'flex items-center justify-center flex-col md:w-1/3 md:leading-relaxed '}>
                 {/*<div className={'flex items-center justify-center'}>*/}
                 {/*    <p className={'text-xl text-gray-50'}>Total Applicants</p>*/}
@@ -26,7 +26,7 @@ export default function SloganPage(){
                 <p className={'text-xl sm:py-4 leading-relaxed text-teal-200 md:text-3xl '}> Admission open</p>
                 <div className={'flex items-center justify-center gap-2'}>
                     <Link href={'/pages/apply'}
-                          className={'text-md bg-red-600 text-gray-50 rounded-lg uppercase hover:bg-amber-600 p-2 px-4'}>apply</Link>
+                          className={'text-md bg-red-600 text-gray-50 uppercase hover:bg-amber-600 p-2 px-4'}>apply</Link>
                 </div>
             </div>
 
