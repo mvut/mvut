@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { MdWebhook } from "react-icons/md";
-import { MdArrowBackIos } from "react-icons/md";
 import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 
 export default function StudySchemeComponent(){
@@ -21,31 +19,31 @@ export default function StudySchemeComponent(){
 
                     <Link href={'/pages/study/programs/fsdn'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Full Stack Development with Next.js (FSDN)
                     </Link>
 
                     <Link href={'/pages/study/programs/php'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Full Stack PHP Development (FSP)
                     </Link>
 
                     <Link href={'/pages/study/programs/omc'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Office Management and Work Ethics (OM&WE)
                     </Link>
 
                     <Link href={'/pages/study/programs/cwt'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Core Web Technologies (CWT)
                     </Link>
 
                     <Link href={'/pages/courses'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Short Courses
                     </Link>
 
@@ -55,55 +53,55 @@ export default function StudySchemeComponent(){
 
                     <Link href={'/pages/study/programs/psc'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Junior Computer Science Certificate (JCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/esc'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Senior Computer Science Certificate (SCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/ssc'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Advance Computer Science Certificate (ACSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/hssc'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Professional Computer Science Certificate (PCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/bscs'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Premier Certificate in Computer Science (PCCS)
                     </Link>
 
                     <Link href={'/pages/study/programs/pgdfsn'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Certified Web Professional in Full Stack Next.js (CWP FSN)
                     </Link>
 
                     <Link href={'/pages/study/programs/pgdfsp'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Certified Web Professional in Full Stack PHP (CWP FSP)
                     </Link>
 
                     <Link href={'/pages/study/programs/msfsd'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Advance Professional Certificate in Web Development (APCWD)
                     </Link>
 
                     <Link href={'/pages/study/programs/phdfsd'}
                           className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50'}
-                    > <MdWebhook size={20}/>
+                    >
                         Certificate of Philosophy in Web Development (CPWD)
                     </Link>
 
