@@ -1854,30 +1854,30 @@ export default function ApplicationForm(){
 
                     <div className={'flex flex-col '}>
                         <label>Latest Qualification</label>
-                        <input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'qualification'}/>
+                        {/*<input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}*/}
+                        {/*       className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
+                        {/*       required={true} name={'qualification'}/>*/}
 
-                        {/*<select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
-                        {/*        name={'qualification'}>*/}
-                        {/*    <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)*/}
-                        {/*    </option>*/}
-                        {/*    <option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate*/}
-                        {/*        (ESC)*/}
-                        {/*    </option>*/}
-                        {/*    <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate*/}
-                        {/*        (SSC)*/}
-                        {/*    </option>*/}
-                        {/*    <option value={'Higher Secondary School Certificate (HSSC)'}>Higher Secondary School*/}
-                        {/*        Certificate (HSSC)*/}
-                        {/*    </option>*/}
-                        {/*    <option value={'Bachelor of Science (B.S.)'}>Bachelor of Science (B.S.)</option>*/}
-                        {/*    <option value={'Bachelor of Arts (B.A.)'}>Bachelor of Arts (B.A.)</option>*/}
-                        {/*    <option value={'Post Graduate Diploma'}>Post Graduate Diploma</option>*/}
-                        {/*    <option value={'Master of Science'}>Master of Science</option>*/}
-                        {/*    <option value={'Master of Arts'}>Master of Arts</option>*/}
-                        {/*    <option value={'Doctor of Philosophy (Ph.D.)'}>Doctor of Philosophy (Ph.D.)</option>*/}
-                        {/*</select>*/}
+                        <select className={'md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
+                                name={'qualification'}>
+                            <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)
+                            </option>
+                            <option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate
+                                (ESC)
+                            </option>
+                            <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate
+                                (SSC)
+                            </option>
+                            <option value={'Higher Secondary School Certificate (HSSC)'}>Higher Secondary School
+                                Certificate (HSSC)
+                            </option>
+                            <option value={'Bachelor of Science (B.S.)'}>Bachelor of Science (B.S.)</option>
+                            <option value={'Bachelor of Arts (B.A.)'}>Bachelor of Arts (B.A.)</option>
+                            <option value={'Post Graduate Diploma'}>Post Graduate Diploma</option>
+                            <option value={'Master of Science'}>Master of Science</option>
+                            <option value={'Master of Arts'}>Master of Arts</option>
+                            <option value={'Doctor of Philosophy (Ph.D.)'}>Doctor of Philosophy (Ph.D.)</option>
+                        </select>
                     </div>
 
                     <div className={'flex flex-col '}>

@@ -20,6 +20,9 @@ import Sohail from '@/public/faculty/sohail2.jpg';
 import Hameed from '@/public/faculty/hameed.jpg';
 import Yasir from '@/public/faculty/yasir.jpg';
 import Kamran from '@/public/faculty/kamran.jpg';
+import Dummy from '@/public/faculty/dummy.png';
+import Yasri from '@/public/faculty/yassri.jpeg';
+import Safdar from '@/public/faculty/safdar.jpg';
 import Image from "next/image";
 
 export default function FacultyComponent(){
@@ -74,6 +77,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Arshad Iqbal</h2>
                         <h2 className={'text-sm'}>M.Phil. Statistics, M. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor Data Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Shah Para</h2>
+                        <h2 className={'text-sm'}>Ph.D. Physics</h2>
+                        <h2 className={'text-sm'}>Instructor Physics</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
@@ -140,6 +155,18 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Safdar} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Safdar Hussain</h2>
+                        <h2 className={'text-sm'}>M.A. English, M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor English, Education</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
                         <Image src={Babar} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
@@ -194,6 +221,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Ghulam Abbas</h2>
                         <h2 className={'text-sm'}>MS (CS), M.Sc Mathematics, B. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor Programming & Algorithms</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Yasri} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Yasir</h2>
+                        <h2 className={'text-sm'}>M.A. Political Science</h2>
+                        <h2 className={'text-sm'}>Instructor Political Science</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
@@ -266,6 +305,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Daha Qalbi</h2>
                         <h2 className={'text-sm'}>BS (CS)</h2>
                         <h2 className={'text-sm'}>Instructor MERN Stack</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Aneela Abubakar</h2>
+                        <h2 className={'text-sm'}>BCS</h2>
+                        <h2 className={'text-sm'}>Technical Assistant</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>

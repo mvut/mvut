@@ -29,6 +29,8 @@ export default function MyHeaderComponent(){
             <motion.div layout className={'hidden sm:flex items-center justify-center sm:text-sm lg:text-md text-gray-50'}>
                 <Link href={'/'}
                       className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
+                <Link href={'/pages/news'}
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>News/Events</Link>
                 <Link href={'/pages/faculty'}
                       className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculty</Link>
                 <Link href={'/pages/study'}
@@ -50,6 +52,8 @@ export default function MyHeaderComponent(){
                         <div className={'grid grid-cols-1 gap-4 sm:text-sm lg:text-base'}>
                             <Link href={'/'}
                                   className={''}>Home</Link>
+                            <Link href={'/pages/news'}
+                                  className={''}>News/Events</Link>
                             <Link href={'/pages/faculty'}
                                   className={''}>Faculty</Link>
                             <Link href={'/pages/study'}
