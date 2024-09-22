@@ -22,10 +22,7 @@ export default function VisionComponent(){
                     <Image src={Abs} alt={''} className={'w-16 h-16 '}/>
                     <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Founder Message</h2>
                 </div>
-                <p className={'leading-relaxed text-sm py-4'}>At MVIT, we envision a future where technology and innovation
-                    empower people&apos;s growth. Our mission is to nurture talented minds, foster cutting-edge
-                    research, and drive societal impact. I&apos;m proud of our journey and committed to shaping a
-                    brighter future for our students, community, and nation.</p>
+                <p className={'leading-relaxed text-sm py-4'}>At MVIT, we envision a future where technology and innovation empower global prosperity, bridging gaps and transforming lives worldwide. Our mission is to cultivate exceptional talent, drive groundbreaking research, and spark meaningful impact across borders. I&apos;m proud of our journey and committed to shaping a brighter future for our global community, fostering a culture of collaboration, diversity, and inclusivity.</p>
                 <p className={'text-xs italic'}>Abubakar Siddique</p>
 
             </div>
