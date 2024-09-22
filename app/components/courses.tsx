@@ -22,7 +22,7 @@ import Image from "next/image";
 
 export default function CoursesPage(){
     return (
-        <div className="flex flex-col items-center justify-center py-6 lg:py-24">
+        <div className="flex flex-col items-center justify-center py-6 lg:py-10">
             <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10'}>Web Technology Specialist Training (WTST)</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-10">
                 {/**/}

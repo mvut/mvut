@@ -1,0 +1,44 @@
+import Abs from "@/public/faculty/abs.png";
+import Image from "next/image";
+import Link from "next/link";
+import { GrAnnounce } from "react-icons/gr";
+
+export default function VisionComponent(){
+    return(
+        <div className={'container flex flex-col sm:flex-row justify-between py-16 gap-4'}>
+            <div className={'flex flex-col w-96 h-96 bg-gray-200 p-6 border-t-4 border-amber-300 transition-all ease-in-out hover:bg-amber-100 delay-100 hover:scale-110'}>
+                <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Vision</h2>
+                <p className={'text-sm leading-relaxed py-2'}>Empowering a brighter future through innovative education and technology, transforming individuals,
+                    communities, and societies.</p>
+
+                <h2 className={'underline underline-offset-4 text-indigo-700 pt-6 font-bold'}>Mission Statement</h2>
+                <p className={'text-sm text-stone-600 leading-relaxed py-2'}>At MVIT, our mission is to bridge the gap between technology and
+                    education, providing accessible,
+                    high-quality learning experiences that foster creativity, critical thinking, and innovation.</p>
+            </div>
+            {/*    */}
+            <div className={'flex flex-col w-96 h-96 bg-gray-200 p-6 border-t-4 border-green-500 flex-wrap transition-all ease-in-out hover:bg-green-100 delay-100 hover:scale-110'}>
+                <div className={'flex items-center justify-start gap-2'}>
+                    <Image src={Abs} alt={''} className={'w-16 h-16 '}/>
+                    <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Founder Message</h2>
+                </div>
+                <p className={'leading-relaxed text-sm py-4'}>At MVIT, we envision a future where technology and innovation
+                    empower people&apos;s growth. Our mission is to nurture talented minds, foster cutting-edge
+                    research, and drive societal impact. I&apos;m proud of our journey and committed to shaping a
+                    brighter future for our students, community, and nation.</p>
+                <p className={'text-xs italic'}>Abubakar Siddique</p>
+
+            </div>
+            {/*    */}
+            <div className={'flex flex-col w-96 h-96 bg-gray-200 p-6 border-t-4 border-indigo-500 transition-all ease-in-out hover:bg-indigo-100 delay-100 hover:scale-110'}>
+                <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Announcements</h2>
+                <div className={'flex items-center justify-center gap-2 py-2'}>
+                    {/*<Image src={Abs} alt={''} className={'w-12 h-12 '}/>*/}
+                    <GrAnnounce className={'w-12 h-12 text-xs text-red-600'}/>
+
+                    <Link className={'text-xs hover:text-red-600 text-indigo-600'} href={'/pages/study'}>Fall 2024 Enrollment Now Open: Explore Our Certification Programs and Apply Today</Link>
+                </div>
+            </div>
+        </div>
+    )
+}

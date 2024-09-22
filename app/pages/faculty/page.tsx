@@ -23,6 +23,7 @@ import Kamran from '@/public/faculty/kamran.jpg';
 import Dummy from '@/public/faculty/dummy.png';
 import Yasri from '@/public/faculty/yassri.jpeg';
 import Safdar from '@/public/faculty/safdar.jpg';
+import Ikram from '@/public/faculty/ikram.jpg';
 import Image from "next/image";
 
 export default function FacultyComponent(){
@@ -221,6 +222,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Ghulam Abbas</h2>
                         <h2 className={'text-sm'}>MS (CS), M.Sc Mathematics, B. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor Programming & Algorithms</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Ikram} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Ikram</h2>
+                        <h2 className={'text-sm'}>M.A Urdu, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor National Language</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
