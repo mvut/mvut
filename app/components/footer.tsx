@@ -42,10 +42,12 @@ export default function FooterComponent() {
                 </div>
 
             </div>
+
             <div className={'flex items-center justify-start gap-4 pl-4 text-gray-50 text-center bg-gray-950 h-10'}>
                 <p className={'text-xs'}>Powered by
                     <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> MVIT</Link>
                 </p>
+
                 <HoverCard>
                     <HoverCardTrigger className={'text-xs'}>Data Privacy</HoverCardTrigger>
                     <HoverCardContent className={'text-xs'}>
@@ -61,6 +63,7 @@ export default function FooterComponent() {
                         </p>
                     </HoverCardContent>
                 </HoverCard>
+
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ import Mike from '@/public/faculty/mike2.jpg';
 import SARFRAZ from '@/public/faculty/SARFRAZ.jpg';
 import AliIjaz from '@/public/faculty/ali.png';
 import Babar from '@/public/faculty/babar.jpg';
-import Sabar from '@/public/faculty/Sabar2.png';
+import Sabar from '@/public/faculty/sabar.jpg';
 import Amir from '@/public/faculty/amir.jpg';
 import Mabbas from '@/public/faculty/mabbas.jpg';
 import Sohail from '@/public/faculty/sohail2.jpg';
