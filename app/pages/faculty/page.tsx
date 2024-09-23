@@ -13,7 +13,7 @@ import Mike from '@/public/faculty/mike2.jpg';
 import SARFRAZ from '@/public/faculty/SARFRAZ.jpg';
 import AliIjaz from '@/public/faculty/ali.png';
 import Babar from '@/public/faculty/babar.jpg';
-import Sabar from '@/public/faculty/sabar.jpg';
+import Sabar from '@/public/faculty/Sabar2.png';
 import Amir from '@/public/faculty/amir.jpg';
 import Mabbas from '@/public/faculty/mabbas.jpg';
 import Sohail from '@/public/faculty/sohail2.jpg';
@@ -26,6 +26,7 @@ import Safdar from '@/public/faculty/safdar.jpg';
 import Ikram from '@/public/faculty/ikram.jpg';
 import Awais from '@/public/faculty/awais.jpg';
 import Rashid from '@/public/faculty/rashid.jpg';
+import Maqsood from '@/public/faculty/maqsood.jpg';
 import Image from "next/image";
 
 export default function FacultyComponent(){
@@ -74,6 +75,18 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Abid} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Abid Hussain</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor CS & Simulations</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
                         <Image src={ArshadIqbal} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
@@ -89,8 +102,20 @@ export default function FacultyComponent(){
                         <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
-                        <h2 className={'text-lg font-bold'}>Shah Para</h2>
-                        <h2 className={'text-sm'}>Ph.D. Physics</h2>
+                        <h2 className={'text-lg font-bold'}>Safia</h2>
+                        <h2 className={'text-sm'}>MS (CS), M. Ed, M.A. Pak Studies</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Education</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Hafiza Shahpara</h2>
+                        <h2 className={'text-sm'}>M.Phil. Physics, B. Ed.</h2>
                         <h2 className={'text-sm'}>Instructor Physics</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
@@ -206,18 +231,6 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
-                        <Image src={Abid} alt={''} className={'h-44 w-44 rounded-full'}/>
-                    </div>
-                    <div className={'flex flex-col items-center justify-center'}>
-                        <h2 className={'text-lg font-bold'}>Abid Hussain</h2>
-                        <h2 className={'text-sm'}>MS (CS), M. Ed.</h2>
-                        <h2 className={'text-sm'}>Instructor CS & Simulations</h2>
-                        <h2 className={'text-sm'}>Pakistan</h2>
-                    </div>
-                </div>
-                {/* Leader */}
-                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
-                    <div className={'border-2 border-stone-900 rounded-full'}>
                         <Image src={Arshad} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
@@ -254,12 +267,60 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Maqsood} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Maqsood Ahmad</h2>
+                        <h2 className={'text-sm'}>M. Sc. E-Commerce, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Commerce</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Yasir} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Yasir Ali</h2>
+                        <h2 className={'text-sm'}>M.A. Education</h2>
+                        <h2 className={'text-sm'}>Instructor Educational Studies</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
                         <Image src={Yasri} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
                         <h2 className={'text-lg font-bold'}>Muhammad Yasir</h2>
                         <h2 className={'text-sm'}>M.A. Political Science</h2>
                         <h2 className={'text-sm'}>Instructor Political Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={AliIjaz} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Ali Ijaz</h2>
+                        <h2 className={'text-sm'}>MCS, M.Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Science</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Daha} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Daha Qalbi</h2>
+                        <h2 className={'text-sm'}>BS (CS)</h2>
+                        <h2 className={'text-sm'}>Instructor MERN Stack</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
@@ -302,18 +363,6 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
-                        <Image src={Yasir} alt={''} className={'h-44 w-44 rounded-full'}/>
-                    </div>
-                    <div className={'flex flex-col items-center justify-center'}>
-                        <h2 className={'text-lg font-bold'}>Yasir Ali</h2>
-                        <h2 className={'text-sm'}>M.A. Education</h2>
-                        <h2 className={'text-sm'}>Instructor Educational Studies</h2>
-                        <h2 className={'text-sm'}>Pakistan</h2>
-                    </div>
-                </div>
-                {/* Leader */}
-                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
-                    <div className={'border-2 border-stone-900 rounded-full'}>
                         <Image src={Hameed} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
@@ -326,24 +375,24 @@ export default function FacultyComponent(){
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
-                        <Image src={AliIjaz} alt={''} className={'h-44 w-44 rounded-full'}/>
+                        <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
-                        <h2 className={'text-lg font-bold'}>Ali Ijaz</h2>
-                        <h2 className={'text-sm'}>MCS, M.Ed.</h2>
-                        <h2 className={'text-sm'}>Instructor Computer Science</h2>
+                        <h2 className={'text-lg font-bold'}>Mehvish K.</h2>
+                        <h2 className={'text-sm'}>M. Sc Zoology, B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Science Education</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
                 {/* Leader */}
                 <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
                     <div className={'border-2 border-stone-900 rounded-full'}>
-                        <Image src={Daha} alt={''} className={'h-44 w-44 rounded-full'}/>
+                        <Image src={Dummy} alt={''} className={'h-44 w-44 rounded-full'}/>
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
-                        <h2 className={'text-lg font-bold'}>Daha Qalbi</h2>
-                        <h2 className={'text-sm'}>BS (CS)</h2>
-                        <h2 className={'text-sm'}>Instructor MERN Stack</h2>
+                        <h2 className={'text-lg font-bold'}>Haiqa Safdar</h2>
+                        <h2 className={'text-sm'}>BS (CS), B. Ed.</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Science</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>

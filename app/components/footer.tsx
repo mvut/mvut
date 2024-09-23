@@ -3,10 +3,15 @@ import {FaFacebookF, FaWhatsapp} from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import {CiYoutube} from "react-icons/ci";
 import React from "react";
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@/components/ui/hover-card"
 
-export default function FooterComponent(){
+export default function FooterComponent() {
     return (
-        <div >
+        <div>
             <div
                 className="flex flex-col sm:flex-row sm:h-60 bg-gray-900 justify-between items-center sm:px-10 text-gray-50">
                 <div className={'flex flex-col items-start justify-center'}>
@@ -37,10 +42,25 @@ export default function FooterComponent(){
                 </div>
 
             </div>
-            <div className={'flex items-center justify-center text-gray-50 text-center bg-gray-950 h-10'}>
+            <div className={'flex items-center justify-start gap-4 pl-4 text-gray-50 text-center bg-gray-950 h-10'}>
                 <p className={'text-xs'}>Powered by
                     <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> MVIT</Link>
                 </p>
+                <HoverCard>
+                    <HoverCardTrigger className={'text-xs'}>Data Privacy</HoverCardTrigger>
+                    <HoverCardContent className={'text-xs'}>
+                        <p className={'font-bold'}>Data Privacy Policy</p>
+                        <p>
+                            At MVIT, we prioritize data protection, collecting only necessary personal data (contact,
+                            device, usage, and location information) to enhance your experience, communicate
+                            effectively, and comply with regulations. We implement robust security measures to safeguard
+                            your data and may share it with affiliates, service providers, and law enforcement as
+                            required. You have the right to access, update, withdraw consent, object, and request
+                            deletion of your data. Our commitment to transparency and security ensures your trust and
+                            confidence.
+                        </p>
+                    </HoverCardContent>
+                </HoverCard>
             </div>
         </div>
     )
