@@ -24,6 +24,8 @@ import Dummy from '@/public/faculty/dummy.png';
 import Yasri from '@/public/faculty/yassri.jpeg';
 import Safdar from '@/public/faculty/safdar.jpg';
 import Ikram from '@/public/faculty/ikram.jpg';
+import Awais from '@/public/faculty/awais.jpg';
+import Rashid from '@/public/faculty/rashid.jpg';
 import Image from "next/image";
 
 export default function FacultyComponent(){
@@ -90,6 +92,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Shah Para</h2>
                         <h2 className={'text-sm'}>Ph.D. Physics</h2>
                         <h2 className={'text-sm'}>Instructor Physics</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Rashid} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Rashid Zafar</h2>
+                        <h2 className={'text-sm'}>MBA, LLB</h2>
+                        <h2 className={'text-sm'}>Instructor Marketing</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
@@ -270,6 +284,18 @@ export default function FacultyComponent(){
                         <h2 className={'text-lg font-bold'}>Muhammad Hussain</h2>
                         <h2 className={'text-sm'}>BCS</h2>
                         <h2 className={'text-sm'}>Instructor Computer Graphics</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Awais} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>Muhammad Awais</h2>
+                        <h2 className={'text-sm'}>BCS</h2>
+                        <h2 className={'text-sm'}>Instructor Tailwind</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
