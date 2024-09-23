@@ -7,8 +7,8 @@ import MyHeaderComponent from "@/app/components/myheader";
 import React from "react";
 import {usePathname} from "next/navigation";
 
-const inter = Open_Sans({ subsets: ["latin"], weight:['400'] });
-import { Open_Sans } from "next/font/google";
+const inter = PT_Sans({ subsets: ["latin"], weight:['400'] });
+import {Open_Sans, PT_Sans} from "next/font/google";
 // export const metadata: Metadata = {
 //   title: "MVIT",
 //   description: "Mansha Institute of Technologies (MVIT) is a beacon of excellence in technology education, empowering individuals to unlock their full potential. " +

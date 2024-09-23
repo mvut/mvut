@@ -8,6 +8,19 @@ import { motion } from "framer-motion"
 import Image from "next/image";
 import Logo from "@/public/mvit_logo_1.png";
 
+const inter = Lora({ subsets: ["latin"], weight:['400'] });
+import {
+    Aclonica,
+    Girassol,
+    Lora,
+    Michroma,
+    Nova_Oval,
+    PT_Sans,
+    Roboto_Slab,
+    Russo_One,
+    Unbounded
+} from "next/font/google";
+
 export default function MyHeaderComponent(){
     const pathname = usePathname();
     const isActive = (link: string) => link === pathname;
@@ -17,7 +30,7 @@ export default function MyHeaderComponent(){
     }
     return(
         <motion.header  layout layoutRoot style={{ position: "sticky" }}
-            className={'flex flex-row justify-between p-2 lg:p-6 text-xs bg-stone-950'}>
+            className={`${inter.className} flex flex-row justify-between p-2 lg:p-6 text-xs bg-stone-950`}>
             <div className={'flex flex-col items-start gap-2 sm:grid-cols-1 md:grid-cols-1 w-full text-white'}>
                 <Link
                     className={'flex flex-row items-center justify-center font-bold text-sm sm:text-xl gap-2 '}
