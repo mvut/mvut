@@ -102,8 +102,8 @@ export default function FacultyComponent(){
                     </div>
                     <div className={'flex flex-col items-center justify-center'}>
                         <h2 className={'text-lg font-bold'}>Rashid Zafar</h2>
-                        <h2 className={'text-sm'}>MBA, LLB</h2>
-                        <h2 className={'text-sm'}>Instructor Marketing</h2>
+                        <h2 className={'text-sm'}>MBA, M. Sc (Sports), B.Ed., LLB</h2>
+                        <h2 className={'text-sm'}>Instructor Marketing Education</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
