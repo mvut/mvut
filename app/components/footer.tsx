@@ -52,7 +52,7 @@ export default function FooterComponent() {
                     <HoverCardTrigger className={'text-xs'}>Data Privacy</HoverCardTrigger>
                     <HoverCardContent className={'text-xs'}>
                         <p className={'font-bold'}>Data Privacy Policy</p>
-                        <p>
+                        <p className={'text-xs'}>
                             At MVIT, we prioritize data protection, collecting only necessary personal data (contact,
                             device, usage, and location information) to enhance your experience, communicate
                             effectively, and comply with regulations. We implement robust security measures to safeguard

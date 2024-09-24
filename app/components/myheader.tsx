@@ -44,8 +44,10 @@ export default function MyHeaderComponent(){
                       className={'rounded-l-full hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
                 <Link href={'/pages/news'}
                       className={'hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Alerts</Link>
+                <Link href={'/pages/research'}
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Research</Link>
                 <Link href={'/pages/faculty'}
-                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculty</Link>
+                      className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculties</Link>
                 <Link href={'/pages/study'}
                       className={'hover:bg-stone-600 hover:text-amber-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Studies</Link>
                 <Link href={'/pages/study/fee'}
@@ -67,8 +69,10 @@ export default function MyHeaderComponent(){
                                   className={''}>Home</Link>
                             <Link href={'/pages/news'}
                                   className={''}>Alerts</Link>
+                            <Link href={'/pages/research'}
+                                  className={''}>Research</Link>
                             <Link href={'/pages/faculty'}
-                                  className={''}>Faculty</Link>
+                                  className={''}>Faculties</Link>
                             <Link href={'/pages/study'}
                                   className={''}>Studies</Link>
                             <Link href={'/pages/study/fee'}
