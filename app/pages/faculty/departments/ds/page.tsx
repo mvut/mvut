@@ -4,10 +4,10 @@ import Mabbas from "@/public/faculty/mabbas.jpg";
 import Abid from "@/public/faculty/abid.jpg";
 import Sohail from "@/public/faculty/sohail2.jpg";
 
-export default function CSDepartment(){
+export default function DataScienceDepartment(){
     return(
-        <div className={'container flex flex-col py-16'}>
-            <p className={'text-3xl md:text-2xl font-bold text-start py-2 lg:py-10 '}>Faculty of Data Science & Machine Learning</p>
+        <div className={'container flex flex-col min-h-screen'}>
+            <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Data Science & Machine Learning</p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}
