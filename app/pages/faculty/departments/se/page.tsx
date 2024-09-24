@@ -6,6 +6,10 @@ export default function SoftwareEngineeringDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Software Engineering</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Software Engineering at MVIT bridges the gap between technology and innovation, nurturing skilled professionals who design, develop, and deliver high-quality software solutions. Our expert faculty guide students through a rigorous curriculum emphasizing software design patterns, architecture, testing, and project management, alongside cutting-edge technologies like agile development, DevOps, and cloud computing. With hands-on projects, internships, and industry partnerships, students gain expertise in programming languages, software development methodologies, and collaborative teamwork. Graduates are equipped to drive digital transformation, lead tech initiatives, and craft reliable, scalable, and secure software systems that transform industries and improve lives.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

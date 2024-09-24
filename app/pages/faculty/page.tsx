@@ -5,6 +5,10 @@ export default function ResearchComponent(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Research and Development</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Research and Development Department at MVIT is a hub of innovation, driving technological advancements and business growth through cutting-edge research, experimentation, and product development. Our mission is to develop innovative solutions, products, and services that enhance competitiveness, sustainability, and social impact, while fostering a culture of continuous learning and improvement. Focusing on Web Development, Artificial Intelligence, Data Science, Machine Learning, Blockchain and Internet of Things, our multidisciplinary team employs design thinking, agile development, and experimentation to transform ideas into tangible solutions. Through collaboration with internal stakeholders, academia, and industry partners, we develop intellectual property, commercialize innovative solutions, and enhance organizational capabilities, striving to become a leading R&D organization recognized for excellence and transformative impact.
+
+            </p>
             <div>
                 <div
                     className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>

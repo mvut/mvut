@@ -9,6 +9,10 @@ export default function AppDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Application Development</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Application Development at MVIT empowers students to design, develop, and deploy innovative software solutions that transform industries and improve lives. Our expert faculty, comprised of seasoned professionals and industry experts, deliver a cutting-edge curriculum that blends theoretical foundations with hands-on experience. Students gain proficiency in programming languages, software engineering, database management, and human-computer interaction, preparing them to tackle complex challenges. State-of-the-art facilities, including advanced labs and collaborative workspaces, foster creativity, experimentation, and teamwork. Through projects, internships, and partnerships with tech leaders, students develop a portfolio of impressive applications, addressing real-world challenges in areas like healthcare, finance, and sustainability.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

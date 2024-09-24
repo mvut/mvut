@@ -5,6 +5,10 @@ export default function SociologyDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Sociology</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Sociology at MVIT explores the complex dynamics of human social behavior, relationships, and institutions, cultivating critical thinkers and informed citizens. Our esteemed faculty deliver a comprehensive curriculum encompassing sociological theory, research methods, social inequality, cultural diversity, globalization, and social policy. Students examine the intersections of power, identity, and social justice, developing skills in data analysis, critical thinking, and effective communication. Through research projects, community engagement, and internships, graduates are equipped to address pressing social issues, drive policy changes, and promote inclusive and equitable societies.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

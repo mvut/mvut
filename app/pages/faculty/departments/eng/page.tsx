@@ -7,6 +7,9 @@ export default function EnglishDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of English Language</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of English Language at MVIT cultivates effective communication, creative expression, and critical thinking, empowering students to excel in a linguistically diverse world. Our expert faculty deliver a comprehensive curriculum encompassing language, literature, linguistics, and cultural studies, exploring the complexities of the English language and its global applications. With a focus on language acquisition, literary analysis, and professional communication, students develop skills in writing, teaching, translation, and cultural competency. Through research opportunities, internships, and international collaborations, graduates are prepared for careers in education, publishing, journalism, and international relations, shaping the cultural and linguistic landscape of the 21st century.
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

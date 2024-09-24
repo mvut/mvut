@@ -5,6 +5,9 @@ export default function PhysicsDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Physics</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Physics at MVIT explores the fundamental laws of the universe, cultivating innovative thinkers and leaders in the pursuit of scientific discovery. Our renowned faculty deliver a comprehensive curriculum encompassing theoretical and experimental physics, from classical mechanics to quantum field theory, and applied physics, including materials science, nanotechnology, and biophysics. With state-of-the-art laboratories, research centers, and international collaborations, students investigate phenomena at the forefront of modern physics, tackling complex challenges in energy, environment, and technology. Graduates are equipped for careers in research, academia, industry, and government, driving breakthroughs and advancing our understanding of the physical world.
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

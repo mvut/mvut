@@ -6,6 +6,9 @@ export default function MathematicsDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Mathematics</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Mathematics at MVIT fosters a community of mathematicians and thinkers, equipping students with a deep understanding of mathematical principles and their applications. Our esteemed faculty deliver a comprehensive curriculum spanning pure and applied mathematics, statistics, and computational mathematics, emphasizing problem-solving, logical reasoning, and analytical thinking. With research opportunities, collaborations, and cutting-edge resources, students explore the frontiers of mathematics, tackling complex challenges in fields like cryptography, data science, optimization, and mathematical modeling. Graduates are prepared for careers in academia, research, finance, technology, and more, driving innovation and solving real-world problems.
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

@@ -8,6 +8,10 @@ export default function DataScienceDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Data Science & Machine Learning</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Data Science & Machine Learning at MVIT empowers students to unlock insights from complex data, driving informed decision-making and innovation. Our interdisciplinary program combines computer science, statistics, and domain expertise to foster proficiency in data analytics, machine learning, deep learning, and artificial intelligence. With a focus on data visualization, natural language processing, cognitive computing, and data engineering, students gain hands-on experience with cutting-edge tools like Python, R, TensorFlow, and PyTorch. Renowned researchers and industry partners deliver a forward-thinking curriculum, preparing graduates for careers in data science, AI engineering, and research, and enabling them to transform industries and address real-world challenges.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

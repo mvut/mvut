@@ -5,6 +5,10 @@ export default function BioTechnologyDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Biotechnology</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Biotechnology at MVIT pioneers innovative solutions at the intersection of biology, technology, and medicine, cultivating leaders in the rapidly evolving field of biotechnology. Our esteemed faculty deliver a comprehensive curriculum integrating genetics, molecular biology, biochemistry, and biomedical engineering with cutting-edge techniques in genetic engineering, genomics, proteomics, and bioinformatics. With state-of-the-art laboratories, research centers, and collaborations with industry partners, students explore the frontiers of biotechnology, developing novel therapies, diagnostic tools, and sustainable products. Graduates are equipped to drive breakthroughs in healthcare, agriculture, environmental sustainability, and forensic science, transforming lives and shaping the future of biotechnology.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

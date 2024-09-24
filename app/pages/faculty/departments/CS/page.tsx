@@ -7,6 +7,10 @@ export default function CSDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Computer Science</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Computer Science at MVIT cultivates innovative thinkers and tech leaders, equipping students with a comprehensive foundation in computer science principles, theories, and applications. Our expert faculty deliver a forward-thinking curriculum spanning algorithms, data structures, software engineering, computer networks, database systems, artificial intelligence, and cybersecurity. With state-of-the-art facilities and collaborative research opportunities, students develop programming expertise, problem-solving skills, and innovative solutions to real-world challenges. Graduates are prepared for successful careers in tech, research, and entrepreneurship, driving digital transformation and shaping the future of computing.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
                 {/* Leader */}

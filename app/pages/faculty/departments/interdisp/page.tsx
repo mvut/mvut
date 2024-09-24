@@ -8,6 +8,10 @@ export default function InterDisDepartment(){
     return(
         <div className={'container flex flex-col min-h-screen'}>
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Interdisciplinary Education</p>
+            <p className={'text-xs sm:text-sm'}>
+                The Faculty of Interdisciplinary Education at MVIT revolutionizes learning by integrating multiple disciplines, fostering creative problem-solving, critical thinking, and collaborative leadership. Our innovative faculty bridge gaps between arts, humanities, social sciences, natural sciences, and technology, delivering a forward-thinking curriculum that addresses complex real-world challenges. Students explore interconnected themes, such as sustainability, social justice, and global citizenship, developing adaptable skills in design thinking, project-based learning, and community engagement. Through interdisciplinary research, internships, and capstone projects, graduates emerge as visionary thinkers, equipped to navigate complex systems, drive social change, and thrive in an ever-evolving world.
+
+            </p>
             <div
                 className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
 
