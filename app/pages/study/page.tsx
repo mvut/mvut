@@ -17,35 +17,34 @@ export default function StudySchemeComponent(){
 
 
             {/*<Link href={'/pages/apply'} className={'text-lg hover:text-red-500 pt-4'}>Apply now </Link>*/}
-            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 '}>
+            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 '}>
 
                 <Link href={'/pages/study/programs/fsdn'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Full Stack Development with Next.js (FSDN)
                 </Link>
 
-
                 <Link href={'/pages/study/programs/php'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Full Stack PHP Development (FSP)
                 </Link>
 
                 <Link href={'/pages/study/programs/omc'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Office Management and Work Ethics (OM&WE)
                 </Link>
 
                 <Link href={'/pages/study/programs/cwt'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Core Web Technologies (CWT)
                 </Link>
 
                 <Link href={'/pages/courses'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Short Courses
                 </Link>
@@ -57,55 +56,55 @@ export default function StudySchemeComponent(){
 
 
                 <Link href= {'/pages/study/programs/psc'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50  h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Junior Computer Science Certificate (JCSC)
                 </Link>
 
                 <Link href={'/pages/study/programs/esc'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Senior Computer Science Certificate (SCSC)
                 </Link>
 
                 <Link href={'/pages/study/programs/ssc'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Advance Computer Science Certificate (ACSC)
                 </Link>
 
                 <Link href={'/pages/study/programs/hssc'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Professional Computer Science Certificate (PCSC)
                 </Link>
 
                 <Link href={'/pages/study/programs/bscs'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Premier Certificate in Computer Science (PCCS)
                 </Link>
 
                 <Link href={'/pages/study/programs/pgdfsn'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Certified Web Professional in Full Stack Next.js (CWP FSN)
                 </Link>
 
                 <Link href={'/pages/study/programs/pgdfsp'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Certified Web Professional in Full Stack PHP (CWP FSP)
                 </Link>
 
                 <Link href={'/pages/study/programs/msfsd'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Advance Professional Certificate in Web Development (APCWD)
                 </Link>
 
                 <Link href={'/pages/study/programs/phdfsd'}
-                      className={'flex gap-2 items-center justify-center hover:text-red-500 transition-all delay-50 h-48 w-96 p-4 bg-teal-500 text-gray-800 text-2xl rounded-xl'}
+                      className={''}
                 >
                     Certificate of Philosophy in Web Development (CPWD)
                 </Link>
