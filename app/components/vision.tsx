@@ -5,7 +5,7 @@ import { GrAnnounce } from "react-icons/gr";
 
 export default function VisionComponent(){
     return(
-        <div className={'container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col sm:flex-row justify-between px-6 py-16 gap-4'}>
+        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col sm:flex-row justify-between px-6 py-16 gap-4'}>
             <div className={'flex flex-col sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-amber-300 transition-all ease-in-out hover:bg-amber-100 delay-100 hover:scale-110'}>
                 <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Vision</h2>
                 <p className={'text-sm leading-relaxed py-2'}>Empowering a brighter future through innovative education and technology, transforming individuals,
@@ -20,7 +20,7 @@ export default function VisionComponent(){
             <div
                 className={'flex sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-green-500 transition-all ease-in-out hover:bg-green-100 delay-100 hover:scale-110'}>
                 <div className={'flex w-1/4 items-start justify-start'}>
-                    <Image src={Abs} alt={''} className={'w-16 h-auto '}/>
+                    <Image src={Abs} alt={''} className={'w-16 sm:w-24 h-auto '}/>
                 </div>
                 <div className={'w-3/4'}>
                     <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Founder Message</h2>
