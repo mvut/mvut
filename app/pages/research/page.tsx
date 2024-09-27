@@ -5,7 +5,7 @@ export default function ResearchPage(){
 
         return (
             <div
-                className={"flex flex-col min-h-screen items-center justify-start bg-fixed bg-cover"}>
+                className={"flex flex-col items-center justify-start bg-fixed bg-cover"}>
                 {/*<div*/}
                 {/*    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/research.png')]  bg-cover"}>*/}
                 {/*    /!*<p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a Career</p>*!/*/}
@@ -13,9 +13,9 @@ export default function ResearchPage(){
                 {/*</div>*/}
 
 
-                    <div className={"flex flex-col h-96 text-slate-100 bg-[url(../public/resources/research2.png)] items-start justify-center sm:mb-16"}>
-                            <h1 className={'pl-16 text-xl sm:text-3xl '}>Research and Development (R&D)</h1>
-                            <p className={'text-sm sm:text-md sm:text-lg leading-relaxed pl-6 sm:pl-16 sm:w-1/2 '}>
+                    <div className={"flex flex-col h-auto text-slate-100 bg-[url(../public/resources/research2.png)] items-start justify-center p-4"}>
+                            <h1 className={'text-xl sm:text-3xl '}>Research and Development (R&D)</h1>
+                            <p className={'text-sm sm:text-md sm:text-lg leading-relaxed sm:pl-16 sm:w-1/2 '}>
                                 MVIT&apos;s research endeavors are driven by a multidisciplinary approach, focusing on
                                 cutting-edge areas such as Industry 4.0, healthcare technology, smart cities, climate
                                 change,
@@ -34,10 +34,10 @@ export default function ResearchPage(){
                     </div>
 
                 {/*Research Area*/}
-                <p className={'text-3xl text-start text-amber-200 bg-indigo-950 p-4 rounded-r-full my-10'}>Emerging
+                <p className={'mx-4 text-3xl text-start text-amber-200 bg-indigo-950 p-4 rounded-r-full mt-10'}>Emerging
                     Technologies</p>
 
-                <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6 sm:py-10'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 sm:py-10'}>
                     <p className={'text-xl odd:bg-indigo-900 p-2 text-gray-200 rounded-r-full pl-6 even:bg-amber-500'}>Artificial
                         Intelligence</p>
                     <p className={'text-xl odd:bg-indigo-900 p-2 text-gray-200 rounded-r-full pl-6 even:bg-amber-500'}>Machine

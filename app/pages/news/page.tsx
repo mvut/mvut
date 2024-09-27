@@ -23,7 +23,7 @@ import Alabrar6 from '@/public/alabrar/ablabrar6.jpg';
 
 export default function NewsComponents(){
     return(
-        <div className={'container flex flex-col items-center justify-center  py-16'}>
+        <div className={'container flex flex-col items-center justify-center  py-10'}>
             <h1 className={'text-5xl'}>News & Events</h1>
             <div className={'grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3 py-10 '}>
                 {/**/}
