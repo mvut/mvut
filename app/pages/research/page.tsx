@@ -14,7 +14,7 @@ export default function ResearchPage(){
 
 
                     <div className={"flex flex-col h-auto text-slate-100 bg-[url(../public/resources/research2.png)] items-start justify-center p-4"}>
-                            <h1 className={'text-xl sm:text-3xl '}>Research and Development (R&D)</h1>
+                            <h1 className={'sm:pl-16 text-xl sm:text-3xl '}>Research and Development (R&D)</h1>
                             <p className={'text-sm sm:text-md sm:text-lg leading-relaxed sm:pl-16 sm:w-1/2 '}>
                                 MVIT&apos;s research endeavors are driven by a multidisciplinary approach, focusing on
                                 cutting-edge areas such as Industry 4.0, healthcare technology, smart cities, climate

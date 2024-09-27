@@ -31,19 +31,19 @@ export default function MyHeaderComponent(){
             </div>
             <motion.div layout className={'hidden lg:flex items-center justify-center sm:text-sm lg:text-md uppercase text-amber-200'}>
                 <Link href={'/'}
-                      className={'rounded-l-full hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
+                      className={'rounded-l-full hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Home</Link>
                 <Link href={'/pages/news'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Alerts</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Alerts</Link>
                 <Link href={'/pages/research'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Research</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Research</Link>
                 <Link href={'/pages/faculty'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Faculties</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-4 bg-stone-700 '}>Faculties</Link>
                 <Link href={'/pages/study'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Studies</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-4 bg-stone-700 '}>Studies</Link>
                 <Link href={'/pages/study/fee'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Fee</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-4 bg-stone-700 '}>Fee</Link>
                 <Link href={'/pages/apply'}
-                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-r-full'}>Apply</Link>
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-4 bg-stone-700 rounded-r-full'}>Apply</Link>
             </motion.div>
             <div onClick={handlerNav} className={'text-gray-50 lg:hidden cursor-pointer '}>
                 <div className={''}>
