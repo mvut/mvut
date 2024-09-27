@@ -28,7 +28,7 @@ export default function NewsComponents(){
             <div className={'grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3 py-10 '}>
                 {/**/}
                 <div className={'flex flex-col h-full sm:w-auto bg-yellow-50 '}>
-                    <Image src={AdmissionImage} alt={''} className={'h-40 w-full'}/>
+                    <Image src={AdmissionImage2} alt={''} className={'h-40 w-full'}/>
                     <div className={'px-6 py-4'}>
                         <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
                         <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>Admissions are open in Web
@@ -47,7 +47,7 @@ export default function NewsComponents(){
 
                         </p>
                         <div
-                            className={'flex h-9 w-24 my-6 hover:bg-red-800 text-gray-50 hover:text-amber-300 rounded-md bg-stone-950'}>
+                            className={'flex h-9 w-24 my-6 hover:bg-red-800 text-gray-50 hover:text-amber-300 rounded-md bg-blue-950'}>
                             <Link href={'/pages/apply'} className={'flex items-center justify-center '}>
                                 <p className={'p-2 h-full uppercase '}>Apply</p>
                                 <div className={'flex items-center justify-start  h-10 w-10 '}>
@@ -60,7 +60,7 @@ export default function NewsComponents(){
                 {/*    */}
                 {/**/}
                 <div className={'flex flex-col h-full sm:w-auto bg-yellow-50'}>
-                    <Image src={AdmissionImage} alt={''} className={'h-40 w-full'}/>
+                    <Image src={AdmissionImage2} alt={''} className={'h-40 w-full'}/>
                     <div className={'px-6 py-4'}>
                         <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
                         <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>Admissions are open in
@@ -76,7 +76,7 @@ export default function NewsComponents(){
 
                         </p>
                         <div
-                            className={'flex h-9 w-24 my-6 hover:bg-red-800 text-gray-50 hover:text-amber-300 rounded-md bg-stone-950'}>
+                            className={'flex h-9 w-24 my-6 hover:bg-red-800 text-gray-50 hover:text-amber-300 rounded-md bg-blue-950'}>
                             <Link href={'/pages/apply'} className={'flex items-center justify-center '}>
                                 <p className={'p-2 h-full uppercase '}>Apply</p>
                                 <div className={'flex items-center justify-start  h-10 w-10 '}>
@@ -122,15 +122,16 @@ export default function NewsComponents(){
                         <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>The Interpersonal Skills (IPS)
                             Certification for Huffaz</h2>
                         <p className={'text-sm leading-relaxed'}>
-                            The Interpersonal Skills (IPS) Certification was proudly awarded to Huffaz of ALABRAR MADINA
+                            IPS Certification was proudly awarded to Huffaz of ALABRAR MADINA
                             TUL ILM REHMANIA High School, Pakpattan, following a collaborative course conducted by the
-                            school and MVI Technologies (MVIT). This certification recognizes the
-                            participants&apos; proficiency in essential life skills, including effective communication,
-                            leadership, problem-solving, and emotional intelligence. This program fosters holistic
-                            development, empowering Huffaz to excel in life.
+                            school and MVIT. This certification recognizes the participants&apos;
+                            proficiency in essential life skills, including effective communication, conflict
+                            resolution, teamwork, leadership, problem-solving, and emotional intelligence. By
+                            complementing their academic and spiritual pursuits, this program fosters holistic
+                            development, empowering Huffaz to excel in all aspects of life.
                         </p>
                         <div
-                            className={'flex h-9 w-28 my-6 bg-red-800 text-gray-50 hover:text-amber-300 rounded-md hover:bg-stone-950'}>
+                            className={'flex h-9 w-28 my-6 bg-blue-950 text-gray-50 hover:text-amber-300 rounded-md hover:bg-red-800'}>
                             <Link href={'/pages/study'} className={'flex items-center justify-center '}>
                                 <p className={'p-2 h-full uppercase '}>Studies</p>
                                 <div className={'flex items-center justify-start  h-10 w-10 '}>
