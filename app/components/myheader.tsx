@@ -32,6 +32,8 @@ export default function MyHeaderComponent(){
             <motion.div layout className={'hidden lg:flex items-center justify-center sm:text-sm lg:text-md uppercase text-amber-200'}>
                 <Link href={'/'}
                       className={'rounded-l-full hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Home</Link>
+                <Link href={'/pages/leadership'}
+                      className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Leadership</Link>
                 <Link href={'/pages/news'}
                       className={'hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-4 py-2 bg-stone-700 '}>Alerts</Link>
                 <Link href={'/pages/research'}
@@ -57,6 +59,8 @@ export default function MyHeaderComponent(){
                         <div className={'grid grid-cols-1 gap-4 sm:text-sm lg:text-base uppercase text-amber-200'}>
                             <Link href={'/'}
                                   className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Home</Link>
+                            <Link href={'/pages/leadership'}
+                                  className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Leadership</Link>
                             <Link href={'/pages/news'}
                                   className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 '}>Alerts</Link>
                             <Link href={'/pages/research'}
