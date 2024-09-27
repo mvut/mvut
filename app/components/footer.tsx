@@ -8,36 +8,41 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import { LiaFlagUsaSolid } from "react-icons/lia";
 
 export default function FooterComponent() {
     return (
         <div>
             <div
-                className="flex flex-col sm:flex-row sm:h-60 bg-gray-900 justify-between items-center sm:px-10 text-gray-50">
+                className="flex flex-col sm:flex-row sm:h-60 bg-gray-900 justify-between items-center sm:px-10 text-gray-50 py-10">
                 <div className={'flex flex-col items-start justify-center'}>
-                    <p className={'font-bold text-sm sm:text-lg'}>Contact</p>
+                    <p className={'font-bold text-md sm:text-lg'}>Contact</p>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
                         <TfiEmail/>
                         <p>mvut.usa@gmail.com</p>
                     </div>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
-                        <FaWhatsapp/>
+                        <p>USA</p>
                         <p>+1(747)209-4775</p>
+                    </div>
+                    <div className={'flex items-center justify-center sm:h-10 gap-1'}>
+                        <p>Pakistan</p>
+                        <p>+92 301 736 2696</p>
                     </div>
                 </div>
                 <div className={'flex items-center justify-center text-center py-4'}>
 
-                    <Link target="_blank" href="https://chat.whatsapp.com/IpG66lObuHo3MUelWoH6tu"
+                    <Link target="_blank" href="https://whatsapp.com/channel/0029Vapvfi26xCSYFAVBeK3y"
                           className="hover:text-green-400">
-                        <FaWhatsapp size={25}/>
+                        <FaWhatsapp size={35}/>
                     </Link>
 
                     <Link target="_blank" href="https://web.facebook.com/mvutus" className=" hover:text-blue-700">
-                        <FaFacebookF size={25}/>
+                        <FaFacebookF size={35}/>
                     </Link>
 
-                    <Link target="_blank" href="https://www.youtube.com/@mvut" className=" hover:text-red-500">
-                        <CiYoutube size={25}/>
+                    <Link target="_blank" href="https://youtube.com/@mvutus" className=" hover:text-red-500">
+                        <CiYoutube size={35}/>
                     </Link>
                 </div>
 
