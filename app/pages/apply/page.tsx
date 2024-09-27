@@ -1900,7 +1900,7 @@ export default function ApplicationForm(){
                         />
                     </div>
                     <div className={'flex flex-col'}>
-                        <label className={'text-teal-900'}>Choose Program(<Link href={'/pages/study'}
+                        <label className={'text-teal-900'}>Program Applying for (<Link href={'/pages/study'}
                                                                                 className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
                             , <Link href={'/pages/study/fee'}
                                     className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>

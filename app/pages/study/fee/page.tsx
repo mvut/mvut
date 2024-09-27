@@ -14,6 +14,8 @@ export default function FeeStructure(){
             <table className="table-auto text-center text-xs sm:text-lg ">
                 <thead>
                 <tr className={'bg-stone-700 text-gray-50'}>
+
+                    +.
                     <th className={'p-2'}>Sr.</th>
                     <th className={'flex text-start'}>Program</th>
                     <th>Classes</th>

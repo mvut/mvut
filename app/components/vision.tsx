@@ -5,8 +5,8 @@ import { GrAnnounce } from "react-icons/gr";
 
 export default function VisionComponent(){
     return(
-        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col sm:flex-row justify-between px-6 py-16 gap-4'}>
-            <div className={'flex flex-col sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-amber-300 transition-all ease-in-out hover:bg-amber-100 delay-100 hover:scale-110'}>
+        <div className={'container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 flex-col sm:flex-row justify-between px-6 py-16 gap-4'}>
+            <div className={'flex flex-col sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-amber-300 transition-all ease-in-out hover:bg-amber-100 delay-100 '}>
                 <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Vision</h2>
                 <p className={'text-sm leading-relaxed py-2'}>Empowering a brighter future through innovative education and technology, transforming individuals,
                     communities, and societies.</p>
@@ -18,7 +18,7 @@ export default function VisionComponent(){
             </div>
             {/*    */}
             <div
-                className={'flex sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-green-500 transition-all ease-in-out hover:bg-green-100 delay-100 hover:scale-110'}>
+                className={'flex sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-green-500 transition-all ease-in-out hover:bg-green-100 delay-100 '}>
                 <div className={'flex w-1/4 items-start justify-start'}>
                     <Image src={Abs} alt={''} className={'w-16 sm:w-24 h-auto '}/>
                 </div>
@@ -38,7 +38,7 @@ export default function VisionComponent(){
             </div>
             {/*    */}
             <div
-                className={'flex flex-col sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-indigo-500 transition-all ease-in-out hover:bg-indigo-100 delay-100 hover:scale-110'}>
+                className={'flex flex-col sm:w-full sm:h-full bg-gray-200 p-6 border-t-4 border-indigo-500 transition-all ease-in-out hover:bg-indigo-100 delay-100 '}>
                 <h2 className={'underline underline-offset-4 text-indigo-700 font-bold'}>Announcements</h2>
                 <div className={'flex items-center justify-center gap-2 py-2'}>
                     {/*<Image src={Abs} alt={''} className={'w-12 h-12 '}/>*/}

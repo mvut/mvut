@@ -17,7 +17,7 @@ export default function SloganPage(){
     // }, []);
     // console.log(applicants);
     return (
-        <div className="flex flex-col sm:flex-row bg-gray-950 w-full items-center justify-center">
+        <div className="flex flex-col sm:flex-row bg-indigo-950 w-full items-center justify-center">
             <div className={'flex items-center justify-center flex-col md:w-1/3 md:leading-relaxed '}>
                 {/*<div className={'flex items-center justify-center'}>*/}
                 {/*    <p className={'text-xl text-gray-50'}>Total Applicants</p>*/}

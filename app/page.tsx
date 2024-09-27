@@ -6,11 +6,13 @@ import StrategicPartners from "@/app/components/partners";
 import NavComponent from "@/app/components/nav";
 import StatisticsComponent from "@/app/components/statistics";
 import VisionComponent from "@/app/components/vision";
+import WhyUsComponent from "@/app/components/why";
 export default function Home() {
   return (
     <main >
         <NavComponent/>
-        <VisionComponent/>
+        <WhyUsComponent/>
+        {/*<VisionComponent/>*/}
         <CoursesPage/>
         <SloganPage/>
         <StatisticsComponent/>

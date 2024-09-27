@@ -5,7 +5,7 @@ export default function FacultiesLayout({children,}: { children: React.ReactNode
     return (
         <div className={'flex flex-col sm:flex-row scroll-auto'}>
             {/*Nav*/}
-            <div className={'flex bg-teal-500 w-full text-indigo-900 sm:w-64 flex-col pl-4 py-4'}>
+            <div className={'flex bg-slate-200 w-full text-indigo-900 sm:w-64 flex-col pl-4 py-4'}>
                 <h2 className={'text-xl font-bold text-red-700'}>Faculties</h2>
                 <Link href={'/pages/faculty'} className={'hover:text-red-500'}>Research</Link>
                 <Link href={'/pages/faculty/departments/appdev'} className={'hover:text-red-500'}>App Development</Link>
