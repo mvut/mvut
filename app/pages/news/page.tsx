@@ -25,9 +25,9 @@ export default function NewsComponents(){
     return(
         <div className={'container flex flex-col items-center justify-center  py-16'}>
             <h1 className={'text-5xl'}>News & Events</h1>
-            <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-10 '}>
+            <div className={'grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3 py-10 '}>
                 {/**/}
-                <div className={'flex flex-col h-full w-96 bg-yellow-50 '}>
+                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50 '}>
                     <Image src={AdmissionImage} alt={''} className={'h-40 w-full'}/>
                     <div className={'px-6 py-4'}>
                         <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
@@ -59,7 +59,7 @@ export default function NewsComponents(){
                 </div>
                 {/*    */}
                 {/**/}
-                <div className={'flex flex-col h-full w-96 bg-yellow-50'}>
+                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50'}>
                     <Image src={AdmissionImage} alt={''} className={'h-40 w-full'}/>
                     <div className={'px-6 py-4'}>
                         <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
@@ -89,7 +89,7 @@ export default function NewsComponents(){
                 </div>
                 {/*    */}
                 {/**/}
-                <div className={'flex flex-col h-full w-96 bg-yellow-50'}>
+                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50'}>
                     <Carousel plugins={[Autoplay({delay: 5000,}),]}
                               opts={{align: "start", loop: true,}}
                               className="h-40 w-full "

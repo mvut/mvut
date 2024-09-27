@@ -29,7 +29,7 @@ export default function MyHeaderComponent(){
                     Mansha Virtual Institute of Technologies
                 </Link>
             </div>
-            <motion.div layout className={'hidden sm:flex items-center justify-center sm:text-sm lg:text-md uppercase text-amber-200'}>
+            <motion.div layout className={'hidden lg:flex items-center justify-center sm:text-sm lg:text-md uppercase text-amber-200'}>
                 <Link href={'/'}
                       className={'rounded-l-full hover:bg-stone-600 hover:text-gray-200 px-2 lg:px-6 py-2 bg-stone-700 '}>Home</Link>
                 <Link href={'/pages/news'}
@@ -45,13 +45,13 @@ export default function MyHeaderComponent(){
                 <Link href={'/pages/apply'}
                       className={'hover:bg-stone-600 hover:text-gray-200 px-4 py-2 lg:px-6 bg-stone-700 rounded-r-full'}>Apply</Link>
             </motion.div>
-            <div onClick={handlerNav} className={'text-gray-50 sm:hidden cursor-pointer '}>
+            <div onClick={handlerNav} className={'text-gray-50 lg:hidden cursor-pointer '}>
                 <div className={''}>
                     <RiMenuUnfold2Fill  size={35} />
                 </div>
             </div>
             <div
-                className={menuOpen ? 'fixed right-0 z-20 sm:hidden h-auto bg-stone-950 p-4 ease-in duration-500' : 'h-auto fixed left-[100%] top-0 z-20 ease-in duration-500'}>
+                className={menuOpen ? 'fixed right-0 z-20 lg:hidden h-auto bg-stone-950 p-4 ease-in duration-500' : 'h-auto fixed left-[100%] top-0 z-20 ease-in duration-500'}>
                 <div className={'flex items-center justify-end w-full'}>
                     <div onClick={handlerNav} className={'flex items-start cursor-pointer justify-between gap-8 text-gray-50 text-xl'}>
                         <div className={'grid grid-cols-1 gap-4 sm:text-sm lg:text-base uppercase text-amber-200'}>
