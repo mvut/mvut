@@ -20,7 +20,7 @@ export default function CandidateList(){
 
     return(
         <div className={'container flex flex-col overflow-auto py-10 min-h-screen'}>
-            <p className={'text-lg md:text-5xl font-bold text-center py-2 lg:py-10 uppercase'}>List of Applicants</p>
+            <p className={'text-lg md:text-5xl font-bold text-start py-2 lg:py-10 uppercase'}>List of Applicants</p>
             <table className="table-auto text-center text-xs sm:text-lg" >
                 <thead>
                 <tr className={'bg-stone-700 text-gray-50'}>
