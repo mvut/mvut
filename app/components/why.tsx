@@ -5,7 +5,7 @@ import { FaLaptopCode } from "react-icons/fa";
 
 export default function WhyUsComponent(){
     return(
-        <div className={'container flex flex-col gap-10 h-auto items-center justify-center my-16'}>
+        <div className={' flex flex-col gap-10 h-auto items-center justify-center bg-slate-100 mb-16 p-6'}>
             <p className={'text-5xl'}>Why MVIT?</p>
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}>
                 <div

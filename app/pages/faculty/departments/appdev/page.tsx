@@ -50,7 +50,7 @@ export default function AppDepartment(){
                     <div className={'flex flex-col items-center justify-center'}>
                         <h2 className={'text-lg font-bold'}>Muhammad Shaban</h2>
                         <h2 className={'text-sm'}>BCS</h2>
-                        <h2 className={'text-sm'}>Instructor Full Stack PHP Development</h2>
+                        <h2 className={'text-sm'}>Instructor Full-Stack Development</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
