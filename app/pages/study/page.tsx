@@ -55,7 +55,7 @@ export default function StudySchemeComponent(){
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 '}>
 
 
-                <Link href= {'/pages/study/programs/psc'}
+                <Link href={'/pages/study/programs/psc'}
                       className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
                 >
                     Junior Computer Science Certificate (JCSC)
@@ -108,10 +108,11 @@ export default function StudySchemeComponent(){
                 >
                     Certificate of Philosophy in Web Development (CPWD)
                 </Link>
-
-
-
             </div>
+            {/*<p className={'text-2xl text-teal-700 font-bold '}>Classes Schedule</p>*/}
+            {/*<div>*/}
+
+            {/*</div>*/}
         </div>
     )
 }

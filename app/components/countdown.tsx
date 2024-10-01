@@ -6,7 +6,7 @@ export default function Countdown(){
     const [minutes, setMinutes] = useState<number>(0);
     const [seconds, setSeconds] = useState<number>(0);
 
-    const deadline = "September, 30, 2024";
+    const deadline = "October, 31, 2024";
 
     const getTime = ()=>{
         const time = Date.parse(deadline) -  Date.now();
