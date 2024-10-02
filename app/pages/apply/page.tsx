@@ -1799,13 +1799,17 @@ export default function ApplicationForm(){
         const response = await fetch('/api/auth/apply', {
             method: 'POST',
             body: JSON.stringify({
-                fullname:formData.get("fullname"),
-                fathername:formData.get("fathername"),
+                full_name:formData.get("full_name"),
+                father_name:formData.get("father_name"),
                 qualification:formData.get("qualification"),
+                institute:formData.get("institute"),
+                total_marks:formData.get("total_marks"),
+                obtained_marks:formData.get("obtained_marks"),
                 gmail:formData.get("gmail"),
                 dob:formData.get("dob"),
                 whatsapp:formData.get("whatsapp"),
                 program:formData.get("program"),
+                campus:formData.get("campus"),
                 semester:formData.get("semester"),
                 classes:formData.get("classes"),
                 country:formData.get("country"),
@@ -1821,144 +1825,181 @@ export default function ApplicationForm(){
     };
 
         return (
-            <div className={'flex flex-row md:min-h-screen items-center justify-center'}>
+            <div className={'flex flex-row items-center justify-center'}>
+
                 <div
-                    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/welcome.jpg')]  bg-cover"}>
-                    <p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a Career</p>
-                    <p className={'text-gray-50 text-6xl font-bold text-center bg-blue-700 p-2 rounded-xl'}>Admission Open</p>
+                    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/welcome.jpg')] bg-cover"}>
+                    <p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a
+                        Career</p>
+                    <p className={'text-gray-50 text-6xl font-bold text-center bg-blue-700 p-2 rounded-xl'}>Admission
+                        Open</p>
                 </div>
 
-                <form onSubmit={handleSubmit}
-                      className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 lg:pl-12'}>
+                <div className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 px-4'}>
                     <div className={'flex gap-10 my-6'}>
                         <Link href={'/pages/study'}
                               className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
                         <Link href={'/pages/study/fee'}
                               className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
                     </div>
-                    <p className={'text-teal-900 text-2xl font-bold text-center'}>Application Form</p>
+                    <p className={'text-teal-900 text-2xl font-bold text-center py-6'}>Application Form</p>
+                    <form onSubmit={handleSubmit}
+                    >
 
-                    <div className={'flex flex-col '}>
-                        <label>Full Name</label>
-                        <input type={'text'} placeholder={'Enter your full name'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'fullname'}/>
-                    </div>
+                        <div className={'grid grid-cols-1 md:grid-cols-2 gap-6'}>
 
-                    <div className={'flex flex-col '}>
-                        <label>Father/Mother Name</label>
-                        <input type={'text'} placeholder={'Enter your father or mother name'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'fathername'}/>
-                    </div>
+                            <div className={'flex flex-col '}>
+                                <label>Full Name</label>
+                                <input type={'text'} placeholder={'Enter your full name'}
+                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'full_name'}/>
+                            </div>
 
-                    <div className={'flex flex-col '}>
-                        <label>Latest Qualification</label>
-                        {/*<input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}*/}
-                        {/*       className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
-                        {/*       required={true} name={'qualification'}/>*/}
+                            <div className={'flex flex-col '}>
+                                <label>Father/Mother Name</label>
+                                <input type={'text'} placeholder={'Enter your father or mother name'}
+                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'father_name'}/>
+                            </div>
 
-                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                name={'qualification'}>
-                            <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)
-                            </option>
-                            <option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate
-                                (ESC)
-                            </option>
-                            <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate
-                                (SSC)
-                            </option>
-                            <option value={'Higher Secondary School Certificate (HSSC)'}>Higher Secondary School
-                                Certificate (HSSC)
-                            </option>
-                            <option value={'Bachelor of Science (B.S.)'}>Bachelor of Science (B.S.)</option>
-                            <option value={'Bachelor of Arts (B.A.)'}>Bachelor of Arts (B.A.)</option>
-                            <option value={'Post Graduate Diploma'}>Post Graduate Diploma</option>
-                            <option value={'Master of Science'}>Master of Science</option>
-                            <option value={'Master of Arts'}>Master of Arts</option>
-                            <option value={'Doctor of Philosophy (Ph.D.)'}>Doctor of Philosophy (Ph.D.)</option>
-                        </select>
-                    </div>
+                            <div className={'flex flex-col '}>
+                                <label>Latest Qualification</label>
+                                {/*<input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}*/}
+                                {/*       className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
+                                {/*       required={true} name={'qualification'}/>*/}
 
-                    <div className={'flex flex-col '}>
-                        <label>Email</label>
-                        <input type={'text'} placeholder={'Enter your Email'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'gmail'}/>
-                    </div>
-                    <div className={'flex flex-col'}>
-                        <label className={'text-teal-900'}>Date of Birth</label>
-                        <input type={'date'} placeholder={'Enter your Email account'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'dob'}/>
-                    </div>
-                    <div className={'flex flex-col '}>
-                        <label>WhatsApp</label>
-                        <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
-                               className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                               required={true} name={'whatsapp'}
-                        />
-                    </div>
-                    <div className={'flex flex-col'}>
-                        <label className={'text-teal-900'}>Program Applying for (<Link href={'/pages/study'}
-                                                                                className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
-                            , <Link href={'/pages/study/fee'}
-                                    className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>
-                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200 '}
-                                name={'program'}>
-                            {
-                                programs ?
-                                    programs.map((program) => {
-                                        return program["open"] &&
-                                            <option key={program["id"]} value={program["program"]}>
-                                                {program["program"]}
-                                            </option>
-                                    }) : null
-                            }
-                        </select>
-                    </div>
+                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                        name={'qualification'}>
+                                    <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)
+                                    </option>
+                                    <option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate
+                                        (ESC)
+                                    </option>
+                                    <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate
+                                        (SSC)
+                                    </option>
+                                    <option value={'Higher Secondary School Certificate (HSSC)'}>Higher Secondary School
+                                        Certificate (HSSC)
+                                    </option>
+                                    <option value={'Bachelor of Science (B.S.)'}>Bachelor of Science (B.S.)</option>
+                                    <option value={'Bachelor of Arts (B.A.)'}>Bachelor of Arts (B.A.)</option>
+                                    <option value={'Post Graduate Diploma'}>Post Graduate Diploma</option>
+                                    <option value={'Master of Science'}>Master of Science</option>
+                                    <option value={'Master of Arts'}>Master of Arts</option>
+                                    <option value={'Doctor of Philosophy (Ph.D.)'}>Doctor of Philosophy (Ph.D.)</option>
+                                </select>
+                            </div>
+                            <div className={'flex flex-col '}>
+                                <label>Name of Institute</label>
+                                <input type={'text'} placeholder={'Enter name of institution'}
+                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'institute'}/>
+                            </div>
+                            <div className={'flex flex-col '}>
+                                <label>Total Marks/CGPA</label>
+                                <input type={'text'} placeholder={'Enter Total Marks/CGPA'}
+                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'total_marks'}/>
+                            </div>
 
-                    <div className={'flex flex-col '}>
-                        <label>Semester</label>
-                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                name={'semester'}>
-                            {/*<option value={1}>Spring 2024</option>*/}
-                            <option value={'Fall 2024'}>Fall 2024</option>
-                        </select>
-                    </div>
+                            <div className={'flex flex-col '}>
+                                <label>Obtained Marks/CGPA</label>
+                                <input type={'text'} placeholder={'Enter Obtained Marks/CGPA'}
+                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'obtained_marks'}/>
+                            </div>
+                            <div className={'flex flex-col '}>
+                                <label>Email</label>
+                                <input type={'text'} placeholder={'Enter your Email'}
+                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'gmail'}/>
+                            </div>
+                            <div className={'flex flex-col'}>
+                                <label className={'text-teal-900'}>Date of Birth</label>
+                                <input type={'date'} placeholder={'Enter your Email account'}
+                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'dob'}/>
+                            </div>
+                            <div className={'flex flex-col '}>
+                                <label>WhatsApp</label>
+                                <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
+                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                       required={true} name={'whatsapp'}
+                                />
+                            </div>
+                            <div className={'flex flex-col'}>
+                                <label className={'text-teal-900'}>Program Applying for (<Link href={'/pages/study'}
+                                                                                               className={'text-xs text-red-500 hover:text-teal-900'}>Studies</Link>
+                                    , <Link href={'/pages/study/fee'}
+                                            className={'text-xs text-red-500 hover:text-teal-900'}>Fee</Link>)</label>
+                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200 '}
+                                        name={'program'}>
+                                    {
+                                        programs ?
+                                            programs.map((program) => {
+                                                return program["open"] &&
+                                                    <option key={program["id"]} value={program["program"]}>
+                                                        {program["program"]}
+                                                    </option>
+                                            }) : null
+                                    }
+                                </select>
+                            </div>
 
-                    <div className={'flex flex-col '}>
-                        <label>Classes</label>
-                        <select className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                name={'classes'}>
-                            <option value={'Online'}>Online</option>
-                            <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
-                        </select>
-                    </div>
+                            <div className={'flex flex-col '}>
+                                <label>Campus</label>
+                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                        name={'campus'}>
+                                    <option value={'Main'}>Main</option>
+                                    <option value={'Al-Abrar Madina-Tul-Ilm Rahmania High School, Pakpattan'}>Al-Abrar
+                                        Madina-Tul-Ilm Rahmania High School, Pakpattan
+                                    </option>
+                                </select>
+                            </div>
 
-                    <div className={'flex flex-col'}>
-                        <label>Country</label>
-                        <select className={'h-10 w-64  md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}
-                                name={'country'}>
-                            {
-                                Countries.map(country => <option key={country.isoCode}
-                                                                 value={country.name}>{country.name}</option>)
-                            }
+                            <div className={'flex flex-col '}>
+                                <label>Semester</label>
+                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                        name={'semester'}>
+                                    {/*<option value={1}>Spring 2024</option>*/}
+                                    <option value={'Fall 2024'}>Fall 2024</option>
+                                </select>
+                            </div>
 
-                            {/*<option value={2}>Onsite</option>*/}
-                        </select>
-                    </div>
+                            <div className={'flex flex-col '}>
+                                <label>Classes</label>
+                                <select className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                        name={'classes'}>
+                                    <option value={'Online'}>Online</option>
+                                    <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
+                                </select>
+                            </div>
 
-                    <div className={'flex gap-2'}>
-                        <button type={'submit'}
-                                className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
-                        </button>
-                        <Link href={'/'}
-                              className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
-                        </Link>
-                    </div>
-                </form>
+                            <div className={'flex flex-col'}>
+                                <label>Country</label>
+                                <select className={'h-10   md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
+                                        name={'country'}>
+                                    {
+                                        Countries.map(country => <option key={country.isoCode}
+                                                                         value={country.name}>{country.name}</option>)
+                                    }
 
+                                    {/*<option value={2}>Onsite</option>*/}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className={'flex gap-2 py-6'}>
+                            <button type={'submit'}
+                                    className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
+                            </button>
+                            <Link href={'/'}
+                                  className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
+                            </Link>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         )
 }

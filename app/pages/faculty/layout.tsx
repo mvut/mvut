@@ -12,9 +12,9 @@ export default function FacultiesLayout({children,}: { children: React.ReactNode
                 <Link href={'/pages/faculty/departments/ds'} className={'hover:text-red-500'}>Data Science</Link>
                 <Link href={'/pages/faculty/departments/CS'} className={'hover:text-red-500'}>Computer Science</Link>
                 <Link href={'/pages/faculty/departments/se'} className={'hover:text-red-500'}>Software Engineering</Link>
-                <Link href={'/pages/faculty/departments/biotech'} className={'hover:text-red-500'}>Biotechnology</Link>
+                {/*<Link href={'/pages/faculty/departments/biotech'} className={'hover:text-red-500'}>Biotechnology</Link>*/}
                 <Link href={'/pages/faculty/departments/math'} className={'hover:text-red-500'}>Mathematics</Link>
-                <Link href={'/pages/faculty/departments/phy'} className={'hover:text-red-500'}>Physics</Link>
+                {/*<Link href={'/pages/faculty/departments/phy'} className={'hover:text-red-500'}>Physics</Link>*/}
                 <Link href={'/pages/faculty/departments/eng'} className={'hover:text-red-500'}>English</Link>
                 <Link href={'/pages/faculty/departments/management'} className={'hover:text-red-500'}>Management</Link>
                 <Link href={'/pages/faculty/departments/leadership'} className={'hover:text-red-500'}>Leadership</Link>
