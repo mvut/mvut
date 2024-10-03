@@ -1825,7 +1825,7 @@ export default function ApplicationForm(){
     };
 
         return (
-            <div className={'flex flex-row items-center justify-center'}>
+            <div className={'flex flex-row  justify-center'}>
 
                 <div
                     className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/welcome.jpg')] bg-cover"}>

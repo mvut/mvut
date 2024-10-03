@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 export default function FeeStructure(){
+
     return (
         <div className={`container flex flex-col overflow-auto py-10 min-h-screen `}>
             <div className={'flex gap-10 '}>
@@ -208,6 +209,7 @@ export default function FeeStructure(){
                 </tr>
                 </tbody>
             </table>
+
         </div>
     )
 }
