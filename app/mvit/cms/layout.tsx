@@ -22,7 +22,7 @@ export default function CmsLayout({children,}: { children: React.ReactNode;}) {
                 </span>
             </div>
             <div className={'flex '}>
-                <div className={'flex flex-col w-1/5 bg-slate-200  text-2xl p-6'}>
+                <div className={'flex flex-col w-1/5 bg-slate-200   p-6'}>
 
                         <Link href={'/mvit/cms'}>Home</Link>
                         <Link href={'/mvit/cms/add-user'}>Add User</Link>

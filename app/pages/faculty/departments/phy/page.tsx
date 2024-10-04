@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Dummy from "@/public/faculty/dummy.png";
+import Link from "next/link";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
 
 export default function PhysicsDepartment(){
     return(
-        <div className={'container flex flex-col min-h-screen'}>
+        <div className={'container flex flex-col py-16'}>
+            <Link href={'/pages/faculty'} className={'flex text-lg hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Faculties</Link>
+
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Physics</p>
             <p className={'text-xs sm:text-sm'}>
                 The Faculty of Physics at MVIT explores the fundamental laws of the universe, cultivating innovative thinkers and leaders in the pursuit of scientific discovery. Our renowned faculty deliver a comprehensive curriculum encompassing theoretical and experimental physics, from classical mechanics to quantum field theory, and applied physics, including materials science, nanotechnology, and biophysics. With state-of-the-art laboratories, research centers, and international collaborations, students investigate phenomena at the forefront of modern physics, tackling complex challenges in energy, environment, and technology. Graduates are equipped for careers in research, academia, industry, and government, driving breakthroughs and advancing our understanding of the physical world.

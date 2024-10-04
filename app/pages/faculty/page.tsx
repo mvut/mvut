@@ -1,32 +1,175 @@
-import Abs from '@/public/faculty/abs3.jpg';
+import Abs from '@/public/resources/img1.jpg';
+import Img5 from '@/public/resources/img5.jpg';
+import Img6 from '@/public/resources/research.png';
+import Img7 from '@/public/resources/ai-generated2.jpg';
+import Img15 from '@/public/resources/img15.jpg';
+import Img17 from '@/public/resources/img17.jpg';
+import Img18 from '@/public/resources/img18.jpg';
+import Img19 from '@/public/resources/img19.jpg';
+import Img13 from '@/public/resources/img13.jpg';
+import Img8 from '@/public/resources/img8.jpg';
+import Img20 from '@/public/resources/img20.jpg';
+import Img16 from '@/public/resources/img16.jpg';
 import Image from "next/image";
+import Img3 from "@/public/resources/img3.jpg";
+import Link from "next/link";
 
 export default function ResearchComponent(){
     return(
-        <div className={'container flex flex-col min-h-screen'}>
-            <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Research and Development</p>
-            <p className={'text-xs sm:text-sm'}>
-                The Research and Development Department at MVIT is a hub of innovation, driving technological advancements and business growth through cutting-edge research, experimentation, and product development. Our mission is to develop innovative solutions, products, and services that enhance competitiveness, sustainability, and social impact, while fostering a culture of continuous learning and improvement. Focusing on Web Development, Artificial Intelligence, Data Science, Machine Learning, Blockchain and Internet of Things, our multidisciplinary team employs design thinking, agile development, and experimentation to transform ideas into tangible solutions. Through collaboration with internal stakeholders, academia, and industry partners, we develop intellectual property, commercialize innovative solutions, and enhance organizational capabilities, striving to become a leading R&D organization recognized for excellence and transformative impact.
+        <div className={'container flex flex-col min-h-screen pt-10 pb-24 '}>
 
-            </p>
-            <div>
+            <p className={'text-3xl md:text-5xl font-bold text-start py-10'}>Faculties</p>
+            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'}>
+                {/*    */}
                 <div
-                    className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center items-start sm:gap-6 sm:px-6 '}>
-                    {/* Leader */}
-                    <div
-                        className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
-                        <div className={'border-2 border-stone-900 rounded-full'}>
-                            <Image src={Abs} alt={''} className={'h-44 w-44 rounded-full'}/>
-                        </div>
-                        <div className={'flex flex-col items-center justify-center'}>
-                            <h2 className={'text-lg font-bold'}>Abubakar Siddique</h2>
-                            <h2 className={'text-sm'}>MS (CS), B. Ed.</h2>
-                            <h2 className={'text-sm'}>Instructor CS & IT</h2>
-                            <h2 className={'text-sm'}>Pakistan</h2>
-                        </div>
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img5} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
                     </div>
-
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/research'} className={''}>Faculty of Research and
+                            Development</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
                 </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img6} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/appdev'} className={''}>Faculty of Application
+                            Development</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img7} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/ds'} className={''}>Faculty of Data Science & Machine
+                            Learning</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img15} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/CS'} className={''}>Faculty of Computer Science</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img17} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/se'} className={''}>Faculty of Software
+                            Engineering</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img18} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/math'} className={''}>Faculty of Mathematics</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img19} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/eng'} className={''}>Faculty of English Language</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img13} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/management'} className={''}>Faculty of Management</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img8} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/leadership'} className={''}>Faculty of Entrepreneurial
+                            Leadership</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img20} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/sociology'} className={''}>Faculty of Sociology</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img16} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/interdisp'} className={''}>Faculty of Interdisciplinary
+                            Education</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
             </div>
         </div>
     )

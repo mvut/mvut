@@ -2,10 +2,14 @@ import Image from "next/image";
 import Younas from "@/public/faculty/younis.jpg";
 import Sabar from "@/public/faculty/sabar.jpg";
 import Safdar from "@/public/faculty/safdar.jpg";
+import Link from "next/link";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
 
 export default function EnglishDepartment(){
     return(
-        <div className={'container flex flex-col min-h-screen'}>
+        <div className={'container flex flex-col py-16'}>
+            <Link href={'/pages/faculty'} className={'flex text-lg hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Faculties</Link>
+
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of English Language</p>
             <p className={'text-xs sm:text-sm'}>
                 The Faculty of English Language at MVIT cultivates effective communication, creative expression, and critical thinking, empowering students to excel in a linguistically diverse world. Our expert faculty deliver a comprehensive curriculum encompassing language, literature, linguistics, and cultural studies, exploring the complexities of the English language and its global applications. With a focus on language acquisition, literary analysis, and professional communication, students develop skills in writing, teaching, translation, and cultural competency. Through research opportunities, internships, and international collaborations, graduates are prepared for careers in education, publishing, journalism, and international relations, shaping the cultural and linguistic landscape of the 21st century.

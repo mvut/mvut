@@ -43,6 +43,12 @@ export default function StudySchemeComponent(){
                     Core Web Technologies (CWT)
                 </Link>
 
+                <Link href={'/pages/study/programs/nxgd'}
+                      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                >
+                    Next-Generation Web Development (NXGD)
+                </Link>
+
                 <Link href={'/pages/courses'}
                       className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
                 >

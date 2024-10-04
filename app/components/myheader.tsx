@@ -27,17 +27,15 @@ export default function MyHeaderComponent(){
                 </Link>
             </section>
             <section className={'flex flex-col'}>
-                <div className={'flex justify-end gap-4 text-gray-300 py-4'}>
+                <div className={'flex justify-end gap-4 text-gray-300 py-4 text-sm uppercase'}>
                     <Link href={'/pages/leadership'}
                           className={'hover:text-gray-50'}>Leadership</Link>
                     <Link href={'/pages/news'}
                           className={'hover:text-gray-50'}>News & Events</Link>
-
-
                     <Link href={'/pages/study/fee'}
                           className={'hover:text-gray-50'}>Fee Structure</Link>
                 </div>
-                <div className={'flex text-gray-300 text-xl gap-2 uppercase'}>
+                <div className={'flex text-gray-300 text-xl gap-4 uppercase'}>
                     <Link href={'/'}
                           className={'hover:text-gray-50'}>Home</Link>
 

@@ -7,8 +7,8 @@ import MyHeaderComponent from "@/app/components/myheader";
 import React from "react";
 import {usePathname} from "next/navigation";
 
-const inter = Overpass({ subsets: ["latin"], weight:['400'] });
-import {Mada, Milonga, Open_Sans, Overpass, PT_Sans, Saira} from "next/font/google";
+const inter = Poppins({ subsets: ["latin"], weight:['400'] });
+import {Exo_2, Lato, Lora, Mada, Milonga, Mukta, Open_Sans, Overpass, Poppins, PT_Sans, Saira} from "next/font/google";
 // export const metadata: Metadata = {
 //   title: "MVIT",
 //   description: "Mansha Institute of Technologies (MVIT) is a beacon of excellence in technology education, empowering individuals to unlock their full potential. " +
@@ -26,7 +26,7 @@ export default function RootLayout({children,}: { children: React.ReactNode;}) {
     <head>
         <title>MVIT</title>
     </head>
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
       <Template>
           {!pathName.startsWith('/mvit') && <MyHeaderComponent />}
           {children}

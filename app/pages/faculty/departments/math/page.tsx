@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Babar from "@/public/faculty/babar.jpg";
 import Amir from "@/public/faculty/amir.jpg";
+import Link from "next/link";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
 
 export default function MathematicsDepartment(){
     return(
-        <div className={'container flex flex-col min-h-screen'}>
+        <div className={'container flex flex-col py-16'}>
+            <Link href={'/pages/faculty'} className={'flex text-lg hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Faculties</Link>
+
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Mathematics</p>
             <p className={'text-xs sm:text-sm'}>
                 The Faculty of Mathematics at MVIT fosters a community of mathematicians and thinkers, equipping students with a deep understanding of mathematical principles and their applications. Our esteemed faculty deliver a comprehensive curriculum spanning pure and applied mathematics, statistics, and computational mathematics, emphasizing problem-solving, logical reasoning, and analytical thinking. With research opportunities, collaborations, and cutting-edge resources, students explore the frontiers of mathematics, tackling complex challenges in fields like cryptography, data science, optimization, and mathematical modeling. Graduates are prepared for careers in academia, research, finance, technology, and more, driving innovation and solving real-world problems.

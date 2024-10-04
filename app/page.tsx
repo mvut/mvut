@@ -9,7 +9,7 @@ import VisionComponent from "@/app/components/vision";
 import WhyUsComponent from "@/app/components/why";
 export default function Home() {
   return (
-    <main >
+    <main>
         <NavComponent/>
         <WhyUsComponent/>
         {/*<VisionComponent/>*/}

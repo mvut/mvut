@@ -20,6 +20,7 @@ export default function ApplicationForm(){
         {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
         {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
         {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
+        {id:13, program:"Next-Generation Web Development (NXGD)", open:true},
         // {id:14, program:"Artificial Intelligence (MVC-01)", open:true},
         // {id:15, program:"Introduction to Python Programming (MVC-08)", open:true},
         // {id:16, program:"Introduction to Web Designing (MVC-14)", open:true},

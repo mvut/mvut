@@ -2,10 +2,14 @@ import Image from "next/image";
 import Rashid from "@/public/faculty/rashid.jpg";
 import Kamran from "@/public/faculty/kamran.jpg";
 import Maqsood from "@/public/faculty/maqsood.jpg";
+import Link from "next/link";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
 
 export default function ManagementDepartment(){
     return(
-        <div className={'container flex flex-col min-h-screen'}>
+        <div className={'container flex flex-col py-16'}>
+            <Link href={'/pages/faculty'} className={'flex text-lg hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Faculties</Link>
+
             <p className={'text-xl md:text-2xl font-bold text-start py-2 lg:py-4 '}>Faculty of Management</p>
             <p className={'text-xs sm:text-sm'}>
                 The Faculty of Management at MVIT empowers future leaders to navigate complex business landscapes, fostering strategic thinking, innovation, and collaborative problem-solving. Our expert faculty deliver a comprehensive curriculum encompassing business administration, management science, entrepreneurship, finance, marketing, and human resources. With a focus on experiential learning, case studies, and industry partnerships, students develop skills in decision-making, data analysis, and global perspective. Through research opportunities, internships, and executive mentorship, graduates are equipped to drive organizational success, lead change initiatives, and shape the future of business.
