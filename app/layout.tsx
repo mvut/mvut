@@ -22,7 +22,7 @@ import {Exo_2, Lato, Lora, Mada, Milonga, Mukta, Open_Sans, Overpass, Poppins, P
 export default function RootLayout({children,}: { children: React.ReactNode;}) {
     const pathName = usePathname();
     return (
-    <html lang="en" className={'scroll-smooth'}>
+    <html lang="en" className={'!scroll-smooth'}>
     <head>
         <title>MVIT</title>
     </head>

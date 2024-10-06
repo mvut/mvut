@@ -35,7 +35,7 @@ export default function MyHeaderComponent(){
                     <Link href={'/pages/study/fee'}
                           className={'hover:text-gray-50'}>Fee Structure</Link>
                 </div>
-                <div className={'flex text-gray-300 text-xl gap-4 uppercase'}>
+                <div className={'flex text-gray-300 text-xl gap-2 sm:gap-4 uppercase'}>
                     <Link href={'/'}
                           className={'hover:text-gray-50'}>Home</Link>
 

@@ -7,10 +7,10 @@ import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-        {id:1, program:"Office Management and Work Ethics (OM&WE)", open:true},
-        {id:2, program:"Core Web Technologies (CWT)", open:true},
-        {id:3, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
-        {id:4, program:"Full Stack PHP Development (FSP)", open:true},
+        {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
+        {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
+        {id:3, program:"Full Stack PHP Development (FSP)", open:true},
+        {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
         {id:5, program:"Junior Computer Science Certificate (JCSC)", open:true},
         {id:6, program:"Senior Computer Science Certificate (SCSC)", open:true},
         {id:7, program:"Advance Computer Science Certificate (ACSC)", open:true},
@@ -20,27 +20,6 @@ export default function ApplicationForm(){
         {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
         {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
         {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
-        {id:13, program:"Next-Generation Web Development (NXGD)", open:true},
-        // {id:14, program:"Artificial Intelligence (MVC-01)", open:true},
-        // {id:15, program:"Introduction to Python Programming (MVC-08)", open:true},
-        // {id:16, program:"Introduction to Web Designing (MVC-14)", open:true},
-        // {id:17, program:"Introduction to JavaScript Programming (MVC-15)", open:true},
-        // {id:18, program:"Introduction to C++ Programming (MVC-17)", open:true},
-        // {id:19, program:"Generative AI Fundamentals (MVC-18)", open:true},
-        // {id:20, program:"Next.js and Vercel Deployment (MVC-26)", open:true},
-        // {id:21, program:"Typescript Programming (MVC-28)", open:true},
-        // {id:22, program:"Video Editing Tools and Techniques (MVC-30)", open:true},
-        // {id:23, program:"Designing UI/UX and Frontend Tools (MVC-34)", open:true},
-        // {id:24, program:"HTML Fundamentals (MVC-93)", open:true},
-        // {id:25, program:"Learn to Style for the Web (MVC-94)", open:true},
-        // {id:26, program:"Responsive Web Design and Bootstrap (MVC-95)", open:true},
-        // {id:27, program:"PHP Fundamentals (MVC-96)", open:true},
-        // {id:28, program:"PHP Back-end Development (MVC-99)", open:true},
-        // {id:29, program:"Tailwind CSS (MVC-100)", open:true},
-        // {id:30, program:"Introduction to React Programming (MVC-104)", open:true},
-        // {id:31, program:"Modern Applications, Trends and AI Role (MVC-106)", open:true},
-        // {id:32, program:"Prompt Engineering and LLMs (MVC-107)", open:true},
-        // {id:33, program:"Queries with MySQL (MVC-108)", open:true},
     ];
     const Countries = [
         {

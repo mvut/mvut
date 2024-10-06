@@ -19,6 +19,12 @@ export default function StudySchemeComponent(){
             {/*<Link href={'/pages/apply'} className={'text-lg hover:text-red-500 pt-4'}>Apply now </Link>*/}
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pl-2'}>
 
+                <Link href={'/pages/study/programs/nxgd'}
+                      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                >
+                    Next-Generation Web Development with Python (NXGDP)
+                </Link>
+
                 <Link href={'/pages/study/programs/fsdn'}
                       className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
                 >
@@ -37,23 +43,19 @@ export default function StudySchemeComponent(){
                     Office Management and Work Ethics (OM&WE)
                 </Link>
 
-                <Link href={'/pages/study/programs/cwt'}
-                      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
-                >
-                    Core Web Technologies (CWT)
-                </Link>
+                {/*<Link href={'/pages/study/programs/cwt'}*/}
+                {/*      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}*/}
+                {/*>*/}
+                {/*    Core Web Technologies (CWT)*/}
+                {/*</Link>*/}
 
-                <Link href={'/pages/study/programs/nxgd'}
-                      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
-                >
-                    Next-Generation Web Development (NXGD)
-                </Link>
 
-                <Link href={'/pages/courses'}
-                      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
-                >
-                    Short Courses
-                </Link>
+
+                {/*<Link href={'/pages/courses'}*/}
+                {/*      className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}*/}
+                {/*>*/}
+                {/*    Short Courses*/}
+                {/*</Link>*/}
 
             </div>
 
