@@ -20,7 +20,7 @@ export default function MyHeaderComponent(){
     }
     return(
         <div className={'flex flex-col sm:flex-row items-center justify-between bg-stone-950 p-4 w-full'}>
-            <section className={'flex gap-2 '}>
+            <section className={'flex gap-2 hover:scale-110 transition-all ease-in-out delay-200'}>
                 <Link className={''}
                     href={'/'}>
                     <Image src={Logo} alt={''} height={100} width={100} />
@@ -42,7 +42,7 @@ export default function MyHeaderComponent(){
                     <Link href={'/pages/faculty'}
                           className={'hover:text-gray-50'}>Faculties</Link>
                     <Link href={'/pages/study'}
-                          className={''}>Studies</Link>
+                          className={'hover:text-gray-50'}>Studies</Link>
                     <Link href={'/pages/research'}
                           className={'hover:text-gray-50'}>Research</Link>
                     {/*<Link href={'/pages/apply'}*/}

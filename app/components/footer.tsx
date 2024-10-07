@@ -14,7 +14,7 @@ export default function FooterComponent() {
     return (
         <div>
             <div
-                className="flex flex-col sm:flex-row sm:h-60 bg-gray-900 justify-between items-center sm:px-10 text-gray-50 py-10">
+                className="flex flex-col sm:flex-row bg-gray-800 justify-between items-center sm:px-10 text-gray-50 py-10 sm:h-96">
                 <div className={'flex flex-col items-start justify-center'}>
                     <p className={'font-bold text-md sm:text-lg'}>Contact</p>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
@@ -25,10 +25,10 @@ export default function FooterComponent() {
                         <p>USA</p>
                         <p>+1(747)209-4775</p>
                     </div>
-                    <div className={'flex items-center justify-center sm:h-10 gap-1'}>
-                        <p>Pakistan</p>
-                        <p>+92 301 736 2696</p>
-                    </div>
+                    {/*<div className={'flex items-center justify-center sm:h-10 gap-1'}>*/}
+                    {/*    <p>Pakistan</p>*/}
+                    {/*    <p>+92 301 736 2696</p>*/}
+                    {/*</div>*/}
                 </div>
                 <div className={'flex items-center justify-center text-center py-4'}>
 
