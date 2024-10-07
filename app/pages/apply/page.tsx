@@ -8,18 +8,18 @@ export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
         {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
-        {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
-        {id:3, program:"Full Stack PHP Development (FSP)", open:true},
-        {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
-        {id:5, program:"Junior Computer Science Certificate (JCSC)", open:true},
-        {id:6, program:"Senior Computer Science Certificate (SCSC)", open:true},
-        {id:7, program:"Advance Computer Science Certificate (ACSC)", open:true},
-        {id:8, program:"Professional Computer Science Certificate (PCSC)", open:true},
-        {id:9, program:"Premier Certificate in Computer Science (PCCS)", open:true},
-        {id:10, program:"Certified Web Professional in Full Stack Next.js (CWP FSN)", open:true},
-        {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
-        {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
-        {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
+        // {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
+        // {id:3, program:"Full Stack PHP Development (FSP)", open:true},
+        // {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
+        // {id:5, program:"Junior Computer Science Certificate (JCSC)", open:true},
+        // {id:6, program:"Senior Computer Science Certificate (SCSC)", open:true},
+        // {id:7, program:"Advance Computer Science Certificate (ACSC)", open:true},
+        // {id:8, program:"Professional Computer Science Certificate (PCSC)", open:true},
+        // {id:9, program:"Premier Certificate in Computer Science (PCCS)", open:true},
+        // {id:10, program:"Certified Web Professional in Full Stack Next.js (CWP FSN)", open:true},
+        // {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
+        // {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
+        // {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
     ];
     const Countries = [
         {
@@ -1931,9 +1931,9 @@ export default function ApplicationForm(){
                                 <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'campus'}>
                                     <option value={'Main'}>Main</option>
-                                    <option value={'Al-Abrar Madina-Tul-Ilm Rahmania High School, Pakpattan'}>Al-Abrar
-                                        Madina-Tul-Ilm Rahmania High School, Pakpattan
-                                    </option>
+                                    {/*<option value={'Al-Abrar Madina-Tul-Ilm Rahmania High School, Pakpattan'}>Al-Abrar*/}
+                                    {/*    Madina-Tul-Ilm Rahmania High School, Pakpattan*/}
+                                    {/*</option>*/}
                                 </select>
                             </div>
 
@@ -1951,7 +1951,7 @@ export default function ApplicationForm(){
                                 <select className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'classes'}>
                                     <option value={'Online'}>Online</option>
-                                    <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
+                                    {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
                                 </select>
                             </div>
 

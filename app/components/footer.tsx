@@ -14,7 +14,7 @@ export default function FooterComponent() {
     return (
         <div>
             <div
-                className="flex flex-col sm:flex-row bg-gray-800 justify-between items-center sm:px-10 text-gray-50 py-10 sm:h-96">
+                className="flex flex-col sm:flex-row bg-gradient-to-b from-stone-600 to-stone-700 justify-between items-center sm:px-10 text-gray-50 py-10 sm:h-96">
                 <div className={'flex flex-col items-start justify-center'}>
                     <p className={'font-bold text-md sm:text-lg'}>Contact</p>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
@@ -48,7 +48,7 @@ export default function FooterComponent() {
 
             </div>
 
-            <div className={'flex items-center justify-start gap-4 pl-4 text-gray-50 text-center bg-gray-950 h-10'}>
+            <div className={'flex items-center justify-start gap-4 pl-4 text-gray-50 text-center bg-gradient-to-l from-stone-600 to-stone-900 h-10'}>
                 <p className={'text-xs'}>Powered by
                     <Link className={'text-amber-300 uppercase'} href={'/'} target={'_blank'}> MVIT</Link>
                 </p>

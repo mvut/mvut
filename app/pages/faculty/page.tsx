@@ -20,20 +20,7 @@ export default function ResearchComponent(){
 
             <p className={'text-3xl md:text-5xl font-bold text-start py-10'}>Faculties</p>
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'}>
-                {/*    */}
-                <div
-                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
-                    <div className={'flex flex-col gap-8 bg-slate-200'}>
-                        <Image src={Img5} alt={''}
-                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
-                    </div>
-                    <div
-                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
-                        <Link href={'/pages/faculty/departments/research'} className={''}>Faculty of Research and
-                            Development</Link>
-                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
-                    </div>
-                </div>
+
                 {/*    */}
                 <div
                     className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
@@ -166,6 +153,20 @@ export default function ResearchComponent(){
                         className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
                         <Link href={'/pages/faculty/departments/interdisp'} className={''}>Faculty of Interdisciplinary
                             Education</Link>
+                        {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
+                    </div>
+                </div>
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img5} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/faculty/departments/research'} className={''}>Faculty of Research and
+                            Development</Link>
                         {/*<p className={'text-xl'}>Faculty of Research and Development</p>*/}
                     </div>
                 </div>
