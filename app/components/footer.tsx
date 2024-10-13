@@ -20,7 +20,7 @@ export default function FooterComponent() {
     return (
         <div>
             <div
-                className="flex flex-col sm:flex-row  justify-between items-start sm:px-10 text-teal-500 py-10 sm:h-96 bg-[url('../public/resources/vid.gif')] bg-cover">
+                className="flex flex-col sm:flex-row  justify-between items-start px-10 text-teal-500 py-10 sm:h-96 bg-[url('../public/resources/vid.gif')] bg-cover">
                 <div className={'flex flex-col items-start justify-center gap-2 '}>
                     <p className={'font-bold text-md sm:text-lg pb-4 text-amber-500'}>Get in Touch</p>
                     <p className={'font-bold text-sm'}>Mansha Virtual Institute of Technologies</p>
@@ -30,7 +30,7 @@ export default function FooterComponent() {
                     </div>
                     <div className={'flex items-center justify-center sm:h-10 gap-1'}>
                         <FaSquareWhatsapp size={20}/>
-                        <p>+1 747 209 4775</p>
+                        <p>+1 (747) 209-4775</p>
                     </div>
                     {/*<div className={'flex items-center justify-center sm:h-10 gap-1'}>*/}
                     {/*    <FaSquareWhatsapp size={20}/>*/}

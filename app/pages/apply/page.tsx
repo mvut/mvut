@@ -1815,7 +1815,7 @@ export default function ApplicationForm(){
                         Open</p>
                 </div>
 
-                <div className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 px-4'}>
+                <div className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 px-4 '}>
                     <div className={'flex gap-10 my-6'}>
                         <Link href={'/pages/study'}
                               className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
