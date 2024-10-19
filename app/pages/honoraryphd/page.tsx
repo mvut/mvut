@@ -8,15 +8,15 @@ import {Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay";
 import Founder from "@/public/resources/research2.png";
 import President from "@/public/resources/research/research1.png";
-import Research1 from "@/public/resources/research/research1.png";
-import Research2 from "@/public/resources/research/research2.jpg";
-import Research3 from "@/public/resources/research/research3.png";
-import Research4 from "@/public/resources/research/research4.jpg";
-import Research5 from "@/public/resources/research/research5.jpg";
-import Research6 from "@/public/resources/research/research6.jpg";
-import Research7 from "@/public/resources/research/research7.jpg";
-import Research8 from "@/public/resources/research/research8.png";
-import Research9 from "@/public/resources/research/research9.jpg";
+import Research1 from "@/public/resources/research/research17.jpg";
+import Research2 from "@/public/resources/research/research11.jpg";
+import Research3 from "@/public/resources/research/research16.jpg";
+import Research4 from "@/public/resources/research/research13.jpg";
+import Research5 from "@/public/resources/research/research12.jpg";
+import Research6 from "@/public/resources/research/research14.jpg";
+import Research7 from "@/public/resources/research/research19.jpg";
+import Research8 from "@/public/resources/research/research18.jpg";
+import Research9 from "@/public/resources/research/research15.jpg";
 import Link from "next/link";
 
 export default function ResearchPage(){
