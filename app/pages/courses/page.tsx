@@ -45,11 +45,27 @@ export default function CoursesPage(){
                 </tr>
                 <tr>
                     <td>2</td>
+                    <td>MVC-02</td>
+                    <td className={'text-start'}>Microsoft Word for Office Work</td>
+                    <td>12 Weeks</td>
+                    <td>6 (Theory:3, Practical:3)</td>
+                </tr>
+
+
+
+
+
+
+
+                <tr>
+                    <td>2</td>
                     <td>MVC-08</td>
                     <td className={'text-start'}>Introduction to Python Programming</td>
                     <td>12 Weeks</td>
                     <td>6 (Theory:3, Practical:3)</td>
                 </tr>
+
+
                 <tr>
                     <td>3</td>
                     <td>MVC-14</td>

@@ -1,40 +1,22 @@
 'use client'
-import AdmissionImage from '@/public/resources/open.jpg';
-import AdmissionImage2 from '@/public/resources/open2.jpg';
-import Image from "next/image";
 const inter = Anton({ subsets: ["latin"], weight:['400'] });
 import {Anton, Bebas_Neue, Mada, Milonga, Open_Sans, Oswald, Overpass, PT_Sans, Saira} from "next/font/google";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Link from "next/link";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
-import Alabrar1 from '@/public/alabrar/ablabrar1.jpg';
-import Alabrar2 from '@/public/alabrar/ablabrar2.jpg';
-import Alabrar3 from '@/public/alabrar/ablabrar3.jpg';
-import Alabrar4 from '@/public/alabrar/ablabrar4.jpg';
-import Alabrar5 from '@/public/alabrar/ablabrar5.jpg';
-import Alabrar6 from '@/public/alabrar/ablabrar6.jpg';
 
 export default function NewsComponents(){
     return(
-        <div className={'container flex flex-col items-center justify-center  py-10'}>
+        <div className={'px-16 flex flex-col items-center justify-center bg-slate-100 py-10'}>
             <h1 className={'text-5xl'}>News & Events</h1>
             <div className={'grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3 py-10 '}>
                 {/**/}
-                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50 '}>
-                    <Image src={AdmissionImage2} alt={''} className={'h-40 w-full'}/>
+                <div className={'flex flex-col h-full sm:w-auto bg-gradient-to-l from-blue-400 to-blue-200 border-4 border-indigo-100'}>
                     <div className={'px-6 py-4'}>
-                        <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
-                        <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>Admissions are open in Web
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>learning</p>
+                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>Admissions are open in Web
                             Technology Specialist
                             Training (WTST)</h2>
-                        <p className={'text-sm leading-relaxed'}>
+                        <p className={'text-sm leading-relaxed '}>
                             The Web Technology Specialist Training (WTST) program equips individuals with skills to
                             design,
                             develop, and maintain dynamic web applications. Covering latest technologies and best
@@ -59,11 +41,10 @@ export default function NewsComponents(){
                 </div>
                 {/*    */}
                 {/**/}
-                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50'}>
-                    <Image src={AdmissionImage2} alt={''} className={'h-40 w-full'}/>
+                <div className={'flex flex-col h-full sm:w-auto bg-gradient-to-l from-blue-400 to-blue-200 border-4 border-indigo-100'}>
                     <div className={'px-6 py-4'}>
-                        <p className={'uppercase font-bold text-sm text-gray-400'}>learning</p>
-                        <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>Admissions are open in
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>learning</p>
+                        <h2 className={`${inter.className} text-lg text-red-800 pb-4`}>Admissions are open in
                             Computer Science Professional Studies (CSPS)</h2>
                         <p className={'text-sm leading-relaxed'}>
                             The Computer Science Professional Studies (CSPS) program prepares IT professionals with
@@ -89,37 +70,33 @@ export default function NewsComponents(){
                 </div>
                 {/*    */}
                 {/**/}
-                <div className={'flex flex-col h-full sm:w-auto bg-yellow-50'}>
-                    <Carousel plugins={[Autoplay({delay: 5000,}),]}
-                              opts={{align: "start", loop: true,}}
-                              className="h-40 w-full "
-                    >
-                        <CarouselContent className={'h-40 w-full'}>
-                            <CarouselItem className="">
-                                <Image src={Alabrar1} alt="" className={''}/>
-                            </CarouselItem>
-                            <CarouselItem className="">
-                                <Image src={Alabrar2} alt=""/>
-                            </CarouselItem>
-                            <CarouselItem className="">
-                                <Image src={Alabrar3} alt=""/>
-                            </CarouselItem>
-                            <CarouselItem className="">
-                                <Image src={Alabrar4} alt=""/>
-                            </CarouselItem>
-                            <CarouselItem className="">
-                                <Image src={Alabrar5} alt=""/>
-                            </CarouselItem>
-                            <CarouselItem className="">
-                                <Image src={Alabrar6} alt=""/>
-                            </CarouselItem>
-                        </CarouselContent>
-                        {/*<CarouselPrevious/>*/}
-                        {/*<CarouselNext/>*/}
-                    </Carousel>
+                <div className={'flex flex-col h-full sm:w-auto bg-gradient-to-l from-blue-400 to-blue-200 border-4 border-indigo-100'}>
                     <div className={'px-6 py-4'}>
-                        <p className={'uppercase font-bold text-sm text-gray-400'}>Award Ceremony</p>
-                        <h2 className={`${inter.className} text-lg text-indigo-800 pb-4`}>The Interpersonal Skills (IPS)
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>learning</p>
+                        <h2 className={`${inter.className} text-lg text-red-800 pb-4`}>Celebrating Influential Leaders with Honorary Doctorate Degrees </h2>
+                        {/*<h3 className={'text-md'}>Appreciation for Social Engagement</h3>*/}
+                        <p className={'text-sm leading-relaxed'}>
+                            An honorary PhD is a prestigious award given by institutions to individuals who have made significant contributions to society or their field. Unlike traditional doctorates, it is granted for outstanding achievements, leadership, or humanitarian efforts. It honors individuals in business, science, arts, education, and public service who have positively impacted their communities and the world.
+
+                        </p>
+                        <div
+                            className={'flex h-9 w-24 my-6 hover:bg-red-800 text-gray-50 hover:text-amber-300 rounded-md bg-blue-950'}>
+                            <Link href={'/pages/honrarydoctorate'} className={'flex items-center justify-center '}>
+                                <p className={'p-2 h-full uppercase '}>Apply</p>
+                                <div className={'flex items-center justify-start  h-10 w-10 '}>
+                                    <FaArrowUpRightFromSquare/>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+                {/*    */}
+                {/**/}
+                <div className={'flex flex-col h-full sm:w-auto bg-gradient-to-l from-blue-400 to-blue-200 border-4 border-indigo-100'}>
+                    <div className={'px-6 py-4'}>
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>Award Ceremony</p>
+                        <h2 className={`${inter.className} text-lg text-red-800 pb-4`}>The Interpersonal Skills (IPS)
                             Certification for Huffaz</h2>
                         <p className={'text-sm leading-relaxed'}>
                             IPS Certification was proudly awarded to Huffaz of ALABRAR MADINA

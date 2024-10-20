@@ -1,13 +1,8 @@
 'use client'
 import React from "react";
-import ResearchImage from '@/public/resources/research2.png'
 import Image from "next/image";
-import { FaGoogleScholar } from "react-icons/fa6";
-import { GiProgression } from "react-icons/gi";
 import {Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import Founder from "@/public/resources/research2.png";
-import President from "@/public/resources/research/research1.png";
 import Research1 from "@/public/resources/research/research17.jpg";
 import Research2 from "@/public/resources/research/research11.jpg";
 import Research3 from "@/public/resources/research/research16.jpg";
@@ -28,7 +23,8 @@ export default function ResearchPage(){
                     <div className={'flex flex-col shadow-xl shadow-stone-900 border-t-4 border-stone-500 p-2'}>
                         <h1 className={'text-2xl sm:pb-2'}>Honorary Causa</h1>
                         <p className={'text-sm lg:text-lg leading-relaxed'}>
-                            An honorary PhD degree, or honorary doctorate, is a prestigious accolade awarded by universities to individuals who have significantly contributed to society, their field, or knowledge. Unlike traditional doctoral degrees requiring rigorous coursework and research, honorary doctorates are conferred for outstanding achievements, leadership, or humanitarian efforts. They recognize exceptional individuals in business, science, arts, education, and public service, who have positively impacted their communities and the world. Honorary PhD degrees celebrate the honoree&apos;s accomplishments and inspire others to strive for excellence in their fields.                        </p>
+                            An honorary PhD degree, or honorary doctorate, is a prestigious accolade awarded by universities to individuals who have significantly contributed to society, their field, or knowledge. Unlike traditional doctoral degrees requiring rigorous coursework and research, honorary doctorates are conferred for outstanding achievements, leadership, or humanitarian efforts. They recognize exceptional individuals in business, science, arts, education, and public service, who have positively impacted their communities and the world. Honorary PhD degrees celebrate the honoree&apos;s accomplishments and inspire others to strive for excellence in their fields.
+                        </p>
 
                     </div>
 
