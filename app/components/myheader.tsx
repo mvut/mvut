@@ -14,16 +14,20 @@ export default function MyHeaderComponent(){
             </section>
             <section className={'flex flex-col'}>
                 <div className={'flex justify-end gap-2 sm:gap-4 text-gray-300 py-4 text-xs'}>
-                    <Link href={'/pages/honoraryphd'}
-                          className={'hover:text-gray-50'}>Honorary PhD
-                    </Link>
                     <Link href={'/pages/news'}
                           className={'hover:text-gray-50'}>News & Events
                     </Link>
-
                     <Link href={'/pages/leadership'}
                           className={'hover:text-gray-50'}>Leadership
                     </Link>
+                    <Link href={'/bog'}
+                          className={'hover:text-gray-50'}>BoG
+                    </Link>
+                    {/*<Link href={'/pages/honoraryphd'}*/}
+                    {/*      className={'hover:text-gray-50'}>Honorary PhD*/}
+                    {/*</Link>*/}
+
+
                 </div>
                 <div className={'flex text-gray-300 text-lg gap-2 sm:gap-4 '}>
                     <Link href={'/pages/faculty'}

@@ -14,7 +14,7 @@ export default function FeeStructure(){
             <p className={'text-3xl py-10'}>Fee Structure</p>
 
             <p className={'text-2xl py-2'}>Web Technology Specialist Training (WTST)</p>
-            <table className="table-auto text-center text-xs sm:text-lg ">
+            <table className={"table-auto text-center text-xs sm:text-lg "}>
                 <thead>
                 <tr className={'bg-stone-700 text-gray-50'}>
                     <th className={'p-2'}>Sr.</th>
