@@ -23,10 +23,11 @@ export default function SloganPage(){
                 {/*    <p className={'text-xl text-gray-50'}>Total Applicants</p>*/}
                 {/*    <p className={'bg-red-500 p-2 text-xl rounded-full font-bold text-amber-200'}>0{Number(applicants)}</p>*/}
                 {/*</div>*/}
-                <p className={'text-xl sm:py-4 leading-relaxed text-teal-200 md:text-3xl '}> Admission open</p>
-                <div className={'flex items-center justify-center gap-2'}>
+                <p className={'text-xl sm:py-4 leading-relaxed text-teal-200 md:text-3xl '}>Opportunity is knocking.</p>
+                <p className={'text-lg leading-relaxed text-teal-200 md:text-2xl '}>It’s time to open the door.</p>
+                <div className={'flex items-center justify-center gap-2 py-6'}>
                     <Link href={'/pages/apply'}
-                          className={'text-md bg-red-600 text-gray-50 uppercase hover:bg-amber-600 p-2 px-4'}>apply</Link>
+                          className={'text-md bg-red-600 text-gray-50 uppercase hover:bg-amber-600 p-2 px-4'}>Apply Today</Link>
                 </div>
             </div>
 

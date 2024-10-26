@@ -9,6 +9,7 @@ import {usePathname} from "next/navigation";
 
 const inter = Poppins({ subsets: ["latin"], weight:['400'] });
 import {Exo_2, Lato, Lora, Mada, Milonga, Mukta, Open_Sans, Overpass, Poppins, PT_Sans, Saira} from "next/font/google";
+import TopHeaderComponent from "@/app/components/topheader";
 // export const metadata: Metadata = {
 //   title: "MVIT",
 //   description: "Mansha Institute of Technologies (MVIT) is a beacon of excellence in technology education, empowering individuals to unlock their full potential. " +
@@ -28,6 +29,8 @@ export default function RootLayout({children,}: { children: React.ReactNode;}) {
     </head>
       <body className={`${inter.className}`}>
       <Template>
+
+          {!pathName.startsWith('/mvit') && <TopHeaderComponent/>}
           {!pathName.startsWith('/mvit') && <MyHeaderComponent />}
           {children}
           {!pathName.startsWith('/mvit') && <FooterComponent />}
