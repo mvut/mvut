@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 
 export default function DegreeVerify(){
 const [cvn, setCvn] = useState(0);
-const [studentData, setStudentData] = useState(null);
+const [studentData, setStudentData] = useState([]);
     // let url = "/api/auth/verify?cvn=920001";
     const eventHandler = (e:React.ChangeEvent<any>) => {
         setCvn(e.target.value);
