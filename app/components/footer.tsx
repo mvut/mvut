@@ -138,6 +138,9 @@ export default function FooterComponent() {
                     <Link href={'/pages/honoraryphd'}
                           className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>Honorary PhD
                     </Link>
+                    <Link href={'/verify'}
+                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>Online Verification
+                    </Link>
                 </div>
                 {/* End Links*/}
 
