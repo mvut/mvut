@@ -4,8 +4,6 @@ import {Anton, Bebas_Neue, Mada, Milonga, Open_Sans, Oswald, Overpass, PT_Sans, 
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Link from "next/link";
 import { SiCoursera } from "react-icons/si";
-import { CiLocationArrow1 } from "react-icons/ci";
-import { MdPlayArrow } from "react-icons/md";
 import { HiOutlineLink } from "react-icons/hi";
 
 export default function NewsComponents(){
