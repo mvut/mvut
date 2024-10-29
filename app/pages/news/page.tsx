@@ -148,16 +148,16 @@ export default function NewsComponents(){
             </div>
             <div className={'hidden lg:flex flex-col p-4 lg:w-[20%] h-full gap-4 items-start'}>
                <p className={'text-3xl'}>Important Links</p>
-                <Link href={'https://www.coursera.org/'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><SiCoursera />
+                <Link href={'https://www.coursera.org/'} target={'_blank'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><SiCoursera />
                     Coursera: Learn without limits
                 </Link>
-                <Link href={'https://www.coursera.org/'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
+                <Link href={'https://www.uopeople.edu/'} target={'_blank'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
                     UoPeople: 100% online, tuition-free
                 </Link>
-                <Link href={'https://www.mikeversity.com/'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
+                <Link href={'https://www.mikeversity.com/'} target={'_blank'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
                     Mikeversity: Global Leadership
                 </Link>
-                <Link href={'https://vu.edu.pk/'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
+                <Link href={'https://vu.edu.pk/'} target={'_blank'} className={'pl-6 flex items-center justify-center gap-2 text-indigo-500 hover:text-rose-500 transition-all ease-in-out delay-200'}><HiOutlineLink />
                     Virtual University of Pakistan
                 </Link>
             </div>
