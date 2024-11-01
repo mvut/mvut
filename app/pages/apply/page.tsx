@@ -1942,7 +1942,7 @@ export default function ApplicationForm(){
                                 <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'semester'}>
                                     {/*<option value={1}>Spring 2024</option>*/}
-                                    <option value={'Fall 2024'}>Fall 2024</option>
+                                    <option value={'Fall 2024'}>Spring 2025</option>
                                 </select>
                             </div>
 
