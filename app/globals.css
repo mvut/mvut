@@ -1,3 +1,104 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .underline-animation {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .underline-animation::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .underline-animation:hover::after {
+        transform: translateX(0);
+    }
+
+    .flip-animation {
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .flip-animation:hover {
+        transform: rotateY(180deg);
+    }
+
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@layer utilities {
+    .auto-rotate {
+        animation: spin 5s linear infinite;
+    }
+}
+
+@keyframes horizontal-flip {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@layer utilities {
+    .auto-rotate-horizontal {
+        animation: horizontal-flip 5s linear infinite;
+        transform-style: preserve-3d;
+    }
+}
+
+@layer utilities {
+    .hover-fill {
+        position: relative;
+        overflow: hidden;
+        color: white;
+        z-index: 0;
+    }
+
+    .hover-fill::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #483D8B; /* Tailwind blue-500 */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s ease;
+        z-index: -1;
+    }
+
+    .hover-fill:hover::before {
+        transform: scaleX(1);
+    }
+}

@@ -22,23 +22,23 @@ export default function Countdown(){
     },[])
 
     return(
-        <div className={'flex flex-col sm:gap-4 text-white py-4'}>
-            <p className={'text-lg sm:text-2xl'}>Deadline</p>
+        <div className={'flex flex-col sm:gap-4 text-rose-700 py-4'}>
+            {/*<p className={'text-lg sm:text-2xl'}>Deadline</p>*/}
             <div className={'flex flex-row gap-2 text-xs'}>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-400'}>Days</label>
+                    <label className={'text-gray-600'}>Days</label>
                     <h1 className={'text-xl'}>{days < 10 ? '0' + days : days}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-400'}>Hours</label>
+                    <label className={'text-gray-600'}>Hours</label>
                     <h1 className={'text-xl'}>{hours < 10 ? '0' + hours : hours}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-400'}>Minutes</label>
+                    <label className={'text-gray-600'}>Minutes</label>
                     <h1 className={'text-xl'}>{minutes < 10 ? '0' + minutes : minutes}</h1>
                 </div>
                 <div className={'flex flex-col '}>
-                    <label className={'text-teal-400'}>Seconds</label>
+                    <label className={'text-gray-600'}>Seconds</label>
                     <h1 className={'text-xl'}>{seconds < 10 ? '0' + seconds : seconds}</h1>
                 </div>
             </div>

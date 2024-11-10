@@ -22,13 +22,13 @@ import Image from "next/image";
 
 export default function CoursesPage(){
     return (
-        <div className="flex flex-col items-center justify-center ">
-            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10'}>Web Technology Specialist Training (WTST)</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="flex flex-col items-center justify-center py-16 ">
+            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:pb-10 my-16'}>Web Technology Specialist Training (WTST)</p>
+            <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4 ">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-                    <div className="h-72 w-96 brightness-50 contrast-100">
+                    <div className="h-72 w-96 brightness-50 contrast-100 bg-teal-900">
                         <Image src={Img1} alt={''}
                                className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125 '}/>
 
@@ -133,19 +133,19 @@ export default function CoursesPage(){
                     </div>
                 </div>
                 {/**/}
-                <div
-                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-                    <div className="h-72 w-96 brightness-50 contrast-100">
-                        <Image src={Img7} alt={''}
-                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
-                    </div>
-                    <div
-                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-lg py-2 font-bold text-amber-300">Certificate Courses in Technology (CCT)</h1>
-                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>
-                    </div>
-                </div>
+                {/*<div*/}
+                {/*    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">*/}
+                {/*    <div className="h-72 w-96 brightness-50 contrast-100">*/}
+                {/*        <Image src={Img7} alt={''}*/}
+                {/*               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>*/}
+                {/*    </div>*/}
+                {/*    <div*/}
+                {/*        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">*/}
+                {/*        <h1 className="text-lg py-2 font-bold text-amber-300">Certificate Courses in Technology (CCT)</h1>*/}
+                {/*        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">*/}
+                {/*            These short-term programs offer practical skills and knowledge, enhancing career prospects and providing a competitive edge in the tech industry. Ideal for professionals, students, and enthusiasts, certificate courses offer flexible and focused learning, aligning with industry demands and trends.                        </p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -176,8 +176,8 @@ export default function CoursesPage(){
                 </div>
             </div>
             {/*-----------------------*/}
-            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:py-10 '}>Computer Science Professional Studies (CSPS)</p>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 pb-10">
+            <p className={'text-teal-900 text-xl lg:text-4xl font-bold text-center lg:py-16 my-16 '}>Computer Science Professional Studies (CSPS)</p>
+            <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4 pb-10">
                 {/**/}
                 <div
                     className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -292,20 +292,20 @@ export default function CoursesPage(){
                     </div>
                 </div>
                 {/**/}
-                <div
-                    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-                    <div className="h-72 w-96 brightness-50 contrast-100">
-                        <Image src={Img18} alt={''}
-                               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>
-                    </div>
-                    <div
-                        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">
-                        <h1 className="text-lg font-bold text-amber-300 py-2">Certificate in Technological Humanism and Ethics (CTHE)</h1>
-                        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            In this certificate program, explore the intersection of technology, humanity, and ethics. Delve into the social, cultural, and moral implications of emerging technologies and develop a deep understanding of the human-centered approach to technological innovation.
-                        </p>
-                    </div>
-                </div>
+                {/*<div*/}
+                {/*    className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">*/}
+                {/*    <div className="h-72 w-96 brightness-50 contrast-100">*/}
+                {/*        <Image src={Img18} alt={''}*/}
+                {/*               className={'h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125'}/>*/}
+                {/*    </div>*/}
+                {/*    <div*/}
+                {/*        className="absolute inset-0 flex translate-y-[50%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 group-hover:bg-teal-900">*/}
+                {/*        <h1 className="text-lg font-bold text-amber-300 py-2">Certificate in Technological Humanism and Ethics (CTHE)</h1>*/}
+                {/*        <p className="mb-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">*/}
+                {/*            In this certificate program, explore the intersection of technology, humanity, and ethics. Delve into the social, cultural, and moral implications of emerging technologies and develop a deep understanding of the human-centered approach to technological innovation.*/}
+                {/*        </p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
 

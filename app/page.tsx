@@ -7,19 +7,25 @@ import NavComponent from "@/app/components/nav";
 import StatisticsComponent from "@/app/components/statistics";
 import WhyUsComponent from "@/app/components/why";
 import TechComponent from "@/app/components/tech";
+import NewsComponent from "@/app/components/news";
+import StudyAreaComponent from "@/app/components/studyarea";
 
 export default function Home() {
   return (
     <main>
         <NavComponent/>
         <WhyUsComponent/>
-        <CoursesPage/>
-        <SloganPage/>
-        <StatisticsComponent/>
-        <ProgramComponent/>
-        <StrategicPartners />
-        <TechComponent/>
+        <StudyAreaComponent/>
+        <NewsComponent/>
+        {/*<SloganPage/>*/}
+        {/*<CoursesPage/>*/}
+
+        {/*<ProgramComponent/>*/}
+
+        {/*<TechComponent/>*/}
         <ResearchComponent/>
+        <StatisticsComponent/>
+        <StrategicPartners />
     </main>
   );
 }

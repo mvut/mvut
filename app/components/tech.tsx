@@ -25,8 +25,8 @@ import { MdAnalytics } from "react-icons/md";
 
 export default function TechComponent(){
     return(
-        <div className={'container flex flex-col items-center justify-center text-teal-500 my-16 text-center'}>
-                <p className={'text-3xl pb-10 text-teal-950'}>Cutting-Edge Solutions</p>
+        <div className={'container hidden md:flex flex-col items-center justify-center text-gray-700 py-32 text-center'}>
+                <p className={'text-3xl pb-16 text-teal-950'}>Next-Generation AI Solutions</p>
             <div className={'grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-2'}>
                     <FaReact size={75} className={'hover:text-stone-900 transition-all ease-in-out delay-200'}/>
                     <FaNodeJs size={75} className={'hover:text-stone-900 transition-all ease-in-out delay-200'}/>

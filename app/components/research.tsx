@@ -1,13 +1,13 @@
 export default function ResearchComponent(){
     return (
-        <div className="flex flex-col text-teal-200 text-center w-full bg-teal-950 py-10">
+        <div className="container flex flex-col text-gray-700 text-center w-full py-24">
 
             <h2 className="text-3xl font-bold text-center">Career</h2>
             <p className="flex py-6 px-2 text-center items-center justify-center text-lg leading-relaxed">
                 Mvit Ignite Curiosity and Illuminate Possibilities. We empower people by offering Online and On-Site Career Building Opportunities and Lifelong Learning, Leading in Computer Science, Information Technology, Business Management, Custom Software, Web Application, Communication Skill, Leadership Training and Research Methodologies
             </p>
 
-            <div className="flex flex-col md:flex-row justify-between p-4 items-center border-t-2 border-b-2 gap-8 mt-8">
+            <div className="flex flex-col md:flex-row justify-between p-4 items-center gap-8 mt-8">
                 <div>
                     <h2 className="text-xl font-bold">Artificial Intelligence</h2>
                     <p>Unlock the future with our comprehensive suite of Emerging AI Courses</p>

@@ -18,7 +18,7 @@ export default function ResearchComponent(){
     return(
         <div className={'container flex flex-col min-h-screen pt-10 pb-24 '}>
 
-            <p className={'text-3xl md:text-5xl font-bold text-start py-10'}>Faculties</p>
+            <p className={'text-3xl font-bold text-start py-10'}>Faculties</p>
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'}>
 
                 {/*    */}

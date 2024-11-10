@@ -1,53 +1,59 @@
-'use client'
-import {useEffect, useState} from "react";
-import Link from "next/link";
+import { MdOutlineSchool } from "react-icons/md";
+import { FaAward } from "react-icons/fa6";
+import { PiStudentBold } from "react-icons/pi";
+import { PiCertificateDuotone } from "react-icons/pi";
+import { GiDiploma } from "react-icons/gi";
 
 export default function StatisticsComponent(){
-    const [applicants, setApplicants] = useState<any[]>([]);
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            fetch('/api/auth/getapplicants', {
-                method: 'PUT',
-                next: { revalidate: 1 },
-            })
-                .then((res) => res.json())
-                .then((applicants) => {
-                    setApplicants(applicants);
-                });
-        }, 1000); // update every 5 seconds
-
-        return () => clearInterval(intervalId);
-    }, []);
-
     return(
-        <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:px-6 bg-slate-200 h-auto items-center justify-center gap-4 py-16'}>
-            <div className={'flex flex-col items-center justify-center '}>
-                <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 '}>{Number(applicants)}+</p>
-                <p className={'flex items-center justify-center text-xl text-amber-200 bg-red-900 h-12 w-52 transition-all ease-linear delay-75'}>
-                    <Link href={'/pages/candidatelist'} className={'hover:text-gray-200'}>Applicants</Link>
-                </p>
+        <div
+            className={'flex flex-col w-full bg-[url(../public/resources/microbiology.jpg)] items-center justify-center text-center gap-16 bg-fixed text-amber-600 py-10 sm:py-16 lg:py-32'}>
+            <h2 className={'text-3xl font-bold text-white'}>Important Facts</h2>
+
+            <div className={'grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-16 px-2'}>
+                <div className={'grid grid-cols-1 items-center justify-center text-start text-amber-600'}>
+                    <p className={'text-5xl text-amber-600'}>10+</p>
+                    <div className={'flex flex-row text-xl text-white'}>
+                        <MdOutlineSchool size={55}/>
+                        <p className={'font-bold'}>Professional<br/>Certification</p>
+                    </div>
+                </div>
+
+                <div className={'grid grid-cols-1 items-center justify-center text-start text-amber-600'}>
+                    <p className={'text-5xl text-amber-600'}>5+</p>
+                    <div className={'flex flex-row text-xl text-white'}>
+                        <GiDiploma size={65}/>
+                        <p className={'font-bold'}>Specialization<br/>Programs</p>
+                    </div>
+                </div>
+
+                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
+                    <p className={'text-5xl text-amber-600'}>150+</p>
+                    <div className={'flex flex-row text-xl text-white'}>
+                        <PiCertificateDuotone size={65}/>
+                        <p className={'font-bold'}>Skills<br/>Courses</p>
+                    </div>
+                </div>
+
+                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
+                    <p className={'text-5xl text-amber-600'}>10+</p>
+                    <div className={'flex flex-row text-xl text-white'}>
+                        <PiStudentBold size={65}/>
+                        <p className={'font-bold'}>Active<br/>Students</p>
+                    </div>
+                </div>
+
+                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
+                    <p className={'text-5xl text-amber-600'}>100+</p>
+                    <div className={'flex flex-row text-xl text-white'}>
+                        <FaAward size={65}/>
+                        <p className={'font-bold'}>Total<br/>Certified</p>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div className={'flex flex-col items-center justify-center '}>
-                <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 '}>100+</p>
-                <p className={'flex items-center justify-center text-xl text-amber-200 bg-red-900 h-12 w-52'}>
-                    <Link href={'/pages/faculty'} className={'hover:text-gray-200'}>Faculty</Link>
-                </p>
-            </div>
-
-            <div className={'flex flex-col items-center justify-center '}>
-                <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 '}>10+</p>
-                <p className={'flex items-center justify-center text-xl text-amber-200 bg-red-900 h-12 w-52'}>
-                    <Link href={'/pages/study'} className={'hover:text-gray-200'}>Programs</Link>
-                </p>
-            </div>
-
-            <div className={'flex flex-col items-center justify-center '}>
-                <p className={'flex items-center justify-center text-5xl text-gray-50 bg-stone-950 h-24 w-48 '}>150+</p>
-                <p className={'flex items-center justify-center text-xl text-amber-200 bg-red-900 h-12 w-52'}>
-                    <Link href={'/pages/courses'} className={'hover:text-gray-200'}>Courses</Link>
-                </p>
-            </div>
         </div>
     )
 }

@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function ProgramComponent(){
     return (
-        <div className="flex flex-col items-center justify-center py-10">
+        <div className="flex flex-col items-center justify-center py-16">
             <p className="text-5xl py-4">Services</p>
             <div
-                className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 items-center justify-center gap-4 py-4'}>
+                className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 items-center justify-center gap-16 py-4'}>
                 <div
                     className={'flex flex-col items-start justify-start h-72 w-72 bg-gray-200 p-2 border-y-4 border-amber-600'}>
                     <h2 className={'text-xl font-bold py-2 text-amber-600'}>Solutions</h2>

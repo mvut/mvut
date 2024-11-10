@@ -42,78 +42,78 @@ export default function FooterComponent() {
                 <div className={'flex flex-col text-sm'}>
                     <p className={'text-lg text-amber-500'}>Studies</p>
                     <Link href={'/pages/study/programs/nxgd'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Next-Generation Web Development with Python (NXGDP)
                     </Link>
 
                     <Link href={'/pages/study/programs/fsdn'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Full Stack Development with Next.js (FSDN)
                     </Link>
 
                     <Link href={'/pages/study/programs/php'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Full Stack PHP Development (FSP)
                     </Link>
 
                     <Link href={'/pages/study/programs/omc'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Office Management and Work Ethics (OM&WE)
                     </Link>
                     <Link href={'/pages/study/programs/psc'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Junior Computer Science Certificate (JCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/esc'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Senior Computer Science Certificate (SCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/ssc'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Advance Computer Science Certificate (ACSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/hssc'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Professional Computer Science Certificate (PCSC)
                     </Link>
 
                     <Link href={'/pages/study/programs/bscs'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Premier Certificate in Computer Science (PCCS)
                     </Link>
 
                     <Link href={'/pages/study/programs/pgdfsn'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Certified Web Professional in Full Stack Next.js (CWP FSN)
                     </Link>
 
                     <Link href={'/pages/study/programs/pgdfsp'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Certified Web Professional in Full Stack PHP (CWP FSP)
                     </Link>
 
                     <Link href={'/pages/study/programs/msfsd'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Advance Professional Certificate in Web Development (APCWD)
                     </Link>
 
                     <Link href={'/pages/study/programs/phdfsd'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation'}
                     >
                         Certificate of Philosophy in Web Development (CPWD)
                     </Link>
@@ -125,21 +125,24 @@ export default function FooterComponent() {
                     <p className={'text-lg text-amber-500'}>Important Links</p>
 
                     <Link href={'/pages/apply'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                          className={'underline-animation transition-all ease-in-out delay-100'}
                     >
                         Get Admission
                     </Link>
+                    <Link href={'/pages/leadership'}
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Leadership
+                    </Link>
                     <Link href={'/pages/study/fee'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>Fee Structure
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Fee Structure
                     </Link>
                     <Link href={'/pages/news'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>News & Events
+                          className={'underline-animation transition-all ease-in-out delay-100'}>News & Events
                     </Link>
                     <Link href={'/pages/honoraryphd'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>Honorary PhD
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Honorary PhD
                     </Link>
                     <Link href={'/verify'}
-                          className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}>Online Verification
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Online Verification
                     </Link>
                 </div>
                 {/* End Links*/}
@@ -147,8 +150,7 @@ export default function FooterComponent() {
 
             </div>
 
-            <div
-                className={'flex items-center justify-between gap-4 px-4 text-gray-50 text-center bg-gradient-to-l from-stone-600 to-stone-900 h-10'}>
+            <div className={'flex items-center justify-between gap-4 px-4 text-gray-50 text-center bg-gray-900 h-10'}>
                 <p className={'text-xs'}>Powered by
                     <Link className={'text-amber-300 uppercase'} href={'https://www.mvut.us/'} target={'_blank'}> MVIT</Link>
                 </p>

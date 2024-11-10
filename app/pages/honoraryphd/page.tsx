@@ -69,7 +69,7 @@ export default function ResearchPage(){
                         {/**/}
                     </div>
                 </div>
-                <Link href={'/pages/honrarydoctorate'} className={'text-slate-200 bg-red-600 p-2 w-96 my-10 text-center hover:bg-red-800'}>Click to Apply for Honorary Doctorate Degree</Link>
+                <Link href={'/pages/honrarydoctorate'} className={'hover-fill text-slate-200 bg-red-600 p-2 w-96 my-10 text-center'}>Click to Apply for Honorary Doctorate Degree</Link>
 
             </div>
         )
