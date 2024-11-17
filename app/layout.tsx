@@ -16,7 +16,7 @@ export default function RootLayout({children,}: { children: React.ReactNode;}) {
     <head>
         <title>Learn AI with MVIT</title>
     </head>
-      <body className={`${poppins.className} bg-white`}>
+      <body className={`${poppins.className}`}>
       <Template>
           {!pathName.startsWith('/mvit') && <MyHeaderComponent />}
           {children}

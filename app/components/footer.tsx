@@ -132,6 +132,9 @@ export default function FooterComponent() {
                     <Link href={'/pages/leadership'}
                           className={'underline-animation transition-all ease-in-out delay-100'}>Leadership
                     </Link>
+                    <Link href={'/pages/services'}
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Services
+                    </Link>
                     <Link href={'/pages/study/fee'}
                           className={'underline-animation transition-all ease-in-out delay-100'}>Fee Structure
                     </Link>
@@ -143,6 +146,9 @@ export default function FooterComponent() {
                     </Link>
                     <Link href={'/verify'}
                           className={'underline-animation transition-all ease-in-out delay-100'}>Online Verification
+                    </Link>
+                    <Link href={'/pages/research'}
+                          className={'underline-animation transition-all ease-in-out delay-100'}>Research
                     </Link>
                 </div>
                 {/* End Links*/}
