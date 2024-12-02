@@ -6,8 +6,9 @@ import MyHeaderComponent from "@/app/components/myheader";
 import React from "react";
 import {usePathname} from "next/navigation";
 
-const poppins = Poppins({ subsets: ["latin"], weight:['400'] });
-import {Poppins} from "next/font/google";
+const poppins = DM_Sans({ subsets: ["latin"], weight:['400'] });
+import {DM_Sans} from "next/font/google";
+import {GrAnnounce} from "react-icons/gr";
 
 export default function RootLayout({children,}: { children: React.ReactNode;}) {
     const pathName = usePathname();
@@ -16,13 +17,13 @@ export default function RootLayout({children,}: { children: React.ReactNode;}) {
     <head>
         <title>Learn AI with MVIT</title>
     </head>
-      <body className={`${poppins.className}`}>
-      <Template>
-          {!pathName.startsWith('/mvit') && <MyHeaderComponent />}
-          {children}
-          {!pathName.startsWith('/mvit') && <FooterComponent />}
-      </Template>
-      </body>
+    <body className={`${poppins.className}`}>
+    <Template>
+        {!pathName.startsWith('/mvut') && <MyHeaderComponent/>}
+        {children}
+        {!pathName.startsWith('/mvut') && <FooterComponent/>}
+    </Template>
+    </body>
     </html>
-  );
+    );
 }

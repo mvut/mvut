@@ -5,6 +5,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Research1 from "@/public/resources/mvit-add2.png";
 import Research2 from "@/public/resources/mvit-add3.png";
 import Research3 from "@/public/resources/mvit-add4.png";
+import Research4 from "@/public/resources/mvit-add6.png";
 import React from "react";
 const inter = Open_Sans({ subsets: ["latin"], weight:['400'] });
 import {Open_Sans} from "next/font/google";
@@ -12,7 +13,7 @@ import {Open_Sans} from "next/font/google";
 export default function NavComponent(){
 return(
     <div className={` ${inter.className}`}>
-        <Carousel plugins={[Autoplay({delay: 5000,}),]}
+        <Carousel plugins={[Autoplay({delay: 4000,}),]}
                   opts={{align: "start", loop: true,}}
                   className={""}
         >
@@ -22,6 +23,9 @@ return(
                 </CarouselItem>
                 <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
                     <Image src={Research2} alt="" className={'h-full w-full'}/>
+                </CarouselItem>
+                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
+                    <Image src={Research4} alt="" className={'h-full w-full'}/>
                 </CarouselItem>
                 <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
                     <Image src={Research3} alt="" className={'h-full w-full'}/>

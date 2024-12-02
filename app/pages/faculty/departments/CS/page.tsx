@@ -2,6 +2,7 @@ import Image from "next/image";
 import Dummy from "@/public/faculty/dummy.png";
 import Gami from "@/public/faculty/gami.jpg";
 import Hussain from "@/public/faculty/hussain.jpg";
+import Rizwan from "@/public/faculty/rizwan.jpg";
 import Link from "next/link";
 import {FaArrowAltCircleLeft} from "react-icons/fa";
 
@@ -27,6 +28,19 @@ export default function CSDepartment(){
                         <h2 className={'text-lg font-bold'}>Safia</h2>
                         <h2 className={'text-sm'}>MS (CS), M. Ed, M.A. Pak Studies</h2>
                         <h2 className={'text-sm'}>Instructor Computer Education</h2>
+                        <h2 className={'text-sm'}>Pakistan</h2>
+                    </div>
+                </div>
+                {/* Leader */}
+                <div
+                    className={'flex flex-col items-center justify-center gap-2 py-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'}>
+                    <div className={'border-2 border-stone-900 rounded-full'}>
+                        <Image src={Rizwan} alt={''} className={'h-44 w-44 rounded-full'}/>
+                    </div>
+                    <div className={'flex flex-col items-center justify-center'}>
+                        <h2 className={'text-lg font-bold'}>M. Rizwan Khalid</h2>
+                        <h2 className={'text-sm'}>BS in Computer Science</h2>
+                        <h2 className={'text-sm'}>Instructor Computer Science</h2>
                         <h2 className={'text-sm'}>Pakistan</h2>
                     </div>
                 </div>
