@@ -7,7 +7,7 @@ import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-        {id:14, program:"Python for Artificial Intelligence", open:true},
+
         {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
         // {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
         // {id:3, program:"Full Stack PHP Development (FSP)", open:true},
@@ -21,6 +21,8 @@ export default function ApplicationForm(){
         // {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
         // {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
         // {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
+        {id:14, program:"Python for Artificial Intelligence", open:true},
+
     ];
     const Countries = [
         {
@@ -1931,7 +1933,8 @@ export default function ApplicationForm(){
                                 <label>Campus</label>
                                 <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'campus'}>
-                                    <option value={'Main'}>Main</option>
+                                    <option value={'Main'}>United School of Artificial Intelligence</option>
+                                    {/*<option value={'Main'}>Main</option>*/}
                                     {/*<option value={'Al-Abrar Madina-Tul-Ilm Rahmania High School, Pakpattan'}>Al-Abrar*/}
                                     {/*    Madina-Tul-Ilm Rahmania High School, Pakpattan*/}
                                     {/*</option>*/}
