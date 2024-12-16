@@ -117,6 +117,7 @@ export default function FooterComponent() {
                     >
                         Certificate of Philosophy in Web Development (CPWD)
                     </Link>
+
                 </div>
                 {/* End Studies*/}
 
@@ -149,6 +150,9 @@ export default function FooterComponent() {
                     </Link>
                     <Link href={'/pages/research'}
                           className={'underline-animation transition-all ease-in-out delay-100'}>Research
+                    </Link>
+                    <Link href={'/pages/admlst'}
+                          className={'underline-animation transition-all ease-in-out delay-100'}>List of Candidates
                     </Link>
                 </div>
                 {/* End Links*/}

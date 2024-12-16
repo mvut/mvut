@@ -15,7 +15,7 @@ export default function RootLayout({children,}: { children: React.ReactNode;}) {
     return (
     <html lang="en" className={'!scroll-smooth'}>
     <head>
-        <title>Learn AI with MVIT</title>
+        <title>MVIT</title>
     </head>
     <body className={`${poppins.className}`}>
     <Template>
