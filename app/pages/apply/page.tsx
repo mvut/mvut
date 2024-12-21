@@ -7,7 +7,7 @@ import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-
+        {id:14, program:"Python Programming for Artificial Intelligence (14 Days)", open:true},
         {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
         {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
         {id:3, program:"Full Stack PHP Development (FSP)", open:true},

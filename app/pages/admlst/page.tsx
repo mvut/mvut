@@ -6,6 +6,7 @@ import Haroon from '@/public/trainees/haroonraza.jpg';
 import Yassri from '@/public/trainees/yassri.jpeg';
 import Babar from '@/public/trainees/babar.jpg';
 import Samina from '@/public/faculty/dummy.png';
+import Shafique from '@/public/trainees/shafiqueahmad.jpg';
 import Link from "next/link";
 
 export default function ListOfAdmittedCandidates(){
@@ -75,6 +76,15 @@ export default function ListOfAdmittedCandidates(){
                         <p>MVIT, Pakistan</p>
                     </div>
                 </div>
+
+                {/*<div className={'flex flex-wrap gap-4'}>*/}
+                {/*    <Image src={Shafique} alt={'Muhammad Shafique'} className={'w-24 h-24'}/>*/}
+                {/*    <div className={''}>*/}
+                {/*        <p className={'text-xl font-bold'}>Muhammad Shafique</p>*/}
+                {/*        <Link href={'/pages/study/programs/nxgd'} className={'text-lg hover:text-blue-500'}>Next-Generation Web Development with Python</Link>*/}
+                {/*        <p>MVIT, Pakistan</p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
 
             </div>
