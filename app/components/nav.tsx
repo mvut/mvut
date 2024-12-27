@@ -6,6 +6,7 @@ import Research1 from "@/public/resources/mvit-add2.png";
 import Research2 from "@/public/resources/mvit-add3.png";
 import Research3 from "@/public/resources/mvit-add4.png";
 import Research4 from "@/public/resources/mvit-add6.png";
+import Research5 from "@/public/resources/mvit-add7.png";
 import React from "react";
 const inter = Open_Sans({ subsets: ["latin"], weight:['400'] });
 import {Open_Sans} from "next/font/google";
@@ -25,12 +26,14 @@ return(
                     <Image src={Research2} alt="" className={'h-full w-full'}/>
                 </CarouselItem>
                 <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
+                    <Image src={Research5} alt="" className={'h-full w-full'}/>
+                </CarouselItem>
+                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
                     <Image src={Research4} alt="" className={'h-full w-full'}/>
                 </CarouselItem>
                 <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
                     <Image src={Research3} alt="" className={'h-full w-full'}/>
                 </CarouselItem>
-
             </CarouselContent>
         </Carousel>
     </div>

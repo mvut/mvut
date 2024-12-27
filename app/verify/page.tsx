@@ -24,9 +24,9 @@ const [studentData, setStudentData] = useState([]);
     };
     return(
         <div className={'container min-h-screen py-16 '}>
-            <p className={'text-3xl py-10'}>Degree Verification System</p>
+            <p className={'text-3xl py-10'}>Online Degree Verification System</p>
             <form onSubmit={handleSubmit}>
-                <div className={'flex flex-col items-start justify-start gap-2 '}>
+                <div className={'flex flex-col items-start justify-start gap-2 w-1/2'}>
                     <label>Enter CVN</label>
                     <input type={'text'} placeholder={'Enter Certificate Verification Number (CVN)'}
                            className={'h-10  md:h-10 w-full bg-teal-50 p-1 border-2 border-teal-200'}

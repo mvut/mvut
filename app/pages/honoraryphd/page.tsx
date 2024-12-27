@@ -20,7 +20,7 @@ export default function ResearchPage(){
                 <h1 className={'text-4xl pb-10'}>Celebrating Influential Leaders</h1>
                 <div className={"grid grid-cols-1 sm:grid-cols-2 gap-6 "}>
 
-                    <div className={'flex flex-col shadow-xl shadow-stone-900 border-t-4 border-stone-500 p-2'}>
+                    <div className={'flex flex-col shadow-xl shadow-stone-900 border-t-4 border-stone-500 p-10'}>
                         <h1 className={'text-2xl sm:pb-2'}>Honorary Causa</h1>
                         <p className={'text-sm lg:text-lg leading-relaxed'}>
                             An honorary PhD degree, or honorary doctorate, is a prestigious accolade awarded by universities to individuals who have significantly contributed to society, their field, or knowledge. Unlike traditional doctoral degrees requiring rigorous coursework and research, honorary doctorates are conferred for outstanding achievements, leadership, or humanitarian efforts. They recognize exceptional individuals in business, science, arts, education, and public service, who have positively impacted their communities and the world. Honorary PhD degrees celebrate the honoree&apos;s accomplishments and inspire others to strive for excellence in their fields.

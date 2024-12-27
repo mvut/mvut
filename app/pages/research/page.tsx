@@ -24,7 +24,7 @@ export default function ResearchPage(){
                 <h1 className={'text-4xl pb-10'}>Research and Development (R&D)</h1>
                 <div className={"grid grid-cols-1 sm:grid-cols-2 gap-6 "}>
 
-                    <div className={'flex flex-col shadow-xl shadow-stone-900 border-t-4 border-stone-500 p-2'}>
+                    <div className={'flex flex-col shadow-xl shadow-stone-900 border-t-4 border-stone-500 p-10'}>
                         <h1 className={'text-2xl sm:pb-2'}>MVIT Research</h1>
                         <p className={'text-sm lg:text-lg leading-relaxed'}>
                             MVIT&apos;s research endeavors are driven by a multidisciplinary approach, focusing on

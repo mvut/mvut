@@ -8,19 +8,20 @@ export default function NewsComponent(){
     return (
         <div className={'container flex flex-col items-center justify-center p-4 '}>
             <h1 className={'text-3xl font-bold text-center pt-10'}>News & Events</h1>
-            <div className={'grid grid-cols-1 lg:grid-cols-4 gap-10 py-10 '}>
-                {/*Admission Granted*/}
-                {/*<div*/}
-                {/*    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>*/}
-                {/*    <div className={'px-6 py-4'}>*/}
-                {/*        <p className={'uppercase font-bold text-sm text-gray-600'}>Admissions</p>*/}
-                {/*        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>Admitted Candidate List</h2>*/}
-                {/*        <p className={'text-sm leading-relaxed '}>*/}
-                {/*            We are delighted to inform you that you have been selected for admission to MVIT Career Building Programs!*/}
-                {/*        </p>*/}
-                {/*        <Link href={'/pages/admissions'}>List of Admitted Candidates Fall 2024</Link>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+            <div className={'grid grid-cols-1 lg:grid-cols-3 gap-10 py-10 '}>
+                {/* */}
+                <div
+                    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>
+                    <div className={'px-6 py-4'}>
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>learning</p>
+                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>Admissions are open in Corporate Language Certification for Business (CLCB)</h2>
+                        <p className={'text-sm leading-relaxed '}>
+                            As an IT professional, you understand the importance of technical skills in your field. However, to succeed in a corporate environment, it&apos;s equally crucial to possess excellent communication skills. This course is designed to help IT professionals improve their corporate communication skills, enabling them to effectively collaborate with colleagues, communicate with clients, and present technical information to non-technical stakeholders.
+                        </p>
+
+                    </div>
+                </div>
+                {/*    */}
                 {/**/}
                 <div
                     className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>

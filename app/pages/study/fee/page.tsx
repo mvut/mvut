@@ -84,6 +84,41 @@ export default function FeeStructure(){
             </table>
             {/**/}
 
+            {/*English Courses*/}
+            <p className={'text-2xl mt-10 py-2'}>Corporate Language Certification for Business (CLCB)</p>
+            <table className={"table-auto text-center text-xs sm:text-lg "}>
+                <thead>
+                <tr className={'bg-stone-700 text-gray-50'}>
+                    <th className={'p-2'}>Sr.</th>
+                    <th className={'text-start'}>Program</th>
+                    <th>Classes</th>
+                    <th>Semesters</th>
+                    <th>Registration</th>
+                    <th>Monthly</th>
+                    <th>Program</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr className={'odd:bg-gray-200 even:bg-teal-100'}>
+                    <td className={'p-2'}>1</td>
+                    <td className={'text-start'}>
+                        <Link href={'/pages/study/programs/ccipc'}
+                                                       className={'flex gap-2 hover:text-red-500 transition-all delay-50'}
+                    >
+                        Corporate Communication for IT Professionals
+                        (CCIP)
+                    </Link></td>
+                    <td>Online</td>
+                    <td>01</td>
+                    <td>$50</td>
+                    <td>$20</td>
+                    <td>$170</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            {/*English Courses End*/}
             <p className={'text-2xl mt-10 py-2'}>Computer Science Professional Studies (CSPS)</p>
             <table className={"table-auto text-center text-xs sm:text-lg "}>
                 <thead>
@@ -218,213 +253,6 @@ export default function FeeStructure(){
                 </tbody>
             </table>
 
-            {/*/!* Fee for Pakistan*!/*/}
-
-            {/*    <p className={'text-3xl py-10'}>Fee Structure for Pakistan</p>*/}
-            {/*    <p className={'text-2xl py-2'}>Web Technology Specialist Training (WTST)</p>*/}
-            {/*    <table className={"table-auto text-center text-xs sm:text-lg "}>*/}
-            {/*        <thead>*/}
-            {/*        <tr className={'bg-stone-700 text-gray-50'}>*/}
-            {/*            <th className={'p-2'}>Sr.</th>*/}
-            {/*            <th className={'text-start'}>Program</th>*/}
-            {/*            <th>Classes</th>*/}
-            {/*            <th>Semesters</th>*/}
-            {/*            <th>Registration</th>*/}
-            {/*            <th>Monthly</th>*/}
-            {/*            <th>Program</th>*/}
-            {/*        </tr>*/}
-            {/*        </thead>*/}
-            {/*        <tbody>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>1</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/nxgd'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Next-Generation Web Development with Python (NXGDP)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>2</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/fsdn'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Full Stack Development with Next.js (FSDN)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>3</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/php'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Full Stack PHP Development (FSP)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>4</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/omc'}*/}
-            {/*                                               className={'flex gap-2  hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Office Management and Work Ethics (OM&WE)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>02</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>74,500</td>*/}
-            {/*        </tr>*/}
-
-            {/*        </tbody>*/}
-            {/*    </table>*/}
-            {/*/!**!/*/}
-
-            {/*<p className={'text-2xl mt-10 py-2'}>Computer Science Professional Studies (CSPS)</p>*/}
-            {/*    <table className="table-auto text-center text-xs sm:text-lg ">*/}
-            {/*        <thead>*/}
-            {/*        <tr className={'bg-stone-700 text-gray-50'}>*/}
-            {/*            <th className={'p-2'}>Sr.</th>*/}
-            {/*            <th className={'text-start'}>Program</th>*/}
-            {/*            <th>Classes</th>*/}
-            {/*            <th>Semesters</th>*/}
-            {/*            <th>Registration</th>*/}
-            {/*            <th>Monthly</th>*/}
-            {/*            <th>Program</th>*/}
-            {/*        </tr>*/}
-            {/*        </thead>*/}
-            {/*        <tbody>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>1</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/psc'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Junior Computer Science Certificate (JCSC)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>2</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/esc'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Senior Computer Science Certificate (SCSC)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>06</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>218,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>3</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/ssc'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Advance Computer Science Certificate (ACSC)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>4</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/hssc'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Professional Computer Science Certificate (PCSC)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>5</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/bscs'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Premier Certificate in Computer Science (PCCS)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>08</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>290,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>6</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/pgdfsn'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Certified Web Professional in Full Stack Next.js (CWP FSN)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>02</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>74,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>7</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/pgdfsp'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Certified Web Professional in Full Stack PHP (CWP FSP)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>02</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>74,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>8</td>*/}
-            {/*            <td className={'text-start'}><Link href={'/pages/study/programs/msfsd'}*/}
-            {/*                                               className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Advance Professional Certificate in Web Development (APCWD)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>04</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>146,500</td>*/}
-            {/*        </tr>*/}
-            {/*        <tr className={'odd:bg-gray-200 even:bg-teal-100'}>*/}
-            {/*            <td className={'p-2'}>9</td>*/}
-            {/*            <td className={' text-start'}><Link href={'/pages/study/programs/phdfsd'}*/}
-            {/*                                                className={'flex gap-2 hover:text-red-500 transition-all delay-50'}*/}
-            {/*            >*/}
-            {/*                Certificate of Philosophy in Web Development (CPWD)*/}
-            {/*            </Link></td>*/}
-            {/*            <td>Online</td>*/}
-            {/*            <td>06</td>*/}
-            {/*            <td>2,500</td>*/}
-            {/*            <td>6,000</td>*/}
-            {/*            <td>218,500</td>*/}
-            {/*        </tr>*/}
-            {/*        </tbody>*/}
-            {/*    </table>*/}
 
         </div>
     )

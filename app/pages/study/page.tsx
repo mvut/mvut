@@ -15,6 +15,7 @@ import Img14 from "@/public/resources/img14.jpg";
 import Img15 from "@/public/resources/img15.jpg";
 import Img16 from "@/public/resources/img16.jpg";
 import Img17 from "@/public/resources/cthe.jpg";
+import Img18 from "@/public/resources/ccip.jpg";
 
 export default function StudySchemeComponent(){
     return(
@@ -98,6 +99,30 @@ export default function StudySchemeComponent(){
                 </div>
 
             </div>
+
+            {/* English*/}
+            <p className={'text-2xl text-teal-700 font-bold'}>Corporate Language Certification for Business (CLCB)</p>
+            <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pl-2'}>
+
+                {/*    */}
+                <div
+                    className={'border-4 border-stone-900 group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-lg hover:shadow-teal-700'}>
+                    <div className={'flex flex-col gap-8 bg-slate-200'}>
+                        <Image src={Img18} alt={''}
+                               className={'h-48 w-full object-cover transition-transform duration-500 rotate-3 scale-110 group-hover:scale-125'}/>
+                    </div>
+                    <div
+                        className={'flex bg-stone-950 text-gray-200 h-24 items-center justify-center p-4 hover:bg-stone-800'}>
+                        <Link href={'/pages/study/programs/ccipc'}
+                              className={'hover:text-indigo-700 transition-all ease-in-out delay-100'}
+                        >
+                            Corporate Communication for IT Professionals (CCIP)
+                        </Link>
+                    </div>
+                </div>
+
+            </div>
+            {/* English end*/}
 
             <p className={'text-2xl text-teal-700 font-bold '}>Computer Science Professional Studies (CSPS)</p>
             <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 '}>
