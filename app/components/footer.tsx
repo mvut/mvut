@@ -15,10 +15,11 @@ import {
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { LiaFlagUsaSolid } from "react-icons/lia";
+import { FaGithub } from "react-icons/fa";
 
 export default function FooterComponent() {
     return (
-        <div className={'bg-gray-500'}>
+        <div className={'bg-yellow-500'}>
             <div
                 className="container flex flex-col sm:flex-row  justify-between items-start px-10 text-black py-10 sm:h-96 ">
                 <div className={'flex flex-col items-start justify-center gap-2 '}>
@@ -193,6 +194,10 @@ export default function FooterComponent() {
                         </HoverCardContent>
                     </HoverCard>
                     <div className={'flex items-center justify-center text-center gap-2'}>
+                        <Link target="_blank" href={"https://github.com/drsagher/MVIT"}
+                              className="hover:text-green-400">
+                            <FaGithub  size={25}/>
+                        </Link>
                         <Link target="_blank" href={"https://whatsapp.com/channel/0029Vapvfi26xCSYFAVBeK3y"}
                               className="hover:text-green-400">
                             <FaWhatsapp size={25}/>
