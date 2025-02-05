@@ -20,7 +20,8 @@ export default function ApplicationForm(){
         // {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
         // {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
         // {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
-        {id:15, program:"Full-Stack AI Engineer (FSAE)", open:true},
+        {id:16, program:"M800 Fullstack Developer", open:true},
+        {id:15, program:"M900 AI Engineer", open:true},
         // {id:14, program:"Corporate Communication for IT Professionals (CCIP)", open:true},
         {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
 
@@ -1854,11 +1855,11 @@ export default function ApplicationForm(){
 
                                 <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'qualification'}>
-                                    <option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)
-                                    </option>
-                                    <option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate
-                                        (ESC)
-                                    </option>
+                                    {/*<option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)*/}
+                                    {/*</option>*/}
+                                    {/*<option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate*/}
+                                    {/*    (ESC)*/}
+                                    {/*</option>*/}
                                     <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate
                                         (SSC)
                                     </option>
@@ -1956,7 +1957,7 @@ export default function ApplicationForm(){
                                 <select className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
                                         name={'classes'}>
                                     <option value={'Online'}>Online</option>
-                                    {/*<option value={'Onsite'}>Onsite (Only in Pakpattan)</option>*/}
+                                    <option value={'Onsite'}>Onsite (Only in Pakpattan)</option>
                                 </select>
                             </div>
 
