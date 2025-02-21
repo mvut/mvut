@@ -22,6 +22,22 @@ export default function NewsComponent(){
                     </div>
                 </div>
                 {/*    */}
+
+                {/**/}
+                <div
+                    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>
+                    <div className={'px-6 py-4'}>
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>Quality Assurance Test</p>
+                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>School Registration Initiative</h2>
+                        <p className={'text-sm leading-relaxed '}>
+                            The Quality Assurance Test (QAT) is a systematic evaluation process designed to ensure that Quality of Education meet predetermined standards, requirements, and specifications. Conducted by independent testers, QAT involves a series of rigorous tests, inspections, and analyses to identify defects, discrepancies, and areas for improvement. By verifying conformance to quality, reliability, and performance criteria, QAT provides stakeholders with confidence that the deliverables are fit for purpose, reliable, and meet user expectations, ultimately enhancing customer satisfaction and loyalty.
+                             <Link className={'font-bold text-blue-500 hover:text-red-500'} href={'/qac/IR'}> Apply Now!</Link>
+                        </p>
+
+                    </div>
+                </div>
+                {/*    */}
+
                 {/**/}
                 <div
                     className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>

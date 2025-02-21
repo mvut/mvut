@@ -17,8 +17,10 @@ export default function MyHeaderComponent(){
             <div className={'flex text-md gap-2 sm:gap-4 py-6 uppercase'}>
                 <Link href={'/'}
                       className={'underline-animation '}>Home</Link>
-                {/*<Link href={''}*/}
-                {/*      className={'underline-animation '}>Blogs</Link>*/}
+                <Link href={'/qac'}
+                      className={'underline-animation '}>QAC</Link>
+                {/*<Link href={'/tutorials'}*/}
+                {/*      className={'underline-animation '}>Tutorials</Link>*/}
                 <Link href={'/pages/faculty'}
                       className={'underline-animation'}>Faculties</Link>
                 <Link href={'/pages/study'}

@@ -19,7 +19,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function FooterComponent() {
     return (
-        <div className={'bg-orange-400'}>
+        <div className={'bg-slate-400'}>
             <div
                 className="container flex flex-col sm:flex-row  justify-between items-start px-10 text-black py-10 sm:h-96 ">
                 <div className={'flex flex-col items-start justify-center gap-2 '}>

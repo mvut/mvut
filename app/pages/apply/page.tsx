@@ -9,7 +9,7 @@ export default function ApplicationForm(){
     const programs =[
 
         // {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
-        // {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
+        {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
         // {id:3, program:"Full Stack PHP Development (FSP)", open:true},
         // {id:5, program:"Junior Computer Science Certificate (JCSC)", open:true},
         // {id:6, program:"Senior Computer Science Certificate (SCSC)", open:true},
@@ -20,9 +20,9 @@ export default function ApplicationForm(){
         // {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
         // {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
         // {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
-        {id:16, program:"M800 Fullstack Developer", open:true},
-        {id:15, program:"M900 AI Engineer", open:true},
-        // {id:14, program:"Corporate Communication for IT Professionals (CCIP)", open:true},
+        // {id:16, program:"M800 Fullstack Developer", open:true},
+        {id:15, program:"MRSE Certification", open:true},
+        {id:14, program:"Corporate Communication for IT Professionals (CCIP)", open:true},
         {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
 
     ];
