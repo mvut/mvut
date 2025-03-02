@@ -19,9 +19,9 @@ import { FaGithub } from "react-icons/fa";
 
 export default function FooterComponent() {
     return (
-        <div className={'bg-slate-400'}>
+        <div className={'bg-slate-900 '}>
             <div
-                className="container flex flex-col sm:flex-row  justify-between items-start px-10 text-black py-10 sm:h-96 ">
+                className="container flex flex-col sm:flex-row  justify-between items-start px-10 text-gray-50 py-10 sm:h-96 ">
                 <div className={'flex flex-col items-start justify-center gap-2 '}>
                     <p className={'text-md sm:text-lg pb-4 '}>Get in Touch</p>
                     <p className={'text-lg'}>Mansha Virtual Institute of Technologies</p>
@@ -40,93 +40,93 @@ export default function FooterComponent() {
                 </div>
 
                 {/* Studies */}
-                <div className={'flex flex-col text-sm'}>
-                    <p className={'text-lg '}>Studies</p>
-                    <Link href={'/pages/study/programs/nxgd'}
-                          className={'underline-animation'}
-                    >
-                        Next-Generation Web Development with Python (NXGDP)
-                    </Link>
+                {/*<div className={'flex flex-col text-sm'}>*/}
+                {/*    <p className={'text-lg '}>Studies</p>*/}
+                {/*    <Link href={'/pages/study/programs/nxgd'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Next-Generation Web Development with Python (NXGDP)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/fsdn'}
-                          className={'underline-animation'}
-                    >
-                        Full Stack Development with Next.js (FSDN)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/fsdn'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Full Stack Development with Next.js (FSDN)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/php'}
-                          className={'underline-animation'}
-                    >
-                        Full Stack PHP Development (FSP)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/php'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Full Stack PHP Development (FSP)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/omc'}
-                          className={'underline-animation'}
-                    >
-                        Office Management and Work Ethics (OM&WE)
-                    </Link>
-                    <Link href={'/pages/study/programs/psc'}
-                          className={'underline-animation'}
-                    >
-                        Junior Computer Science Certificate (JCSC)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/omc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Office Management and Work Ethics (OM&WE)*/}
+                {/*    </Link>*/}
+                {/*    <Link href={'/pages/study/programs/psc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Junior Computer Science Certificate (JCSC)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/esc'}
-                          className={'underline-animation'}
-                    >
-                        Senior Computer Science Certificate (SCSC)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/esc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Senior Computer Science Certificate (SCSC)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/ssc'}
-                          className={'underline-animation'}
-                    >
-                        Advance Computer Science Certificate (ACSC)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/ssc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Advance Computer Science Certificate (ACSC)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/hssc'}
-                          className={'underline-animation'}
-                    >
-                        Professional Computer Science Certificate (PCSC)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/hssc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Professional Computer Science Certificate (PCSC)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/bscs'}
-                          className={'underline-animation'}
-                    >
-                        Premier Certificate in Computer Science (PCCS)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/bscs'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Premier Certificate in Computer Science (PCCS)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/pgdfsn'}
-                          className={'underline-animation'}
-                    >
-                        Certified Web Professional in Full Stack Next.js (CWP FSN)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/pgdfsn'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Certified Web Professional in Full Stack Next.js (CWP FSN)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/pgdfsp'}
-                          className={'underline-animation'}
-                    >
-                        Certified Web Professional in Full Stack PHP (CWP FSP)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/pgdfsp'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Certified Web Professional in Full Stack PHP (CWP FSP)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/msfsd'}
-                          className={'underline-animation'}
-                    >
-                        Advance Professional Certificate in Web Development (APCWD)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/msfsd'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Advance Professional Certificate in Web Development (APCWD)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/phdfsd'}
-                          className={'underline-animation'}
-                    >
-                        Certificate of Philosophy in Web Development (CPWD)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/phdfsd'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Certificate of Philosophy in Web Development (CPWD)*/}
+                {/*    </Link>*/}
 
-                    <Link href={'/pages/study/programs/ccipc'}
-                          className={'underline-animation'}
-                    >
-                        Corporate Communication for IT Professionals
-                        (CCIP)
-                    </Link>
+                {/*    <Link href={'/pages/study/programs/ccipc'}*/}
+                {/*          className={'underline-animation'}*/}
+                {/*    >*/}
+                {/*        Corporate Communication for IT Professionals*/}
+                {/*        (CCIP)*/}
+                {/*    </Link>*/}
 
-                </div>
+                {/*</div>*/}
                 {/* End Studies*/}
 
                     {/* Important Links*/}
@@ -161,6 +161,9 @@ export default function FooterComponent() {
                         </Link>
                         <Link href={'/pages/admlst'}
                               className={'underline-animation transition-all ease-in-out delay-100'}>List of Candidates
+                        </Link>
+                        <Link href={'/qac'}
+                              className={'underline-animation transition-all ease-in-out delay-100'}>QAT
                         </Link>
                     </div>
                     {/* End Links*/}

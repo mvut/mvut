@@ -2,29 +2,11 @@
 import Link from "next/link";
 import React, {FormEvent, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
-import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa";
 
 export default function ApplicationForm(){
     const router = useRouter();
     const programs =[
-
-        {id:1, program:"Next-Generation Web Development with Python (NXGDP)", open:true},
-        {id:2, program:"Full Stack Development with Next.js (FSDN)", open:true, duration:''},
-        {id:3, program:"Full Stack PHP Development (FSP)", open:true},
-        // {id:5, program:"Junior Computer Science Certificate (JCSC)", open:true},
-        // {id:6, program:"Senior Computer Science Certificate (SCSC)", open:true},
-        // {id:7, program:"Advance Computer Science Certificate (ACSC)", open:true},
-        // {id:8, program:"Professional Computer Science Certificate (PCSC)", open:true},
-        // {id:9, program:"Premier Certificate in Computer Science (PCCS)", open:true},
-        // {id:10, program:"Certified Web Professional in Full Stack Next.js (CWP FSN)", open:true},
-        // {id:11, program:"Certified Web Professional in Full Stack PHP (CWP FSP)", open:true},
-        // {id:12, program:"Advance Professional Certificate in Web Development (APCWD)", open:true},
-        // {id:13, program:"Certificate of Philosophy in Web Development (CPWD)", open:true},
-        // {id:16, program:"M800 Fullstack Developer", open:true},
-        {id:14, program:"Corporate Communication for IT Professionals (CCIP)", open:true},
-        {id:4, program:"Office Management and Work Ethics (OM&WE)", open:true},
-        {id:15, program:"MRSE Certification", open:true},
-        // {id:16, program:"Kindergarten (K.G.) STEM Entrepreneurs", open:true},
+        {id:1, program:"Kindergarten (K.G.) STEM Entrepreneurs", open:true},
     ];
     const Countries = [
         {
@@ -1781,23 +1763,18 @@ export default function ApplicationForm(){
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const response = await fetch('/api/auth/apply', {
+        const response = await fetch('/api/auth/apply-kg', {
             method: 'POST',
             body: JSON.stringify({
-                full_name:formData.get("full_name"),
+                student_name:formData.get("student_name"),
                 father_name:formData.get("father_name"),
-                qualification:formData.get("qualification"),
-                institute:formData.get("institute"),
-                total_marks:formData.get("total_marks"),
-                obtained_marks:formData.get("obtained_marks"),
-                gmail:formData.get("gmail"),
+                national_identity:formData.get("national_identity"),
                 dob:formData.get("dob"),
-                whatsapp:formData.get("whatsapp"),
+                mobile:formData.get("mobile"),
                 program:formData.get("program"),
-                campus:formData.get("campus"),
-                semester:formData.get("semester"),
+                school:formData.get("school"),
                 classes:formData.get("classes"),
-                country:formData.get("country"),
+
             })
         })
         if(response.ok){
@@ -1813,21 +1790,23 @@ export default function ApplicationForm(){
             <div className={'flex flex-row  justify-center'}>
 
                 <div
-                    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/welcome.jpg')] bg-cover"}>
-                    <p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a
-                        Career</p>
-                    <p className={'text-gray-50 text-6xl font-bold text-center bg-blue-700 p-2 rounded-xl'}>Admission
-                        Open</p>
+                    className={"hidden md:flex md:flex-col min-h-screen md:w-1/2 bg-teal-400 items-center justify-center md:gap-8 bg-[url('../public/resources/mvit-add8.png')] bg-cover"}>
+                    {/*<p className={'text-amber-200 text-5xl font-bold text-center bg-red-700 p-2 rounded-xl'}>Build a*/}
+                    {/*    Career</p>*/}
+                    {/*<p className={'text-gray-50 text-6xl font-bold text-center bg-blue-700 p-2 rounded-xl'}>Admission*/}
+                    {/*    Open</p>*/}
                 </div>
 
                 <div className={'flex flex-col md:w-1/2 items-start justify-center md:gap-2 p-2 px-4 '}>
-                    <div className={'flex gap-10 my-6'}>
-                        <Link href={'/pages/study'}
-                              className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>
-                        <Link href={'/pages/study/fee'}
-                              className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>
-                    </div>
+                    {/*<div className={'flex gap-10 my-6'}>*/}
+                    {/*    <Link href={'/pages/study'}*/}
+                    {/*          className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleLeft/>Studies</Link>*/}
+                    {/*    <Link href={'/pages/study/fee'}*/}
+                    {/*          className={'flex text-xs hover:text-red-500 items-center gap-2'}><FaArrowAltCircleRight/>Fee</Link>*/}
+                    {/*</div>*/}
                     <p className={'text-teal-900 text-2xl font-bold text-center py-6'}>Application Form</p>
+
+
                     <form onSubmit={handleSubmit}
                     >
 
@@ -1837,7 +1816,7 @@ export default function ApplicationForm(){
                                 <label>Full Name</label>
                                 <input type={'text'} placeholder={'Enter your full name'}
                                        className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'full_name'}/>
+                                       required={true} name={'student_name'}/>
                             </div>
 
                             <div className={'flex flex-col '}>
@@ -1847,57 +1826,12 @@ export default function ApplicationForm(){
                                        required={true} name={'father_name'}/>
                             </div>
 
-                            <div className={'flex flex-col '}>
-                                <label>Latest Qualification</label>
-                                {/*<input type={'text'} placeholder={'Enter latest degree, diploma or certificate title'}*/}
-                                {/*       className={'h-10 w-64 md:h-10 md:w-96 bg-teal-50 p-1 border-2 border-teal-200'}*/}
-                                {/*       required={true} name={'qualification'}/>*/}
-
-                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'qualification'}>
-                                    {/*<option value={'Primary School Certificate (PSC)'}>Primary School Certificate (PSC)*/}
-                                    {/*</option>*/}
-                                    {/*<option value={'Elementary School Certificate (ESC)'}>Elementary School Certificate*/}
-                                    {/*    (ESC)*/}
-                                    {/*</option>*/}
-                                    <option value={'Secondary School Certificate (SSC)'}>Secondary School Certificate
-                                        (SSC)
-                                    </option>
-                                    <option value={'Higher Secondary School Certificate (HSSC)'}>Higher Secondary School
-                                        Certificate (HSSC)
-                                    </option>
-                                    <option value={'Bachelor of Science (B.S.)'}>Bachelor of Science (B.S.)</option>
-                                    <option value={'Bachelor of Arts (B.A.)'}>Bachelor of Arts (B.A.)</option>
-                                    <option value={'Post Graduate Diploma'}>Post Graduate Diploma</option>
-                                    <option value={'Master of Science'}>Master of Science</option>
-                                    <option value={'Master of Arts'}>Master of Arts</option>
-                                    <option value={'Doctor of Philosophy (Ph.D.)'}>Doctor of Philosophy (Ph.D.)</option>
-                                </select>
-                            </div>
-                            <div className={'flex flex-col '}>
-                                <label>Name of Institute</label>
-                                <input type={'text'} placeholder={'Enter name of institution'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'institute'}/>
-                            </div>
-                            <div className={'flex flex-col '}>
-                                <label>Total Marks/CGPA</label>
-                                <input type={'text'} placeholder={'Enter Total Marks/CGPA'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'total_marks'}/>
-                            </div>
 
                             <div className={'flex flex-col '}>
-                                <label>Obtained Marks/CGPA</label>
-                                <input type={'text'} placeholder={'Enter Obtained Marks/CGPA'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'obtained_marks'}/>
-                            </div>
-                            <div className={'flex flex-col '}>
-                                <label>Email</label>
+                                <label>National Identity No.</label>
                                 <input type={'text'} placeholder={'Enter your Email'}
                                        className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'gmail'}/>
+                                       required={true} name={'national_identity'}/>
                             </div>
                             <div className={'flex flex-col'}>
                                 <label className={'text-teal-900'}>Date of Birth</label>
@@ -1906,10 +1840,10 @@ export default function ApplicationForm(){
                                        required={true} name={'dob'}/>
                             </div>
                             <div className={'flex flex-col '}>
-                                <label>WhatsApp</label>
+                                <label>Contact: Mobile/WhatsApp</label>
                                 <input type={'text'} placeholder={'Enter WhatsApp number with country code'}
                                        className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'whatsapp'}
+                                       required={true} name={'mobile'}
                                 />
                             </div>
                             <div className={'flex flex-col'}>
@@ -1932,23 +1866,15 @@ export default function ApplicationForm(){
                             </div>
 
                             <div className={'flex flex-col '}>
-                                <label>Campus</label>
+                                <label>School</label>
                                 <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'campus'}>
-                                    <option value={'MVIT, Pakistan'}>MVIT, Pakistan</option>
+                                        name={'school'}>
+                                    <option value={'United School of Artificial Intelligence'}>United School of Artificial Intelligence</option>
                                     {/*<option value={'United School of Artificial Intelligence'}>United School of Artificial Intelligence</option>*/}
 
                                 </select>
                             </div>
 
-                            <div className={'flex flex-col '}>
-                                <label>Semester</label>
-                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'semester'}>
-                                    {/*<option value={1}>Spring 2024</option>*/}
-                                    <option value={'Fall 2024'}>Spring 2025</option>
-                                </select>
-                            </div>
 
                             <div className={'flex flex-col '}>
                                 <label>Classes</label>
@@ -1959,18 +1885,7 @@ export default function ApplicationForm(){
                                 </select>
                             </div>
 
-                            <div className={'flex flex-col'}>
-                                <label>Country</label>
-                                <select className={'h-10   md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'country'}>
-                                    {
-                                        Countries.map(country => <option key={country.isoCode}
-                                                                         value={country.name}>{country.name}</option>)
-                                    }
 
-                                    {/*<option value={2}>Onsite</option>*/}
-                                </select>
-                            </div>
                         </div>
 
                         <div className={'flex gap-2 py-6'}>

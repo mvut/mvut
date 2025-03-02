@@ -15,12 +15,10 @@ export default function MyHeaderComponent(){
             </section>
 
             <div className={'flex text-md gap-2 sm:gap-4 py-6 uppercase'}>
-                <Link href={'/'}
-                      className={'underline-animation '}>Home</Link>
-                <Link href={'/qac'}
-                      className={'underline-animation '}>QAC</Link>
-                {/*<Link href={'/tutorials'}*/}
-                {/*      className={'underline-animation '}>Tutorials</Link>*/}
+                <Link href={'/usai'}
+                      className={'underline-animation '}>Leading</Link>
+                {/*<Link href={'/'}*/}
+                {/*      className={'underline-animation '}>Home</Link>*/}
                 <Link href={'/pages/faculty'}
                       className={'underline-animation'}>Faculties</Link>
                 <Link href={'/pages/study'}
@@ -29,5 +27,6 @@ export default function MyHeaderComponent(){
                       className={'underline-animation'}>Apply</Link>
             </div>
         </div>
+
     );
 }

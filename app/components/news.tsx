@@ -27,11 +27,26 @@ export default function NewsComponent(){
                 <div
                     className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>
                     <div className={'px-6 py-4'}>
+                        <p className={'uppercase font-bold text-sm text-gray-600'}>K.G. STEM Entrepreneurs </p>
+                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>United School of Artificial Intelligence</h2>
+                        <p className={'text-sm leading-relaxed '}>
+                            Imagine a school where Kindergarten children can learn and play alongside artificial intelligence and computer science technologies! Welcome to the USAI, where we&apos;re revolutionizing early childhood education. Our innovative program brings AI and computer science to the youngest learners, fostering creativity, critical thinking, and problem-solving skills. Our experienced educators provide onsite training and education, carefully crafting a nurturing environment that sparks curiosity and excitement.
+
+                        </p>
+                        <Link className={'font-bold text-blue-500 hover:text-red-500'} href={'/usai/apply'}> Apply Now!</Link>
+                    </div>
+                </div>
+                {/*    */}
+
+                {/**/}
+                <div
+                    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>
+                    <div className={'px-6 py-4'}>
                         <p className={'uppercase font-bold text-sm text-gray-600'}>Quality Assurance Test</p>
-                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>School Registration Initiative</h2>
+                        <h2 className={`${inter.className} text-lg pb-4 text-red-800`}>Education Quality Initiative</h2>
                         <p className={'text-sm leading-relaxed '}>
                             The Quality Assurance Test (QAT) is a systematic evaluation process designed to ensure that Quality of Education meet predetermined standards, requirements, and specifications. Conducted by independent testers, QAT involves a series of rigorous tests, inspections, and analyses to identify defects, discrepancies, and areas for improvement. By verifying conformance to quality, reliability, and performance criteria, QAT provides stakeholders with confidence that the deliverables are fit for purpose, reliable, and meet user expectations, ultimately enhancing customer satisfaction and loyalty.
-                             <Link className={'font-bold text-blue-500 hover:text-red-500'} href={'/qac/IR'}> Apply Now!</Link>
+                             <Link className={'font-bold text-blue-500 hover:text-red-500'} href={'/qat/IR'}> Apply Now!</Link>
                         </p>
 
                     </div>
@@ -110,28 +125,28 @@ export default function NewsComponent(){
                 </div>
                 {/*    */}
                 {/**/}
-                <div
-                    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>
-                    <div className={'px-6 py-4'}>
-                        <p className={'uppercase font-bold text-sm text-gray-600'}>Award Ceremony</p>
-                        <h2 className={`${inter.className} text-lg text-red-800 pb-4 font-bold`}>The Interpersonal
-                            Skills
-                            (IPS)
-                            Certification for Huffaz</h2>
-                        <p className={'text-sm leading-relaxed'}>
-                            IPS Certification was proudly awarded to Huffaz of ALABRAR MADINA
-                            TUL ILM REHMANIA High School, Pakpattan, following a collaborative course conducted by
-                            the
-                            school and MVIT. This certification recognizes the participants&apos;
-                            proficiency in essential life skills, including effective communication, conflict
-                            resolution, teamwork, leadership, problem-solving, and emotional intelligence. By
-                            complementing their academic and spiritual pursuits, this program fosters holistic
-                            development, empowering Huffaz to excel in all aspects of life.
-                        </p>
+                {/*<div*/}
+                {/*    className={'flex flex-col h-full sm:w-auto hover:bg-slate-100 transition-all ease-in-out delay-200 border-2 border-slate-100'}>*/}
+                {/*    <div className={'px-6 py-4'}>*/}
+                {/*        <p className={'uppercase font-bold text-sm text-gray-600'}>Award Ceremony</p>*/}
+                {/*        <h2 className={`${inter.className} text-lg text-red-800 pb-4 font-bold`}>The Interpersonal*/}
+                {/*            Skills*/}
+                {/*            (IPS)*/}
+                {/*            Certification for Huffaz</h2>*/}
+                {/*        <p className={'text-sm leading-relaxed'}>*/}
+                {/*            IPS Certification was proudly awarded to Huffaz of ALABRAR MADINA*/}
+                {/*            TUL ILM REHMANIA High School, Pakpattan, following a collaborative course conducted by*/}
+                {/*            the*/}
+                {/*            school and MVIT. This certification recognizes the participants&apos;*/}
+                {/*            proficiency in essential life skills, including effective communication, conflict*/}
+                {/*            resolution, teamwork, leadership, problem-solving, and emotional intelligence. By*/}
+                {/*            complementing their academic and spiritual pursuits, this program fosters holistic*/}
+                {/*            development, empowering Huffaz to excel in all aspects of life.*/}
+                {/*        </p>*/}
 
-                    </div>
+                {/*    </div>*/}
 
-                </div>
+                {/*</div>*/}
             </div>
 
         </div>
