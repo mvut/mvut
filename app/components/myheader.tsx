@@ -15,6 +15,8 @@ export default function MyHeaderComponent(){
             </section>
 
             <div className={'flex text-md gap-2 sm:gap-4 py-6 uppercase'}>
+                <Link href={'/steam'}
+                      className={'underline-animation '}>STEAM</Link>
                 <Link href={'/usai'}
                       className={'underline-animation '}>Leading</Link>
                 {/*<Link href={'/'}*/}
