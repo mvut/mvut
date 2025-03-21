@@ -1,59 +1,196 @@
+'use client'
 import { MdOutlineSchool } from "react-icons/md";
 import { FaAward } from "react-icons/fa6";
 import { PiStudentBold } from "react-icons/pi";
 import { PiCertificateDuotone } from "react-icons/pi";
 import { GiDiploma } from "react-icons/gi";
+import { Montserrat } from "next/font/google";
+import { motion } from "framer-motion";
+
+// Load Google Font
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    weight: ["400", "600", "700"],
+});
 
 export default function StatisticsComponent(){
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3, // Stagger child animations
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 80, damping: 12 }, // Smooth spring effect
+        },
+    };
     return(
         <div
-            className={'flex flex-col w-full bg-[url(../public/resources/microbiology.jpg)] items-center justify-center text-center gap-16 bg-fixed text-amber-600 py-10 sm:py-16 lg:py-32'}>
-            <h2 className={'text-3xl font-bold text-white'}>Important Facts</h2>
+            className={`flex flex-col w-full items-center justify-center text-center gap-16 bg-gradient-to-br from-indigo-900 via-purple-800 to-indigo-900 py-16 sm:py-24 lg:py-32 ${montserrat.className}`}
+        >
+            {/* Title */}
+            <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-4xl font-bold text-white"
+            >
+                Important Facts & Statistics
+            </motion.h2>
 
-            <div className={'grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-16 px-2'}>
-                <div className={'grid grid-cols-1 items-center justify-center text-start text-amber-600'}>
-                    <p className={'text-5xl text-amber-600'}>10+</p>
-                    <div className={'flex flex-row text-xl text-white'}>
-                        <MdOutlineSchool size={55}/>
-                        <p className={'font-bold'}>Professional<br/>Certification</p>
+            {/* Facts Grid */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 px-4 w-full max-w-7xl"
+            >
+                {/* Professional Certifications */}
+                <motion.div
+                    variants={itemVariants}
+                    className="relative flex flex-col items-center justify-center text-center bg-gradient-to-br from-indigo-600 to-purple-500 rounded-lg text-white p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
+                    <p className="text-5xl font-bold">10+</p>
+                    <div className="flex flex-row items-center mt-4 text-xl">
+                        <MdOutlineSchool size={55} className="mr-2 text-yellow-300" />
+                        <p className="font-semibold">
+                            Professional <br /> Certifications
+                        </p>
                     </div>
-                </div>
+                    {/* Shine Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0], // Fade in and out
+                            x: ["-100%", "100%"], // Move shine effect horizontally
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                </motion.div>
 
-                <div className={'grid grid-cols-1 items-center justify-center text-start text-amber-600'}>
-                    <p className={'text-5xl text-amber-600'}>5+</p>
-                    <div className={'flex flex-row text-xl text-white'}>
-                        <GiDiploma size={65}/>
-                        <p className={'font-bold'}>Specialization<br/>Programs</p>
+                {/* Specialization Programs */}
+                <motion.div
+                    variants={itemVariants}
+                    className="relative flex flex-col items-center justify-center text-center bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg text-white p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
+                    <p className="text-5xl font-bold">7+</p>
+                    <div className="flex flex-row items-center mt-4 text-xl">
+                        <GiDiploma size={65} className="mr-2 text-yellow-300" />
+                        <p className="font-semibold">
+                            Specialization <br /> Programs
+                        </p>
                     </div>
-                </div>
+                    {/* Shine Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                </motion.div>
 
-                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
-                    <p className={'text-5xl text-amber-600'}>150+</p>
-                    <div className={'flex flex-row text-xl text-white'}>
-                        <PiCertificateDuotone size={65}/>
-                        <p className={'font-bold'}>Skills<br/>Courses</p>
+                {/* Skills Courses */}
+                <motion.div
+                    variants={itemVariants}
+                    className="relative flex flex-col items-center justify-center text-center bg-gradient-to-br from-green-600 to-teal-500 rounded-lg text-white p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
+                    <p className="text-5xl font-bold">200+</p>
+                    <div className="flex flex-row items-center mt-4 text-xl">
+                        <PiCertificateDuotone size={65} className="mr-2 text-yellow-300" />
+                        <p className="font-semibold">
+                            Skills <br /> Courses
+                        </p>
                     </div>
-                </div>
+                    {/* Shine Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                </motion.div>
 
-                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
-                    <p className={'text-5xl text-amber-600'}>10+</p>
-                    <div className={'flex flex-row text-xl text-white'}>
-                        <PiStudentBold size={65}/>
-                        <p className={'font-bold'}>Active<br/>Students</p>
+                {/* Active Students */}
+                <motion.div
+                    variants={itemVariants}
+                    className="relative flex flex-col items-center justify-center text-center bg-gradient-to-br from-orange-600 to-yellow-500 rounded-lg text-white p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
+                    <p className="text-5xl font-bold">10+</p>
+                    <div className="flex flex-row items-center mt-4 text-xl">
+                        <PiStudentBold size={65} className="mr-2 text-yellow-300" />
+                        <p className="font-semibold">
+                            Active <br /> Students
+                        </p>
                     </div>
-                </div>
+                    {/* Shine Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                </motion.div>
 
-                <div className={'grid grid-cols-1 items-center justify-center text-start gap-2 text-amber-600'}>
-                    <p className={'text-5xl text-amber-600'}>100+</p>
-                    <div className={'flex flex-row text-xl text-white'}>
-                        <FaAward size={65}/>
-                        <p className={'font-bold'}>Total<br/>Certified</p>
+                {/* Total Certified */}
+                <motion.div
+                    variants={itemVariants}
+                    className="relative flex flex-col items-center justify-center text-center bg-gradient-to-br from-red-600 to-pink-500 rounded-lg text-white p-6 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
+                    <p className="text-5xl font-bold">150+</p>
+                    <div className="flex flex-row items-center mt-4 text-xl">
+                        <FaAward size={65} className="mr-2 text-yellow-300" />
+                        <p className="font-semibold">
+                            Total <br /> Certified
+                        </p>
                     </div>
-                </div>
-
-
-            </div>
-
+                    {/* Shine Effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0"
+                        animate={{
+                            opacity: [0, 1, 0],
+                            x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                </motion.div>
+            </motion.div>
         </div>
     )
 }

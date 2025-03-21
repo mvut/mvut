@@ -3,8 +3,8 @@ import { FaArrowUpRightDots } from "react-icons/fa6";
 
 export default function SteamPage() {
     return (
-        <div className={'container py-16 min-h-screen'}>
-            
+        <div className={'container py-16 min-h-screen bg-[#FFD700]'}>
+
             <h2 className={'bg-red-500 p-1 inline text-gray-50'}>United Minds, Global Learning</h2>
             <h1 className={'text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight'}>
                 STEAM </h1>

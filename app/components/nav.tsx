@@ -1,45 +1,73 @@
-'use client'
-import Image from "next/image";
-import {Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import Research1 from "@/public/resources/mvit-add2.png";
-import Research2 from "@/public/resources/mvit-add3.png";
-import Research3 from "@/public/resources/mvit-add9.png";
-import Research5 from "@/public/resources/mvit-add7.png";
-import Research6 from "@/public/resources/mvit-add8.png";
-import Research7 from "@/public/resources/mvit-add4.png";
+'use client';
+// HeroSection.tsx
 import React from "react";
-const inter = Open_Sans({ subsets: ["latin"], weight:['400'] });
-import {Open_Sans} from "next/font/google";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
-export default function NavComponent(){
-return(
-    <div className={` ${inter.className}`}>
-        <Carousel plugins={[Autoplay({delay: 4000,}),]}
-                  opts={{align: "start", loop: true,}}
-                  className={""}
-        >
-            <CarouselContent className={''}>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research1} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research3} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research6} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research2} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research5} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-                <CarouselItem className="relative flex flex-col items-center justify-center h-full w-full">
-                    <Image src={Research7} alt="" className={'h-full w-full'}/>
-                </CarouselItem>
-            </CarouselContent>
-        </Carousel>
-    </div>
-)
-}
+const HeroSection = () => {
+    return (
+        <section className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 relative flex items-center justify-center overflow-hidden">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-black opacity-30"></div>
+
+            {/* Content */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="relative z-10 text-center px-4"
+            >
+                {/* Mission Statement */}
+                <h1
+                    className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+                    style={{ fontFamily: "'Poppins', sans-serif" }}
+                >
+                    Empowering People with AI
+                </h1>
+                <p
+                    className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                >
+                    Harness the power of Artificial Intelligence to drive innovation, solve real-world problems, and create meaningful impact. Join us on this transformative journey, today.
+                </p>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button className="flex items-center bg-white text-indigo-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300">
+                        Explore More
+                        <FaArrowRight className="ml-2 text-lg" />
+                    </button>
+                    <Link href={'/pages/apply'} className="flex items-center bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:text-indigo-900 transition-all duration-300">
+                        Apply Now
+                    </Link>
+                </div>
+            </motion.div>
+
+            {/* Shimmer Effect */}
+            <motion.div
+                className="absolute inset-0 bg-white/10 blur-[120px] animate-shimmer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{ repeat: Infinity, duration: 3 }}
+            ></motion.div>
+
+            {/* Floating Elements */}
+            <motion.div
+                className="absolute top-1/4 left-1/4 w-24 h-24 bg-indigo-500 rounded-full blur-md"
+                initial={{ x: -100, y: -100, opacity: 0 }}
+                animate={{ x: 0, y: 0, opacity: 1 }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            ></motion.div>
+            <motion.div
+                className="absolute bottom-1/4 right-1/4 w-20 h-20 bg-pink-500 rounded-full blur-md"
+                initial={{ x: 100, y: 100, opacity: 0 }}
+                animate={{ x: 0, y: 0, opacity: 1 }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            ></motion.div>
+        </section>
+    );
+};
+
+export default HeroSection;

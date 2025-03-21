@@ -245,3 +245,52 @@
 .ease-smooth {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes shine {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-shine {
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+}
+
+/* Glow Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8);
+    }
+    25% {
+        box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 10px 2px rgba(0, 0, 255, 0.8);
+    }
+    75% {
+        box-shadow: 0 0 10px 2px rgba(255, 255, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8);
+    }
+}
+
+.animate-glow {
+    animation: glow 5s infinite linear;
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.6), 0 0 80px rgba(0, 255, 255, 0.6);
+    }
+}
+
+.animate-glow {
+    animation: glow 1.5s infinite alternate;
+}
