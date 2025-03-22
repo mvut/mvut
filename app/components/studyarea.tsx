@@ -3,7 +3,6 @@ import { FaGlobe, FaChartBar, FaLaptopCode, FaLeaf, FaHeartbeat } from "react-ic
 import { GiVintageRobot, GiBookshelf } from "react-icons/gi";
 import { IoBusiness } from "react-icons/io5";
 import { LuLanguages } from "react-icons/lu";
-import { MdOutlineSupervisedUserCircle, MdScience } from "react-icons/md";
 import { FcReading } from "react-icons/fc";
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";

@@ -35,10 +35,10 @@ const HeroSection = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button className="flex items-center bg-white text-indigo-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300">
+                    <Link href={'/pages/services'} className="flex items-center bg-white text-indigo-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300">
                         Explore More
                         <FaArrowRight className="ml-2 text-lg" />
-                    </button>
+                    </Link>
                     <Link href={'/pages/apply'} className="flex items-center bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-white hover:text-indigo-900 transition-all duration-300">
                         Apply Now
                     </Link>

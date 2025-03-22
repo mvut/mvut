@@ -10,7 +10,6 @@ import FounderMessage from "@/app/components/founder";
 export default function Home() {
   return (
     <main >
-
         <NavComponent/>
         <FounderMessage/>
         <WhyUsComponent/>

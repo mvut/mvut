@@ -1,28 +1,37 @@
 'use client';
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { FaCheck, FaInfoCircle, FaShieldAlt } from "react-icons/fa";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaCheck, FaInfoCircle, FaShieldAlt } from 'react-icons/fa';
+
+// Define the interface for student data
+interface StudentData {
+    registration_number: string;
+    candidate_name: string;
+    father_mother_name: string;
+    degree_certificate_title: string;
+    date_issue: string; // Assuming this is a string in ISO format (e.g., "2023-10-01")
+    country: string;
+}
 
 export default function DegreeVerify() {
-    const [cvn, setCvn] = useState("");
-    const [studentData, setStudentData] = useState([]);
+    const [cvn, setCvn] = useState('');
+    const [studentData, setStudentData] = useState<StudentData[]>([]);
 
-    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    const handleSubmit = async (e: { preventDefault: () => void }) => {
         e.preventDefault();
         try {
             const response = await fetch(`/api/auth/verify?cvn=${cvn}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ cvn }),
             });
             const data = await response.json();
-            setStudentData(data);
+            setStudentData(data); // Assuming `data` is an array of `StudentData`
         } catch (error) {
-            console.error("Error fetching verification data:", error);
+            console.error('Error fetching verification data:', error);
         }
     };
 
-    // @ts-ignore
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 py-16 text-white font-sans">
             {/* Gradient Overlay */}
@@ -79,20 +88,6 @@ export default function DegreeVerify() {
                     </div>
                 </motion.form>
 
-                {/* Security Information Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mt-16 bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-8 text-center"
-                >
-                    <FaShieldAlt size={50} className="text-teal-400 mx-auto mb-6" />
-                    <h2 className="text-2xl sm:text-3xl font-bold text-teal-400 mb-4">Secure and Reliable</h2>
-                    <p className="text-sm sm:text-base leading-relaxed text-gray-200">
-                        Our verification system uses advanced encryption and security protocols to protect your data. Rest assured that every verification is accurate and tamper-proof.
-                    </p>
-                </motion.div>
-
                 {/* Verification Details */}
                 {studentData.length > 0 && (
                     <motion.div
@@ -126,7 +121,7 @@ export default function DegreeVerify() {
                                     <div className="flex items-center justify-start gap-4">
                                         <label className="font-bold text-gray-300">Date of Issue:</label>
                                         <p className="text-teal-400 font-bold">
-                                            {new Date(item.date_issue).toISOString().split("T")[0]}
+                                            {new Date(item.date_issue).toISOString().split('T')[0]}
                                         </p>
                                     </div>
                                     <div className="flex items-center justify-start gap-4">
@@ -144,20 +139,6 @@ export default function DegreeVerify() {
                         </div>
                     </motion.div>
                 )}
-
-                {/* Additional Information Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mt-16 bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-8 text-center"
-                >
-                    <FaInfoCircle size={50} className="text-teal-400 mx-auto mb-6" />
-                    <h2 className="text-2xl sm:text-3xl font-bold text-teal-400 mb-4">Need Help?</h2>
-                    <p className="text-sm sm:text-base leading-relaxed text-gray-200">
-                        If you encounter any issues or have questions about the verification process, please contact our support team at <a href="mailto:support@mvit.edu" className="text-teal-400 hover:text-teal-500 transition-all">support@mvit.edu</a>.
-                    </p>
-                </motion.div>
             </motion.div>
         </div>
     );

@@ -80,6 +80,9 @@ export default function FooterComponent() {
                 {/* Important Links */}
                 <motion.div variants={itemVariants} className="flex flex-col gap-2">
                     <p className="text-lg font-bold text-white">Quick Links</p>
+                    <Link href="/tet" className="hover:text-amber-300 transition-all duration-300">
+                        The Empowered Technologist
+                    </Link>
                     <Link href="/pages/leadership" className="hover:text-amber-300 transition-all duration-300">
                         Leadership
                     </Link>

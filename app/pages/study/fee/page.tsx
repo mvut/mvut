@@ -124,6 +124,26 @@ export default function FeeStructure() {
                                 total: 530,
                                 link: "/pages/study/programs/omc",
                             },
+                            {
+                                sr: 8,
+                                program: "Mansha Certified Blockchain Technician",
+                                classes: "Onsite",
+                                semesters: 4,
+                                registration: 50,
+                                monthly: 20,
+                                total: 530,
+                                link: "/pages/study/programs/omc",
+                            },
+                            {
+                                sr: 9,
+                                program: "Office Management, AI and Prompt Engineering",
+                                classes: "Onsite",
+                                semesters: 2,
+                                registration: 50,
+                                monthly: 20,
+                                total: 290,
+                                link: "/pages/study/programs/omc",
+                            },
                         ]}
                         usdToPkr={usdToPkr}
                     />

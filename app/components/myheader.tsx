@@ -158,6 +158,7 @@ export default function MyHeaderComponent() {
                                 USAI
                             </Link>
                         </motion.li>
+
                     </ul>
 
                     {/* Search and MLMS Login */}
@@ -191,7 +192,7 @@ export default function MyHeaderComponent() {
                                 transition={{ type: 'spring', stiffness: 300 }}
                                 className="flex items-center bg-white text-blue-600 px-6 py-2 rounded-full font-semibold"
                             >
-                                MLMS Login <FaRegArrowAltCircleRight className="ml-2" />
+                                MLMS <FaRegArrowAltCircleRight className="ml-2" />
                             </motion.a>
                         </Link>
                     </div>
@@ -255,7 +256,7 @@ export default function MyHeaderComponent() {
                             Faculties
                         </Link>
                         <Link
-                            href="#articles"
+                            href="/articles"
                             className="text-lg font-semibold text-white hover:text-gray-200 transition-colors"
                         >
                             Articles

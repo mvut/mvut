@@ -31,7 +31,7 @@ export default function ListOfAdmittedCandidates() {
                     transition={{ duration: 0.8 }}
                     className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400 text-center mb-12"
                 >
-                    List of Admitted Candidates - Fall 2024
+                    List of Admitted Candidates - Fall 2025
                 </motion.h1>
                 <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-center leading-relaxed mb-16">
                     We are thrilled to welcome our new cohort of talented individuals who have been admitted to MVIT&apos;s prestigious programs. Explore their profiles and celebrate their achievements.

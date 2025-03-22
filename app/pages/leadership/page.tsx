@@ -83,7 +83,7 @@ export default function LeadershipPage() {
                         <FaUserTie className="text-5xl text-teal-400 mx-auto mb-4" />
                         <h3 className="text-2xl font-bold text-white mb-2">Message from the President</h3>
                         <p className="text-gray-200">
-                            "Our commitment to excellence and innovation is unwavering. Together, we will shape the future."
+                            &quot;Our commitment to excellence and innovation is unwavering. Together, we will shape the future.&quot;
                         </p>
                     </div>
                 </motion.div>
