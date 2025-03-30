@@ -1,4 +1,3 @@
-// app/qat-exam/page.tsx
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
@@ -16,6 +15,33 @@ import { FaCircle, FaRegCircle } from 'react-icons/fa';
 import Image from 'next/image';
 import MVITLogo from '@/public/mvutflame.png';
 
+// Type definitions
+type Question = {
+    id: string;
+    type: 'mcq' | 'subjective';
+    text: string;
+    marks: number;
+    options?: string[];
+    correctAnswer?: string;
+    minWords?: number;
+};
+
+type ExamResults = {
+    correct: number;
+    total: number;
+    marks: number;
+};
+
+type Credentials = {
+    studentId: string;
+    password: string;
+};
+
+type WindowSize = {
+    width: number;
+    height: number;
+};
+
 // Temporary login credentials
 const TEMP_CREDENTIALS = {
     studentId: 'MVIT2023001',
@@ -24,17 +50,17 @@ const TEMP_CREDENTIALS = {
     program: 'B.Tech CSE'
 };
 
-const generateQuestions = () => {
+const generateQuestions = (): Question[] => {
     const programmingConcepts = [
         'HTML semantics', 'CSS Flexbox', 'JavaScript closures',
         'React hooks', 'Node.js event loop', 'Database normalization'
     ];
 
-    const mcqs = Array.from({ length: 30 }, (_, i) => {
+    const mcqs: Question[] = Array.from({ length: 30 }, (_, i) => {
         const concept = programmingConcepts[i % programmingConcepts.length];
         return {
             id: `mcq${i + 1}`,
-            type: 'mcq' as const,
+            type: 'mcq',
             text: `Which of these best describes ${concept}?`,
             options: [
                 `${concept} relates to visual styling only`,
@@ -47,9 +73,9 @@ const generateQuestions = () => {
         };
     });
 
-    const subjectives = Array.from({ length: 15 }, (_, i) => ({
+    const subjectives: Question[] = Array.from({ length: 15 }, (_, i) => ({
         id: `sub${i + 1}`,
-        type: 'subjective' as const,
+        type: 'subjective',
         text: `Explain ${programmingConcepts[i % programmingConcepts.length]} in detail with examples.`,
         marks: 5,
         minWords: 100
@@ -61,7 +87,7 @@ const generateQuestions = () => {
 const QATExamSystem = () => {
     const router = useRouter();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [credentials, setCredentials] = useState({
+    const [credentials, setCredentials] = useState<Credentials>({
         studentId: '',
         password: ''
     });
@@ -69,27 +95,33 @@ const QATExamSystem = () => {
     const [answers, setAnswers] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [timeLeft, setTimeLeft] = useState(180 * 60);
-    const [questions] = useState(generateQuestions());
+    const [questions] = useState<Question[]>(generateQuestions());
     const [loginError, setLoginError] = useState('');
     const [flaggedQuestions, setFlaggedQuestions] = useState<Set<string>>(new Set());
     const [showResults, setShowResults] = useState(false);
-    const [mcqResults, setMcqResults] = useState({
+    const [mcqResults, setMcqResults] = useState<ExamResults>({
         correct: 0,
         total: 0,
         marks: 0
     });
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [wordCounts, setWordCounts] = useState<Record<string, number>>({});
+    const [hasMounted, setHasMounted] = useState(false);
 
     const currentQuestion = questions[currentQuestionIndex];
     const totalQuestions = questions.length;
     const answeredQuestions = Object.keys(answers).length;
     const progress = Math.round((answeredQuestions / totalQuestions) * 100);
 
-    // Calculate viewport dimensions
-    const [windowSize, setWindowSize] = useState({
-        width: typeof window !== 'undefined' ? window.innerWidth : 0,
-        height: typeof window !== 'undefined' ? window.innerHeight : 0
+    // Fix hydration errors by tracking mount state
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    // Calculate viewport dimensions with SSR check
+    const [windowSize, setWindowSize] = useState<WindowSize>({
+        width: 0,
+        height: 0
     });
 
     useEffect(() => {
@@ -100,11 +132,23 @@ const QATExamSystem = () => {
             });
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        // Only run on client side
+        if (typeof window !== 'undefined') {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+            window.addEventListener('resize', handleResize);
+        }
+
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('resize', handleResize);
+            }
+        };
     }, []);
 
-    const isMobile = windowSize.width < 768;
+    const isMobile = hasMounted && windowSize.width < 768;
 
     const calculateResults = useCallback(() => {
         const mcqQuestions = questions.filter(q => q.type === 'mcq');
@@ -124,6 +168,13 @@ const QATExamSystem = () => {
         };
         setAnswers(newAnswers);
         if (showResults) calculateResults();
+    };
+
+    const handleAnswerChange = (value: string) => {
+        setAnswers(prev => ({
+            ...prev,
+            [currentQuestion.id]: value
+        }));
     };
 
     const handleLogin = (e: React.FormEvent) => {
@@ -233,6 +284,10 @@ const QATExamSystem = () => {
         return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     };
 
+    if (!hasMounted) {
+        return null; // Or a loading spinner
+    }
+
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 flex items-center justify-center p-4">
@@ -246,8 +301,8 @@ const QATExamSystem = () => {
                             <Image
                                 src={MVITLogo}
                                 alt="MVIT Logo"
-                                layout="fill"
-                                objectFit="contain"
+                                fill
+                                style={{ objectFit: 'contain' }}
                                 className="filter brightness-0 invert"
                             />
                         </div>
@@ -320,8 +375,8 @@ const QATExamSystem = () => {
                             <Image
                                 src={MVITLogo}
                                 alt="MVIT Logo"
-                                layout="fill"
-                                objectFit="contain"
+                                fill
+                                style={{ objectFit: 'contain' }}
                                 className="filter brightness-0 invert"
                             />
                         </div>
@@ -383,8 +438,8 @@ const QATExamSystem = () => {
                                 <Image
                                     src={MVITLogo}
                                     alt="MVIT Logo"
-                                    layout="fill"
-                                    objectFit="contain"
+                                    fill
+                                    style={{ objectFit: 'contain' }}
                                     className="filter brightness-0 invert"
                                 />
                             </div>
@@ -452,7 +507,7 @@ const QATExamSystem = () => {
                                     <button
                                         key={q.id}
                                         onClick={() => navigateQuestion(index)}
-                                        className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium transition-all ${
+                                        className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium transition-all relative ${
                                             currentQuestionIndex === index
                                                 ? 'bg-red-700 text-white shadow-lg shadow-red-900/50'
                                                 : answers[q.id]
@@ -481,7 +536,7 @@ const QATExamSystem = () => {
                                     <button
                                         key={q.id}
                                         onClick={() => navigateQuestion(index)}
-                                        className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium transition-all ${
+                                        className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium transition-all relative ${
                                             currentQuestionIndex === index
                                                 ? 'bg-red-700 text-white shadow-lg shadow-red-900/50'
                                                 : answers[q.id]
@@ -517,20 +572,20 @@ const QATExamSystem = () => {
                                         <div className="flex justify-between items-start mb-4 md:mb-6">
                                             <div>
                                                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <span className={`inline-block text-xs px-2 py-1 rounded-full ${
-                              currentQuestion.type === 'mcq'
-                                  ? 'bg-blue-900/30 text-blue-300 border border-blue-800/50'
-                                  : 'bg-purple-900/30 text-purple-300 border border-purple-800/50'
-                          }`}>
-                            {currentQuestion.type === 'mcq' ? 'MCQ' : 'Subjective'}
-                          </span>
+                                                    <span className={`inline-block text-xs px-2 py-1 rounded-full ${
+                                                        currentQuestion.type === 'mcq'
+                                                            ? 'bg-blue-900/30 text-blue-300 border border-blue-800/50'
+                                                            : 'bg-purple-900/30 text-purple-300 border border-purple-800/50'
+                                                    }`}>
+                                                        {currentQuestion.type === 'mcq' ? 'MCQ' : 'Subjective'}
+                                                    </span>
                                                     <span className="text-xs bg-gray-900/30 px-2 py-1 rounded border border-gray-800/50">
-                            {currentQuestion.marks} mark{currentQuestion.marks !== 1 ? 's' : ''}
-                          </span>
+                                                        {currentQuestion.marks} mark{currentQuestion.marks !== 1 ? 's' : ''}
+                                                    </span>
                                                     {flaggedQuestions.has(currentQuestion.id) && (
                                                         <span className="text-xs bg-yellow-900/30 px-2 py-1 rounded border border-yellow-800/50 flex items-center">
-                              <FiFlag className="mr-1 text-yellow-500" /> Flagged
-                            </span>
+                                                            <FiFlag className="mr-1 text-yellow-500" /> Flagged
+                                                        </span>
                                                     )}
                                                 </div>
                                                 <h2 className="text-lg md:text-xl font-bold text-white">
@@ -577,15 +632,15 @@ const QATExamSystem = () => {
                                                 </div>
                                             ) : (
                                                 <div>
-                          <textarea
-                              value={answers[currentQuestion.id] || ''}
-                              onChange={(e) => {
-                                  handleAnswerChange(e.target.value);
-                                  updateWordCount(currentQuestion.id, e.target.value);
-                              }}
-                              className="w-full px-3 md:px-4 py-2 md:py-3 bg-black/30 border border-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600/50 focus:border-transparent min-h-[150px] md:min-h-[200px] text-white placeholder-gray-500 text-sm md:text-base"
-                              placeholder="Type your detailed answer here..."
-                          />
+                                                    <textarea
+                                                        value={answers[currentQuestion.id] || ''}
+                                                        onChange={(e) => {
+                                                            handleAnswerChange(e.target.value);
+                                                            updateWordCount(currentQuestion.id, e.target.value);
+                                                        }}
+                                                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-black/30 border border-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600/50 focus:border-transparent min-h-[150px] md:min-h-[200px] text-white placeholder-gray-500 text-sm md:text-base"
+                                                        placeholder="Type your detailed answer here..."
+                                                    />
                                                     {currentQuestion.minWords && (
                                                         <div className="mt-2 flex justify-between items-center text-xs md:text-sm text-gray-400">
                                                             <div>
