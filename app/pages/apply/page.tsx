@@ -1,10 +1,11 @@
-'use client'
+'use client';
 import Link from "next/link";
 import React, {FormEvent, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
+import Logo from '@/public/mvutflame.png'
 // Load Google Font
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -13,34 +14,46 @@ const montserrat = Montserrat({
 
 export default function ApplicationForm(){
     const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsSubmitting(true);
         const formData = new FormData(e.currentTarget);
-        const response = await fetch('/api/auth/apply', {
-            method: 'POST',
-            body: JSON.stringify({
-                full_name:formData.get("full_name"),
-                father_name:formData.get("father_name"),
-                qualification:formData.get("qualification"),
-                institute:formData.get("institute"),
-                total_marks:formData.get("total_marks"),
-                obtained_marks:formData.get("obtained_marks"),
-                gmail:formData.get("gmail"),
-                dob:formData.get("dob"),
-                whatsapp:formData.get("whatsapp"),
-                program:formData.get("program"),
-                campus:formData.get("campus"),
-                semester:formData.get("semester"),
-                classes:formData.get("classes"),
-                country:formData.get("country"),
-            })
-        })
-        if(response.ok){
-            alert('Entry Saved Successfully');
-            console.log(response)
-            router.push('/');
-            router.refresh();
-        }else{  alert("Server Error!");
+
+        try {
+            const response = await fetch('/api/auth/apply', {
+                method: 'POST',
+                body: JSON.stringify({
+                    full_name: formData.get("full_name"),
+                    father_name: formData.get("father_name"),
+                    qualification: formData.get("qualification"),
+                    institute: formData.get("institute"),
+                    total_marks: formData.get("total_marks"),
+                    obtained_marks: formData.get("obtained_marks"),
+                    gmail: formData.get("gmail"),
+                    dob: formData.get("dob"),
+                    whatsapp: formData.get("whatsapp"),
+                    program: formData.get("program"),
+                    campus: formData.get("campus"),
+                    semester: formData.get("semester"),
+                    classes: formData.get("classes"),
+                    country: formData.get("country"),
+                })
+            });
+
+            if(response.ok){
+                alert('Application submitted successfully!');
+                router.push('/');
+                router.refresh();
+            } else {
+                throw new Error('Server Error');
+            }
+        } catch (error) {
+            alert("Submission failed. Please try again.");
+            console.error(error);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -50,249 +63,320 @@ export default function ApplicationForm(){
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2, // Stagger child animations
+                staggerChildren: 0.1,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { type: "spring", stiffness: 80, damping: 12 }, // Smooth spring effect
+            transition: { type: "spring", stiffness: 80, damping: 12 },
         },
     };
 
-        return (
-            <div className={`bg-gradient-to-br from-teal-50 via-purple-50 to-indigo-50 py-16 ${montserrat.className}`}>
-                {/* Container */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="container mx-auto max-w-4xl bg-white rounded-lg shadow-lg p-8"
+    return (
+        <div className={`min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-12 ${montserrat.className}`}>
+            {/* Header with Logo */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="container mx-auto text-center mb-8"
+            >
+                <div className="flex justify-center mb-4">
+                    <Image
+                        src={Logo}
+                        alt="MVIT Logo"
+                        width={120}
+                        height={120}
+                        className="shadow-lg"
+                    />
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">MVIT Admission Form</h1>
+                <p className="text-red-200">Fill out the form below to begin your application</p>
+            </motion.div>
+
+            {/* Form Container */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="container mx-auto max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden"
+            >
+                {/* Form Header */}
+                <div className="bg-gradient-to-r from-red-800 to-black p-6 text-white">
+                    <h2 className="text-2xl font-bold">Application Details</h2>
+                    <p className="text-red-200">Please provide accurate information</p>
+                </div>
+
+                {/* Form */}
+                <motion.form
+                    onSubmit={handleSubmit}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8"
                 >
-
-                    {/* Title */}
-                    <motion.h2
+                    {/* Personal Information Section */}
+                    <motion.div
                         variants={itemVariants}
-                        className="text-teal-900 text-2xl font-bold text-center mb-6"
+                        className="md:col-span-2"
                     >
-                        Application Form
-                    </motion.h2>
+                        <h3 className="text-xl font-semibold text-red-900 border-b-2 border-red-200 pb-2 mb-4">
+                            Personal Information
+                        </h3>
+                    </motion.div>
 
-                    {/* Form */}
-                    <motion.form
+                    {/* Full Name */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Full Name <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="Your full name"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="full_name"
+                        />
+                    </motion.div>
+
+                    {/* Father/Mother Name */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Father/Mother Name <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="Father or mother name"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="father_name"
+                        />
+                    </motion.div>
+
+                    {/* Date of Birth */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Date of Birth <span className="text-red-600">*</span></label>
+                        <input
+                            type="date"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="dob"
+                        />
+                    </motion.div>
+
+                    {/* WhatsApp */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">WhatsApp Number <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="With country code (e.g. +92...)"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="whatsapp"
+                        />
+                    </motion.div>
+
+                    {/* Email */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Email <span className="text-red-600">*</span></label>
+                        <input
+                            type="email"
+                            placeholder="Your active email"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="gmail"
+                        />
+                    </motion.div>
+
+                    {/* Country */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Country <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="country"
+                            required
+                        >
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </motion.div>
+
+                    {/* Educational Background Section */}
+                    <motion.div
                         variants={itemVariants}
-                        onSubmit={handleSubmit} // Replace with actual handleSubmit logic
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                        className="md:col-span-2 mt-6"
                     >
-                        {/* Full Name */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Full Name</label>
-                            <input
-                                type="text"
-                                placeholder="Enter your full name"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="full_name"
-                            />
-                        </motion.div>
+                        <h3 className="text-xl font-semibold text-red-900 border-b-2 border-red-200 pb-2 mb-4">
+                            Educational Background
+                        </h3>
+                    </motion.div>
 
-                        {/* Father/Mother Name */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Father/Mother Name</label>
-                            <input
-                                type="text"
-                                placeholder="Enter your father or mother name"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="father_name"
-                            />
-                        </motion.div>
+                    {/* Latest Qualification */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Latest Qualification <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="qualification"
+                            required
+                        >
+                            <option value="">Select qualification</option>
+                            <option value="Secondary School Certificate (SSC)">Secondary School Certificate (SSC)</option>
+                            <option value="Higher Secondary School Certificate (HSSC)">Higher Secondary School Certificate (HSSC)</option>
+                            <option value="Bachelor's Degree">Bachelor&apos;s Degree</option>
+                            <option value="Master's Degree">Master&apos;s Degree</option>
+                            <option value="Doctorate">Doctorate</option>
+                        </select>
+                    </motion.div>
 
-                        {/* Latest Qualification */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Latest Qualification</label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="qualification"
-                            >
-                                <option value="Secondary School Certificate (SSC)">
-                                    Secondary School Certificate (SSC)
-                                </option>
-                                <option value="Higher Secondary School Certificate (HSSC)">
-                                    Higher Secondary School Certificate (HSSC)
-                                </option>
-                                <option value="Bachelor of Science (B.S.)">Bachelor of Science (B.S.)</option>
-                                <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
-                                <option value="Post Graduate Diploma">Post Graduate Diploma</option>
-                                <option value="Master of Science">Master of Science</option>
-                                <option value="Master of Arts">Master of Arts</option>
-                                <option value="Doctor of Philosophy (Ph.D.)">
-                                    Doctor of Philosophy (Ph.D.)
-                                </option>
-                            </select>
-                        </motion.div>
+                    {/* Name of Institute */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Name of Institute <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="Institution name"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="institute"
+                        />
+                    </motion.div>
 
-                        {/* Name of Institute */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Name of Institute</label>
-                            <input
-                                type="text"
-                                placeholder="Enter name of institution"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="institute"
-                            />
-                        </motion.div>
+                    {/* Total Marks/CGPA */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Total Marks/CGPA <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="Total marks or CGPA"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="total_marks"
+                        />
+                    </motion.div>
 
-                        {/* Total Marks/CGPA */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Total Marks/CGPA</label>
-                            <input
-                                type="text"
-                                placeholder="Enter Total Marks/CGPA"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="total_marks"
-                            />
-                        </motion.div>
+                    {/* Obtained Marks/CGPA */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Obtained Marks/CGPA <span className="text-red-600">*</span></label>
+                        <input
+                            type="text"
+                            placeholder="Obtained marks or CGPA"
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            required
+                            name="obtained_marks"
+                        />
+                    </motion.div>
 
-                        {/* Obtained Marks/CGPA */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Obtained Marks/CGPA</label>
-                            <input
-                                type="text"
-                                placeholder="Enter Obtained Marks/CGPA"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="obtained_marks"
-                            />
-                        </motion.div>
+                    {/* Program Information Section */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="md:col-span-2 mt-6"
+                    >
+                        <h3 className="text-xl font-semibold text-red-900 border-b-2 border-red-200 pb-2 mb-4">
+                            Program Information
+                        </h3>
+                    </motion.div>
 
-                        {/* Email */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Email</label>
-                            <input
-                                type="gmail"
-                                placeholder="Enter your email"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="gmail"
-                            />
-                        </motion.div>
+                    {/* Program Applying For */}
+                    <motion.div variants={itemVariants} className="flex flex-col md:col-span-2">
+                        <label className="text-gray-700 font-medium mb-1">Program Applying For <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="program"
+                            required
+                        >
+                            <option value="">Select a program</option>
+                            <option value="Mansha Robotics and Software Engineer">Mansha Robotics and Software Engineer</option>
+                            <option value="Mansha Certified AI Agents Developer">Mansha Certified AI Agents Developer</option>
+                            <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>
+                            <option value="Mansha Certified Blockchain Technician">Mansha Certified Blockchain Technician</option>
+                            <option value="Full Stack Development with Next.js">Full Stack Development with Next.js</option>
+                            <option value="Next-Generation Web Development with Python">Next-Generation Web Development with Python</option>
+                            <option value="Full Stack PHP Development">Full Stack PHP Development</option>
+                            <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs</option>
+                            <option value="Corporate Communication for IT Professionals">Corporate Communication for IT Professionals</option>
+                            <option value="Office Management and Work Ethics">Office Management and Work Ethics</option>
+                            <option value="Research and Thesis Development">Research and Thesis Development</option>
+                            <option value="Golang API Engineer">Golang API Engineer</option>
+                            <option value="Laravel Fullstack Engineer">Laravel Fullstack Engineer</option>
+                            <option value="Mansha Certified API Developer">Mansha Certified API Developer</option>
+                        </select>
+                    </motion.div>
 
-                        {/* Date of Birth */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Date of Birth</label>
-                            <input
-                                type="date"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="dob"
-                            />
-                        </motion.div>
+                    {/* Campus */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Campus <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="campus"
+                            required
+                        >
+                            <option value="MVIT, Pakistan">MVIT, Pakistan</option>
+                        </select>
+                    </motion.div>
 
-                        {/* WhatsApp */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">WhatsApp</label>
-                            <input
-                                type="text"
-                                placeholder="Enter WhatsApp number with country code"
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                required
-                                name="whatsapp"
-                            />
-                        </motion.div>
+                    {/* Semester */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Semester <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="semester"
+                            required
+                        >
+                            <option value="Spring 2025">Spring 2025</option>
+                        </select>
+                    </motion.div>
 
-                        {/* Program Applying For */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">
-                                Program Applying for
-                            </label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="program"
-                            >
-                                <option value="Mansha Robotics and Software Engineer">1. Mansha Robotics and Software Engineer</option>
-                                <option value="Mansha Certified AI Agents Developer">2. Mansha Certified AI Agents Developer</option>
-                                <option value="Office Management, AI and Prompt Engineering">3. Office Management, AI and Prompt Engineering</option>
-                                <option value="Mansha Certified Blockchain Technician">4. Mansha Certified Blockchain Technician</option>
-                                <option value="Full Stack Development with Next.js">5. Full Stack Development with Next.js</option>
-                                <option value="Next-Generation Web Development with Python">6. Next-Generation Web Development with Python</option>
-                                <option value="Full Stack PHP Development">7. Full Stack PHP Development</option>
-                                <option value="Kindergarten (K.G.) STEM Entrepreneurs">8. Kindergarten (K.G.) STEM Entrepreneurs</option>
-                                <option value="Corporate Communication for IT Professionals">9. Corporate Communication for IT Professionals</option>
-                                <option value="Office Management and Work Ethics">10. Office Management and Work Ethics</option>
-                            </select>
-                        </motion.div>
+                    {/* Classes */}
+                    <motion.div variants={itemVariants} className="flex flex-col">
+                        <label className="text-gray-700 font-medium mb-1">Class Mode <span className="text-red-600">*</span></label>
+                        <select
+                            className="h-12 w-full bg-gray-50 p-3 border border-gray-300 rounded-lg focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-300"
+                            name="classes"
+                            required
+                        >
+                            <option value="Onsite">Onsite (Only in Pakpattan)</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </motion.div>
 
-                        {/* Campus */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Campus</label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="campus"
-                            >
-                                <option value="MVIT, Pakistan">MVIT, Pakistan</option>
-                            </select>
-                        </motion.div>
+                    {/* Fee Information */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="md:col-span-2 mt-6 p-4 bg-red-50 rounded-lg border border-red-200"
+                    >
+                        <h4 className="text-lg font-semibold text-red-900 mb-2">Fee Structure</h4>
+                        <ul className="space-y-2 text-gray-700">
+                            <li className="flex justify-between">
+                                <span>Admission Fee:</span>
+                                <span className="font-semibold">$50 (one-time)</span>
+                            </li>
+                            <li className="flex justify-between">
+                                <span>Monthly Fee:</span>
+                                <span className="font-semibold">$20 per month</span>
+                            </li>
+                            <li className="flex justify-between pt-2 border-t border-red-200">
+                                <span className="font-medium">Total Estimated Cost (2 years):</span>
+                                <span className="font-bold text-red-900">$530</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                        {/* Semester */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Semester</label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="semester"
-                            >
-                                <option value="Spring 2025">Spring 2025</option>
-                            </select>
-                        </motion.div>
-
-                        {/* Classes */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Classes</label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="classes"
-                            >
-                                <option value="Onsite">Onsite (Only in Pakpattan)</option>
-                                <option value="Online">Online</option>
-                            </select>
-                        </motion.div>
-
-                        {/* Country */}
-                        <motion.div variants={itemVariants} className="flex flex-col">
-                            <label className="text-teal-900 font-semibold">Country</label>
-                            <select
-                                className="h-10 md:h-12 w-full bg-teal-50 p-2 border-2 border-teal-200 rounded-md focus:border-teal-600 transition-all duration-300"
-                                name="country"
-                            >
-                                <option value="Pakistan">Pakistan</option>
-
-                            </select>
-                        </motion.div>
-
-                        {/* Buttons */}
-                        <div className="col-span-1 md:col-span-2 flex justify-end gap-4 mt-6">
-                            <button
-                                type="submit"
-                                className="text-md bg-teal-900 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 transition-all duration-300"
-                            >
-                                Apply
-                            </button>
-                            <Link
-                                href="/"
-                                className="text-md bg-teal-900 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 transition-all duration-300"
-                            >
-                                Back
-                            </Link>
-                        </div>
-                    </motion.form>
-                </motion.div>
-            </div>
-        )
+                    {/* Form Submission */}
+                    <motion.div
+                        variants={itemVariants}
+                        className="md:col-span-2 flex flex-col sm:flex-row justify-end gap-4 mt-8"
+                    >
+                        <Link
+                            href="/"
+                            className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-all duration-300 text-center"
+                        >
+                            Cancel
+                        </Link>
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className={`px-6 py-3 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                        >
+                            {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                        </button>
+                    </motion.div>
+                </motion.form>
+            </motion.div>
+        </div>
+    )
 }

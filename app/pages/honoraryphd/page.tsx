@@ -9,13 +9,16 @@ import {
     FaLightbulb,
     FaChartLine,
     FaGlobeAmericas,
+    FaMedal,
+    FaHandsHelping,
+    FaGraduationCap
 } from "react-icons/fa";
 
 export default function ResearchPage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700 py-16 text-white font-sans">
+        <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-16 text-white font-sans">
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-black opacity-30"></div>
+            <div className="absolute inset-0 bg-black opacity-40"></div>
 
             {/* Main Content */}
             <motion.div
@@ -30,139 +33,228 @@ export default function ResearchPage() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400 text-center mb-12"
+                    className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 text-center mb-8"
                 >
-                    Celebrating Influential Leaders
+                    Honoring Visionary Leaders
                 </motion.h1>
-                <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-center leading-relaxed mb-16">
-                    At MVIT, we honor individuals who have made significant contributions to society, their fields, and the world. Through innovation, leadership, and humanitarian efforts, these leaders inspire us to create a brighter future.
+                <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto text-center leading-relaxed mb-12">
+                    MVIT celebrates exceptional individuals who have transformed industries, advanced knowledge, and made lasting impacts on society through their groundbreaking work.
                 </p>
+
+                {/* Stats Section */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+                >
+                    <div className="bg-black bg-opacity-50 rounded-xl p-4 text-center border border-red-800">
+                        <div className="text-3xl font-bold text-red-400">24</div>
+                        <div className="text-sm text-gray-300">Honorary Degrees</div>
+                    </div>
+                    <div className="bg-black bg-opacity-50 rounded-xl p-4 text-center border border-red-800">
+                        <div className="text-3xl font-bold text-red-400">15+</div>
+                        <div className="text-sm text-gray-300">Countries</div>
+                    </div>
+                    <div className="bg-black bg-opacity-50 rounded-xl p-4 text-center border border-red-800">
+                        <div className="text-3xl font-bold text-red-400">10</div>
+                        <div className="text-sm text-gray-300">Fields of Impact</div>
+                    </div>
+                    <div className="bg-black bg-opacity-50 rounded-xl p-4 text-center border border-red-800">
+                        <div className="text-3xl font-bold text-red-400">100%</div>
+                        <div className="text-sm text-gray-300">Merit-Based</div>
+                    </div>
+                </motion.div>
 
                 {/* Content Grid */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 1 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-8"
                 >
                     {/* Honorary Causa Card */}
                     <motion.div
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="flex flex-col bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg border-t-4 border-teal-400 p-8 space-y-4"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex flex-col bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg border border-red-900 hover:border-red-600 p-8 space-y-6 transition-all"
                     >
-                        <FaAward size={40} className="text-teal-400 mb-2" />
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white">Honorary Causa</h2>
-                        <p className="text-sm sm:text-lg leading-relaxed text-gray-200">
-                            An honorary PhD degree is a prestigious accolade awarded by universities to individuals who have significantly contributed to society, their field, or knowledge. Unlike traditional doctoral degrees requiring rigorous coursework and research, honorary doctorates are conferred for outstanding achievements, leadership, or humanitarian efforts. They recognize exceptional individuals in business, science, arts, education, and public service, who have positively impacted their communities and the world.
+                        <div className="flex items-center">
+                            <FaAward size={40} className="text-red-400 mr-4" />
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white">Honorary Doctorate</h2>
+                        </div>
+                        <p className="text-sm sm:text-base leading-relaxed text-gray-300">
+                            Our highest academic honor recognizes individuals who have made extraordinary contributions beyond traditional scholarship. Recipients include Nobel laureates, pioneering entrepreneurs, and transformative social leaders whose work has advanced human knowledge and welfare.
                         </p>
+                        <div className="mt-4 space-y-3">
+                            <div className="flex items-center">
+                                <FaMedal className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Global recognition of lifetime achievement</span>
+                            </div>
+                            <div className="flex items-center">
+                                <FaGraduationCap className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Conferred by unanimous faculty decision</span>
+                            </div>
+                            <div className="flex items-center">
+                                <FaHandsHelping className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Honors both academic and humanitarian impact</span>
+                            </div>
+                        </div>
                         <Link
                             href="/pages/honrarydoctorate"
-                            className="flex items-center gap-2 text-teal-400 hover:text-white transition-all mt-4"
+                            className="flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors mt-4 group"
                         >
-                            Learn More <FaArrowRight size={16} />
+                            <span className="group-hover:underline">Nomination Process</span>
+                            <FaArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </motion.div>
 
-                    {/* Future Programs Card */}
+                    {/* Distinguished Leadership Card */}
                     <motion.div
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="flex flex-col bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg border-t-4 border-teal-400 p-8 space-y-4"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex flex-col bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg border border-red-900 hover:border-red-600 p-8 space-y-6 transition-all"
                     >
-                        <FaUserGraduate size={40} className="text-teal-400 mb-2" />
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white">Future Programs</h2>
-                        <p className="text-sm sm:text-lg leading-relaxed text-gray-200">
-                            Stay tuned for upcoming programs and initiatives designed to recognize and empower leaders across various domains. Our mission is to foster innovation, inspire excellence, and create opportunities for impactful contributions to society. These programs will include mentorship, research grants, and global leadership forums.
+                        <div className="flex items-center">
+                            <FaUserGraduate size={40} className="text-red-400 mr-4" />
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white">Distinguished Leadership</h2>
+                        </div>
+                        <p className="text-sm sm:text-base leading-relaxed text-gray-300">
+                            Our leadership initiatives identify and support emerging visionaries across sectors. Through mentorship programs, research grants, and global forums, we empower the next generation of change-makers to tackle humanity&apos;s greatest challenges.
                         </p>
+                        <div className="mt-4 space-y-3">
+                            <div className="flex items-center">
+                                <FaChartLine className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Annual leadership summit with global experts</span>
+                            </div>
+                            <div className="flex items-center">
+                                <FaLightbulb className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Innovation incubator for social impact projects</span>
+                            </div>
+                            <div className="flex items-center">
+                                <FaGlobeAmericas className="text-red-400 mr-3" />
+                                <span className="text-sm sm:text-base text-gray-300">Cross-cultural exchange programs</span>
+                            </div>
+                        </div>
                         <Link
                             href="/pages/programs"
-                            className="flex items-center gap-2 text-teal-400 hover:text-white transition-all mt-4"
+                            className="flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors mt-4 group"
                         >
-                            Explore Upcoming Initiatives <FaArrowRight size={16} />
+                            <span className="group-hover:underline">Explore Programs</span>
+                            <FaArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </motion.div>
                 </motion.div>
 
-                {/* Additional Sections */}
+                {/* Impact Sections */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
-                    className="mt-16 space-y-16"
+                    className="mt-20 space-y-16"
                 >
-                    {/* Innovation and Leadership */}
-                    <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-8 text-center">
-                        <FaLightbulb size={50} className="text-teal-400 mx-auto mb-6" />
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Innovation and Leadership</h2>
-                        <p className="text-sm sm:text-lg leading-relaxed text-gray-200">
-                            At MVIT, we believe that innovation and leadership go hand in hand. Our programs aim to nurture visionary leaders who can drive change and create sustainable solutions for global challenges. By fostering collaboration and creativity, we empower individuals to make a lasting impact.
-                        </p>
+                    {/* Innovation Section */}
+                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-red-900">
+                        <div className="flex flex-col md:flex-row items-center">
+                            <FaLightbulb size={60} className="text-red-400 mb-6 md:mb-0 md:mr-8" />
+                            <div>
+                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Pioneering Innovation</h2>
+                                <p className="text-sm sm:text-base leading-relaxed text-gray-300">
+                                    We champion leaders who push boundaries in science, technology, and social innovation. Our honorees include inventors of life-saving medical technologies, architects of sustainable urban solutions, and creators of groundbreaking artistic movements that redefine cultural landscapes.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Global Impact */}
-                    <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-8 text-center">
-                        <FaGlobeAmericas size={50} className="text-teal-400 mx-auto mb-6" />
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Global Impact</h2>
-                        <p className="text-sm sm:text-lg leading-relaxed text-gray-200">
-                            Our initiatives extend beyond borders, connecting leaders from diverse backgrounds to address pressing global issues. From climate change to technological advancements, we provide platforms for collaboration and knowledge-sharing to drive meaningful progress worldwide.
-                        </p>
+                    {/* Global Impact Section */}
+                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-red-900">
+                        <div className="flex flex-col md:flex-row items-center">
+                            <FaGlobeAmericas size={60} className="text-red-400 mb-6 md:mb-0 md:mr-8" />
+                            <div>
+                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Global Transformation</h2>
+                                <p className="text-sm sm:text-base leading-relaxed text-gray-300">
+                                    MVIT&apos;s global network connects leaders across continents to address pressing challenges. From climate resilience initiatives to digital inclusion programs, our community drives collaborative solutions that transcend borders and create measurable impact worldwide.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Success Stories */}
-                    <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-8">
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6">Success Stories</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-red-900">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">Spotlight: Honoree Achievements</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {successStories.map((story, index) => (
-                                <div
+                                <motion.div
                                     key={index}
-                                    className="flex flex-col bg-white bg-opacity-5 rounded-lg shadow-md p-6 text-center space-y-4"
+                                    whileHover={{ y: -5 }}
+                                    className="flex flex-col bg-black bg-opacity-30 rounded-lg border border-red-900 p-6 text-center space-y-4 h-full"
                                 >
-                                    <FaAward size={30} className="text-teal-400 mx-auto" />
+                                    <div className="bg-red-900 bg-opacity-30 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
+                                        <FaAward size={24} className="text-red-400" />
+                                    </div>
                                     <h3 className="text-lg font-bold text-white">{story.title}</h3>
-                                    <p className="text-sm sm:text-base leading-relaxed text-gray-200">
+                                    <p className="text-sm leading-relaxed text-gray-300">
                                         {story.description}
                                     </p>
-                                </div>
+                                    <div className="mt-2 text-xs text-red-400 font-medium">
+                                        {story.field} • {story.year}
+                                    </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Call-to-Action Button */}
+                {/* Call-to-Action */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
-                    className="flex justify-center mt-16"
+                    className="flex flex-col items-center mt-20 text-center"
                 >
-                    <Link
-                        href="/pages/honrarydoctorate"
-                        className="flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-bold py-3 px-6 rounded-full transition-all"
-                    >
-                        Apply for Honorary Doctorate Degree <FaArrowRight size={20} />
-                    </Link>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Nominate an Exceptional Leader</h2>
+                    <p className="text-sm sm:text-base text-gray-300 max-w-2xl mb-8">
+                        Help us recognize those making extraordinary contributions to society. Nominations are reviewed quarterly by our international selection committee.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <Link
+                            href="/pages/honrarydoctorate"
+                            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition-all group"
+                        >
+                            <span>Submit Nomination</span>
+                            <FaArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                        <Link
+                            href="/pages/honrarydoctorate/recipients"
+                            className="flex items-center gap-2 bg-transparent hover:bg-black hover:bg-opacity-30 text-white font-bold py-3 px-6 rounded-full border border-red-600 transition-all group"
+                        >
+                            <span>View Past Honorees</span>
+                        </Link>
+                    </div>
                 </motion.div>
             </motion.div>
         </div>
     );
 }
 
-// Success Stories Data
+// Enhanced Success Stories Data
 const successStories = [
     {
-        title: "Dr. Emily Carter",
-        description:
-            "Recognized for her groundbreaking research in renewable energy, Dr. Carter has inspired countless students and professionals to pursue sustainable solutions.",
+        title: "Dr. Naila Khan",
+        description: "Revolutionized renewable energy storage with her nanoparticle research, enabling sustainable power solutions for developing regions.",
+        field: "Sustainable Technology",
+        year: "2024"
     },
     {
-        title: "Mr. Ahmed Khan",
-        description:
-            "An entrepreneur and philanthropist, Mr. Khan's innovative startups have transformed industries and improved lives across multiple continents.",
+        title: "Prof. Carlos Mendez",
+        description: "Pioneered AI-driven healthcare diagnostics now used in over 200 hospitals worldwide, improving early disease detection rates by 40%.",
+        field: "Medical AI",
+        year: "2023"
     },
     {
-        title: "Prof. Maria Gonzalez",
-        description:
-            "A pioneer in AI ethics, Prof. Gonzalez's work ensures that technology is developed responsibly and inclusively, benefiting humanity as a whole.",
-    },
+        title: "Dr. Amina Diallo",
+        description: "Transformed agricultural practices across West Africa through her climate-resilient farming techniques, benefiting over 2 million smallholder farmers.",
+        field: "Climate Resilience",
+        year: "2022"
+    }
 ];

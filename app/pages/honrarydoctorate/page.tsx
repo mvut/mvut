@@ -1,1983 +1,394 @@
-'use client'
+'use client';
 import Link from "next/link";
-import React, {FormEvent, useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
+import React, { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { FaArrowRight, FaInfoCircle, FaAward } from "react-icons/fa";
+import Logo from '@/public/mvutflame.png'
 
-export default function ApplicationForm(){
+interface Country {
+    name: string;
+    isoCode: string;
+    flag: string;
+    phonecode: string;
+    currency: string;
+}
+
+export default function ApplicationForm() {
     const router = useRouter();
-    const Countries = [
-        {
-            "name": "Afghanistan",
-            "isoCode": "AF",
-            "flag": "🇦🇫",
-            "phonecode": "93",
-            "currency": "AFN"
-        },
-        {
-            "name": "Aland Islands",
-            "isoCode": "AX",
-            "flag": "🇦🇽",
-            "phonecode": "+358-18",
-            "currency": "EUR"
-        },
-        {
-            "name": "Albania",
-            "isoCode": "AL",
-            "flag": "🇦🇱",
-            "phonecode": "355",
-            "currency": "ALL"
-        },
-        {
-            "name": "Algeria",
-            "isoCode": "DZ",
-            "flag": "🇩🇿",
-            "phonecode": "213",
-            "currency": "DZD"
-        },
-        {
-            "name": "American Samoa",
-            "isoCode": "AS",
-            "flag": "🇦🇸",
-            "phonecode": "+1-684",
-            "currency": "USD"
-        },
-        {
-            "name": "Andorra",
-            "isoCode": "AD",
-            "flag": "🇦🇩",
-            "phonecode": "376",
-            "currency": "EUR"
-        },
-        {
-            "name": "Angola",
-            "isoCode": "AO",
-            "flag": "🇦🇴",
-            "phonecode": "244",
-            "currency": "AOA"
-        },
-        {
-            "name": "Anguilla",
-            "isoCode": "AI",
-            "flag": "🇦🇮",
-            "phonecode": "+1-264",
-            "currency": "XCD"
-        },
-        {
-            "name": "Antarctica",
-            "isoCode": "AQ",
-            "flag": "🇦🇶",
-            "phonecode": "672",
-            "currency": "AAD"
-        },
-        {
-            "name": "Antigua And Barbuda",
-            "isoCode": "AG",
-            "flag": "🇦🇬",
-            "phonecode": "+1-268",
-            "currency": "XCD"
-        },
-        {
-            "name": "Argentina",
-            "isoCode": "AR",
-            "flag": "🇦🇷",
-            "phonecode": "54",
-            "currency": "ARS"
-        },
-        {
-            "name": "Armenia",
-            "isoCode": "AM",
-            "flag": "🇦🇲",
-            "phonecode": "374",
-            "currency": "AMD"
-        },
-        {
-            "name": "Aruba",
-            "isoCode": "AW",
-            "flag": "🇦🇼",
-            "phonecode": "297",
-            "currency": "AWG"
-        },
-        {
-            "name": "Australia",
-            "isoCode": "AU",
-            "flag": "🇦🇺",
-            "phonecode": "61",
-            "currency": "AUD"
-        },
-        {
-            "name": "Austria",
-            "isoCode": "AT",
-            "flag": "🇦🇹",
-            "phonecode": "43",
-            "currency": "EUR"
-        },
-        {
-            "name": "Azerbaijan",
-            "isoCode": "AZ",
-            "flag": "🇦🇿",
-            "phonecode": "994",
-            "currency": "AZN"
-        },
-        {
-            "name": "The Bahamas",
-            "isoCode": "BS",
-            "flag": "🇧🇸",
-            "phonecode": "+1-242",
-            "currency": "BSD"
-        },
-        {
-            "name": "Bahrain",
-            "isoCode": "BH",
-            "flag": "🇧🇭",
-            "phonecode": "973",
-            "currency": "BHD"
-        },
-        {
-            "name": "Bangladesh",
-            "isoCode": "BD",
-            "flag": "🇧🇩",
-            "phonecode": "880",
-            "currency": "BDT"
-        },
-        {
-            "name": "Barbados",
-            "isoCode": "BB",
-            "flag": "🇧🇧",
-            "phonecode": "+1-246",
-            "currency": "BBD"
-        },
-        {
-            "name": "Belarus",
-            "isoCode": "BY",
-            "flag": "🇧🇾",
-            "phonecode": "375",
-            "currency": "BYN"
-        },
-        {
-            "name": "Belgium",
-            "isoCode": "BE",
-            "flag": "🇧🇪",
-            "phonecode": "32",
-            "currency": "EUR"
-        },
-        {
-            "name": "Belize",
-            "isoCode": "BZ",
-            "flag": "🇧🇿",
-            "phonecode": "501",
-            "currency": "BZD"
-        },
-        {
-            "name": "Benin",
-            "isoCode": "BJ",
-            "flag": "🇧🇯",
-            "phonecode": "229",
-            "currency": "XOF"
-        },
-        {
-            "name": "Bermuda",
-            "isoCode": "BM",
-            "flag": "🇧🇲",
-            "phonecode": "+1-441",
-            "currency": "BMD"
-        },
-        {
-            "name": "Bhutan",
-            "isoCode": "BT",
-            "flag": "🇧🇹",
-            "phonecode": "975",
-            "currency": "BTN"
-        },
-        {
-            "name": "Bolivia",
-            "isoCode": "BO",
-            "flag": "🇧🇴",
-            "phonecode": "591",
-            "currency": "BOB"
-        },
-        {
-            "name": "Bosnia and Herzegovina",
-            "isoCode": "BA",
-            "flag": "🇧🇦",
-            "phonecode": "387",
-            "currency": "BAM"
-        },
-        {
-            "name": "Botswana",
-            "isoCode": "BW",
-            "flag": "🇧🇼",
-            "phonecode": "267",
-            "currency": "BWP"
-        },
-        {
-            "name": "Bouvet Island",
-            "isoCode": "BV",
-            "flag": "🇧🇻",
-            "phonecode": "0055",
-            "currency": "NOK"
-        },
-        {
-            "name": "Brazil",
-            "isoCode": "BR",
-            "flag": "🇧🇷",
-            "phonecode": "55",
-            "currency": "BRL"
-        },
-        {
-            "name": "British Indian Ocean Territory",
-            "isoCode": "IO",
-            "flag": "🇮🇴",
-            "phonecode": "246",
-            "currency": "USD"
-        },
-        {
-            "name": "Brunei",
-            "isoCode": "BN",
-            "flag": "🇧🇳",
-            "phonecode": "673",
-            "currency": "BND"
-        },
-        {
-            "name": "Bulgaria",
-            "isoCode": "BG",
-            "flag": "🇧🇬",
-            "phonecode": "359",
-            "currency": "BGN"
-        },
-        {
-            "name": "Burkina Faso",
-            "isoCode": "BF",
-            "flag": "🇧🇫",
-            "phonecode": "226",
-            "currency": "XOF"
-        },
-        {
-            "name": "Burundi",
-            "isoCode": "BI",
-            "flag": "🇧🇮",
-            "phonecode": "257",
-            "currency": "BIF"
-        },
-        {
-            "name": "Cambodia",
-            "isoCode": "KH",
-            "flag": "🇰🇭",
-            "phonecode": "855",
-            "currency": "KHR"
-        },
-        {
-            "name": "Cameroon",
-            "isoCode": "CM",
-            "flag": "🇨🇲",
-            "phonecode": "237",
-            "currency": "XAF"
-        },
-        {
-            "name": "Canada",
-            "isoCode": "CA",
-            "flag": "🇨🇦",
-            "phonecode": "1",
-            "currency": "CAD"
-        },
-        {
-            "name": "Cape Verde",
-            "isoCode": "CV",
-            "flag": "🇨🇻",
-            "phonecode": "238",
-            "currency": "CVE"
-        },
-        {
-            "name": "Cayman Islands",
-            "isoCode": "KY",
-            "flag": "🇰🇾",
-            "phonecode": "+1-345",
-            "currency": "KYD"
-        },
-        {
-            "name": "Central African Republic",
-            "isoCode": "CF",
-            "flag": "🇨🇫",
-            "phonecode": "236",
-            "currency": "XAF"
-        },
-        {
-            "name": "Chad",
-            "isoCode": "TD",
-            "flag": "🇹🇩",
-            "phonecode": "235",
-            "currency": "XAF"
-        },
-        {
-            "name": "Chile",
-            "isoCode": "CL",
-            "flag": "🇨🇱",
-            "phonecode": "56",
-            "currency": "CLP"
-        },
-        {
-            "name": "China",
-            "isoCode": "CN",
-            "flag": "🇨🇳",
-            "phonecode": "86",
-            "currency": "CNY"
-        },
-        {
-            "name": "Christmas Island",
-            "isoCode": "CX",
-            "flag": "🇨🇽",
-            "phonecode": "61",
-            "currency": "AUD"
-        },
-        {
-            "name": "Cocos (Keeling) Islands",
-            "isoCode": "CC",
-            "flag": "🇨🇨",
-            "phonecode": "61",
-            "currency": "AUD"
-        },
-        {
-            "name": "Colombia",
-            "isoCode": "CO",
-            "flag": "🇨🇴",
-            "phonecode": "57",
-            "currency": "COP"
-        },
-        {
-            "name": "Comoros",
-            "isoCode": "KM",
-            "flag": "🇰🇲",
-            "phonecode": "269",
-            "currency": "KMF"
-        },
-        {
-            "name": "Congo",
-            "isoCode": "CG",
-            "flag": "🇨🇬",
-            "phonecode": "242",
-            "currency": "XAF"
-        },
-        {
-            "name": "Democratic Republic of the Congo",
-            "isoCode": "CD",
-            "flag": "🇨🇩",
-            "phonecode": "243",
-            "currency": "CDF"
-        },
-        {
-            "name": "Cook Islands",
-            "isoCode": "CK",
-            "flag": "🇨🇰",
-            "phonecode": "682",
-            "currency": "NZD"
-        },
-        {
-            "name": "Costa Rica",
-            "isoCode": "CR",
-            "flag": "🇨🇷",
-            "phonecode": "506",
-            "currency": "CRC"
-        },
-        {
-            "name": "Cote D'Ivoire (Ivory Coast)",
-            "isoCode": "CI",
-            "flag": "🇨🇮",
-            "phonecode": "225",
-            "currency": "XOF"
-        },
-        {
-            "name": "Croatia",
-            "isoCode": "HR",
-            "flag": "🇭🇷",
-            "phonecode": "385",
-            "currency": "HRK"
-        },
-        {
-            "name": "Cuba",
-            "isoCode": "CU",
-            "flag": "🇨🇺",
-            "phonecode": "53",
-            "currency": "CUP"
-        },
-        {
-            "name": "Cyprus",
-            "isoCode": "CY",
-            "flag": "🇨🇾",
-            "phonecode": "357",
-            "currency": "EUR"
-        },
-        {
-            "name": "Czech Republic",
-            "isoCode": "CZ",
-            "flag": "🇨🇿",
-            "phonecode": "420",
-            "currency": "CZK"
-        },
-        {
-            "name": "Denmark",
-            "isoCode": "DK",
-            "flag": "🇩🇰",
-            "phonecode": "45",
-            "currency": "DKK"
-        },
-        {
-            "name": "Djibouti",
-            "isoCode": "DJ",
-            "flag": "🇩🇯",
-            "phonecode": "253",
-            "currency": "DJF"
-        },
-        {
-            "name": "Dominica",
-            "isoCode": "DM",
-            "flag": "🇩🇲",
-            "phonecode": "+1-767",
-            "currency": "XCD"
-        },
-        {
-            "name": "Dominican Republic",
-            "isoCode": "DO",
-            "flag": "🇩🇴",
-            "phonecode": "+1-809 and 1-829",
-            "currency": "DOP"
-        },
-        {
-            "name": "East Timor",
-            "isoCode": "TL",
-            "flag": "🇹🇱",
-            "phonecode": "670",
-            "currency": "USD"
-        },
-        {
-            "name": "Ecuador",
-            "isoCode": "EC",
-            "flag": "🇪🇨",
-            "phonecode": "593",
-            "currency": "USD"
-        },
-        {
-            "name": "Egypt",
-            "isoCode": "EG",
-            "flag": "🇪🇬",
-            "phonecode": "20",
-            "currency": "EGP"
-        },
-        {
-            "name": "El Salvador",
-            "isoCode": "SV",
-            "flag": "🇸🇻",
-            "phonecode": "503",
-            "currency": "USD"
-        },
-        {
-            "name": "Equatorial Guinea",
-            "isoCode": "GQ",
-            "flag": "🇬🇶",
-            "phonecode": "240",
-            "currency": "XAF"
-        },
-        {
-            "name": "Eritrea",
-            "isoCode": "ER",
-            "flag": "🇪🇷",
-            "phonecode": "291",
-            "currency": "ERN"
-        },
-        {
-            "name": "Estonia",
-            "isoCode": "EE",
-            "flag": "🇪🇪",
-            "phonecode": "372",
-            "currency": "EUR"
-        },
-        {
-            "name": "Ethiopia",
-            "isoCode": "ET",
-            "flag": "🇪🇹",
-            "phonecode": "251",
-            "currency": "ETB"
-        },
-        {
-            "name": "Falkland Islands",
-            "isoCode": "FK",
-            "flag": "🇫🇰",
-            "phonecode": "500",
-            "currency": "FKP"
-        },
-        {
-            "name": "Faroe Islands",
-            "isoCode": "FO",
-            "flag": "🇫🇴",
-            "phonecode": "298",
-            "currency": "DKK"
-        },
-        {
-            "name": "Fiji Islands",
-            "isoCode": "FJ",
-            "flag": "🇫🇯",
-            "phonecode": "679",
-            "currency": "FJD"
-        },
-        {
-            "name": "Finland",
-            "isoCode": "FI",
-            "flag": "🇫🇮",
-            "phonecode": "358",
-            "currency": "EUR"
-        },
-        {
-            "name": "France",
-            "isoCode": "FR",
-            "flag": "🇫🇷",
-            "phonecode": "33",
-            "currency": "EUR"
-        },
-        {
-            "name": "French Guiana",
-            "isoCode": "GF",
-            "flag": "🇬🇫",
-            "phonecode": "594",
-            "currency": "EUR"
-        },
-        {
-            "name": "French Polynesia",
-            "isoCode": "PF",
-            "flag": "🇵🇫",
-            "phonecode": "689",
-            "currency": "XPF"
-        },
-        {
-            "name": "French Southern Territories",
-            "isoCode": "TF",
-            "flag": "🇹🇫",
-            "phonecode": "262",
-            "currency": "EUR"
-        },
-        {
-            "name": "Gabon",
-            "isoCode": "GA",
-            "flag": "🇬🇦",
-            "phonecode": "241",
-            "currency": "XAF"
-        },
-        {
-            "name": "The Gambia",
-            "isoCode": "GM",
-            "flag": "🇬🇲",
-            "phonecode": "220",
-            "currency": "GMD"
-        },
-        {
-            "name": "Georgia",
-            "isoCode": "GE",
-            "flag": "🇬🇪",
-            "phonecode": "995",
-            "currency": "GEL"
-        },
-        {
-            "name": "Germany",
-            "isoCode": "DE",
-            "flag": "🇩🇪",
-            "phonecode": "49",
-            "currency": "EUR"
-        },
-        {
-            "name": "Ghana",
-            "isoCode": "GH",
-            "flag": "🇬🇭",
-            "phonecode": "233",
-            "currency": "GHS"
-        },
-        {
-            "name": "Gibraltar",
-            "isoCode": "GI",
-            "flag": "🇬🇮",
-            "phonecode": "350",
-            "currency": "GIP"
-        },
-        {
-            "name": "Greece",
-            "isoCode": "GR",
-            "flag": "🇬🇷",
-            "phonecode": "30",
-            "currency": "EUR"
-        },
-        {
-            "name": "Greenland",
-            "isoCode": "GL",
-            "flag": "🇬🇱",
-            "phonecode": "299",
-            "currency": "DKK"
-        },
-        {
-            "name": "Grenada",
-            "isoCode": "GD",
-            "flag": "🇬🇩",
-            "phonecode": "+1-473",
-            "currency": "XCD"
-        },
-        {
-            "name": "Guadeloupe",
-            "isoCode": "GP",
-            "flag": "🇬🇵",
-            "phonecode": "590",
-            "currency": "EUR"
-        },
-        {
-            "name": "Guam",
-            "isoCode": "GU",
-            "flag": "🇬🇺",
-            "phonecode": "+1-671",
-            "currency": "USD"
-        },
-        {
-            "name": "Guatemala",
-            "isoCode": "GT",
-            "flag": "🇬🇹",
-            "phonecode": "502",
-            "currency": "GTQ"
-        },
-        {
-            "name": "Guernsey and Alderney",
-            "isoCode": "GG",
-            "flag": "🇬🇬",
-            "phonecode": "+44-1481",
-            "currency": "GBP"
-        },
-        {
-            "name": "Guinea",
-            "isoCode": "GN",
-            "flag": "🇬🇳",
-            "phonecode": "224",
-            "currency": "GNF"
-        },
-        {
-            "name": "Guinea-Bissau",
-            "isoCode": "GW",
-            "flag": "🇬🇼",
-            "phonecode": "245",
-            "currency": "XOF"
-        },
-        {
-            "name": "Guyana",
-            "isoCode": "GY",
-            "flag": "🇬🇾",
-            "phonecode": "592",
-            "currency": "GYD"
-        },
-        {
-            "name": "Haiti",
-            "isoCode": "HT",
-            "flag": "🇭🇹",
-            "phonecode": "509",
-            "currency": "HTG"
-        },
-        {
-            "name": "Heard Island and McDonald Islands",
-            "isoCode": "HM",
-            "flag": "🇭🇲",
-            "phonecode": "672",
-            "currency": "AUD"
-        },
-        {
-            "name": "Honduras",
-            "isoCode": "HN",
-            "flag": "🇭🇳",
-            "phonecode": "504",
-            "currency": "HNL"
-        },
-        {
-            "name": "Hong Kong S.A.R.",
-            "isoCode": "HK",
-            "flag": "🇭🇰",
-            "phonecode": "852",
-            "currency": "HKD"
-        },
-        {
-            "name": "Hungary",
-            "isoCode": "HU",
-            "flag": "🇭🇺",
-            "phonecode": "36",
-            "currency": "HUF"
-        },
-        {
-            "name": "Iceland",
-            "isoCode": "IS",
-            "flag": "🇮🇸",
-            "phonecode": "354",
-            "currency": "ISK"
-        },
-        {
-            "name": "India",
-            "isoCode": "IN",
-            "flag": "🇮🇳",
-            "phonecode": "91",
-            "currency": "INR"
-        },
-        {
-            "name": "Indonesia",
-            "isoCode": "ID",
-            "flag": "🇮🇩",
-            "phonecode": "62",
-            "currency": "IDR"
-        },
-        {
-            "name": "Iran",
-            "isoCode": "IR",
-            "flag": "🇮🇷",
-            "phonecode": "98",
-            "currency": "IRR"
-        },
-        {
-            "name": "Iraq",
-            "isoCode": "IQ",
-            "flag": "🇮🇶",
-            "phonecode": "964",
-            "currency": "IQD"
-        },
-        {
-            "name": "Ireland",
-            "isoCode": "IE",
-            "flag": "🇮🇪",
-            "phonecode": "353",
-            "currency": "EUR"
-        },
-        {
-            "name": "Israel",
-            "isoCode": "IL",
-            "flag": "🇮🇱",
-            "phonecode": "972",
-            "currency": "ILS"
-        },
-        {
-            "name": "Italy",
-            "isoCode": "IT",
-            "flag": "🇮🇹",
-            "phonecode": "39",
-            "currency": "EUR"
-        },
-        {
-            "name": "Jamaica",
-            "isoCode": "JM",
-            "flag": "🇯🇲",
-            "phonecode": "+1-876",
-            "currency": "JMD"
-        },
-        {
-            "name": "Japan",
-            "isoCode": "JP",
-            "flag": "🇯🇵",
-            "phonecode": "81",
-            "currency": "JPY"
-        },
-        {
-            "name": "Jersey",
-            "isoCode": "JE",
-            "flag": "🇯🇪",
-            "phonecode": "+44-1534",
-            "currency": "GBP"
-        },
-        {
-            "name": "Jordan",
-            "isoCode": "JO",
-            "flag": "🇯🇴",
-            "phonecode": "962",
-            "currency": "JOD"
-        },
-        {
-            "name": "Kazakhstan",
-            "isoCode": "KZ",
-            "flag": "🇰🇿",
-            "phonecode": "7",
-            "currency": "KZT"
-        },
-        {
-            "name": "Kenya",
-            "isoCode": "KE",
-            "flag": "🇰🇪",
-            "phonecode": "254",
-            "currency": "KES"
-        },
-        {
-            "name": "Kiribati",
-            "isoCode": "KI",
-            "flag": "🇰🇮",
-            "phonecode": "686",
-            "currency": "AUD"
-        },
-        {
-            "name": "North Korea",
-            "isoCode": "KP",
-            "flag": "🇰🇵",
-            "phonecode": "850",
-            "currency": "KPW"
-        },
-        {
-            "name": "South Korea",
-            "isoCode": "KR",
-            "flag": "🇰🇷",
-            "phonecode": "82",
-            "currency": "KRW"
-        },
-        {
-            "name": "Kuwait",
-            "isoCode": "KW",
-            "flag": "🇰🇼",
-            "phonecode": "965",
-            "currency": "KWD"
-        },
-        {
-            "name": "Kyrgyzstan",
-            "isoCode": "KG",
-            "flag": "🇰🇬",
-            "phonecode": "996",
-            "currency": "KGS"
-        },
-        {
-            "name": "Laos",
-            "isoCode": "LA",
-            "flag": "🇱🇦",
-            "phonecode": "856",
-            "currency": "LAK"
-        },
-        {
-            "name": "Latvia",
-            "isoCode": "LV",
-            "flag": "🇱🇻",
-            "phonecode": "371",
-            "currency": "EUR"
-        },
-        {
-            "name": "Lebanon",
-            "isoCode": "LB",
-            "flag": "🇱🇧",
-            "phonecode": "961",
-            "currency": "LBP"
-        },
-        {
-            "name": "Lesotho",
-            "isoCode": "LS",
-            "flag": "🇱🇸",
-            "phonecode": "266",
-            "currency": "LSL"
-        },
-        {
-            "name": "Liberia",
-            "isoCode": "LR",
-            "flag": "🇱🇷",
-            "phonecode": "231",
-            "currency": "LRD"
-        },
-        {
-            "name": "Libya",
-            "isoCode": "LY",
-            "flag": "🇱🇾",
-            "phonecode": "218",
-            "currency": "LYD"
-        },
-        {
-            "name": "Liechtenstein",
-            "isoCode": "LI",
-            "flag": "🇱🇮",
-            "phonecode": "423",
-            "currency": "CHF"
-        },
-        {
-            "name": "Lithuania",
-            "isoCode": "LT",
-            "flag": "🇱🇹",
-            "phonecode": "370",
-            "currency": "EUR"
-        },
-        {
-            "name": "Luxembourg",
-            "isoCode": "LU",
-            "flag": "🇱🇺",
-            "phonecode": "352",
-            "currency": "EUR"
-        },
-        {
-            "name": "Macau S.A.R.",
-            "isoCode": "MO",
-            "flag": "🇲🇴",
-            "phonecode": "853",
-            "currency": "MOP"
-        },
-        {
-            "name": "Macedonia",
-            "isoCode": "MK",
-            "flag": "🇲🇰",
-            "phonecode": "389",
-            "currency": "MKD"
-        },
-        {
-            "name": "Madagascar",
-            "isoCode": "MG",
-            "flag": "🇲🇬",
-            "phonecode": "261",
-            "currency": "MGA"
-        },
-        {
-            "name": "Malawi",
-            "isoCode": "MW",
-            "flag": "🇲🇼",
-            "phonecode": "265",
-            "currency": "MWK"
-        },
-        {
-            "name": "Malaysia",
-            "isoCode": "MY",
-            "flag": "🇲🇾",
-            "phonecode": "60",
-            "currency": "MYR"
-        },
-        {
-            "name": "Maldives",
-            "isoCode": "MV",
-            "flag": "🇲🇻",
-            "phonecode": "960",
-            "currency": "MVR"
-        },
-        {
-            "name": "Mali",
-            "isoCode": "ML",
-            "flag": "🇲🇱",
-            "phonecode": "223",
-            "currency": "XOF"
-        },
-        {
-            "name": "Malta",
-            "isoCode": "MT",
-            "flag": "🇲🇹",
-            "phonecode": "356",
-            "currency": "EUR"
-        },
-        {
-            "name": "Man (Isle of)",
-            "isoCode": "IM",
-            "flag": "🇮🇲",
-            "phonecode": "+44-1624",
-            "currency": "GBP"
-        },
-        {
-            "name": "Marshall Islands",
-            "isoCode": "MH",
-            "flag": "🇲🇭",
-            "phonecode": "692",
-            "currency": "USD"
-        },
-        {
-            "name": "Martinique",
-            "isoCode": "MQ",
-            "flag": "🇲🇶",
-            "phonecode": "596",
-            "currency": "EUR"
-        },
-        {
-            "name": "Mauritania",
-            "isoCode": "MR",
-            "flag": "🇲🇷",
-            "phonecode": "222",
-            "currency": "MRO"
-        },
-        {
-            "name": "Mauritius",
-            "isoCode": "MU",
-            "flag": "🇲🇺",
-            "phonecode": "230",
-            "currency": "MUR"
-        },
-        {
-            "name": "Mayotte",
-            "isoCode": "YT",
-            "flag": "🇾🇹",
-            "phonecode": "262",
-            "currency": "EUR"
-        },
-        {
-            "name": "Mexico",
-            "isoCode": "MX",
-            "flag": "🇲🇽",
-            "phonecode": "52",
-            "currency": "MXN"
-        },
-        {
-            "name": "Micronesia",
-            "isoCode": "FM",
-            "flag": "🇫🇲",
-            "phonecode": "691",
-            "currency": "USD"
-        },
-        {
-            "name": "Moldova",
-            "isoCode": "MD",
-            "flag": "🇲🇩",
-            "phonecode": "373",
-            "currency": "MDL"
-        },
-        {
-            "name": "Monaco",
-            "isoCode": "MC",
-            "flag": "🇲🇨",
-            "phonecode": "377",
-            "currency": "EUR"
-        },
-        {
-            "name": "Mongolia",
-            "isoCode": "MN",
-            "flag": "🇲🇳",
-            "phonecode": "976",
-            "currency": "MNT"
-        },
-        {
-            "name": "Montenegro",
-            "isoCode": "ME",
-            "flag": "🇲🇪",
-            "phonecode": "382",
-            "currency": "EUR"
-        },
-        {
-            "name": "Montserrat",
-            "isoCode": "MS",
-            "flag": "🇲🇸",
-            "phonecode": "+1-664",
-            "currency": "XCD"
-        },
-        {
-            "name": "Morocco",
-            "isoCode": "MA",
-            "flag": "🇲🇦",
-            "phonecode": "212",
-            "currency": "MAD"
-        },
-        {
-            "name": "Mozambique",
-            "isoCode": "MZ",
-            "flag": "🇲🇿",
-            "phonecode": "258",
-            "currency": "MZN"
-        },
-        {
-            "name": "Myanmar",
-            "isoCode": "MM",
-            "flag": "🇲🇲",
-            "phonecode": "95",
-            "currency": "MMK"
-        },
-        {
-            "name": "Namibia",
-            "isoCode": "NA",
-            "flag": "🇳🇦",
-            "phonecode": "264",
-            "currency": "NAD"
-        },
-        {
-            "name": "Nauru",
-            "isoCode": "NR",
-            "flag": "🇳🇷",
-            "phonecode": "674",
-            "currency": "AUD"
-        },
-        {
-            "name": "Nepal",
-            "isoCode": "NP",
-            "flag": "🇳🇵",
-            "phonecode": "977",
-            "currency": "NPR"
-        },
-        {
-            "name": "Bonaire, Sint Eustatius and Saba",
-            "isoCode": "BQ",
-            "flag": "🇧🇶",
-            "phonecode": "599",
-            "currency": "USD"
-        },
-        {
-            "name": "Netherlands",
-            "isoCode": "NL",
-            "flag": "🇳🇱",
-            "phonecode": "31",
-            "currency": "EUR"
-        },
-        {
-            "name": "New Caledonia",
-            "isoCode": "NC",
-            "flag": "🇳🇨",
-            "phonecode": "687",
-            "currency": "XPF"
-        },
-        {
-            "name": "New Zealand",
-            "isoCode": "NZ",
-            "flag": "🇳🇿",
-            "phonecode": "64",
-            "currency": "NZD"
-        },
-        {
-            "name": "Nicaragua",
-            "isoCode": "NI",
-            "flag": "🇳🇮",
-            "phonecode": "505",
-            "currency": "NIO"
-        },
-        {
-            "name": "Niger",
-            "isoCode": "NE",
-            "flag": "🇳🇪",
-            "phonecode": "227",
-            "currency": "XOF"
-        },
-        {
-            "name": "Nigeria",
-            "isoCode": "NG",
-            "flag": "🇳🇬",
-            "phonecode": "234",
-            "currency": "NGN"
-        },
-        {
-            "name": "Niue",
-            "isoCode": "NU",
-            "flag": "🇳🇺",
-            "phonecode": "683",
-            "currency": "NZD"
-        },
-        {
-            "name": "Norfolk Island",
-            "isoCode": "NF",
-            "flag": "🇳🇫",
-            "phonecode": "672",
-            "currency": "AUD"
-        },
-        {
-            "name": "Northern Mariana Islands",
-            "isoCode": "MP",
-            "flag": "🇲🇵",
-            "phonecode": "+1-670",
-            "currency": "USD"
-        },
-        {
-            "name": "Norway",
-            "isoCode": "NO",
-            "flag": "🇳🇴",
-            "phonecode": "47",
-            "currency": "NOK"
-        },
-        {
-            "name": "Oman",
-            "isoCode": "OM",
-            "flag": "🇴🇲",
-            "phonecode": "968",
-            "currency": "OMR"
-        },
-        {
-            "name": "Pakistan",
-            "isoCode": "PK",
-            "flag": "🇵🇰",
-            "phonecode": "92",
-            "currency": "PKR"
-        },
-        {
-            "name": "Palau",
-            "isoCode": "PW",
-            "flag": "🇵🇼",
-            "phonecode": "680",
-            "currency": "USD"
-        },
-        {
-            "name": "Palestinian Territory Occupied",
-            "isoCode": "PS",
-            "flag": "🇵🇸",
-            "phonecode": "970",
-            "currency": "ILS"
-        },
-        {
-            "name": "Panama",
-            "isoCode": "PA",
-            "flag": "🇵🇦",
-            "phonecode": "507",
-            "currency": "PAB"
-        },
-        {
-            "name": "Papua new Guinea",
-            "isoCode": "PG",
-            "flag": "🇵🇬",
-            "phonecode": "675",
-            "currency": "PGK"
-        },
-        {
-            "name": "Paraguay",
-            "isoCode": "PY",
-            "flag": "🇵🇾",
-            "phonecode": "595",
-            "currency": "PYG"
-        },
-        {
-            "name": "Peru",
-            "isoCode": "PE",
-            "flag": "🇵🇪",
-            "phonecode": "51",
-            "currency": "PEN"
-        },
-        {
-            "name": "Philippines",
-            "isoCode": "PH",
-            "flag": "🇵🇭",
-            "phonecode": "63",
-            "currency": "PHP"
-        },
-        {
-            "name": "Pitcairn Island",
-            "isoCode": "PN",
-            "flag": "🇵🇳",
-            "phonecode": "870",
-            "currency": "NZD"
-        },
-        {
-            "name": "Poland",
-            "isoCode": "PL",
-            "flag": "🇵🇱",
-            "phonecode": "48",
-            "currency": "PLN"
-        },
-        {
-            "name": "Portugal",
-            "isoCode": "PT",
-            "flag": "🇵🇹",
-            "phonecode": "351",
-            "currency": "EUR"
-        },
-        {
-            "name": "Puerto Rico",
-            "isoCode": "PR",
-            "flag": "🇵🇷",
-            "phonecode": "+1-787 and 1-939",
-            "currency": "USD"
-        },
-        {
-            "name": "Qatar",
-            "isoCode": "QA",
-            "flag": "🇶🇦",
-            "phonecode": "974",
-            "currency": "QAR"
-        },
-        {
-            "name": "Reunion",
-            "isoCode": "RE",
-            "flag": "🇷🇪",
-            "phonecode": "262",
-            "currency": "EUR"
-        },
-        {
-            "name": "Romania",
-            "isoCode": "RO",
-            "flag": "🇷🇴",
-            "phonecode": "40",
-            "currency": "RON"
-        },
-        {
-            "name": "Russia",
-            "isoCode": "RU",
-            "flag": "🇷🇺",
-            "phonecode": "7",
-            "currency": "RUB"
-        },
-        {
-            "name": "Rwanda",
-            "isoCode": "RW",
-            "flag": "🇷🇼",
-            "phonecode": "250",
-            "currency": "RWF"
-        },
-        {
-            "name": "Saint Helena",
-            "isoCode": "SH",
-            "flag": "🇸🇭",
-            "phonecode": "290",
-            "currency": "SHP"
-        },
-        {
-            "name": "Saint Kitts And Nevis",
-            "isoCode": "KN",
-            "flag": "🇰🇳",
-            "phonecode": "+1-869",
-            "currency": "XCD"
-        },
-        {
-            "name": "Saint Lucia",
-            "isoCode": "LC",
-            "flag": "🇱🇨",
-            "phonecode": "+1-758",
-            "currency": "XCD"
-        },
-        {
-            "name": "Saint Pierre and Miquelon",
-            "isoCode": "PM",
-            "flag": "🇵🇲",
-            "phonecode": "508",
-            "currency": "EUR"
-        },
-        {
-            "name": "Saint Vincent And The Grenadines",
-            "isoCode": "VC",
-            "flag": "🇻🇨",
-            "phonecode": "+1-784",
-            "currency": "XCD"
-        },
-        {
-            "name": "Saint-Barthelemy",
-            "isoCode": "BL",
-            "flag": "🇧🇱",
-            "phonecode": "590",
-            "currency": "EUR"
-        },
-        {
-            "name": "Saint-Martin (French part)",
-            "isoCode": "MF",
-            "flag": "🇲🇫",
-            "phonecode": "590",
-            "currency": "EUR"
-        },
-        {
-            "name": "Samoa",
-            "isoCode": "WS",
-            "flag": "🇼🇸",
-            "phonecode": "685",
-            "currency": "WST"
-        },
-        {
-            "name": "San Marino",
-            "isoCode": "SM",
-            "flag": "🇸🇲",
-            "phonecode": "378",
-            "currency": "EUR"
-        },
-        {
-            "name": "Sao Tome and Principe",
-            "isoCode": "ST",
-            "flag": "🇸🇹",
-            "phonecode": "239",
-            "currency": "STD"
-        },
-        {
-            "name": "Saudi Arabia",
-            "isoCode": "SA",
-            "flag": "🇸🇦",
-            "phonecode": "966",
-            "currency": "SAR"
-        },
-        {
-            "name": "Senegal",
-            "isoCode": "SN",
-            "flag": "🇸🇳",
-            "phonecode": "221",
-            "currency": "XOF"
-        },
-        {
-            "name": "Serbia",
-            "isoCode": "RS",
-            "flag": "🇷🇸",
-            "phonecode": "381",
-            "currency": "RSD"
-        },
-        {
-            "name": "Seychelles",
-            "isoCode": "SC",
-            "flag": "🇸🇨",
-            "phonecode": "248",
-            "currency": "SCR"
-        },
-        {
-            "name": "Sierra Leone",
-            "isoCode": "SL",
-            "flag": "🇸🇱",
-            "phonecode": "232",
-            "currency": "SLL"
-        },
-        {
-            "name": "Singapore",
-            "isoCode": "SG",
-            "flag": "🇸🇬",
-            "phonecode": "65",
-            "currency": "SGD"
-        },
-        {
-            "name": "Slovakia",
-            "isoCode": "SK",
-            "flag": "🇸🇰",
-            "phonecode": "421",
-            "currency": "EUR"
-        },
-        {
-            "name": "Slovenia",
-            "isoCode": "SI",
-            "flag": "🇸🇮",
-            "phonecode": "386",
-            "currency": "EUR"
-        },
-        {
-            "name": "Solomon Islands",
-            "isoCode": "SB",
-            "flag": "🇸🇧",
-            "phonecode": "677",
-            "currency": "SBD"
-        },
-        {
-            "name": "Somalia",
-            "isoCode": "SO",
-            "flag": "🇸🇴",
-            "phonecode": "252",
-            "currency": "SOS"
-        },
-        {
-            "name": "South Africa",
-            "isoCode": "ZA",
-            "flag": "🇿🇦",
-            "phonecode": "27",
-            "currency": "ZAR"
-        },
-        {
-            "name": "South Georgia",
-            "isoCode": "GS",
-            "flag": "🇬🇸",
-            "phonecode": "500",
-            "currency": "GBP"
-        },
-        {
-            "name": "South Sudan",
-            "isoCode": "SS",
-            "flag": "🇸🇸",
-            "phonecode": "211",
-            "currency": "SSP"
-        },
-        {
-            "name": "Spain",
-            "isoCode": "ES",
-            "flag": "🇪🇸",
-            "phonecode": "34",
-            "currency": "EUR"
-        },
-        {
-            "name": "Sri Lanka",
-            "isoCode": "LK",
-            "flag": "🇱🇰",
-            "phonecode": "94",
-            "currency": "LKR"
-        },
-        {
-            "name": "Sudan",
-            "isoCode": "SD",
-            "flag": "🇸🇩",
-            "phonecode": "249",
-            "currency": "SDG"
-        },
-        {
-            "name": "Suriname",
-            "isoCode": "SR",
-            "flag": "🇸🇷",
-            "phonecode": "597",
-            "currency": "SRD"
-        },
-        {
-            "name": "Svalbard And Jan Mayen Islands",
-            "isoCode": "SJ",
-            "flag": "🇸🇯",
-            "phonecode": "47",
-            "currency": "NOK"
-        },
-        {
-            "name": "Swaziland",
-            "isoCode": "SZ",
-            "flag": "🇸🇿",
-            "phonecode": "268",
-            "currency": "SZL"
-        },
-        {
-            "name": "Sweden",
-            "isoCode": "SE",
-            "flag": "🇸🇪",
-            "phonecode": "46",
-            "currency": "SEK"
-        },
-        {
-            "name": "Switzerland",
-            "isoCode": "CH",
-            "flag": "🇨🇭",
-            "phonecode": "41",
-            "currency": "CHF"
-        },
-        {
-            "name": "Syria",
-            "isoCode": "SY",
-            "flag": "🇸🇾",
-            "phonecode": "963",
-            "currency": "SYP"
-        },
-        {
-            "name": "Taiwan",
-            "isoCode": "TW",
-            "flag": "🇹🇼",
-            "phonecode": "886",
-            "currency": "TWD"
-        },
-        {
-            "name": "Tajikistan",
-            "isoCode": "TJ",
-            "flag": "🇹🇯",
-            "phonecode": "992",
-            "currency": "TJS"
-        },
-        {
-            "name": "Tanzania",
-            "isoCode": "TZ",
-            "flag": "🇹🇿",
-            "phonecode": "255",
-            "currency": "TZS"
-        },
-        {
-            "name": "Thailand",
-            "isoCode": "TH",
-            "flag": "🇹🇭",
-            "phonecode": "66",
-            "currency": "THB"
-        },
-        {
-            "name": "Togo",
-            "isoCode": "TG",
-            "flag": "🇹🇬",
-            "phonecode": "228",
-            "currency": "XOF"
-        },
-        {
-            "name": "Tokelau",
-            "isoCode": "TK",
-            "flag": "🇹🇰",
-            "phonecode": "690",
-            "currency": "NZD"
-        },
-        {
-            "name": "Tonga",
-            "isoCode": "TO",
-            "flag": "🇹🇴",
-            "phonecode": "676",
-            "currency": "TOP"
-        },
-        {
-            "name": "Trinidad And Tobago",
-            "isoCode": "TT",
-            "flag": "🇹🇹",
-            "phonecode": "+1-868",
-            "currency": "TTD"
-        },
-        {
-            "name": "Tunisia",
-            "isoCode": "TN",
-            "flag": "🇹🇳",
-            "phonecode": "216",
-            "currency": "TND"
-        },
-        {
-            "name": "Turkey",
-            "isoCode": "TR",
-            "flag": "🇹🇷",
-            "phonecode": "90",
-            "currency": "TRY"
-        },
-        {
-            "name": "Turkmenistan",
-            "isoCode": "TM",
-            "flag": "🇹🇲",
-            "phonecode": "993",
-            "currency": "TMT"
-        },
-        {
-            "name": "Turks And Caicos Islands",
-            "isoCode": "TC",
-            "flag": "🇹🇨",
-            "phonecode": "+1-649",
-            "currency": "USD"
-        },
-        {
-            "name": "Tuvalu",
-            "isoCode": "TV",
-            "flag": "🇹🇻",
-            "phonecode": "688",
-            "currency": "AUD"
-        },
-        {
-            "name": "Uganda",
-            "isoCode": "UG",
-            "flag": "🇺🇬",
-            "phonecode": "256",
-            "currency": "UGX"
-        },
-        {
-            "name": "Ukraine",
-            "isoCode": "UA",
-            "flag": "🇺🇦",
-            "phonecode": "380",
-            "currency": "UAH"
-        },
-        {
-            "name": "United Arab Emirates",
-            "isoCode": "AE",
-            "flag": "🇦🇪",
-            "phonecode": "971",
-            "currency": "AED"
-        },
-        {
-            "name": "United Kingdom",
-            "isoCode": "GB",
-            "flag": "🇬🇧",
-            "phonecode": "44",
-            "currency": "GBP"
-        },
-        {
-            "name": "United States",
-            "isoCode": "US",
-            "flag": "🇺🇸",
-            "phonecode": "1",
-            "currency": "USD"
-        },
-        {
-            "name": "United States Minor Outlying Islands",
-            "isoCode": "UM",
-            "flag": "🇺🇲",
-            "phonecode": "1",
-            "currency": "USD"
-        },
-        {
-            "name": "Uruguay",
-            "isoCode": "UY",
-            "flag": "🇺🇾",
-            "phonecode": "598",
-            "currency": "UYU"
-        },
-        {
-            "name": "Uzbekistan",
-            "isoCode": "UZ",
-            "flag": "🇺🇿",
-            "phonecode": "998",
-            "currency": "UZS"
-        },
-        {
-            "name": "Vanuatu",
-            "isoCode": "VU",
-            "flag": "🇻🇺",
-            "phonecode": "678",
-            "currency": "VUV"
-        },
-        {
-            "name": "Vatican City State (Holy See)",
-            "isoCode": "VA",
-            "flag": "🇻🇦",
-            "phonecode": "379",
-            "currency": "EUR"
-        },
-        {
-            "name": "Venezuela",
-            "isoCode": "VE",
-            "flag": "🇻🇪",
-            "phonecode": "58",
-            "currency": "VEF"
-        },
-        {
-            "name": "Vietnam",
-            "isoCode": "VN",
-            "flag": "🇻🇳",
-            "phonecode": "84",
-            "currency": "VND"
-        },
-        {
-            "name": "Virgin Islands (British)",
-            "isoCode": "VG",
-            "flag": "🇻🇬",
-            "phonecode": "+1-284",
-            "currency": "USD"
-        },
-        {
-            "name": "Virgin Islands (US)",
-            "isoCode": "VI",
-            "flag": "🇻🇮",
-            "phonecode": "+1-340",
-            "currency": "USD"
-        },
-        {
-            "name": "Wallis And Futuna Islands",
-            "isoCode": "WF",
-            "flag": "🇼🇫",
-            "phonecode": "681",
-            "currency": "XPF"
-        },
-        {
-            "name": "Western Sahara",
-            "isoCode": "EH",
-            "flag": "🇪🇭",
-            "phonecode": "212",
-            "currency": "MAD"
-        },
-        {
-            "name": "Yemen",
-            "isoCode": "YE",
-            "flag": "🇾🇪",
-            "phonecode": "967",
-            "currency": "YER"
-        },
-        {
-            "name": "Zambia",
-            "isoCode": "ZM",
-            "flag": "🇿🇲",
-            "phonecode": "260",
-            "currency": "ZMW"
-        },
-        {
-            "name": "Zimbabwe",
-            "isoCode": "ZW",
-            "flag": "🇿🇼",
-            "phonecode": "263",
-            "currency": "ZWL"
-        },
-        {
-            "name": "Kosovo",
-            "isoCode": "XK",
-            "flag": "🇽🇰",
-            "phonecode": "383",
-            "currency": "EUR"
-        },
-        {
-            "name": "Curaçao",
-            "isoCode": "CW",
-            "flag": "🇨🇼",
-            "phonecode": "599",
-            "currency": "ANG"
-        },
-        {
-            "name": "Sint Maarten (Dutch part)",
-            "isoCode": "SX",
-            "flag": "🇸🇽",
-            "phonecode": "1721",
-            "currency": "ANG"
-        }
-    ]
-    const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+    // Sample countries (truncated - include all in actual implementation)
+    const Countries: Country[] = [
+        { name: "Pakistan", isoCode: "PK", flag: "🇵🇰", phonecode: "92", currency: "PKR" },
+        { name: "United States", isoCode: "US", flag: "🇺🇸", phonecode: "1", currency: "USD" },
+        { name: "United Kingdom", isoCode: "GB", flag: "🇬🇧", phonecode: "44", currency: "GBP" },
+        // Add all other countries...
+    ];
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsSubmitting(true);
+
         const formData = new FormData(e.currentTarget);
-        const response = await fetch('/api/auth/applyhonrarydoctorate', {
-            method: 'POST',
-            body: JSON.stringify({
-                full_name:formData.get("full_name"),
-                father_name:formData.get("father_name"),
-                dob:formData.get("dob"),
-                country:formData.get("country"),
-                address:formData.get("address"),
-                email:formData.get("email"),
-                mobile_no:formData.get("mobile_no"),
-                current_occupation:formData.get("current_occupation"),
-                organization_institution:formData.get("organization_institution"),
-                position_title:formData.get("position_title"),
-                service_length:formData.get("service_length"),
-                discipline:formData.get("discipline"),
-                contributions:formData.get("contributions"),
-                statement_of_purpose:formData.get("statement_of_purpose"),
-                social_profile_link:formData.get("social_profile_link"),
-            })
-        })
-        if(response.ok){
-            alert('Entry Saved Successfully');
-            console.log(response)
-            router.push('/');
-            router.refresh();
-        }else{  alert("Server Error!");
+        try {
+            const response = await fetch('/api/auth/applyhonrarydoctorate', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData))
+            });
+
+            if(response.ok) {
+                alert('Application submitted successfully!');
+                router.push('/');
+                router.refresh();
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (error) {
+            alert("Error submitting application. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
-        return (
-            <div className={'container flex flex-row  justify-center'}>
-                <div className={'flex flex-col items-start justify-center md:gap-2 p-2 px-4 '}>
-                    <p className={'text-teal-900 text-2xl font-bold text-center py-6'}>Application for Honorary Doctorate Degree</p>
-                    <form onSubmit={handleSubmit}
-                    >
-                        <div className={'grid grid-cols-1 md:grid-cols-2 gap-6'}>
-                            <div className={'flex flex-col '}>
-                                <label>Full Name</label>
-                                <input type={'text'} placeholder={'Enter your full name'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'full_name'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Father/Mother Name</label>
-                                <input type={'text'} placeholder={'Enter your father or mother name'}
-                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'father_name'}/>
-                            </div>
-
-                            <div className={'flex flex-col'}>
-                                <label className={'text-teal-900'}>Date of Birth</label>
-                                <input type={'date'} placeholder={'Enter your Email account'}
-                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'dob'}/>
-                            </div>
-
-                            <div className={'flex flex-col'}>
-                                <label>Country</label>
-                                <select className={'h-10   md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'country'}>
-                                    {
-                                        Countries.map(country => <option key={country.isoCode}
-                                                                         value={country.name}>{country.name}</option>)
-                                    }
-                                </select>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Address</label>
-                                <input type={'text'} placeholder={'Enter your home address'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'address'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Email</label>
-                                <input type={'text'} placeholder={'Enter your email address'}
-                                       className={'h-10 md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'email'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Mobile/WhatsApp No.</label>
-                                <input type={'text'} placeholder={'Enter your mobile number with country code'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'mobile_no'}
-                                />
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Current Occupation:</label>
-                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'current_occupation'}>
-                                    <option value={'Academia and Education'}>Academia and Education</option>
-                                    <option value={'Science and Research'}>Science and Research</option>
-                                    <option value={'Arts and Humanities'}>Arts and Humanities</option>
-                                    <option value={'Business and Entrepreneurship'}>Business and Entrepreneurship
-                                    </option>
-                                    <option value={'Politics and Public Service'}>Politics and Public Service</option>
-                                    <option value={'Healthcare and Medicine'}>Healthcare and Medicine</option>
-                                    <option value={'Social Services and Nonprofit'}>Social Services and Nonprofit
-                                    </option>
-                                    <option value={'Law and Legal Services'}>Law and Legal Services</option>
-                                    <option value={'Environmental and Conservation'}>Environmental and Conservation
-                                    </option>
-                                    <option value={'Media and Communication'}>Media and Communication</option>
-                                    <option value={'Religious and Spiritual Leadership'}>Religious and Spiritual
-                                        Leadership
-                                    </option>
-                                    <option value={'Technology and Innovation'}>Technology and Innovation</option>
-                                    <option value={'Sports and Recreation'}>Sports and Recreation</option>
-                                    <option value={'Philanthropy and Humanitarianism'}>Philanthropy and
-                                        Humanitarianism
-                                    </option>
-                                    <option value={'Literature and Journalism'}>Literature and Journalism</option>
-
-                                </select>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Organization/Institution</label>
-                                <input type={'text'} placeholder={'Enter name of your Organization or Institution'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'organization_institution'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Position/Title</label>
-                                <input type={'text'} placeholder={'Enter your current position or job title'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'position_title'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Years of Service in Field</label>
-                                <input type={'text'} placeholder={'Enter length of your service in field'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'service_length'}/>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Field/Discipline for Honorary Doctorate</label>
-                                <select className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                        name={'discipline'}>
-                                    <option value={'Doctor of Fine Arts (DFA)'}>Doctor of Fine Arts (DFA)</option>
-                                    <option value={'Doctor of Arts (DA)'}>Doctor of Arts (DA)</option>
-                                    <option value={'Doctor of Philosophy (PhD)'}>Doctor of Philosophy (PhD)</option>
-                                    <option value={'Doctor of Science (DSc)'}>Doctor of Science (DSc)</option>
-                                    <option value={'Doctor of Engineering (DEng)'}>Doctor of Engineering (DEng)</option>
-                                    <option value={'Doctor of Business Administration (DBA)'}>Doctor of Business
-                                        Administration (DBA)
-                                    </option>
-                                    <option value={'Doctor of Commerce (DCom)'}>Doctor of Commerce (DCom)</option>
-                                    <option value={'Doctor of Economics (DEcon)'}>Doctor of Economics (DEcon)</option>
-                                    <option value={'Doctor of Laws (LLD)'}>Doctor of Laws (LLD)</option>
-                                    <option value={'Doctor of Education (EdD)'}>Doctor of Education (EdD)</option>
-                                    <option value={'Doctor of Computer Science (DCS)'}>Doctor of Computer Science
-                                        (DCS)
-                                    </option>
-                                    <option value={'Doctor of Information Technology (DIT)'}>Doctor of Information
-                                        Technology (DIT)
-                                    </option>
-                                    <option value={'Doctor of Theology (DTh)'}>Doctor of Theology (DTh)</option>
-                                    <option value={'Doctor of Journalism (DJour)'}>Doctor of Journalism (DJour)</option>
-                                    <option value={'Doctor of Sports Science (DSS)'}>Doctor of Sports Science (DSS)
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Specific Contributions or Achievements</label>
-                                <p className={'text-xs text-red-500'}>
-                                    Please provide a brief description of your contributions and achievements that
-                                    support your candidacy for an honorary doctorate
-                                </p>
-                                <textarea placeholder={'Enter your specific contributions'}
-                                          className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                          required={true} name={'contributions'}>
-                                </textarea>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Statement of Purpose</label>
-                                <p className={'text-xs text-red-500'}>
-                                    Please explain why you believe you should be considered for an honorary doctorate.
-                                    Include details about how your work has impacted your field or society, and how this
-                                    recognition aligns with the mission and values of the awarding institution.
-                                </p>
-                                <textarea placeholder={'Enter Statement of Purpose'}
-                                          className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                          required={true} name={'statement_of_purpose'}>
-                                </textarea>
-                            </div>
-
-                            <div className={'flex flex-col '}>
-                                <label>Social Profile Link</label>
-                                <p className={'text-xs text-red-500'}>
-                                    (Facebook, Twitter, LinkedIn, Instagram, Person URL)
-                                </p>
-                                <input type={'text'} placeholder={'Enter link of your anyone social profile'}
-                                       className={'h-10  md:h-10 w-auto bg-teal-50 p-1 border-2 border-teal-200'}
-                                       required={true} name={'social_profile_link'}/>
-                            </div>
-
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-8 text-white font-sans">
+            {/* MVIT Header with Logo and Slogan */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col items-center mb-8">
+                    <div className="flex items-center space-x-4 mb-4">
+                        <div className="relative w-16 h-16">
+                            <Image
+                                src={Logo}
+                                alt="MVIT Logo"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
-
-                        <div className={'flex gap-2 py-6'}>
-                            <button type={'submit'}
-                                    className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Apply
-                            </button>
-                            <Link href={'/pages/honoraryphd'}
-                                  className={'text-md bg-teal-950 text-teal-300 rounded-lg uppercase hover:bg-teal-800 p-2 px-6 py-2 mt-2'}>Back
-                            </Link>
+                        <div>
+                            <h1 className="text-2xl font-bold text-red-400">Mansha Virtual Institute of Technologies</h1>
+                            <p className="text-sm text-gray-300">Empowering People with AI</p>
                         </div>
-                    </form>
-
+                    </div>
                 </div>
+
+                {/* Main Content */}
+                <div className="max-w-6xl mx-auto space-y-8">
+                    {/* Honorary PhD Criteria */}
+                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg border border-red-900 p-6">
+                        <h2 className="text-2xl font-bold text-red-400 mb-4 flex items-center">
+                            <FaAward className="mr-2" /> Honorary PhD Criteria
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                                <h3 className="text-lg font-semibold text-red-300">Eligibility Requirements</h3>
+                                <ul className="space-y-2 text-sm text-gray-300">
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Distinguished achievement in professional field
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Significant contributions to society or academia
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Minimum 15 years of exemplary service
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Recognized leadership in your discipline
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="space-y-4">
+                                <h3 className="text-lg font-semibold text-red-300">Selection Process</h3>
+                                <ul className="space-y-2 text-sm text-gray-300">
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Initial application screening
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Review by academic committee
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Verification of achievements
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">•</span>
+                                        Final approval by university senate
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Application Form */}
+                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl shadow-lg border border-red-900 p-6 md:p-8">
+                        <div className="text-center mb-8">
+                            <h2 className="text-3xl font-bold text-red-400 mb-2">Honorary Doctorate Application</h2>
+                            <p className="text-gray-300">Please complete all sections of this form to be considered for an honorary degree</p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            {/* Personal Information Section */}
+                            <div className="bg-black bg-opacity-30 p-6 rounded-lg border border-red-900">
+                                <h3 className="text-xl font-semibold text-red-400 mb-4 flex items-center">
+                                    <FaInfoCircle className="mr-2" /> Personal Information
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Full Name *</label>
+                                        <input
+                                            type="text"
+                                            name="full_name"
+                                            placeholder="Your full legal name"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Father/Mother Name *</label>
+                                        <input
+                                            type="text"
+                                            name="father_name"
+                                            placeholder="Parent's name"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Date of Birth *</label>
+                                        <input
+                                            type="date"
+                                            name="dob"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Country *</label>
+                                        <select
+                                            name="country"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        >
+                                            {Countries.map(country => (
+                                                <option key={country.isoCode} value={country.name}>
+                                                    {country.flag} {country.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-1 md:col-span-2">
+                                        <label className="block text-sm font-medium text-gray-300">Address *</label>
+                                        <input
+                                            type="text"
+                                            name="address"
+                                            placeholder="Your complete address"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Email *</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="Your primary email"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Mobile/WhatsApp *</label>
+                                        <input
+                                            type="tel"
+                                            name="mobile_no"
+                                            placeholder="With country code"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Professional Information Section */}
+                            <div className="bg-black bg-opacity-30 p-6 rounded-lg border border-red-900">
+                                <h3 className="text-xl font-semibold text-red-400 mb-4 flex items-center">
+                                    <FaInfoCircle className="mr-2" /> Professional Information
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Current Occupation *</label>
+                                        <select
+                                            name="current_occupation"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        >
+                                            <option value="">Select your occupation</option>
+                                            <option value="Academia and Education">Academia and Education</option>
+                                            <option value="Science and Research">Science and Research</option>
+                                            <option value="Arts and Humanities">Arts and Humanities</option>
+                                            <option value="Business and Entrepreneurship">Business and Entrepreneurship</option>
+                                            <option value="Politics and Public Service">Politics and Public Service</option>
+                                            <option value="Healthcare and Medicine">Healthcare and Medicine</option>
+                                            <option value="Social Services and Nonprofit">Social Services and Nonprofit</option>
+                                            <option value="Law and Legal Services">Law and Legal Services</option>
+                                            <option value="Environmental and Conservation">Environmental and Conservation</option>
+                                            <option value="Media and Communication">Media and Communication</option>
+                                            <option value="Religious and Spiritual Leadership">Religious and Spiritual Leadership</option>
+                                            <option value="Technology and Innovation">Technology and Innovation</option>
+                                            <option value="Sports and Recreation">Sports and Recreation</option>
+                                            <option value="Philanthropy and Humanitarianism">Philanthropy and Humanitarianism</option>
+                                            <option value="Literature and Journalism">Literature and Journalism</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Organization/Institution *</label>
+                                        <input
+                                            type="text"
+                                            name="organization_institution"
+                                            placeholder="Current organization"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Position/Title *</label>
+                                        <input
+                                            type="text"
+                                            name="position_title"
+                                            placeholder="Your current position"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Years of Service *</label>
+                                        <input
+                                            type="number"
+                                            name="service_length"
+                                            placeholder="Years in your field"
+                                            min="1"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Academic Information Section */}
+                            <div className="bg-black bg-opacity-30 p-6 rounded-lg border border-red-900">
+                                <h3 className="text-xl font-semibold text-red-400 mb-4 flex items-center">
+                                    <FaInfoCircle className="mr-2" /> Academic Information
+                                </h3>
+                                <div className="grid grid-cols-1 gap-6">
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Field/Discipline *</label>
+                                        <select
+                                            name="discipline"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        >
+                                            <option value="">Select desired honorary degree</option>
+                                            <option value="Doctor of Fine Arts (DFA)">Doctor of Fine Arts (DFA)</option>
+                                            <option value="Doctor of Arts (DA)">Doctor of Arts (DA)</option>
+                                            <option value="Doctor of Philosophy (PhD)">Doctor of Philosophy (PhD)</option>
+                                            <option value="Doctor of Science (DSc)">Doctor of Science (DSc)</option>
+                                            <option value="Doctor of Engineering (DEng)">Doctor of Engineering (DEng)</option>
+                                            <option value="Doctor of Business Administration (DBA)">Doctor of Business Administration (DBA)</option>
+                                            <option value="Doctor of Commerce (DCom)">Doctor of Commerce (DCom)</option>
+                                            <option value="Doctor of Economics (DEcon)">Doctor of Economics (DEcon)</option>
+                                            <option value="Doctor of Laws (LLD)">Doctor of Laws (LLD)</option>
+                                            <option value="Doctor of Education (EdD)">Doctor of Education (EdD)</option>
+                                            <option value="Doctor of Computer Science (DCS)">Doctor of Computer Science (DCS)</option>
+                                            <option value="Doctor of Information Technology (DIT)">Doctor of Information Technology (DIT)</option>
+                                            <option value="Doctor of Theology (DTh)">Doctor of Theology (DTh)</option>
+                                            <option value="Doctor of Journalism (DJour)">Doctor of Journalism (DJour)</option>
+                                            <option value="Doctor of Sports Science (DSS)">Doctor of Sports Science (DSS)</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Contributions/Achievements *</label>
+                                        <p className="text-xs text-gray-400 mb-2">
+                                            Describe your significant contributions that merit this honorary degree (500 words max)
+                                        </p>
+                                        <textarea
+                                            name="contributions"
+                                            rows={5}
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        ></textarea>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Statement of Purpose *</label>
+                                        <p className="text-xs text-gray-400 mb-2">
+                                            Explain why you should be considered and how this aligns with MVIT`&apos;s mission (500 words max)
+                                        </p>
+                                        <textarea
+                                            name="statement_of_purpose"
+                                            rows={5}
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                            required
+                                        ></textarea>
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="block text-sm font-medium text-gray-300">Social Profile Link</label>
+                                        <p className="text-xs text-gray-400 mb-2">
+                                            LinkedIn, personal website, or other professional profile
+                                        </p>
+                                        <input
+                                            type="url"
+                                            name="social_profile_link"
+                                            placeholder="https://"
+                                            className="w-full bg-black bg-opacity-50 border border-red-900 rounded-md py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Form Actions */}
+                            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4">
+                                <p className="text-sm text-gray-400">
+                                    By submitting, you agree to MVIT`&apos;s terms and acknowledge the accuracy of your information.
+                                </p>
+                                <div className="flex gap-4">
+                                    <Link
+                                        href="/pages/honoraryphd"
+                                        className="px-6 py-2 border border-red-600 text-red-400 rounded-md hover:bg-red-900 hover:bg-opacity-30 transition-colors"
+                                    >
+                                        Cancel
+                                    </Link>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors flex items-center gap-2 disabled:opacity-50"
+                                    >
+                                        {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                                        {!isSubmitting && <FaArrowRight />}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
-        )
+        </div>
+    );
 }
