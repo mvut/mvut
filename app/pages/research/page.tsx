@@ -1,490 +1,445 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import {
-    FaRobot,
-    FaDatabase,
-    FaNetworkWired,
-    FaDna,
-    FaBrain,
-    FaLock,
-    FaCloud,
-    FaCodeBranch,
-    FaMicrochip,
-    FaChartLine,
-    FaLaptopCode,
-    FaProjectDiagram,
-    FaRegLightbulb,
-    FaCube,
-    FaUserGraduate,
-    FaUsers,
-    FaSyncAlt,
-    FaServer,
-    FaFilm,
-    FaBookOpen,
-    FaChartBar,
-    FaFileAlt,
-    FaAward,
-    FaTrophy,
-    FaLightbulb,
-    FaGlobe,
-    FaUniversity,
-    FaHandshake
+    FaRobot, FaDatabase, FaLock, FaMicrochip, FaRegLightbulb,
+    FaBrain, FaCube, FaAward, FaTrophy, FaGlobe, FaUniversity,
+    FaHandshake, FaChartLine, FaFlask, FaNetworkWired, FaUserGraduate,
+    FaMicroscope, FaCode, FaProjectDiagram
 } from 'react-icons/fa';
-import { Oswald, Raleway, Playfair_Display } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-// Load Google Fonts
-const oswald = Oswald({
+const poppins = Poppins({
     subsets: ['latin'],
     weight: ['400', '600', '700'],
-    variable: '--font-oswald'
 });
 
-const raleway = Raleway({
-    subsets: ['latin'],
-    weight: ['400', '500', '700'],
-    variable: '--font-raleway'
-});
+const ResearchPage = () => {
+    const researchDomains = [
+        {
+            name: 'Artificial Intelligence',
+            icon: <FaRobot className="text-red-500" size={20} />,
+            description: 'Developing advanced AI systems for automation and decision-making',
+            details: [
+                'Natural Language Processing for regional languages',
+                'Computer vision for agricultural applications',
+                'Reinforcement learning for robotics',
+                'Ethical AI frameworks'
+            ],
+            projects: '12 ongoing projects',
+            lead: 'Dr. Abid Hussain'
+        },
+        {
+            name: 'Cybersecurity',
+            icon: <FaLock className="text-red-500" size={20} />,
+            description: 'Next-gen encryption and threat detection systems',
+            details: [
+                'Blockchain-based security protocols',
+                'IoT device protection',
+                'Quantum-resistant cryptography',
+                'Cyber threat intelligence'
+            ],
+            projects: '5 industry partnerships',
+            lead: 'Dr. Babar Hussain'
+        },
+        {
+            name: 'Quantum Computing',
+            icon: <FaCube className="text-red-500" size={20} />,
+            description: 'Pioneering quantum algorithms and hardware',
+            details: [
+                'Quantum machine learning',
+                'Error correction techniques',
+                'Quantum simulation for materials science',
+                'Hybrid quantum-classical systems'
+            ],
+            projects: '3 patents pending',
+            lead: 'Dr. Muhammad Arshad'
+        },
+        {
+            name: 'Biotechnology',
+            icon: <FaFlask className="text-red-500" size={20} />,
+            description: 'Engineering biological systems for healthcare',
+            details: [
+                'CRISPR-based diagnostics',
+                'Bioinformatics for personalized medicine',
+                'Synthetic biology applications',
+                'Nanomedicine delivery systems'
+            ],
+            projects: '8 clinical trials',
+            lead: 'Dr. Aneela Abubakar'
+        },
+        {
+            name: 'Data Science',
+            icon: <FaChartLine className="text-red-500" size={20} />,
+            description: 'Extracting insights from complex datasets',
+            details: [
+                'Predictive analytics for business',
+                'Geospatial data analysis',
+                'Time series forecasting',
+                'Explainable AI models'
+            ],
+            projects: '20+ publications',
+            lead: 'Dr. Muhammad Younas Alam'
+        },
+        {
+            name: 'IoT Systems',
+            icon: <FaNetworkWired className="text-red-500" size={20} />,
+            description: 'Connecting smart devices for intelligent environments',
+            details: [
+                'Smart city infrastructure',
+                'Industrial IoT monitoring',
+                'Edge computing solutions',
+                'LPWAN implementations'
+            ],
+            projects: '5 pilot deployments',
+            lead: 'Eng. Muhammad Shaaban'
+        }
+    ];
 
-const playfair = Playfair_Display({
-    subsets: ['latin'],
-    weight: ['400', '600', '700'],
-    variable: '--font-playfair'
-});
+    const researchFacilities = [
+        {
+            name: 'AI Research Lab',
+            equipment: '20 high-performance workstations with GPU clusters',
+            capabilities: 'Deep learning model training, computer vision prototyping'
+        },
+        {
+            name: 'Quantum Computing Center',
+            equipment: '5-qubit quantum processor, cryogenic systems',
+            capabilities: 'Quantum algorithm development, materials simulation'
+        },
+        {
+            name: 'Bioengineering Facility',
+            equipment: 'CRISPR-Cas9 systems, DNA sequencers, bioreactors',
+            capabilities: 'Genetic engineering, drug discovery research'
+        },
+        {
+            name: 'Cybersecurity Range',
+            equipment: 'Isolated network environment, penetration testing tools',
+            capabilities: 'Vulnerability assessment, digital forensics'
+        }
+    ];
 
-export default function ResearchPage() {
+    const achievements = [
+        {
+            value: "150+",
+            label: "Peer-reviewed publications",
+            details: "Including 25 papers in top-tier journals (Nature, Science, IEEE)"
+        },
+        {
+            value: "$100k+",
+            label: "Research funding secured",
+            details: "From NSF, DARPA, and industry partners in 2023 alone"
+        },
+        {
+            value: "25",
+            label: "Patents filed",
+            details: "With 8 already granted in multiple jurisdictions"
+        },
+        {
+            value: "50+",
+            label: "Industry collaborations",
+            details: "Including partnerships with Google, IBM, and local startups"
+        }
+    ];
+
+    const awards = [
+        {
+            name: "2024 Global Innovation Award",
+            description: "For revolutionary work in quantum computing applications to healthcare",
+            organization: "International Technology Foundation"
+        },
+        {
+            name: "Best Research Institution 2023",
+            description: "Recognized for interdisciplinary research impact",
+            organization: "Science & Technology Council"
+        },
+        {
+            name: "5 IEEE Fellows",
+            description: "Faculty honored for exceptional contributions to engineering",
+            organization: "Institute of Electrical and Electronics Engineers"
+        }
+    ];
+
+    const initiatives = [
+        {
+            title: "Quantum Research Center",
+            description: "State-of-the-art facilities for quantum computing development and education",
+            details: [
+                "1000 sqm dedicated lab space",
+                "Partnership with national quantum initiative",
+                "Graduate fellowship program"
+            ],
+            status: "Phase 1 construction underway",
+            timeline: "Completion Q2 2025"
+        },
+        {
+            title: "AI for Social Good",
+            description: "Applying AI to solve pressing societal challenges",
+            details: [
+                "Focus areas: healthcare, education, agriculture",
+                "Community partnership program",
+                "Annual hackathon and ideathon"
+            ],
+            status: "Accepting research proposals",
+            timeline: "Ongoing"
+        },
+        {
+            title: "Industry Alliance Program",
+            description: "Strategic partnerships with technology leaders",
+            details: [
+                "Joint research projects",
+                "Technology transfer office",
+                "Executive education programs"
+            ],
+            status: "15 corporate partners joined",
+            timeline: "Expanding in 2024"
+        }
+    ];
+
     return (
-        <div className={`flex flex-col min-h-screen bg-gradient-to-br from-black via-red-900 to-red-800 ${raleway.className}`}>
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent opacity-80 z-0"></div>
-
-            {/* Main Content */}
-            <div className="relative z-10">
-                {/* Research Overview Section */}
-                <div className="py-20 px-4 sm:px-8 lg:px-16">
-                    {/* Header Section */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
+        <div className={`min-h-screen bg-gray-900 text-gray-100 ${poppins.className}`}>
+            {/* Hero Section */}
+            <section className="relative py-20 bg-gradient-to-b from-red-900 to-gray-900">
+                <div className="container mx-auto px-6 text-center">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-5xl font-bold mb-6"
                     >
-                        <h1 className={`text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 mb-6 ${playfair.className}`}>
-                            Research & Innovation
-                        </h1>
-                        <p className="text-lg sm:text-xl text-red-200 max-w-4xl mx-auto">
-                            Pioneering discoveries and technological breakthroughs that shape the future
-                        </p>
-                    </motion.div>
-
-                    {/* MVIT Research Overview */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24"
+                        Research & Innovation
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-xl text-red-200 max-w-3xl mx-auto"
                     >
-                        {/* Research Description */}
-                        <div className="bg-black/50 backdrop-blur-md rounded-xl border-l-4 border-red-600 p-8 shadow-2xl hover:shadow-red-900/50 transition-all duration-500">
-                            <h2 className={`text-3xl font-bold text-white mb-6 ${oswald.className}`}>Research Excellence</h2>
-                            <p className="text-red-100 mb-6 leading-relaxed">
-                                At MVIT, we&apos;re redefining the boundaries of knowledge through interdisciplinary research that addresses global challenges. Our research ecosystem combines academic rigor with real-world impact, fostering innovation across multiple domains.
-                            </p>
+                        Pioneering discoveries that shape the future of technology through interdisciplinary collaboration
+                    </motion.p>
+                </div>
+            </section>
 
-                            <div className="space-y-6">
-                                <div>
-                                    <h3 className="text-xl font-semibold text-red-300 mb-3">Strategic Focus Areas</h3>
-                                    <ul className="space-y-3 text-red-100">
-                                        <li className="flex items-start">
-                                            <span className="text-red-400 mr-2">▹</span>
-                                            <span><strong>Industry 4.0:</strong> Integrating AI, IoT and robotics to revolutionize manufacturing with 15+ industry partners</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="text-red-400 mr-2">▹</span>
-                                            <span><strong>Healthcare Innovation:</strong> Developing next-gen medical devices and AI diagnostics with 8 clinical trials underway</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="text-red-400 mr-2">▹</span>
-                                            <span><strong>Sustainable Cities:</strong> Implementing smart infrastructure solutions in 5 pilot cities worldwide</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="text-red-400 mr-2">▹</span>
-                                            <span><strong>Climate Resilience:</strong> Leading 12 projects on renewable energy and carbon capture technologies</span>
-                                        </li>
+            {/* Research Overview */}
+            <section className="py-16 container mx-auto px-6">
+                <div className="max-w-6xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg">
+                    <h2 className="text-3xl font-bold mb-6">Research Excellence</h2>
+                    <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+                        At our institute, we're redefining boundaries through interdisciplinary research that addresses global challenges.
+                        Our approach combines academic rigor with real-world impact, fostering innovation across multiple domains with
+                        state-of-the-art facilities and strategic partnerships.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        {achievements.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="bg-gray-700 p-6 rounded-lg"
+                            >
+                                <div className="text-3xl font-bold text-red-400 mb-2">{item.value}</div>
+                                <h3 className="text-xl font-semibold mb-2">{item.label}</h3>
+                                <p className="text-gray-300 text-sm">{item.details}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Research Domains */}
+            <section className="py-16 bg-gray-800">
+                <div className="container mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-center mb-12">Research Domains</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {researchDomains.map((domain, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                whileHover={{ y: -5 }}
+                                className="bg-gray-700 rounded-lg p-6 border border-gray-600 shadow-md"
+                            >
+                                <div className="flex items-center gap-3 mb-4">
+                                    {domain.icon}
+                                    <h3 className="text-xl font-bold">{domain.name}</h3>
+                                </div>
+                                <p className="text-gray-300 mb-4">{domain.description}</p>
+
+                                <div className="mb-4">
+                                    <h4 className="font-semibold text-gray-200 mb-2">Research Focus:</h4>
+                                    <ul className="space-y-2 text-sm text-gray-300">
+                                        {domain.details.map((detail, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <span className="text-red-400 mr-2">•</span>
+                                                <span>{detail}</span>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-xl font-semibold text-red-300 mb-3">Research Impact</h3>
-                                    <div className="grid grid-cols-2 gap-4 text-red-100">
-                                        <div className="bg-red-900/30 p-3 rounded-lg">
-                                            <div className="text-2xl font-bold text-white">150+</div>
-                                            <div className="text-sm">Peer-reviewed publications</div>
-                                        </div>
-                                        <div className="bg-red-900/30 p-3 rounded-lg">
-                                            <div className="text-2xl font-bold text-white">$100k+</div>
-                                            <div className="text-sm">Research funding secured</div>
-                                        </div>
-                                        <div className="bg-red-900/30 p-3 rounded-lg">
-                                            <div className="text-2xl font-bold text-white">25</div>
-                                            <div className="text-sm">Patents filed</div>
-                                        </div>
-                                        <div className="bg-red-900/30 p-3 rounded-lg">
-                                            <div className="text-2xl font-bold text-white">50+</div>
-                                            <div className="text-sm">Industry collaborations</div>
-                                        </div>
-                                    </div>
+                                <div className="text-sm space-y-2">
+                                    <div className="text-red-400 font-medium">{domain.projects}</div>
+                                    <div className="text-gray-400">Lead: {domain.lead}</div>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Research Highlights */}
-                        <div className="space-y-8">
-                            {/* Featured Projects */}
-                            <div className="bg-gradient-to-br from-red-900/50 to-black/50 backdrop-blur-md rounded-xl p-8 border border-red-800/50 shadow-lg hover:shadow-red-900/30 transition-all duration-500">
-                                <h3 className={`text-2xl font-bold text-white mb-6 flex items-center gap-3 ${oswald.className}`}>
-                                    <FaProjectDiagram className="text-red-400" /> Featured Research Projects
-                                </h3>
-                                <div className="space-y-4">
-                                    <div className="p-4 bg-black/30 rounded-lg border-l-2 border-red-600 hover:bg-red-900/20 transition-colors">
-                                        <h4 className="font-semibold text-white">AI-Powered Precision Medicine</h4>
-                                        <p className="text-sm text-red-200 mt-1">Developing machine learning models for personalized cancer treatment</p>
-                                    </div>
-                                    <div className="p-4 bg-black/30 rounded-lg border-l-2 border-red-600 hover:bg-red-900/20 transition-colors">
-                                        <h4 className="font-semibold text-white">Quantum Computing Algorithms</h4>
-                                        <p className="text-sm text-red-200 mt-1">Pioneering new approaches to optimization problems</p>
-                                    </div>
-                                    <div className="p-4 bg-black/30 rounded-lg border-l-2 border-red-600 hover:bg-red-900/20 transition-colors">
-                                        <h4 className="font-semibold text-white">Smart Urban Mobility</h4>
-                                        <p className="text-sm text-red-200 mt-1">Implementing AI-driven traffic management systems</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Recent Publications */}
-                            <div className="bg-gradient-to-br from-red-900/50 to-black/50 backdrop-blur-md rounded-xl p-8 border border-red-800/50 shadow-lg hover:shadow-red-900/30 transition-all duration-500">
-                                <h3 className={`text-2xl font-bold text-white mb-6 flex items-center gap-3 ${oswald.className}`}>
-                                    <FaBookOpen className="text-red-400" /> Recent Publications
-                                </h3>
-                                <div className="space-y-3">
-                                    <a href="#" className="group block">
-                                        <div className="p-3 hover:bg-red-900/20 rounded-lg transition-colors">
-                                            <h4 className="font-medium text-white group-hover:text-red-300">&quot;Neural Architecture Search for Edge Devices&quot; - Nature AI</h4>
-                                            <p className="text-xs text-red-300 mt-1">Dr. Smith et al. | January 2024</p>
-                                        </div>
-                                    </a>
-                                    <a href="#" className="group block">
-                                        <div className="p-3 hover:bg-red-900/20 rounded-lg transition-colors">
-                                            <h4 className="font-medium text-white group-hover:text-red-300">&quot;Blockchain for Secure Medical Records&quot; - IEEE Transactions</h4>
-                                            <p className="text-xs text-red-300 mt-1">Dr. Johnson et al. | December 2023</p>
-                                        </div>
-                                    </a>
-                                    <a href="#" className="group block">
-                                        <div className="p-3 hover:bg-red-900/20 rounded-lg transition-colors">
-                                            <h4 className="font-medium text-white group-hover:text-red-300">&quot;Climate Modeling with Quantum ML&quot; - Science Advances</h4>
-                                            <p className="text-xs text-red-300 mt-1">Dr. Lee et al. | November 2023</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Emerging Technologies Section */}
-                <div className="py-20 bg-gradient-to-b from-black to-red-900/30">
-                    <div className="px-4 sm:px-8 lg:px-16">
-                        {/* Section Title */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-center mb-16"
-                        >
-                            <h2 className={`text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 mb-4 ${playfair.className}`}>
-                                Cutting-Edge Research Domains
-                            </h2>
-                            <p className="text-lg text-red-200 max-w-3xl mx-auto">
-                                Exploring the frontiers of technology and science to solve tomorrow&apos;s challenges
-                            </p>
-                        </motion.div>
-
-                        {/* Technologies Grid */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 0.8 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                        >
-                            {[
-                                {
-                                    name: 'Artificial Intelligence',
-                                    icon: <FaRobot className="w-8 h-8" />,
-                                    description: 'Developing advanced AI systems for automation, decision-making, and human-machine collaboration',
-                                    stats: '12 ongoing projects'
-                                },
-                                {
-                                    name: 'Quantum Computing',
-                                    icon: <FaCube className="w-8 h-8" />,
-                                    description: 'Pioneering quantum algorithms and hardware for next-generation computation',
-                                    stats: '3 patents pending'
-                                },
-                                {
-                                    name: 'Biotechnology',
-                                    icon: <FaDna className="w-8 h-8" />,
-                                    description: 'Engineering biological systems for healthcare and environmental applications',
-                                    stats: '8 clinical trials'
-                                },
-                                {
-                                    name: 'Cybersecurity',
-                                    icon: <FaLock className="w-8 h-8" />,
-                                    description: 'Developing next-gen encryption and threat detection systems',
-                                    stats: '5 industry partners'
-                                },
-                                {
-                                    name: 'Data Science',
-                                    icon: <FaDatabase className="w-8 h-8" />,
-                                    description: 'Extracting insights from complex datasets to drive innovation',
-                                    stats: '20+ publications'
-                                },
-                                {
-                                    name: 'Robotics',
-                                    icon: <FaMicrochip className="w-8 h-8" />,
-                                    description: 'Building intelligent autonomous systems for diverse applications',
-                                    stats: '4 prototypes'
-                                },
-                                {
-                                    name: 'Clean Energy',
-                                    icon: <FaRegLightbulb className="w-8 h-8" />,
-                                    description: 'Developing sustainable energy solutions for a greener future',
-                                    stats: '3 field tests'
-                                },
-                                {
-                                    name: 'Neuroscience',
-                                    icon: <FaBrain className="w-8 h-8" />,
-                                    description: 'Mapping the brain and developing neuro-technologies',
-                                    stats: '2 grants awarded'
-                                },
-                                {
-                                    name: 'Blockchain',
-                                    icon: <FaCodeBranch className="w-8 h-8" />,
-                                    description: 'Creating decentralized solutions for secure transactions',
-                                    stats: '6 implementations'
-                                },
-                                {
-                                    name: 'IoT Systems',
-                                    icon: <FaNetworkWired className="w-8 h-8" />,
-                                    description: 'Connecting smart devices for intelligent environments',
-                                    stats: '5 pilot cities'
-                                },
-                                {
-                                    name: 'Nanotechnology',
-                                    icon: <FaSyncAlt className="w-8 h-8" />,
-                                    description: 'Engineering at the molecular scale for breakthrough materials',
-                                    stats: '3 lab prototypes'
-                                },
-                                {
-                                    name: 'Space Tech',
-                                    icon: <FaGlobe className="w-8 h-8" />,
-                                    description: 'Developing technologies for space exploration and satellite systems',
-                                    stats: '2 NASA collaborations'
-                                }
-                            ].map((tech, index) => (
-                                <motion.div
-                                    key={index}
-                                    whileHover={{ y: -5 }}
-                                    className="bg-black/50 backdrop-blur-sm rounded-xl border border-red-900/50 p-6 hover:bg-red-900/20 hover:border-red-700 transition-all duration-300 shadow-lg hover:shadow-red-900/30"
-                                >
-                                    <div className="text-red-400 mb-4">
-                                        {tech.icon}
-                                    </div>
-                                    <h3 className={`text-xl font-bold text-white mb-2 ${oswald.className}`}>{tech.name}</h3>
-                                    <p className="text-red-100 text-sm mb-3">{tech.description}</p>
-                                    <p className="text-xs text-red-400 font-medium">{tech.stats}</p>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
+            </section>
 
-                {/* Awards and Recognition Section */}
-                <div className="py-20 px-4 sm:px-8 lg:px-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-br from-red-900/40 to-black/70 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl"
-                    >
-                        <div className="grid md:grid-cols-2">
-                            <div className="p-10 md:p-12 lg:p-16 bg-red-900/10">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="p-3 bg-red-600 rounded-full">
-                                        <FaTrophy className="text-2xl text-white" />
-                                    </div>
-                                    <h2 className={`text-3xl md:text-4xl font-bold text-white ${playfair.className}`}>
-                                        Awards & Recognition
-                                    </h2>
+            {/* Research Facilities */}
+            <section className="py-16 container mx-auto px-6">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-12">Research Facilities</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {researchFacilities.map((facility, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                                className="bg-gray-800 rounded-xl p-6 border border-gray-700"
+                            >
+                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                                    <FaMicroscope className="text-red-500" />
+                                    {facility.name}
+                                </h3>
+                                <div className="mb-4">
+                                    <h4 className="font-medium text-gray-300 mb-2">Equipment:</h4>
+                                    <p className="text-gray-400">{facility.equipment}</p>
                                 </div>
-                                <p className="text-red-100 mb-8 leading-relaxed">
-                                    Our groundbreaking research has been honored by prestigious institutions worldwide, recognizing our contributions to advancing science and technology.
-                                </p>
-                                <div className="space-y-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="mt-1 text-red-400">
-                                            <FaAward />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-white">2024 Global Innovation Award</h3>
-                                            <p className="text-sm text-red-200">For revolutionary work in quantum computing applications</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <div className="mt-1 text-red-400">
-                                            <FaAward />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-white">Best Research Institution 2023</h3>
-                                            <p className="text-sm text-red-200">Recognized by the International Science Foundation</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <div className="mt-1 text-red-400">
-                                            <FaAward />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-white">5 IEEE Fellows</h3>
-                                            <p className="text-sm text-red-200">Our faculty honored for exceptional contributions</p>
-                                        </div>
-                                    </div>
+                                <div>
+                                    <h4 className="font-medium text-gray-300 mb-2">Capabilities:</h4>
+                                    <p className="text-gray-400">{facility.capabilities}</p>
                                 </div>
-                            </div>
-                            <div className="p-10 md:p-12 lg:p-16 bg-black/40">
-                                <div className="h-full flex flex-col justify-center">
-                                    <h3 className={`text-2xl font-bold text-white mb-6 ${oswald.className}`}>Notable Achievements</h3>
-                                    <div className="space-y-8">
-                                        <div className="flex gap-4">
-                                            <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center">
-                                                    <span className="text-white font-bold">1</span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-semibold text-white">Top 1% Most Cited</h4>
-                                                <p className="text-sm text-red-200 mt-1">5 researchers in global citation rankings</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-4">
-                                            <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center">
-                                                    <span className="text-white font-bold">25</span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-semibold text-white">Patents Awarded</h4>
-                                                <p className="text-sm text-red-200 mt-1">In cutting-edge technologies since 2025</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-4">
-                                            <div className="flex-shrink-0">
-                                                <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center">
-                                                    <span className="text-white font-bold">50+</span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h4 className="font-semibold text-white">Industry Partnerships</h4>
-                                                <p className="text-sm text-red-200 mt-1">Translating research into real-world solutions</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
+            </section>
 
-                {/* Future Initiatives Section */}
-                <div className="pb-20 px-4 sm:px-8 lg:px-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-br from-black/70 to-red-900/40 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl border border-red-900/50"
-                    >
-                        <div className="p-10 md:p-12 lg:p-16">
-                            <div className="text-center max-w-4xl mx-auto">
-                                <div className="inline-flex items-center justify-center p-4 bg-red-600/20 rounded-full mb-6">
-                                    <FaLightbulb className="text-3xl text-red-400" />
-                                </div>
-                                <h2 className={`text-3xl md:text-4xl font-bold text-white mb-6 ${playfair.className}`}>
-                                    Shaping the Future
-                                </h2>
-                                <p className="text-lg text-red-200 mb-10">
-                                    We&apos;re building the research infrastructure of tomorrow with ambitious initiatives that push boundaries and create new possibilities.
-                                </p>
+            {/* Awards & Recognition */}
+            <section className="py-16 bg-gray-800">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-6xl mx-auto">
+                        <h2 className="text-3xl font-bold text-center mb-12">Awards & Recognition</h2>
+
+                        <div className="bg-gray-700 rounded-xl p-8">
+                            <div className="flex items-center gap-3 mb-8">
+                                <FaTrophy className="text-red-500" size={24} />
+                                <h3 className="text-2xl font-bold">Our Achievements</h3>
                             </div>
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {[
-                                    {
-                                        title: "Global Research Network",
-                                        description: "Establishing 5 international research hubs for collaborative innovation",
-                                        icon: <FaGlobe className="text-2xl text-red-400" />,
-                                        status: "Phase 1 underway"
-                                    },
-                                    {
-                                        title: "Quantum Research Center",
-                                        description: "Building state-of-the-art facilities for quantum computing development",
-                                        icon: <FaCube className="text-2xl text-red-400" />,
-                                        status: "Planning stage"
-                                    },
-                                    {
-                                        title: "AI for Social Good",
-                                        description: "Launching initiatives applying AI to global challenges like climate and healthcare",
-                                        icon: <FaRobot className="text-2xl text-red-400" />,
-                                        status: "Accepting proposals"
-                                    },
-                                    {
-                                        title: "Interdisciplinary Labs",
-                                        description: "Creating spaces where engineers, scientists and designers collaborate",
-                                        icon: <FaUniversity className="text-2xl text-red-400" />,
-                                        status: "2 labs operational"
-                                    },
-                                    {
-                                        title: "Startup Incubator",
-                                        description: "Supporting research commercialization with funding and mentorship",
-                                        icon: <FaRegLightbulb className="text-2xl text-red-400" />,
-                                        status: "Launching Q3 2024"
-                                    },
-                                    {
-                                        title: "Industry Alliance Program",
-                                        description: "Expanding partnerships with Fortune 500 technology leaders",
-                                        icon: <FaHandshake className="text-2xl text-red-400" />,
-                                        status: "15 partners joined"
-                                    }
-                                ].map((initiative, index) => (
+                            <div className="space-y-8">
+                                {awards.map((award, index) => (
                                     <motion.div
                                         key={index}
-                                        whileHover={{ scale: 1.03 }}
-                                        className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-red-900/50 hover:border-red-700 transition-all"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="border-b border-gray-600 pb-6 last:border-0"
                                     >
-                                        <div className="mb-4">
-                                            {initiative.icon}
-                                        </div>
-                                        <h3 className={`text-xl font-bold text-white mb-2 ${oswald.className}`}>{initiative.title}</h3>
-                                        <p className="text-red-100 text-sm mb-3">{initiative.description}</p>
-                                        <div className="text-xs font-medium text-red-400 bg-red-900/30 px-3 py-1 rounded-full inline-block">
-                                            {initiative.status}
+                                        <div className="flex items-start gap-4">
+                                            <FaAward className="text-red-500 mt-1 flex-shrink-0" />
+                                            <div>
+                                                <h4 className="text-xl font-bold mb-1">{award.name}</h4>
+                                                <p className="text-gray-300 mb-2">{award.description}</p>
+                                                <div className="text-sm text-gray-400">
+                                                    Awarded by: {award.organization}
+                                                </div>
+                                            </div>
                                         </div>
                                     </motion.div>
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Future Initiatives */}
+            <section className="py-16 container mx-auto px-6">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-12">Future Initiatives</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {initiatives.map((initiative, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg"
+                            >
+                                <h3 className="text-xl font-bold mb-4">{initiative.title}</h3>
+                                <p className="text-gray-300 mb-4">{initiative.description}</p>
+
+                                <div className="mb-4">
+                                    <h4 className="font-medium text-gray-300 mb-2">Key Features:</h4>
+                                    <ul className="space-y-2 text-sm text-gray-400">
+                                        {initiative.details.map((detail, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <span className="text-red-400 mr-2">•</span>
+                                                <span>{detail}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="text-sm space-y-2">
+                                    <div className="text-red-400 font-medium">Status: {initiative.status}</div>
+                                    <div className="text-gray-400">Timeline: {initiative.timeline}</div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-16 bg-red-900">
+                <div className="container mx-auto px-6 text-center">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="max-w-3xl mx-auto"
+                    >
+                        <h2 className="text-3xl font-bold mb-6">Join Our Research Community</h2>
+                        <p className="text-xl text-red-200 mb-8">
+                            Collaborate with leading researchers and access cutting-edge facilities
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-white text-red-900 font-semibold py-3 px-8 rounded-lg shadow-lg"
+                            >
+                                Explore Research Opportunities
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg"
+                            >
+                                Partner With Us
+                            </motion.button>
+                        </div>
                     </motion.div>
                 </div>
-            </div>
+            </section>
         </div>
     );
-}
+};
+
+export default ResearchPage;

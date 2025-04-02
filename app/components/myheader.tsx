@@ -2,238 +2,306 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/mvutflame.png';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { FaRegArrowAltCircleRight, FaSearch, FaFacebook, FaTwitter, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { Montserrat } from 'next/font/google';
+import { RiGlobalLine } from 'react-icons/ri';
+import { IoMdNotifications, IoMdSchool } from "react-icons/io";
 
-// Load Google Font
-const montserrat = Montserrat({
-    subsets: ['latin'],
-    weight: ['400', '600', '700'],
-});
-
-// Top Header Component
-function TopHeader() {
-    return (
-        <div className="bg-black text-white py-2 border-b border-red-900">
-            <div className="container mx-auto px-8 flex justify-between items-center">
-                {/* Social Links */}
-                <div className="flex space-x-4">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook className="text-xl hover:text-red-500 transition-colors" />
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="text-xl hover:text-red-500 transition-colors" />
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram className="text-xl hover:text-red-500 transition-colors" />
-                    </a>
-                </div>
-
-                {/* Quick News Marquee */}
-                <div className="flex-1 mx-8 overflow-hidden">
-                    <motion.div
-                        className="whitespace-nowrap"
-                        animate={{ x: ['100%', '-100%'] }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: 'linear',
-                        }}
-                    >
-                        <span className="text-sm font-semibold">
-                            🚀 Quick News: MVIT announces new scholarship programs for 2025! Apply now! 🎓
-                        </span>
-                    </motion.div>
-                </div>
-
-                {/* WhatsApp Contact */}
-                <a
-                    href="https://wa.me/17472094775"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 hover:text-red-500 transition-colors"
-                >
-                    <FaWhatsapp className="text-xl" />
-                    <span className="text-sm font-semibold">Contact Us</span>
-                </a>
-            </div>
-        </div>
-    );
-}
-
-// Main Header Component
-export default function MyHeaderComponent() {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [activeItem, setActiveItem] = useState<string | null>(null);
+    const [scrolled, setScrolled] = useState(false);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-    const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const newsItems = [
+        "🎓 Admissions open for 2025 intake - Apply now!",
+        "🏆 MVIT ranked among top 10 technical institutes",
+        "🔬 Research grant awarded for AI projects",
+        "🌍 New international partnerships announced"
+    ];
 
     const mainNavItems = [
         { title: 'Studies', href: '/pages/study' },
-        { title: 'Faculties', href: '/pages/faculty' },  // Added Faculties
-        { title: 'Tariff', href: '/pages/study/fee' },  // Added Faculties
+        { title: 'Faculties', href: '/pages/faculty' },
+        { title: 'Tariff', href: '/pages/study/fee' },
         { title: 'Services', href: '/pages/services' },
         { title: 'Research', href: '/pages/research' },
         { title: 'USAI', href: '/usai' }
     ];
 
+    const socialLinks = [
+        { icon: <FaFacebook />, color: '#3b5998', href: '#' },
+        { icon: <FaTwitter />, color: '#1DA1F2', href: '#' },
+        { icon: <FaInstagram />, color: '#E1306C', href: '#' },
+        { icon: <FaLinkedin />, color: '#0077B5', href: '#' }
+    ];
+
     return (
         <>
-            {/* Top Header */}
-            <TopHeader />
-
             {/* Main Header */}
-            <nav className={`sticky top-0 z-50 bg-gradient-to-r from-black via-red-900 to-black shadow-md text-white ${montserrat.className}`}>
-                {/* Desktop Navbar */}
-                <div className="hidden md:flex justify-between items-center px-8 py-4">
-                    {/* Logo */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 0.2 }}
-                        className="flex items-center"
-                    >
-                        <Link href="/" className="flex items-center justify-center">
-                            <Image
-                                src={Logo}
-                                alt="MVIT Logo"
-                                width={48}
-                                height={48}
-                                className="mr-2 rounded-full shadow-lg"
-                            />
-                            <span className="text-2xl font-bold text-white">MVIT</span>
-                        </Link>
-                    </motion.div>
+            <header className={`sticky top-0 z-50 ${scrolled ? 'bg-gray-900/95 shadow-xl' : 'bg-gray-900'} backdrop-blur-sm transition-all duration-300`}>
+                {/* Top Contact Bar - Integrated into main header */}
+                <div className="border-b border-gray-800">
+                    <div className="container mx-auto px-4">
+                        <div className="flex flex-col sm:flex-row justify-between items-center py-2 gap-2 sm:gap-0">
+                            {/* Contact Info - Left Side */}
+                            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                                <motion.div
+                                    whileHover={{ scale: 1.03 }}
+                                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                                >
+                                    <FaPhoneAlt />
+                                    <Link href="tel:+17472094775">+1 (747) 209-4775</Link>
+                                </motion.div>
 
-                    {/* Main Navigation */}
-                    <ul className="flex space-x-8 text-lg font-semibold">
-                        {mainNavItems.map((item) => (
-                            <motion.li
-                                key={item.title}
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ type: 'spring', stiffness: 300 }}
-                            >
-                                <Link href={item.href} className="hover:text-red-400 py-2 px-1">
-                                    {item.title}
-                                </Link>
-                            </motion.li>
-                        ))}
-                    </ul>
+                                <motion.div
+                                    whileHover={{ scale: 1.03 }}
+                                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                                >
+                                    <FaEnvelope />
+                                    <Link href="mailto:mvut.usa@gmail.com">mvut.usa@gmail.com</Link>
+                                </motion.div>
+                            </div>
 
-                    {/* Search and MLMS Login */}
-                    <div className="flex items-center space-x-6">
-                        {/* Search Icon */}
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ type: 'spring', stiffness: 300 }}
-                            className="cursor-pointer"
-                            onClick={toggleSearch}
-                        >
-                            <FaSearch className="text-2xl text-white" />
-                        </motion.div>
+                            {/* News Ticker - Center */}
+                            <div className="hidden md:flex items-center overflow-hidden bg-gray-800/50 rounded-full px-3 py-1 max-w-lg">
+                                <motion.div
+                                    animate={{ rotate: [0, 10, -10, 0] }}
+                                    transition={{ repeat: Infinity, duration: 2 }}
+                                    className="text-blue-400 mr-2"
+                                >
+                                    <IoMdNotifications />
+                                </motion.div>
+                                <div className="overflow-hidden">
+                                    <motion.div
+                                        className="whitespace-nowrap"
+                                        animate={{ x: ['100%', '-100%'] }}
+                                        transition={{
+                                            duration: 25,
+                                            repeat: Infinity,
+                                            ease: 'linear',
+                                        }}
+                                    >
+                                        {newsItems.map((item, index) => (
+                                            <span key={index} className="inline-block mx-6 text-sm text-gray-300">
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </motion.div>
+                                </div>
+                            </div>
 
-                        {/* Search Bar */}
-                        {isSearchOpen && (
-                            <motion.input
-                                initial={{ width: 0 }}
-                                animate={{ width: 200 }}
-                                transition={{ duration: 0.3 }}
-                                type="text"
-                                placeholder="Search..."
-                                className="px-3 py-1 rounded-full bg-white text-black focus:outline-none"
-                            />
-                        )}
+                            {/* Social Links - Right Side */}
+                            <div className="flex items-center gap-3">
+                                <motion.div
+                                    whileHover={{ scale: 1.03 }}
+                                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-full transition-colors"
+                                >
+                                    <FaWhatsapp className="text-green-400" />
+                                    <Link
+                                        href="https://wa.me/17472094775"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-medium text-sm"
+                                    >
+                                        WhatsApp
+                                    </Link>
+                                </motion.div>
 
-                        {/* MLMS Login Button */}
-                        <Link href="/mlms" passHref legacyBehavior>
-                            <motion.a
-                                whileHover={{ scale: 1.1, backgroundColor: '#ffffff', color: '#DC2626' }}
-                                transition={{ type: 'spring', stiffness: 300 }}
-                                className="flex items-center bg-white text-red-600 px-6 py-2 rounded-full font-semibold"
-                            >
-                                MLMS <FaRegArrowAltCircleRight className="ml-2" />
-                            </motion.a>
-                        </Link>
+                                <div className="hidden sm:flex gap-2">
+                                    {socialLinks.map((link, index) => (
+                                        <motion.a
+                                            key={index}
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.2, y: -2 }}
+                                            className="text-gray-400 hover:text-white p-1"
+                                            style={{ color: link.color }}
+                                        >
+                                            {link.icon}
+                                        </motion.a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Mobile Navbar */}
-                <div className="md:hidden flex justify-between items-center px-6 py-4 bg-gradient-to-r from-black via-red-900 to-black">
-                    {/* Logo */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 0.2 }}
-                        className="flex items-center"
-                    >
-                        <Link href="/" className="flex items-center justify-center">
-                            <Image
-                                src={Logo}
-                                alt="MVIT Logo"
-                                width={48}
-                                height={48}
-                                className="mr-2 rounded-full shadow-lg"
-                            />
-                            <span className="text-2xl font-bold text-white">MVIT</span>
-                        </Link>
-                    </motion.div>
-
-                    {/* Menu Toggle */}
-                    <motion.button
-                        onClick={toggleMenu}
-                        whileTap={{ scale: 0.9 }}
-                        className="text-2xl text-white"
-                    >
-                        {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-                    </motion.button>
-                </div>
-
-                {/* Mobile Menu */}
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden bg-gradient-to-b from-black to-red-900 shadow-lg"
-                    >
-                        {mainNavItems.map((item) => (
-                            <div key={item.title} className="border-b border-red-900/50">
-                                <Link
-                                    href={item.href}
-                                    className="block px-6 py-4 text-lg font-semibold text-white hover:text-red-400"
-                                >
-                                    {item.title}
-                                </Link>
-                            </div>
-                        ))}
-
-                        {/* Mobile Search and Login */}
-                        <div className="p-4 flex flex-col space-y-4">
-                            <div className="flex items-center">
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    className="flex-1 px-3 py-2 rounded-l-full bg-white text-black focus:outline-none"
-                                />
-                                <button className="bg-red-600 text-white px-4 py-2 rounded-r-full">
-                                    <FaSearch />
-                                </button>
-                            </div>
-                            <Link
-                                href="/mlms"
-                                className="flex items-center justify-center bg-white text-red-600 px-6 py-3 rounded-full font-semibold"
-                            >
-                                MLMS Login <FaRegArrowAltCircleRight className="ml-2" />
+                {/* Main Navigation */}
+                <div className="container mx-auto px-4">
+                    <div className="flex justify-between items-center py-3">
+                        {/* Logo */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="flex-shrink-0"
+                        >
+                            <Link href="/" className="flex items-center gap-3">
+                                <motion.div whileHover={{ scale: 1.05 }}>
+                                    <Image
+                                        src={Logo}
+                                        alt="MVIT Logo"
+                                        width={50}
+                                        height={50}
+                                        className="object-contain"
+                                    />
+                                </motion.div>
+                                <span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                                    MVIT
+                                </span>
                             </Link>
+                        </motion.div>
+
+                        {/* Desktop Navigation */}
+                        <nav className="hidden md:flex items-center">
+                            <ul className="flex space-x-1 lg:space-x-2">
+                                {mainNavItems.map((item) => (
+                                    <motion.li
+                                        key={item.title}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ type: 'spring', stiffness: 300 }}
+                                    >
+                                        <Link
+                                            href={item.href}
+                                            className="relative px-4 py-2 text-gray-300 hover:text-white font-medium group"
+                                        >
+                                            {item.title}
+                                            <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-green-400 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
+                                        </Link>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </nav>
+
+                        {/* CTA Buttons */}
+                        <div className="hidden md:flex items-center gap-4">
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Link
+                                    href="/mlms"
+                                    className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2 rounded-full font-medium hover:from-blue-600 hover:to-blue-700 transition-all"
+                                >
+                                    MLMS
+                                    <FaArrowRight className="text-sm" />
+                                </Link>
+                            </motion.div>
+
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Link
+                                    href="/pages/apply"
+                                    className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2 rounded-full font-medium hover:from-green-600 hover:to-green-700 transition-all"
+                                >
+                                    Apply Now
+                                    <FaArrowRight className="text-sm" />
+                                </Link>
+                            </motion.div>
                         </div>
-                    </motion.div>
-                )}
-            </nav>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="md:hidden text-2xl text-gray-300 hover:text-white p-2"
+                            aria-label="Toggle menu"
+                        >
+                            {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+                        </button>
+                    </div>
+
+                    {/* Mobile Menu */}
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="md:hidden overflow-hidden"
+                        >
+                            <div className="py-4 space-y-2">
+                                {mainNavItems.map((item) => (
+                                    <motion.div
+                                        key={item.title}
+                                        whileHover={{ x: 5 }}
+                                        transition={{ type: 'spring', stiffness: 300 }}
+                                    >
+                                        <Link
+                                            href={item.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+
+                                <div className="pt-4 flex flex-col gap-3">
+                                    <Link
+                                        href="/mlms"
+                                        className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium"
+                                    >
+                                        MLMS Login
+                                        <FaArrowRight />
+                                    </Link>
+
+                                    <Link
+                                        href="/apply"
+                                        className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-full font-medium"
+                                    >
+                                        Apply Now
+                                        <FaArrowRight />
+                                    </Link>
+                                </div>
+
+                                <div className="pt-4 flex justify-center gap-4">
+                                    {socialLinks.map((link, index) => (
+                                        <motion.a
+                                            key={index}
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.2 }}
+                                            className="text-gray-400 hover:text-white p-2"
+                                            style={{ color: link.color }}
+                                        >
+                                            {link.icon}
+                                        </motion.a>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </div>
+            </header>
+
+            {/* Add Google Fonts to your global CSS or _document.tsx */}
+            <style jsx global>{`
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
+
+                body {
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                h1, h2, h3, h4, h5, h6, .font-heading {
+                    font-family: 'Montserrat', sans-serif;
+                }
+            `}</style>
         </>
     );
-}
+};
+
+export default Header;

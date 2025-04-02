@@ -17,265 +17,358 @@ import {
     FaRegIdCard,
     FaCalendarAlt,
     FaUserTie,
-    FaMicroscope,
-    FaBookOpen,
-    FaGlobeAmericas,
-    FaLaptopCode
+    FaBookOpen
 } from 'react-icons/fa';
-
-interface ColorScheme {
-    gradient: string;
-    glow: string;
-    textColor: string;
-}
-
-const colors: Record<string, ColorScheme> = {
-    primary: {
-        gradient: 'from-red-600 to-red-800',
-        glow: 'shadow-red-500/50',
-        textColor: 'text-white',
-    },
-    secondary: {
-        gradient: 'from-red-800 to-red-900',
-        glow: 'shadow-red-700/50',
-        textColor: 'text-white',
-    },
-    accent: {
-        gradient: 'from-red-900 to-black',
-        glow: 'shadow-black/50',
-        textColor: 'text-white',
-    },
-    highlight: {
-        gradient: 'from-black to-red-900',
-        glow: 'shadow-red-900/50',
-        textColor: 'text-white',
-    },
-};
+import Image from 'next/image';
+import Logo from '@/public/mvutflame.png';
 
 export default function QualityAssuranceCell() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-red-900 to-black py-16 text-white font-sans relative overflow-hidden">
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white font-sans">
             {/* Main Content */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-            >
-                {/* Hero Section with Enhanced Content */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                {/* Centered Logo */}
+                <div className="flex justify-center mb-12">
+                    <div className="w-48 h-auto p-6">
+                        <Image
+                            src={Logo}
+                            alt="MVIT Logo"
+                            width={200}
+                            height={100}
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
+                </div>
+
+                {/* Hero Section */}
                 <header className="mb-16 text-center">
                     <motion.h1
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 mb-6"
+                        transition={{ duration: 0.6 }}
+                        className="text-4xl sm:text-5xl font-bold text-white mb-6"
                     >
-                        Quality Assurance Commission
+                        Elevating Educational Standards
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-lg sm:text-xl text-gray-200 leading-relaxed max-w-4xl mx-auto mb-8"
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="text-xl text-gray-300 max-w-3xl mx-auto mb-12"
                     >
-                        Driving educational excellence through comprehensive assessment systems, data-driven insights, and continuous quality improvement initiatives for institutions nationwide.
+                        MVIT's Quality Assurance Commission ensures excellence through rigorous assessment and continuous improvement.
                     </motion.p>
 
-                    {/* Key Stats */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-5xl mx-auto"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
                     >
                         <StatCard icon={<FaSchool />} number="250+" label="Partner Institutions" />
-                        <StatCard icon={<FaUserGraduate />} number="50,000+" label="Students Assessed" />
-                        <StatCard icon={<FaAward />} number="120+" label="Certified Educators" />
-                        <StatCard icon={<FaChartLine />} number="98%" label="Satisfaction Rate" />
+                        <StatCard icon={<FaUserGraduate />} number="50K+" label="Students Assessed" />
+                        <StatCard icon={<FaAward />} number="98%" label="Satisfaction Rate" />
+                        <StatCard icon={<FaChartLine />} number="40%" label="Average Improvement" />
                     </motion.div>
                 </header>
 
-                {/* Primary Action Buttons */}
+                {/* Primary Actions */}
+                <SectionHeader
+                    title="Get Started"
+                    description="Access our comprehensive quality assurance tools"
+                />
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+                    transition={{ duration: 0.6 }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-24"
                 >
-                    <Link href="/mvit-exam/enrollment">
-                        <FancyButton
-                            icon={<FaUserGraduate size={24} />}
-                            text="Student Enrollment"
-                            description="Register for upcoming assessments"
-                            color="primary"
-                        />
-                    </Link>
-                    <Link href="/mvit-exam/take-test">
-                        <FancyButton
-                            icon={<FaClipboardCheck size={24} />}
-                            text="Assessment Portal"
-                            description="Access your scheduled exams"
-                            color="secondary"
-                        />
-                    </Link>
-                    <Link href="/qac/results">
-                        <FancyButton
-                            icon={<FaPoll size={24} />}
-                            text="Performance Analytics"
-                            description="View detailed results and insights"
-                            color="accent"
-                        />
-                    </Link>
-                    <Link href="/qac/IR">
-                        <FancyButton
-                            icon={<FaSchool size={24} />}
-                            text="Institution Portal"
-                            description="Register your school or college"
-                            color="highlight"
-                        />
-                    </Link>
+                    <ActionCard
+                        icon={<FaUserGraduate />}
+                        title="Student Portal"
+                        description="Register for assessments and track your progress"
+                        link="/mvit-exam/enrollment"
+                    />
+                    <ActionCard
+                        icon={<FaClipboardCheck />}
+                        title="Assessment Center"
+                        description="Complete your assigned evaluations"
+                        link="/mvit-exam/take-test"
+                    />
+                    <ActionCard
+                        icon={<FaPoll />}
+                        title="Performance Dashboard"
+                        description="View detailed analytics and insights"
+                        link="/qac/results"
+                    />
+                    <ActionCard
+                        icon={<FaSchool />}
+                        title="Institution Hub"
+                        description="Manage your school's quality assurance profile"
+                        link="/qac/IR"
+                    />
                 </motion.div>
 
-                {/* Assessment Framework Section */}
-                <AssessmentFrameworkSection />
+                {/* Assessment Framework */}
+                <SectionHeader
+                    title="Our Three-Pillar Approach"
+                    description="A comprehensive framework for educational excellence"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8 mb-24">
+                    <FeatureCard
+                        icon={<FaSearchPlus />}
+                        title="Diagnostic Evaluation"
+                        items={[
+                            'Baseline competency assessment',
+                            'Individual learning profiles',
+                            'Institutional benchmarking'
+                        ]}
+                    />
+                    <FeatureCard
+                        icon={<FaBookOpen />}
+                        title="Formative Tracking"
+                        items={[
+                            'Continuous progress monitoring',
+                            'Personalized learning pathways',
+                            'Real-time educator feedback'
+                        ]}
+                    />
+                    <FeatureCard
+                        icon={<FaAward />}
+                        title="Summative Certification"
+                        items={[
+                            'Nationally standardized testing',
+                            'Comprehensive skill certification',
+                            'Quality accreditation'
+                        ]}
+                    />
+                </div>
 
-                {/* Quality Assurance Features */}
-                <QualityAssuranceFeatures />
+                {/* Quality Assurance Services */}
+                <SectionHeader
+                    title="Our Comprehensive Services"
+                    description="Tailored solutions for every educational need"
+                    className="mb-8"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8 mb-24">
+                    <ServiceCard
+                        icon={<FaFileAlt />}
+                        title="Standardized Assessments"
+                        description="Validated evaluation tools for all educational levels"
+                    />
+                    <ServiceCard
+                        icon={<FaChartLine />}
+                        title="Advanced Analytics"
+                        description="Data-driven insights with actionable recommendations"
+                    />
+                    <ServiceCard
+                        icon={<FaBookOpen />}
+                        title="Curriculum Development"
+                        description="Alignment with national and global standards"
+                    />
+                    <ServiceCard
+                        icon={<FaChalkboardTeacher />}
+                        title="Educator Training"
+                        description="Professional development programs and workshops"
+                    />
+                    <ServiceCard
+                        icon={<FaSearchPlus />}
+                        title="Institutional Audits"
+                        description="Comprehensive quality reviews with detailed reporting"
+                    />
+                    <ServiceCard
+                        icon={<FaRegIdCard />}
+                        title="Accreditation"
+                        description="Official recognition of educational excellence"
+                    />
+                </div>
 
                 {/* Benefits Section */}
-                <BenefitsSection />
+                <SectionHeader
+                    title="Transformative Impact"
+                    description="How our program elevates educational outcomes"
+                    className="mb-8"
+                />
+                <div className="bg-gray-800/80 rounded-xl shadow-sm p-8 border border-gray-700 max-w-6xl mx-auto mt-8 mb-24 backdrop-blur-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 className="text-xl font-bold mb-4 flex items-center">
+                                <FaUserTie className="text-blue-400 mr-2" />
+                                For Educational Leaders
+                            </h3>
+                            <ul className="space-y-3">
+                                {[
+                                    'Data-informed policy decisions',
+                                    'National and international benchmarking',
+                                    'Streamlined accreditation processes',
+                                    'Enhanced institutional reputation'
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start">
+                                        <FaCheckCircle className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-xl font-bold mb-4 flex items-center">
+                                <FaChalkboardTeacher className="text-blue-400 mr-2" />
+                                For Teaching Professionals
+                            </h3>
+                            <ul className="space-y-3">
+                                {[
+                                    'Detailed student performance insights',
+                                    'Evidence-based teaching strategies',
+                                    'Professional growth opportunities',
+                                    'Recognition of teaching excellence'
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start">
+                                        <FaCheckCircle className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                {/* Testimonials Section */}
-                <TestimonialsSection />
+                {/* Testimonials */}
+                <SectionHeader
+                    title="Proven Results"
+                    description="Success stories from our partner institutions"
+                    className="mb-8"
+                />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8 mb-24">
+                    <TestimonialCard
+                        quote="After implementing MVIT's quality framework, our students showed a 40% improvement in core competencies within one academic year."
+                        name="Dr. Sarah Khan"
+                        position="Principal, Elite Grammar School"
+                    />
+                    <TestimonialCard
+                        quote="The professional development programs transformed our teaching staff's approach, resulting in significantly higher student engagement."
+                        name="Michael Rodriguez"
+                        position="Academic Director, Global Academy"
+                    />
+                </div>
 
-                {/* Upcoming Events Section */}
-                <EventsSection />
+                {/* Events */}
+                <SectionHeader
+                    title="Key Dates"
+                    description="Important events in our assessment cycle"
+                    className="mb-8"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8 mb-24">
+                    <EventCard
+                        icon={<FaCalendarAlt />}
+                        title="Spring Assessment Window"
+                        date="March 15 - April 30, 2024"
+                    />
+                    <EventCard
+                        icon={<FaChalkboardTeacher />}
+                        title="Educator Symposium"
+                        date="May 10-12, 2024"
+                    />
+                    <EventCard
+                        icon={<FaPoll />}
+                        title="Annual Results Release"
+                        date="June 5, 2024"
+                    />
+                </div>
 
-                {/* FAQ Section */}
-                <FAQSection />
-            </motion.div>
+                {/* FAQ */}
+                <SectionHeader
+                    title="Common Questions"
+                    description="Everything you need to know about our program"
+                    className="mb-8"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto mt-8">
+                    <FAQCard
+                        question="What makes MVIT's assessments different?"
+                        answer="Our assessments combine rigorous academic standards with 21st century skill evaluation, providing a holistic view of student capabilities."
+                    />
+                    <FAQCard
+                        question="How often should institutions participate?"
+                        answer="We recommend annual participation to track progress, with optional mid-year formative assessments."
+                    />
+                    <FAQCard
+                        question="What support is available for first-time participants?"
+                        answer="We provide onboarding workshops, detailed guides, and dedicated support staff to ensure smooth implementation."
+                    />
+                    <FAQCard
+                        question="How are assessment results used?"
+                        answer="Results inform teaching strategies, curriculum development, and institutional planning while maintaining student privacy."
+                    />
+                </div>
+            </div>
         </div>
     );
 }
 
+// Component Library (same as before with updated content)
 function StatCard({ icon, number, label }: { icon: JSX.Element; number: string; label: string }) {
     return (
         <motion.div
             whileHover={{ y: -5 }}
-            className="bg-black/50 backdrop-blur-sm rounded-xl p-4 border border-red-900/50 text-center"
+            className="bg-gray-800/80 rounded-xl shadow-sm p-4 border border-gray-700 text-center hover:shadow-md transition-all backdrop-blur-sm"
         >
-            <div className="text-red-400 text-3xl mb-2">{icon}</div>
-            <p className="text-2xl font-bold">{number}</p>
+            <div className="text-blue-400 text-3xl mb-2">{icon}</div>
+            <p className="text-2xl font-bold text-white">{number}</p>
             <p className="text-sm text-gray-300">{label}</p>
         </motion.div>
     );
 }
 
-function FancyButton({
-                         icon,
-                         text,
-                         description,
-                         color,
-                     }: {
+function ActionCard({ icon, title, description, link }: {
     icon: JSX.Element;
-    text: string;
+    title: string;
     description: string;
-    color: keyof typeof colors;
+    link: string;
 }) {
     return (
-        <motion.button
-            whileHover={{
-                scale: 1.03,
-                boxShadow: '0 0 20px rgba(220, 38, 38, 0.5)',
-            }}
-            whileTap={{ scale: 0.97 }}
-            className={`relative h-full w-full flex flex-col items-center justify-center p-6 overflow-hidden font-medium transition-all duration-300 rounded-xl shadow-lg group hover:${colors[color].glow} bg-black/50 border border-red-900/50`}
-        >
-            <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="text-3xl mb-3 text-red-400">{icon}</div>
-                <h3 className={`text-lg font-bold ${colors[color].textColor} mb-2`}>{text}</h3>
-                <p className="text-xs text-gray-300">{description}</p>
-            </div>
-        </motion.button>
+        <Link href={link}>
+            <motion.div
+                whileHover={{ y: -5 }}
+                className="bg-gray-800/80 rounded-xl shadow-sm p-6 border border-gray-700 hover:border-gray-600 hover:shadow-md transition-all h-full backdrop-blur-sm"
+            >
+                <div className="text-blue-400 text-3xl mb-4">{icon}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                <p className="text-gray-300">{description}</p>
+            </motion.div>
+        </Link>
     );
 }
 
-function AssessmentFrameworkSection() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-4">
-                    Our Comprehensive Assessment Framework
-                </h2>
-                <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-                    A multi-dimensional approach to evaluating and enhancing educational quality
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <FrameworkPhase
-                    title="Diagnostic Assessment"
-                    icon={<FaSearchPlus />}
-                    description="Baseline evaluation to identify learning gaps and strengths"
-                    features={[
-                        'Pre-assessment screening',
-                        'Skill gap analysis',
-                        'Individual learning profiles'
-                    ]}
-                />
-                <FrameworkPhase
-                    title="Formative Evaluation"
-                    icon={<FaBookOpen />}
-                    description="Ongoing monitoring of student progress"
-                    features={[
-                        'Monthly progress checks',
-                        'Adaptive learning paths',
-                        'Teacher feedback integration'
-                    ]}
-                />
-                <FrameworkPhase
-                    title="Summative Certification"
-                    icon={<FaAward />}
-                    description="Final evaluation and recognition of achievement"
-                    features={[
-                        'Standardized testing',
-                        'National benchmarking',
-                        'Official certification'
-                    ]}
-                />
-            </div>
-        </motion.section>
-    );
-}
-
-function FrameworkPhase({ title, icon, description, features }: {
+function SectionHeader({ title, description, className = '' }: {
     title: string;
-    icon: JSX.Element;
     description: string;
-    features: string[];
+    className?: string;
+}) {
+    return (
+        <div className={`text-center ${className}`}>
+            <h2 className="text-3xl font-bold text-white mb-2">{title}</h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">{description}</p>
+        </div>
+    );
+}
+
+function FeatureCard({ icon, title, items }: {
+    icon: JSX.Element;
+    title: string;
+    items: string[];
 }) {
     return (
         <motion.div
-            whileHover={{ y: -10 }}
-            className="bg-black/50 backdrop-blur-lg rounded-2xl p-6 border border-red-900/50 h-full"
+            whileHover={{ y: -5 }}
+            className="bg-gray-800/80 rounded-xl shadow-sm p-6 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
         >
-            <div className="text-red-400 text-4xl mb-4">{icon}</div>
-            <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-            <p className="text-gray-300 mb-4">{description}</p>
+            <div className="text-blue-400 text-4xl mb-4">{icon}</div>
+            <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
             <ul className="space-y-2">
-                {features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                        <FaCheckCircle className="text-red-400 mt-1 mr-2 flex-shrink-0" />
-                        <span className="text-gray-300">{feature}</span>
+                {items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                        <FaCheckCircle className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span className="text-gray-300">{item}</span>
                     </li>
                 ))}
             </ul>
@@ -283,395 +376,82 @@ function FrameworkPhase({ title, icon, description, features }: {
     );
 }
 
-function QualityAssuranceFeatures() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-4">
-                    Quality Assurance Services
-                </h2>
-                <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-                    Comprehensive solutions designed to elevate educational standards and outcomes
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {qaFeatures.map((feature, index) => (
-                    <motion.div
-                        key={index}
-                        whileHover={{ scale: 1.03 }}
-                        className="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all border border-red-900/50 h-full"
-                    >
-                        <div className="text-3xl text-red-400 mb-4">{feature.icon}</div>
-                        <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-200 mb-4">{feature.description}</p>
-                        {feature.details && (
-                            <ul className="text-xs sm:text-sm text-gray-300 space-y-2">
-                                {feature.details.map((detail, i) => (
-                                    <li key={i} className="flex items-start">
-                                        <span className="text-red-400 mr-2">•</span>
-                                        <span>{detail}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </motion.div>
-                ))}
-            </div>
-        </motion.section>
-    );
-}
-
-function BenefitsSection() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24 bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 border border-red-900/50"
-        >
-            <div className="text-center mb-8">
-                <FaAward size={50} className="text-red-400 mx-auto mb-4" />
-                <h2 className="text-2xl sm:text-3xl font-bold text-red-400 mb-2">
-                    Strategic Benefits for Institutions
-                </h2>
-                <p className="text-gray-300 max-w-3xl mx-auto">
-                    How participation in our quality assurance program transforms educational delivery
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 className="text-xl font-bold text-white mb-4">For School Administrators</h3>
-                    <ul className="space-y-3">
-                        {benefits.admin.map((benefit, index) => (
-                            <li key={`admin-${index}`} className="flex items-start gap-3">
-                                <FaCheckCircle className="text-red-400 mt-1 flex-shrink-0" />
-                                <span className="text-gray-300">{benefit}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h3 className="text-xl font-bold text-white mb-4">For Teaching Faculty</h3>
-                    <ul className="space-y-3">
-                        {benefits.teachers.map((benefit, index) => (
-                            <li key={`teacher-${index}`} className="flex items-start gap-3">
-                                <FaCheckCircle className="text-red-400 mt-1 flex-shrink-0" />
-                                <span className="text-gray-300">{benefit}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </motion.section>
-    );
-}
-
-function TestimonialsSection() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-4">
-                    Success Stories
-                </h2>
-                <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-                    Hear from institutions that have transformed their educational outcomes
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
-                    <motion.div
-                        key={index}
-                        whileHover={{ y: -5 }}
-                        className="bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 border border-red-900/50"
-                    >
-                        <FaQuoteLeft size={24} className="text-red-400 mb-4" />
-                        <p className="text-gray-200 italic text-lg mb-6">
-                            &quot;{testimonial.quote}&quot;
-                        </p>
-                        <div className="flex items-center">
-                            <div className="w-16 h-16 rounded-full bg-red-900/30 flex items-center justify-center mr-4">
-                                {testimonial.avatar}
-                            </div>
-                            <div>
-                                <p className="text-red-400 font-bold">{testimonial.name}</p>
-                                <p className="text-gray-300">{testimonial.position}</p>
-                                <p className="text-sm text-gray-400">{testimonial.institution}</p>
-                            </div>
-                        </div>
-                        <FaQuoteRight size={24} className="text-red-400 ml-auto mt-4" />
-                    </motion.div>
-                ))}
-            </div>
-        </motion.section>
-    );
-}
-
-function EventsSection() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-4">
-                    Upcoming Events & Deadlines
-                </h2>
-                <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-                    Important dates for the current assessment cycle
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {events.map((event, index) => (
-                    <motion.div
-                        key={index}
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-black/50 backdrop-blur-lg rounded-2xl p-6 border border-red-900/50"
-                    >
-                        <div className="flex items-center mb-4">
-                            <div className="text-red-400 text-2xl mr-4">
-                                {event.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                        </div>
-                        <p className="text-gray-300 mb-2"><span className="font-semibold">Date:</span> {event.date}</p>
-                        <p className="text-gray-300 mb-4"><span className="font-semibold">Location:</span> {event.location}</p>
-                        <Link href={event.link} className="text-red-400 hover:text-red-300 text-sm font-medium">
-                            Learn more →
-                        </Link>
-                    </motion.div>
-                ))}
-            </div>
-        </motion.section>
-    );
-}
-
-function FAQSection() {
-    return (
-        <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24 bg-black/50 backdrop-blur-lg rounded-2xl shadow-lg p-8 border border-red-900/50"
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-4">
-                    Frequently Asked Questions
-                </h2>
-                <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-                    Answers to common questions about our quality assurance programs
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {faqs.map((faq, index) => (
-                    <motion.div
-                        key={index}
-                        whileHover={{ y: -3 }}
-                        className="bg-black/30 rounded-xl p-6 border border-red-900/30"
-                    >
-                        <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
-                        <p className="text-gray-300">{faq.answer}</p>
-                    </motion.div>
-                ))}
-            </div>
-
-            <div className="text-center mt-8">
-                <Link href="/qac/faq" className="text-red-400 hover:text-red-300 font-medium">
-                    View all FAQs →
-                </Link>
-            </div>
-        </motion.section>
-    );
-}
-
-// Enhanced Data Structures
-interface Feature {
+function ServiceCard({ icon, title, description }: {
+    icon: JSX.Element;
     title: string;
     description: string;
-    icon: JSX.Element;
-    details?: string[];
+}) {
+    return (
+        <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-gray-800/80 rounded-xl shadow-sm p-6 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
+        >
+            <div className="text-blue-400 text-3xl mb-4">{icon}</div>
+            <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+            <p className="text-gray-300">{description}</p>
+        </motion.div>
+    );
 }
 
-const qaFeatures: Feature[] = [
-    {
-        title: 'Comprehensive Assessments',
-        description: 'Rigorous evaluation tools covering all academic levels and subjects',
-        icon: <FaFileAlt />,
-        details: [
-            'Nursery to Grade 12 assessments',
-            'Subject-specific evaluation rubrics',
-            'Cognitive and skill-based testing'
-        ]
-    },
-    {
-        title: 'Data Analytics Dashboard',
-        description: 'Real-time performance tracking and visualization tools',
-        icon: <FaChartLine />,
-        details: [
-            'Institutional benchmarking',
-            'Longitudinal progress tracking',
-            'Custom report generation'
-        ]
-    },
-    {
-        title: 'Curriculum Alignment',
-        description: 'Assessments designed to national education standards',
-        icon: <FaBookOpen />,
-        details: [
-            'Alignment with national curricula',
-            '21st century skill integration',
-            'Cross-disciplinary evaluation'
-        ]
-    },
-    {
-        title: 'Professional Development',
-        description: 'Training programs based on assessment insights',
-        icon: <FaChalkboardTeacher />,
-        details: [
-            'Pedagogical skill enhancement',
-            'Data-driven instruction workshops',
-            'Certification programs'
-        ]
-    },
-    {
-        title: 'Diagnostic Reporting',
-        description: 'Actionable insights for continuous improvement',
-        icon: <FaSearchPlus />,
-        details: [
-            'Individual student profiles',
-            'Classroom-level analytics',
-            'Institutional recommendations'
-        ]
-    },
-    {
-        title: 'Quality Certification',
-        description: 'Recognition of educational excellence',
-        icon: <FaRegIdCard />,
-        details: [
-            'Student achievement certificates',
-            'School quality accreditation',
-            'Teacher certification programs'
-        ]
-    }
-];
-
-interface Testimonial {
+function TestimonialCard({ quote, name, position }: {
     quote: string;
     name: string;
     position: string;
-    institution: string;
-    avatar: JSX.Element;
+}) {
+    return (
+        <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-gray-800/80 rounded-xl shadow-sm p-8 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
+        >
+            <FaQuoteLeft className="text-blue-400 mb-4 opacity-30" />
+            <p className="text-gray-300 italic mb-6">"{quote}"</p>
+            <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                    <FaUserTie className="text-blue-400" />
+                </div>
+                <div>
+                    <p className="text-blue-400 font-bold">{name}</p>
+                    <p className="text-gray-300 text-sm">{position}</p>
+                </div>
+            </div>
+            <FaQuoteRight className="text-blue-400 ml-auto mt-4 opacity-30" />
+        </motion.div>
+    );
 }
 
-const testimonials: Testimonial[] = [
-    {
-        quote: 'Implementing MVIT QAC transformed our assessment culture. Within two years, our students performance improved by 40% across all subjects.',
-        name: 'Dr. Sarah Khan',
-        position: 'Principal',
-        institution: 'Elite Grammar School, Lahore',
-        avatar: <FaUserTie />
-    },
-    {
-        quote: 'The professional development programs helped our teachers develop data-driven instructional strategies that significantly improved learning outcomes.',
-        name: 'Michael Rodriguez',
-        position: 'Academic Director',
-        institution: 'Global Academy, Karachi',
-        avatar: <FaChalkboardTeacher />
-    }
-];
-
-interface Benefits {
-    admin: string[];
-    teachers: string[];
-}
-
-const benefits: Benefits = {
-    admin: [
-        'Evidence-based decision making',
-        'National benchmarking data',
-        'Institutional accreditation',
-        'Strategic planning insights',
-        'Resource allocation guidance',
-        'Quality assurance certification'
-    ],
-    teachers: [
-        'Personalized student insights',
-        'Targeted instructional strategies',
-        'Professional growth opportunities',
-        'Classroom-level analytics',
-        'Curriculum alignment tools',
-        'Peer benchmarking data'
-    ]
-};
-
-interface Event {
+function EventCard({ icon, title, date }: {
+    icon: JSX.Element;
     title: string;
     date: string;
-    location: string;
-    link: string;
-    icon: JSX.Element;
+}) {
+    return (
+        <motion.div
+            whileHover={{ y: -5 }}
+            className="bg-gray-800/80 rounded-xl shadow-sm p-6 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
+        >
+            <div className="flex items-center mb-4">
+                <div className="text-blue-400 text-2xl mr-4">{icon}</div>
+                <h3 className="text-xl font-bold text-white">{title}</h3>
+            </div>
+            <p className="text-gray-300"><span className="font-semibold">Date:</span> {date}</p>
+            <Link href="#" className="text-blue-400 hover:text-blue-300 text-sm mt-4 inline-block">
+                Learn more →
+            </Link>
+        </motion.div>
+    );
 }
 
-const events: Event[] = [
-    {
-        title: 'Assessment Window',
-        date: 'March 15 - April 30, 2024',
-        location: 'Online & Partner Centers',
-        link: '/events/assessment-window',
-        icon: <FaCalendarAlt />
-    },
-    {
-        title: 'Educator Training',
-        date: 'May 10-12, 2024',
-        location: 'MVIT Regional Centers',
-        link: '/events/educator-training',
-        icon: <FaChalkboardTeacher />
-    },
-    {
-        title: 'Results Publication',
-        date: 'June 5, 2024',
-        location: 'Online Portal',
-        link: '/events/results-publication',
-        icon: <FaPoll />
-    }
-];
-
-interface FAQ {
+function FAQCard({ question, answer }: {
     question: string;
     answer: string;
+}) {
+    return (
+        <motion.div
+            whileHover={{ y: -3 }}
+            className="bg-gray-800/80 rounded-xl shadow-sm p-6 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
+        >
+            <h3 className="text-lg font-bold text-white mb-3">{question}</h3>
+            <p className="text-gray-300">{answer}</p>
+        </motion.div>
+    );
 }
-
-const faqs: FAQ[] = [
-    {
-        question: 'How often are assessments conducted?',
-        answer: 'We conduct three assessment cycles annually - in March, July, and November.'
-    },
-    {
-        question: 'What subjects are covered in the assessments?',
-        answer: 'Our assessments cover core subjects (Math, Science, Languages) plus 21st century skills for all grade levels.'
-    },
-    {
-        question: 'How do institutions register for the program?',
-        answer: 'Schools can register through our online portal, with verification completed within 3 business days.'
-    },
-    {
-        question: 'What support is provided for teachers?',
-        answer: 'We offer training workshops, instructional resources, and personalized coaching based on assessment data.'
-    }
-];

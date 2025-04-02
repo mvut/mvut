@@ -2,491 +2,567 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-    FaBootstrap, FaCss3Alt, FaDocker, FaHandshake, FaHtml5,
-    FaLightbulb, FaNodeJs, FaPython, FaQuoteLeft, FaReact,
-    FaSymfony, FaUserTie, FaMobile, FaServer, FaChartLine,
-    FaShieldAlt, FaDatabase, FaCloud, FaGraduationCap, FaLaptopCode, FaStar
+    FaReact, FaNodeJs, FaDatabase, FaCloud,
+    FaMobile, FaCode, FaServer, FaShieldAlt,
+    FaPython, FaDocker, FaGraduationCap, FaQuoteLeft,
+    FaUserTie, FaHtml5, FaCss3Alt, FaRobot, FaChalkboardTeacher,
+    FaDesktop, FaLaptopCode, FaUniversity, FaSchool
 } from "react-icons/fa";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { IoLogoJavascript, IoLogoLaravel, IoLogoVercel } from "react-icons/io5";
-import { SiAdobephotoshop, SiCsharp, SiGooglecloud, SiKubernetes, SiMysql, SiPhp } from "react-icons/si";
-import { TbBrandCpp, TbBrandReactNative } from "react-icons/tb";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { DiMongodb } from "react-icons/di";
-import { MdAnalytics, MdHomeRepairService, MdDesignServices, MdSchool } from "react-icons/md";
+import { RiNextjsFill } from "react-icons/ri";
+import {
+    SiTypescript, SiTailwindcss, SiKubernetes,
+    SiMongodb, SiPostgresql, SiPhp, SiCsharp,
+    SiJavascript, SiTensorflow, SiPytorch, SiOpenai
+} from "react-icons/si";
 import Image from "next/image";
 import MVITLogo from "@/public/mvutflame.png";
 
+type Service = {
+    title: string;
+    description: string;
+    features: string[];
+    icon: React.ComponentType<{ className?: string }>;
+    category: 'development' | 'ai' | 'education' | 'enterprise';
+};
+
+type Technology = {
+    name: string;
+    icon: React.ComponentType<{ className?: string }>;
+    category: 'frontend' | 'backend' | 'ai-ml' | 'devops' | 'database' | 'languages';
+};
+
+type Testimonial = {
+    quote: string;
+    name: string;
+    position: string;
+    company: string;
+};
+
 export default function ServicesPage() {
-    const [isClient, setIsClient] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+    const [activeCategory, setActiveCategory] = useState<'all' | 'development' | 'ai' | 'education' | 'enterprise'>('all');
 
     useEffect(() => {
-        setIsClient(true);
+        setIsMounted(true);
     }, []);
 
-    // Generate consistent random values on client side only
-    const circleData = isClient ? Array(20).fill(null).map(() => ({
-        initialX: Math.random() * 100,
-        initialY: Math.random() * 100,
-        initialWidth: Math.random() * 300 + 100,
-        initialHeight: Math.random() * 300 + 100,
-        animateX: Math.random() * 100,
-        animateY: Math.random() * 100,
-        duration: Math.random() * 10 + 10
-    })) : [];
-
-    if (!isClient) {
+    if (!isMounted) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-16 text-white relative overflow-hidden" />
+            <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-900 py-12" />
         );
     }
 
+    const filteredServices = activeCategory === 'all'
+        ? services
+        : services.filter(service => service.category === activeCategory);
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-16 text-white relative overflow-hidden">
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                {circleData.map((data, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute rounded-full bg-red-800 opacity-10"
-                        initial={{
-                            x: data.initialX,
-                            y: data.initialY,
-                            width: data.initialWidth,
-                            height: data.initialHeight,
-                        }}
-                        animate={{
-                            x: data.animateX,
-                            y: data.animateY,
-                            transition: {
-                                duration: data.duration,
-                                repeat: Infinity,
-                                repeatType: "reverse" as const
-                            }
-                        }}
-                    />
-                ))}
-            </div>
+        <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-900 py-12 text-white relative overflow-hidden">
+            {/* Background Elements */}
+            <BackgroundCircles />
 
-            {/* Main Content */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-            >
-                {/* Hero Section - Redesigned */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center text-center mb-16 relative"
-                >
-                    {/* Logo Container with Glow Effect */}
-                    <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative w-28 h-28 mb-6 group"
-                    >
-                        <div className="absolute inset-0 bg-red-600 rounded-full opacity-20 blur-md group-hover:opacity-30 transition-all duration-300 -z-10"></div>
-                        <Image
-                            src={MVITLogo}
-                            alt="MVIT Logo"
-                            fill
-                            className="object-contain drop-shadow-lg"
-                            priority
-                        />
-                    </motion.div>
+            <div className="container mx-auto px-4 relative z-10">
+                {/* Hero Section */}
+                <HeroSection />
 
-                    {/* Title with Animated Gradient */}
-                    <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="flex items-center gap-3 mb-2">
-                            <MdHomeRepairService
-                                size={36}
-                                className="text-red-400 animate-pulse"
-                            />
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-amber-300 to-red-500 leading-tight">
-                                Our Services
-                            </h1>
-                        </div>
-
-                        {/* Decorative Elements */}
-                        <div className="flex items-center justify-center gap-2 my-4">
-                            <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-red-500"></div>
-                            <FaStar className="text-amber-400 text-xs" />
-                            <div className="w-8 h-0.5 bg-gradient-to-r from-red-500 to-transparent"></div>
-                        </div>
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                {/* Services Filter */}
+                <div className="flex flex-wrap justify-center gap-3 mb-12">
+                    {[
+                        { id: 'all', label: 'All Services' },
+                        { id: 'development', label: 'Development' },
+                        { id: 'ai', label: 'AI Solutions' },
+                        { id: 'education', label: 'Education' },
+                        { id: 'enterprise', label: 'Enterprise' }
+                    ].map(({id, label}) => (
+                        <motion.button
+                            key={id}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setActiveCategory(id as any)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                                activeCategory === id
+                                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
+                                    : 'bg-black bg-opacity-40 text-blue-300 border border-blue-800'
+                            }`}
                         >
-                            Empowering your digital transformation with cutting-edge solutions and expert development services
-                        </motion.p>
-                    </motion.div>
+                            {label}
+                        </motion.button>
+                    ))}
+                </div>
 
-                    {/* Floating Particles */}
-                    <div className="absolute -top-10 left-1/4 w-2 h-2 rounded-full bg-amber-400 opacity-70 animate-float"></div>
-                    <div className="absolute top-20 right-1/3 w-3 h-3 rounded-full bg-red-500 opacity-50 animate-float-delay"></div>
-                </motion.div>
+                {/* Services Section */}
+                <ServicesGrid services={filteredServices} />
 
-                {/* Core Services Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mb-20"
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-8 text-center">
-                        Core Development Services
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {coreServices.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ y: -10 }}
-                                className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl p-6 border border-red-900 hover:border-red-600 transition-all"
-                            >
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-3 rounded-lg bg-red-900 bg-opacity-30">
-                                        {React.createElement(service.icon, {
-                                            size: 24,
-                                            className: "text-red-400"
-                                        })}
-                                    </div>
-                                    <h2 className="text-xl font-bold text-white">
-                                        {service.title}
-                                    </h2>
-                                </div>
-                                <p className="text-gray-300 text-sm mb-3">{service.description}</p>
-                                <ul className="text-gray-400 text-xs space-y-1">
-                                    {service.features.map((feature, i) => (
-                                        <li key={i} className="flex items-start">
-                                            <span className="text-red-400 mr-2">•</span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Internship Program Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mb-20 bg-black bg-opacity-50 backdrop-blur-sm rounded-xl p-8 border border-amber-900"
-                >
-                    <div className="flex flex-col md:flex-row gap-8">
-                        <div className="md:w-1/3">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="p-3 rounded-lg bg-amber-900 bg-opacity-30">
-                                    <FaGraduationCap size={24} className="text-amber-400" />
-                                </div>
-                                <h2 className="text-2xl font-bold text-amber-400">
-                                    Internship & Training Program
-                                </h2>
-                            </div>
-                            <p className="text-gray-300 mb-4">
-                                Our intensive hands-on training bridges the gap between academic learning and industry requirements.
-                            </p>
-                            <div className="bg-amber-900 bg-opacity-20 rounded-lg p-4 border border-amber-800">
-                                <h3 className="font-bold text-amber-300 mb-2">Program Highlights:</h3>
-                                <ul className="text-gray-300 text-sm space-y-2">
-                                    <li className="flex items-start">
-                                        <span className="text-amber-400 mr-2">•</span>
-                                        Real-world project experience under expert mentorship
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-amber-400 mr-2">•</span>
-                                        Comprehensive curriculum covering modern tech stacks
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-amber-400 mr-2">•</span>
-                                        Career guidance and interview preparation
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-amber-400 mr-2">•</span>
-                                        Certificate upon successful completion
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="md:w-2/3">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {internshipTracks.map((track, index) => (
-                                    <motion.div
-                                        key={index}
-                                        whileHover={{ scale: 1.02 }}
-                                        className="bg-black bg-opacity-70 rounded-lg p-5 border border-gray-800"
-                                    >
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <div className="p-2 rounded-md bg-amber-900 bg-opacity-30">
-                                                <FaLaptopCode className="text-amber-400" size={20} />
-                                            </div>
-                                            <h3 className="font-bold text-white">{track.title}</h3>
-                                        </div>
-                                        <div className="text-gray-300 text-sm mb-3">
-                                            <p>{track.description}</p>
-                                        </div>
-                                        <div className="text-xs text-gray-400">
-                                            <p className="font-semibold text-amber-400">Skills Covered:</p>
-                                            <p>{track.skills.join(', ')}</p>
-                                        </div>
-                                        <div className="mt-3 text-xs text-gray-400">
-                                            <p className="font-semibold text-amber-400">Duration:</p>
-                                            <p>{track.duration}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
+                {/* Special AI Section */}
+                <AISpecialSection />
 
                 {/* Technology Stack */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mb-20"
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-8 text-center">
-                        Our Technology Stack
-                    </h2>
-                    <p className="text-gray-300 text-center max-w-3xl mx-auto mb-8">
-                        We leverage the most advanced and reliable technologies to deliver exceptional solutions
-                    </p>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-                        {technologies.map((tech, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ scale: 1.05 }}
-                                className="flex flex-col items-center p-4 bg-black bg-opacity-30 rounded-lg border border-red-900 hover:border-red-600 transition-all"
-                            >
-                                <div className="mb-2">
-                                    {React.createElement(tech.icon, {
-                                        size: 32,
-                                        className: "text-gray-300 hover:text-white transition-colors"
-                                    })}
-                                </div>
-                                <span className="text-xs text-gray-300 text-center">{tech.name}</span>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                <TechnologySection />
 
-                {/* Client Testimonials */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-red-400 mb-8 text-center">
-                        Client Success Stories
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {testimonials.map((testimonial, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ y: -5 }}
-                                className="bg-black bg-opacity-50 backdrop-blur-sm rounded-xl p-6 border border-red-900 hover:border-red-600 transition-all"
-                            >
-                                <div className="flex items-start mb-4">
-                                    <div className="text-red-400 mr-3">
-                                        <FaQuoteLeft size={20} />
-                                    </div>
-                                    <p className="text-gray-300 italic flex-1">
-                                        {testimonial.quote}
-                                    </p>
-                                </div>
-                                <div className="flex items-center mt-4">
-                                    <div className="w-10 h-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center mr-3">
-                                        <FaUserTie className="text-red-400" />
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-white">{testimonial.name}</p>
-                                        <p className="text-sm text-gray-400">{testimonial.position}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-            </motion.div>
+                {/* Education Section */}
+                <EducationSection />
+
+                {/* Testimonials */}
+                <TestimonialSection />
+
+                {/* CTA */}
+                <CallToAction />
+            </div>
         </div>
     );
 }
 
-// Service Data
-const coreServices = [
+const BackgroundCircles = () => (
+    <div className="absolute inset-0 overflow-hidden">
+        {Array.from({ length: 10 }).map((_, i) => (
+            <motion.div
+                key={i}
+                className="absolute rounded-full bg-blue-800 opacity-10"
+                initial={{
+                    x: `${Math.random() * 100}%`,
+                    y: `${Math.random() * 100}%`,
+                    width: `${Math.random() * 300 + 100}px`,
+                    height: `${Math.random() * 300 + 100}px`,
+                }}
+                animate={{
+                    x: `${Math.random() * 100}%`,
+                    y: `${Math.random() * 100}%`,
+                    transition: {
+                        duration: Math.random() * 10 + 10,
+                        repeat: Infinity,
+                        repeatType: "reverse"
+                    }
+                }}
+            />
+        ))}
+    </div>
+);
+
+const HeroSection = () => (
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+    >
+        <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-24 h-24 mx-auto mb-6 relative"
+        >
+            <Image
+                src={MVITLogo}
+                alt="MVIT Logo"
+                fill
+                className="object-contain"
+                priority
+            />
+        </motion.div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+            Empowering Through Technology
+        </h1>
+        <p className="text-lg text-blue-200 max-w-2xl mx-auto">
+            Comprehensive digital solutions, AI innovation, and technology education to strengthen and uplift communities
+        </p>
+    </motion.div>
+);
+
+const ServicesGrid = ({ services }: { services: Service[] }) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {services.map((service, i) => (
+            <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-6 border border-blue-800 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/20"
+            >
+                <div className="text-blue-400 text-3xl mb-4">
+                    <service.icon />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-blue-200 text-sm mb-4">{service.description}</p>
+                <ul className="text-sm text-blue-300 space-y-2">
+                    {service.features.map((feature, j) => (
+                        <li key={j} className="flex items-start">
+                            <span className="text-blue-500 mr-2">•</span>
+                            {feature}
+                        </li>
+                    ))}
+                </ul>
+            </motion.div>
+        ))}
+    </div>
+);
+
+const AISpecialSection = () => (
+    <div className="mb-16 bg-gradient-to-r from-blue-900/50 to-cyan-900/30 rounded-xl p-8 border border-cyan-500">
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="md:w-1/3 text-center md:text-right">
+                <FaRobot className="text-6xl text-cyan-300 mx-auto md:mx-0" />
+                <h2 className="text-2xl font-bold mt-4 text-cyan-200">AI Agents Development</h2>
+                <p className="text-blue-200 mt-2">State-of-the-art autonomous systems</p>
+            </div>
+            <div className="md:w-2/3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
+                        <h3 className="font-bold text-cyan-300 mb-2">Conversational AI</h3>
+                        <p className="text-blue-200 text-sm">Advanced chatbots and virtual assistants with natural language understanding</p>
+                    </div>
+                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
+                        <h3 className="font-bold text-cyan-300 mb-2">Predictive Agents</h3>
+                        <p className="text-blue-200 text-sm">AI systems that anticipate needs and automate decision-making</p>
+                    </div>
+                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
+                        <h3 className="font-bold text-cyan-300 mb-2">Computer Vision</h3>
+                        <p className="text-blue-200 text-sm">Image and video analysis for automation and insights</p>
+                    </div>
+                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
+                        <h3 className="font-bold text-cyan-300 mb-2">Autonomous Systems</h3>
+                        <p className="text-blue-200 text-sm">Self-learning agents that optimize processes continuously</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const TechnologySection = () => {
+    const techCategories = [
+        { id: 'languages', name: 'Languages', icon: FaCode },
+        { id: 'frontend', name: 'Frontend', icon: FaReact },
+        { id: 'backend', name: 'Backend', icon: FaServer },
+        { id: 'ai-ml', name: 'AI/ML', icon: FaRobot },
+        { id: 'database', name: 'Databases', icon: FaDatabase },
+        { id: 'devops', name: 'DevOps', icon: FaDocker }
+    ];
+
+    return (
+        <div className="mb-16">
+            <h2 className="text-2xl font-bold text-center mb-6 text-blue-400">
+                Our Technology Stack
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {techCategories.map(category => (
+                    <div key={category.id} className="bg-black/20 rounded-lg border border-blue-800 p-4">
+                        <div className="flex items-center mb-3">
+                            <category.icon className="text-blue-400 mr-2" />
+                            <h3 className="font-semibold text-blue-300">{category.name}</h3>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            {technologies
+                                .filter(tech => tech.category === category.id)
+                                .map((tech, i) => (
+                                    <motion.div
+                                        key={tech.name}
+                                        whileHover={{ scale: 1.05 }}
+                                        className="text-xs bg-blue-900/30 text-blue-200 px-2 py-1 rounded flex items-center"
+                                    >
+                                        <tech.icon className="mr-1" />
+                                        {tech.name}
+                                    </motion.div>
+                                ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const EducationSection = () => (
+    <div className="mb-16 bg-black/30 rounded-xl p-8 border border-blue-700">
+        <h2 className="text-2xl font-bold text-center mb-8 text-blue-400">
+            Education & Training Programs
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
+                <FaSchool className="text-3xl text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold mb-2">School Programs</h3>
+                <p className="text-blue-200 mb-4">Introduction to programming and computational thinking for students</p>
+                <ul className="text-sm text-blue-300 space-y-2">
+                    <li>• Scratch programming</li>
+                    <li>• Web development basics</li>
+                    <li>• Robotics foundations</li>
+                </ul>
+            </div>
+            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
+                <FaUniversity className="text-3xl text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold mb-2">University Curriculum</h3>
+                <p className="text-blue-200 mb-4">Advanced software engineering and AI courses</p>
+                <ul className="text-sm text-blue-300 space-y-2">
+                    <li>• Full-stack development</li>
+                    <li>• Machine learning</li>
+                    <li>• Cloud computing</li>
+                </ul>
+            </div>
+            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
+                <FaChalkboardTeacher className="text-3xl text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold mb-2">Professional Training</h3>
+                <p className="text-blue-200 mb-4">Industry-relevant skills development</p>
+                <ul className="text-sm text-blue-300 space-y-2">
+                    <li>• AI/ML certification</li>
+                    <li>• DevOps engineering</li>
+                    <li>• Cybersecurity training</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+);
+
+const TestimonialSection = () => (
+    <div className="mb-16">
+        <h2 className="text-2xl font-bold text-center mb-8 text-blue-400">
+            Client & Student Testimonials
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, i) => (
+                <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-black bg-opacity-40 rounded-xl p-6 border border-blue-800"
+                >
+                    <div className="flex items-start mb-4">
+                        <FaQuoteLeft className="text-blue-500 mr-3 mt-1" />
+                        <p className="text-blue-200 italic">&quot;{testimonial.quote}&quot;</p>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="w-10 h-10 rounded-full bg-blue-900 bg-opacity-30 flex items-center justify-center mr-3">
+                            <FaUserTie className="text-blue-400" />
+                        </div>
+                        <div>
+                            <p className="font-bold">{testimonial.name}</p>
+                            <p className="text-sm text-blue-300">{testimonial.position}</p>
+                            <p className="text-xs text-blue-400">{testimonial.company}</p>
+                        </div>
+                    </div>
+                </motion.div>
+            ))}
+        </div>
+    </div>
+);
+
+const CallToAction = () => (
+    <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center bg-black bg-opacity-40 rounded-xl p-8 border border-blue-800 max-w-4xl mx-auto"
+    >
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Business or Institution?</h3>
+        <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
+            Whether you need custom software, AI solutions, or technology training programs, our team is ready to help.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 rounded-lg font-medium"
+            >
+                Contact Our Team
+            </motion.button>
+            <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-transparent border border-blue-500 px-6 py-3 rounded-lg font-medium hover:bg-blue-900/20 transition-colors"
+            >
+                Explore Training Programs
+            </motion.button>
+        </div>
+    </motion.div>
+);
+
+const services: Service[] = [
+    // Development Services
     {
-        title: "Web Development",
-        description: "Custom web applications built with modern frameworks and technologies.",
+        title: "Custom Web Development",
+        description: "Tailored web applications built for performance and scalability",
         icon: FaReact,
         features: [
+            "React/Next.js frontends",
+            "TypeScript development",
             "Responsive design",
-            "Single Page Applications (SPAs)",
-            "Progressive Web Apps (PWAs)",
-            "CMS integration",
-            "E-commerce solutions"
-        ]
+            "Progressive Web Apps",
+            "SEO optimization"
+        ],
+        category: 'development'
     },
     {
-        title: "Mobile Development",
-        description: "Cross-platform mobile apps for iOS and Android with native performance.",
-        icon: TbBrandReactNative,
+        title: "Mobile App Development",
+        description: "Cross-platform mobile solutions for iOS and Android",
+        icon: FaMobile,
         features: [
             "React Native development",
             "Native iOS/Android apps",
-            "Offline capabilities",
+            "Offline functionality",
             "Push notifications",
             "App store deployment"
-        ]
+        ],
+        category: 'development'
     },
     {
-        title: "Cloud Solutions",
-        description: "Scalable cloud infrastructure and serverless architectures.",
+        title: "Desktop Applications",
+        description: "Native desktop software for Windows, macOS, and Linux",
+        icon: FaDesktop,
+        features: [
+            "Electron-based solutions",
+            "Native performance",
+            "System integration",
+            "Automatic updates",
+            "Cross-platform compatibility"
+        ],
+        category: 'development'
+    },
+    // AI Services
+    {
+        title: "AI Agents Development",
+        description: "Autonomous AI systems for business automation",
+        icon: FaRobot,
+        features: [
+            "Conversational AI chatbots",
+            "Predictive analytics agents",
+            "Computer vision systems",
+            "Autonomous decision-making",
+            "Continuous learning"
+        ],
+        category: 'ai'
+    },
+    {
+        title: "Machine Learning Solutions",
+        description: "Custom ML models for your specific business needs",
+        icon: FaLaptopCode,
+        features: [
+            "Predictive modeling",
+            "Natural language processing",
+            "Anomaly detection",
+            "Recommendation systems",
+            "Model deployment"
+        ],
+        category: 'ai'
+    },
+    // Education Services
+    {
+        title: "School Coding Programs",
+        description: "Technology education for K-12 students",
+        icon: FaSchool,
+        features: [
+            "Intro to programming",
+            "Game development",
+            "Web design basics",
+            "Robotics foundations",
+            "STEM curriculum"
+        ],
+        category: 'education'
+    },
+    {
+        title: "University Tech Courses",
+        description: "Advanced curriculum for higher education",
+        icon: FaUniversity,
+        features: [
+            "Software engineering",
+            "Data science",
+            "Cloud computing",
+            "AI/ML fundamentals",
+            "Capstone projects"
+        ],
+        category: 'education'
+    },
+    // Enterprise Services
+    {
+        title: "Enterprise Software",
+        description: "Custom solutions for large organizations",
+        icon: FaServer,
+        features: [
+            "Scalable architecture",
+            "Microservices",
+            "Legacy system modernization",
+            "High availability",
+            "Enterprise security"
+        ],
+        category: 'enterprise'
+    },
+    {
+        title: "DevOps & Cloud",
+        description: "Infrastructure and deployment solutions",
         icon: FaCloud,
         features: [
-            "AWS/GCP/Azure services",
-            "Serverless architecture",
-            "Microservices",
-            "Containerization",
-            "CI/CD pipelines"
-        ]
-    },
-    {
-        title: "UI/UX Design",
-        description: "Beautiful, intuitive interfaces that enhance user experience.",
-        icon: MdDesignServices,
-        features: [
-            "User research",
-            "Wireframing & prototyping",
-            "Interaction design",
-            "Design systems",
-            "Usability testing"
-        ]
-    },
-    {
-        title: "Data Engineering",
-        description: "Powerful data pipelines and analytics platforms.",
-        icon: FaDatabase,
-        features: [
-            "Data warehousing",
-            "ETL/ELT pipelines",
-            "Big data solutions",
-            "Business intelligence",
-            "Machine learning pipelines"
-        ]
-    },
-    {
-        title: "DevOps Services",
-        description: "Streamlined development workflows and infrastructure automation.",
-        icon: FaDocker,
-        features: [
-            "Infrastructure as Code",
+            "CI/CD pipelines",
             "Container orchestration",
-            "Monitoring & logging",
-            "Performance optimization",
-            "Security hardening"
-        ]
+            "Infrastructure as Code",
+            "Cloud migration",
+            "Monitoring & logging"
+        ],
+        category: 'enterprise'
     }
 ];
 
-const internshipTracks = [
-    {
-        title: "Frontend Development",
-        description: "Master modern frontend frameworks and build responsive UIs",
-        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
-        duration: "3-6 months"
-    },
-    {
-        title: "Backend Development",
-        description: "Learn server-side programming and database management",
-        skills: ["Node.js", "Express", "Django", "PostgreSQL", "MongoDB"],
-        duration: "4-6 months"
-    },
-    {
-        title: "Full Stack Development",
-        description: "End-to-end application development training",
-        skills: ["MERN Stack", "Authentication", "API Design", "Deployment"],
-        duration: "6-9 months"
-    },
-    {
-        title: "DevOps Engineering",
-        description: "Infrastructure management and deployment pipelines",
-        skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform"],
-        duration: "4-6 months"
-    },
-    {
-        title: "UI/UX Design",
-        description: "User-centered design principles and prototyping",
-        skills: ["Figma", "User Research", "Wireframing", "Design Systems"],
-        duration: "3-5 months"
-    },
-    {
-        title: "Data Science",
-        description: "Data analysis and machine learning fundamentals",
-        skills: ["Python", "Pandas", "NumPy", "Scikit-learn", "Data Visualization"],
-        duration: "5-7 months"
-    }
+const technologies: Technology[] = [
+    // Languages
+    { name: "Python", icon: FaPython, category: 'languages' },
+    { name: "JavaScript", icon: SiJavascript, category: 'languages' },
+    { name: "TypeScript", icon: SiTypescript, category: 'languages' },
+    { name: "PHP", icon: SiPhp, category: 'languages' },
+    { name: "C#", icon: SiCsharp, category: 'languages' },
+
+    // Frontend
+    { name: "React", icon: FaReact, category: 'frontend' },
+    { name: "Next.js", icon: RiNextjsFill, category: 'frontend' },
+    { name: "HTML5", icon: FaHtml5, category: 'frontend' },
+    { name: "CSS3", icon: FaCss3Alt, category: 'frontend' },
+    { name: "Tailwind CSS", icon: SiTailwindcss, category: 'frontend' },
+
+    // Backend
+    { name: "Node.js", icon: FaNodeJs, category: 'backend' },
+    { name: "Django", icon: FaPython, category: 'backend' },
+    { name: "Flask", icon: FaPython, category: 'backend' },
+    { name: ".NET", icon: SiCsharp, category: 'backend' },
+    { name: "Laravel", icon: SiPhp, category: 'backend' },
+
+    // AI/ML
+    { name: "TensorFlow", icon: SiTensorflow, category: 'ai-ml' },
+    { name: "PyTorch", icon: SiPytorch, category: 'ai-ml' },
+    { name: "OpenAI", icon: SiOpenai, category: 'ai-ml' },
+    { name: "Computer Vision", icon: FaRobot, category: 'ai-ml' },
+    { name: "NLP", icon: FaRobot, category: 'ai-ml' },
+
+    // Database
+    { name: "MongoDB", icon: SiMongodb, category: 'database' },
+    { name: "PostgreSQL", icon: SiPostgresql, category: 'database' },
+    { name: "MySQL", icon: FaDatabase, category: 'database' },
+    { name: "Redis", icon: FaDatabase, category: 'database' },
+
+    // DevOps
+    { name: "Docker", icon: FaDocker, category: 'devops' },
+    { name: "Kubernetes", icon: SiKubernetes, category: 'devops' },
+    { name: "AWS", icon: FaCloud, category: 'devops' },
+    { name: "Azure", icon: FaCloud, category: 'devops' },
+    { name: "CI/CD", icon: FaCode, category: 'devops' }
 ];
 
-const technologies = [
-    { icon: FaReact, name: "React" },
-    { icon: RiNextjsFill, name: "Next.js" },
-    { icon: FaNodeJs, name: "Node.js" },
-    { icon: IoLogoJavascript, name: "JavaScript" },
-    { icon: FaPython, name: "Python" },
-    { icon: TbBrandCpp, name: "C++" },
-    { icon: SiCsharp, name: "C#" },
-    { icon: SiPhp, name: "PHP" },
-    { icon: IoLogoLaravel, name: "Laravel" },
-    { icon: FaSymfony, name: "Symfony" },
-    { icon: FaHtml5, name: "HTML5" },
-    { icon: FaCss3Alt, name: "CSS3" },
-    { icon: FaBootstrap, name: "Bootstrap" },
-    { icon: RiTailwindCssFill, name: "Tailwind" },
-    { icon: TbBrandReactNative, name: "React Native" },
-    { icon: BiLogoPostgresql, name: "PostgreSQL" },
-    { icon: SiMysql, name: "MySQL" },
-    { icon: DiMongodb, name: "MongoDB" },
-    { icon: FaDocker, name: "Docker" },
-    { icon: SiKubernetes, name: "Kubernetes" },
-    { icon: IoLogoVercel, name: "Vercel" },
-    { icon: SiGooglecloud, name: "Google Cloud" },
-    { icon: MdAnalytics, name: "Analytics" },
-    { icon: SiAdobephotoshop, name: "Photoshop" }
-];
-
-// Testimonials Data
-const testimonials = [
+const testimonials: Testimonial[] = [
     {
-        quote: "MVIT delivered our e-commerce platform ahead of schedule with exceptional quality. Their team was professional and communicative throughout.",
+        quote: "The AI agent developed by MVIT transformed our customer service operations, handling 80% of inquiries with 95% satisfaction rates.",
         name: "Sarah Johnson",
-        position: "CTO, TechNova Solutions"
+        position: "Director of Operations",
+        company: "Global Retail Inc."
     },
     {
-        quote: "The mobile app they developed for us has 4.9 stars on both app stores with over 50k downloads in the first month.",
-        name: "Michael Chen",
-        position: "Product Manager, RetailApp"
+        quote: "Our students gained real-world skills through MVIT's training program, with many securing tech jobs immediately after graduation.",
+        name: "Dr. Michael Chen",
+        position: "Computer Science Dean",
+        company: "State University"
     },
     {
-        quote: "Their internship program produced developers who were immediately productive. We hired 3 of their graduates.",
+        quote: "The custom ERP system MVIT built streamlined our operations across 12 countries, reducing costs by 30% in the first year.",
         name: "David Wilson",
-        position: "Engineering Lead, FinTech Corp"
+        position: "CIO",
+        company: "Manufacturing Corp"
     }
 ];

@@ -2,157 +2,232 @@
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaChartLine, FaLightbulb, FaRocket, FaShieldAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Playfair_Display, Poppins } from 'next/font/google';
+import React, { useEffect, useState } from 'react';
+
+// Google Fonts
+const playfair = Playfair_Display({
+    subsets: ['latin'],
+    weight: ['400', '600', '700'],
+    variable: '--font-playfair',
+});
+
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['300', '400', '600', '700'],
+    variable: '--font-poppins',
+});
+
+interface Feature {
+    icon: React.ReactNode;
+    text: string;
+}
 
 const HeroSection = () => {
-    const [isMounted, setIsMounted] = useState(false);
+    // Animation Variants
+    const container = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.3,
+            },
+        },
+    };
+
+    const item = {
+        hidden: { y: 30, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.8,
+                ease: [0.16, 0.77, 0.47, 0.97],
+            },
+        },
+    };
+
+    const floating = {
+        initial: { y: 0 },
+        animate: {
+            y: [0, -15, 0],
+            transition: {
+                duration: 6,
+                repeat: Infinity,
+                ease: 'easeInOut',
+            },
+        },
+    };
+
+    // Floating Circles Data (Generated Client-Side)
+    const [floatingCircles, setFloatingCircles] = useState<
+        { width: number; height: number; left: number; top: number }[]
+    >([]);
 
     useEffect(() => {
-        setIsMounted(true);
+        // Generate stable random values after component mounts
+        const circles = [...Array(8)].map(() => ({
+            width: Math.random() * 300 + 100,
+            height: Math.random() * 300 + 100,
+            left: Math.random() * 100,
+            top: Math.random() * 100,
+        }));
+        setFloatingCircles(circles);
     }, []);
 
-    if (!isMounted) {
-        return null; // or return a loading state that matches your layout
-    }
+    const features: Feature[] = [
+        { icon: <FaChartLine className="text-blue-400" />, text: "Data Science" },
+        { icon: <FaLightbulb className="text-yellow-400" />, text: "Machine Learning" },
+        { icon: <FaRocket className="text-purple-400" />, text: "AI Research" },
+        { icon: <FaShieldAlt className="text-green-400" />, text: "Ethical AI" },
+    ];
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-black via-red-900 to-red-950 relative flex items-center justify-center overflow-hidden">
-            {/* Blood cell animation - now only renders on client */}
-            {isMounted && (
-                <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(8)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute rounded-full bg-red-900/20"
-                            style={{
-                                width: Math.random() * 200 + 100,
-                                height: Math.random() * 200 + 100,
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`,
-                            }}
-                            animate={{
-                                x: [0, (Math.random() - 0.5) * 200],
-                                y: [0, (Math.random() - 0.5) * 200],
-                                opacity: [0.1, 0.3, 0.1],
-                            }}
-                            transition={{
-                                duration: Math.random() * 10 + 10,
-                                repeat: Infinity,
-                                repeatType: 'reverse',
-                            }}
-                        />
-                    ))}
-                </div>
-            )}
-
-            {/* Glowing center orb */}
-            {isMounted && (
-                <div className="absolute w-64 h-64 rounded-full bg-red-600/20 blur-3xl animate-pulse" />
-            )}
+        <section
+            className={`min-h-screen relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black ${playfair.variable} ${poppins.variable}`}
+        >
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Floating Circles */}
+                {floatingCircles.map((circle, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full bg-red-500/10"
+                        style={{
+                            width: `${circle.width}px`,
+                            height: `${circle.height}px`,
+                            left: `${circle.left}%`,
+                            top: `${circle.top}%`,
+                        }}
+                        animate={{
+                            x: [0, (Math.random() - 0.5) * 100],
+                            y: [0, (Math.random() - 0.5) * 100],
+                            opacity: [0.05, 0.2, 0.05],
+                        }}
+                        transition={{
+                            duration: Math.random() * 20 + 20,
+                            repeat: Infinity,
+                            repeatType: 'reverse',
+                            ease: 'easeInOut',
+                        }}
+                    />
+                ))}
+            </div>
 
             {/* Content */}
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="relative z-10 text-center px-4 max-w-6xl"
+                variants={container}
+                initial="hidden"
+                animate="visible"
+                className="relative z-10 w-full px-6 py-20"
             >
-                {/* Animated title */}
-                <motion.h1
-                    className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    style={{
-                        fontFamily: "'Bebas Neue', sans-serif",
-                        textShadow: '0 0 10px rgba(239, 68, 68, 0.7)'
-                    }}
-                >
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
-                        Empowering People with AI
-                    </span>
-                </motion.h1>
+                <div className="max-w-6xl mx-auto text-center">
+                    {/* Title */}
+                    <motion.div variants={item} className="mb-8">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 font-playfair">
+                                MVIT AI
+                            </span>
+                        </h1>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-300 font-playfair">
+                            Innovation <span className="text-red-400">Lab</span>
+                        </h2>
+                    </motion.div>
 
-                {/* Mission statement with animated border */}
-                <motion.div
-                    className="relative p-8 mb-8 rounded-xl border border-red-900/50 bg-black/30 backdrop-blur-sm"
-                    initial={{ scale: 0.95, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                >
-                    <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-red-600/30 to-transparent blur-sm" />
-                    <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-                        Harness the power of Artificial Intelligence to drive innovation, solve real-world problems, and create meaningful impact. Join us on this transformative journey, today.
-                    </p>
-                </motion.div>
+                    {/* Subtitle */}
+                    <motion.p
+                        variants={item}
+                        className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-poppins font-light"
+                    >
+                        Pioneering the future of artificial intelligence through cutting-edge research and transformative
+                        education
+                    </motion.p>
 
-                {/* Feature badges */}
-                <motion.div
-                    className="flex flex-wrap justify-center gap-4 mb-12"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                >
-                    {[
-                        { icon: <FaChartLine />, text: "Data-Driven Insights" },
-                        { icon: <FaLightbulb />, text: "Innovative Methods" },
-                        { icon: <FaRocket />, text: "Rapid Implementation" },
-                        { icon: <FaShieldAlt />, text: "Secure Platform" }
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 px-4 py-2 bg-red-900/30 rounded-full border border-red-800/50">
-                            <span className="text-red-400">{item.icon}</span>
-                            <span className="text-white font-medium">{item.text}</span>
+                    {/* Features */}
+                    <motion.div variants={container} className="flex flex-wrap justify-center gap-3 mb-12">
+                        {features.map((feature, i) => (
+                            <motion.div
+                                key={i}
+                                variants={item}
+                                whileHover={{ y: -5 }}
+                                className="flex items-center px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full border border-gray-700 shadow-sm hover:shadow-md transition-all"
+                            >
+                                {feature.icon}
+                                <span className="ml-2 text-gray-300 font-medium font-poppins">{feature.text}</span>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Buttons */}
+                    <motion.div variants={container} className="flex flex-col sm:flex-row justify-center gap-4">
+                        <motion.div variants={item}>
+                            <motion.div
+                                whileHover={{ y: -5 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="relative overflow-hidden rounded-xl"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-amber-500 rounded-xl" />
+                                <Link
+                                    href="/pages/study"
+                                    className="relative flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/5 transition-colors font-poppins"
+                                >
+                                    Explore Programs
+                                    <motion.span
+                                        animate={{ x: [0, 4, 0] }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                    >
+                                        <FaArrowRight />
+                                    </motion.span>
+                                </Link>
+                            </motion.div>
+                        </motion.div>
+
+                        <motion.div variants={item}>
+                            <Link
+                                href="/pages/apply"
+                                className="flex items-center justify-center gap-2 border-2 border-gray-700 text-gray-300 font-semibold px-8 py-4 rounded-xl hover:bg-gray-700 hover:border-gray-500 transition-all font-poppins"
+                            >
+                                Apply Now
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Badge */}
+                    <motion.div variants={item} className="mt-12">
+                        <div className="inline-flex items-center bg-gray-800/50 backdrop-blur-sm px-5 py-2 rounded-full border border-gray-700 shadow-sm">
+                            <div className="w-2 h-2 mr-2 rounded-full bg-red-500 animate-pulse"></div>
+                            <span className="text-gray-300 font-medium font-poppins">
+                                #1 Ranked AI Program in the Region
+                            </span>
                         </div>
-                    ))}
-                </motion.div>
-
-                {/* Action buttons with hover effects */}
-                <motion.div
-                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                >
-                    <Link
-                        href="/pages/study"
-                        className="relative group flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-800 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-                    >
-                        <span className="relative z-10">Explore Studies</span>
-                        <FaArrowRight className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </Link>
-
-                    <Link
-                        href="/pages/apply"
-                        className="relative group flex items-center gap-2 bg-transparent border-2 border-red-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-red-900/30 transition-all duration-300"
-                    >
-                        <span className="relative z-10">Online Application</span>
-                        <div className="absolute inset-0 bg-red-600/10 group-hover:bg-red-600/20 transition-all duration-300" />
-                    </Link>
-                </motion.div>
+                    </motion.div>
+                </div>
             </motion.div>
 
-            {/* Floating certification badges - now only renders on client */}
-            {isMounted && (
-                <>
-                    <motion.div
-                        className="absolute top-1/4 left-10 w-16 h-16 bg-red-900/30 rounded-lg border border-red-800/50 flex items-center justify-center"
-                        animate={{ y: [0, -20, 0] }}
-                        transition={{ duration: 5, repeat: Infinity }}
-                    >
-                        <FaShieldAlt className="text-red-400 text-2xl" />
-                    </motion.div>
+            {/* Floating AI Elements */}
+            <motion.div
+                variants={floating}
+                initial="initial"
+                animate="animate"
+                className="absolute left-10 bottom-20 hidden lg:block"
+            >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-900 to-gray-900 border border-red-700 shadow-lg flex items-center justify-center">
+                    <FaChartLine className="text-red-400 text-2xl" />
+                </div>
+            </motion.div>
 
-                    <motion.div
-                        className="absolute bottom-1/4 right-10 w-16 h-16 bg-red-900/30 rounded-lg border border-red-800/50 flex items-center justify-center"
-                        animate={{ y: [0, 20, 0] }}
-                        transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                    >
-                        <FaChartLine className="text-red-400 text-2xl" />
-                    </motion.div>
-                </>
-            )}
+            <motion.div
+                variants={floating}
+                initial="initial"
+                animate="animate"
+                transition={{ delay: 0.5 }}
+                className="absolute right-10 top-1/4 hidden lg:block"
+            >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-900 to-gray-900 border border-purple-700 shadow-lg flex items-center justify-center">
+                    <FaLightbulb className="text-purple-400 text-2xl" />
+                </div>
+            </motion.div>
         </section>
     );
 };
