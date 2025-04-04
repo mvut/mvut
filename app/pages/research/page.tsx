@@ -224,7 +224,7 @@ const ResearchPage = () => {
                 <div className="max-w-6xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg">
                     <h2 className="text-3xl font-bold mb-6">Research Excellence</h2>
                     <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                        At our institute, we're redefining boundaries through interdisciplinary research that addresses global challenges.
+                        At our institute, we&apos;re redefining boundaries through interdisciplinary research that addresses global challenges.
                         Our approach combines academic rigor with real-world impact, fostering innovation across multiple domains with
                         state-of-the-art facilities and strategic partnerships.
                     </p>
