@@ -57,7 +57,7 @@ export default function QualityAssuranceCell() {
                         transition={{ delay: 0.2, duration: 0.6 }}
                         className="text-xl text-gray-300 max-w-3xl mx-auto mb-12"
                     >
-                        MVIT's Quality Assurance Commission ensures excellence through rigorous assessment and continuous improvement.
+                        MVIT&apos;s Quality Assurance Commission ensures excellence through rigorous assessment and continuous improvement.
                     </motion.p>
 
                     <motion.div
@@ -404,7 +404,7 @@ function TestimonialCard({ quote, name, position }: {
             className="bg-gray-800/80 rounded-xl shadow-sm p-8 border border-gray-700 hover:shadow-md transition-all backdrop-blur-sm"
         >
             <FaQuoteLeft className="text-blue-400 mb-4 opacity-30" />
-            <p className="text-gray-300 italic mb-6">"{quote}"</p>
+            <p className="text-gray-300 italic mb-6">&quot;{quote}&quot;</p>
             <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
                     <FaUserTie className="text-blue-400" />

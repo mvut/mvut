@@ -17,6 +17,7 @@ import Link from 'next/link';
 import Picture1 from '@/public/faculty/awais.jpg'
 import Picture2 from '@/public/faculty/daha.jpg'
 import Picture3 from '@/public/faculty/ali.png'
+import Image from "next/image";
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -1194,7 +1195,7 @@ export default function CertificationComparison() {
                                     &quot;{testimonial.quote}&quot;
                                 </p>
                                 <div className="flex items-center">
-                                    <img
+                                    <Image
                                         src={testimonial.avatar}
                                         alt={testimonial.name}
                                         className="w-12 h-12 rounded-full mr-4 object-cover"

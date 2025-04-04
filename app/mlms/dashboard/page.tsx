@@ -460,7 +460,7 @@ const StudentDashboard = () => {
                                         <div className="flex flex-col items-center">
                                             <div className="w-24 h-24 rounded-full bg-indigo-100 mb-4 flex items-center justify-center">
                                                 {studentProfile.avatar ? (
-                                                    <img src={studentProfile.avatar} alt="Profile" className="w-full h-full rounded-full object-cover" />
+                                                    <Image src={studentProfile.avatar} alt="Profile" className="w-full h-full rounded-full object-cover" />
                                                 ) : (
                                                     <FiUser size={32} className="text-indigo-600" />
                                                 )}

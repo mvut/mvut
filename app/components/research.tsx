@@ -60,17 +60,17 @@ export default function ResearchComponent() {
     const courses = [
         {
             name: "K.G. STEM Entrepreneurs",
-            price: "$20/month",
+            price: "$20 per month",
             duration: "60 Weeks"
         },
         {
             name: "Certified AI Developer",
-            price: "$20/month",
+            price: "$20 per month",
             duration: "72 Weeks"
         },
         {
             name: "Robotics Engineer",
-            price: "$20/month",
+            price: "$20 per month",
             duration: "96 Weeks"
         }
     ];
