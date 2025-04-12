@@ -1,637 +1,320 @@
-"use client";
+'use client';
 
-import {useEffect, useState} from 'react';
-import {
-    FiUser,
-    FiBook,
-    FiAward,
-    FiBarChart2,
-    FiHome,
-    FiFileText,
-    FiHelpCircle,
-    FiLogOut,
-    FiChevronDown,
-    FiChevronRight,
-    FiCheckCircle,
-    FiClock,
-    FiMessageSquare,
-    FiUsers
-} from 'react-icons/fi';
-import { FaChalkboardTeacher } from 'react-icons/fa';
-import { RiDiscussLine } from 'react-icons/ri';
-import { BsFileEarmarkText, BsQuestionSquare } from 'react-icons/bs';
-import {useSession, signOut} from "next-auth/react";
-import {useRouter} from "next/navigation";
+import { useEffect, useState } from "react";
+import { FiUser, FiBook, FiAward, FiLogOut, FiCalendar, FiFolder, FiStar } from "react-icons/fi";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import MVITLogo from '@/public/mvutflame.png';
+import MVITLogo from "@/public/mvutflame.png";
+import { motion } from "framer-motion";
+import Courses from "@/app/mlms/dashboard/com/courses";
+import GradesBook from "@/app/mlms/dashboard/com/grades";
+import CalendarComponent from "@/app/mlms/dashboard/com/calendar";
+import ResourcesComponent from "./com/resources";
+import ProfileComponent from "@/app/mlms/dashboard/com/profile";
+import DashboardComponent from "@/app/mlms/dashboard/com/dashboard";
 
-type Course = {
-    id: string;
-    title: string;
-    code: string;
-    instructor: {
-        name: string;
-        email: string;
-        officeHours: string;
-    };
-    progress: number;
-    assignmentsDue: number;
-    unreadDiscussions: number;
-    upcomingQuizzes: number;
-    grade?: string;
+type StudentProfile = {
+    name: string;
+    studentId: string;
+    email: string;
+    program: string;
+    semester: string;
+    cgpa: number;
+    avatar: string;
 };
 
-type GradeItem = {
-    courseId: string;
-    courseTitle: string;
-    assignments: number;
-    quizzes: number;
-    midterm: number;
-    final: number;
-    total: number;
-    grade: string;
+type NavItem = {
+    tab: string;
+    icon: React.ReactNode;
+    label: string;
 };
+
+const studentProfile: StudentProfile = {
+    name: "Alex Johnson",
+    studentId: "STU2023001",
+    email: "alex.johnson@university.edu",
+    program: "Bachelor of Computer Science",
+    semester: "Fall 2023",
+    cgpa: 3.75,
+    avatar: "",
+};
+
+const navItems: NavItem[] = [
+    { tab: "dashboard", icon: <FiStar />, label: "Dashboard" },
+    { tab: "courses", icon: <FiBook />, label: "My Courses" },
+    { tab: "grades", icon: <FiAward />, label: "Grade Book" },
+    { tab: "calendar", icon: <FiCalendar />, label: "Calendar" },
+    { tab: "resources", icon: <FiFolder />, label: "Resources" },
+    { tab: "profile", icon: <FiUser />, label: "Profile" },
+];
 
 const StudentDashboard = () => {
-    const [activeTab, setActiveTab] = useState('courses');
-    const [expandedCourse, setExpandedCourse] = useState<string | null>(null);
-
-    // Mock data
-    const studentProfile = {
-        name: "Alex Johnson",
-        studentId: "STU2023001",
-        email: "alex.johnson@university.edu",
-        program: "Bachelor of Computer Science",
-        semester: "Fall 2023",
-        cgpa: 3.75,
-        avatar: "/default-avatar.jpg"
-    };
-
-    const courses: Course[] = [
-        {
-            id: "cs101",
-            title: "Introduction to Computer Science",
-            code: "CS 101",
-            instructor: {
-                name: "Dr. Sarah Williams",
-                email: "s.williams@university.edu",
-                officeHours: "Mon/Wed 2-4pm"
-            },
-            progress: 75,
-            assignmentsDue: 2,
-            unreadDiscussions: 5,
-            upcomingQuizzes: 1,
-            grade: "A"
-        },
-        {
-            id: "math202",
-            title: "Linear Algebra",
-            code: "MATH 202",
-            instructor: {
-                name: "Prof. David Chen",
-                email: "d.chen@university.edu",
-                officeHours: "Tue/Thu 1-3pm"
-            },
-            progress: 60,
-            assignmentsDue: 1,
-            unreadDiscussions: 3,
-            upcomingQuizzes: 0,
-            grade: "B+"
-        },
-        {
-            id: "eng105",
-            title: "Technical Writing",
-            code: "ENG 105",
-            instructor: {
-                name: "Dr. Emily Parker",
-                email: "e.parker@university.edu",
-                officeHours: "Fri 10am-12pm"
-            },
-            progress: 90,
-            assignmentsDue: 0,
-            unreadDiscussions: 2,
-            upcomingQuizzes: 0,
-            grade: "A"
-        }
-    ];
-
-    const gradeBook: GradeItem[] = [
-        {
-            courseId: "cs101",
-            courseTitle: "Introduction to Computer Science",
-            assignments: 85,
-            quizzes: 90,
-            midterm: 88,
-            final: 92,
-            total: 89,
-            grade: "A"
-        },
-        {
-            courseId: "math202",
-            courseTitle: "Linear Algebra",
-            assignments: 78,
-            quizzes: 82,
-            midterm: 75,
-            final: 80,
-            total: 79,
-            grade: "B+"
-        },
-        {
-            courseId: "eng105",
-            courseTitle: "Technical Writing",
-            assignments: 95,
-            quizzes: 88,
-            midterm: 92,
-            final: 94,
-            total: 93,
-            grade: "A"
-        }
-    ];
-
-    const toggleCourseExpand = (courseId: string) => {
-        setExpandedCourse(expandedCourse === courseId ? null : courseId);
-    };
+    const [activeTab, setActiveTab] = useState("dashboard");
+    const [isClient, setIsClient] = useState(false);
     const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
-        if (status === 'unauthenticated') {
-            router.push('/mlms');
-        }
+        setIsClient(true);
+        if (status === "unauthenticated") router.push("/mlms/login");
     }, [status, router]);
 
-    if (status === 'loading') {
-        return <div className="min-h-screen flex items-center justify-center bg-gray-50">Loading...</div>;
+    if (status === "loading" || !isClient) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-space-gradient text-white">
+                <div className="flex flex-col items-center">
+                    <div className="relative w-32 h-32 mb-6">
+                        <div className="absolute inset-0 rounded-full bg-purple-500/20 animate-ping"></div>
+                        <div className="absolute inset-4 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                    </div>
+                    <span className="text-white text-lg font-medium tracking-wider">LOADING DASHBOARD...</span>
+                </div>
+            </div>
+        );
     }
 
+    const renderActiveTab = () => {
+        switch (activeTab) {
+            case "courses":
+                return <Courses />;
+            case "grades":
+                return <GradesBook />;
+            case "calendar":
+                return <CalendarComponent />;
+            case "resources":
+                return <ResourcesComponent />;
+            case "profile":
+                return <ProfileComponent />;
+            case "dashboard":
+            default:
+                return <DashboardComponent />;
+        }
+    };
+
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* MVIT Header */}
-            <header className="bg-red-800 text-white shadow-md">
-                <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="min-h-screen bg-space-gradient text-white relative overflow-hidden">
+            {/* Cosmic Background Animation */}
+            <div className="absolute inset-0 overflow-hidden z-0">
+                {/* Stars */}
+                <div className="absolute inset-0 bg-starfield opacity-80"></div>
+
+                {/* Nebula Clouds */}
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full filter blur-[100px] animate-float-slow"></div>
+                <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-blue-900/30 rounded-full filter blur-[80px] animate-float-medium"></div>
+
+                {/* Pulsing Glow */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-purple-900/30 to-transparent opacity-50"></div>
+
+                {/* Floating Particles */}
+                {[...Array(30)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="absolute rounded-full bg-white/10"
+                        style={{
+                            width: `${Math.random() * 4 + 1}px`,
+                            height: `${Math.random() * 4 + 1}px`,
+                            top: `${Math.random() * 100}%`,
+                            left: `${Math.random() * 100}%`,
+                            animation: `float ${Math.random() * 20 + 10}s linear infinite`,
+                            animationDelay: `${Math.random() * 5}s`
+                        }}
+                    ></div>
+                ))}
+            </div>
+
+            {/* Header */}
+            <header className="bg-glass-header backdrop-blur-xl shadow-cosmic sticky top-0 z-10 border-b border-white/10">
+                <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                     <div className="flex items-center space-x-4">
                         <div className="relative w-12 h-12">
                             <Image
                                 src={MVITLogo}
                                 alt="MVIT Logo"
                                 fill
-                                className="object-contain"
+                                className="object-contain transition-transform duration-500 hover:rotate-6"
                                 priority
                             />
                         </div>
                         <div>
-                            <h1 className="text-xl font-bold">Mansha Virtual Institute of Technologies</h1>
-                            <p className="text-xs text-red-200">Student Portal Dashboard</p>
+                            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200 tracking-tight">
+                                MVIT PORTAL
+                            </h1>
+                            <p className="text-sm text-white/70">Student Dashboard</p>
                         </div>
                     </div>
-                    <div className="flex items-center space-x-4">
-                        <div className="text-sm">
-                            Welcome, <span className="font-semibold">{studentProfile.name}</span>
+                    <div className="flex items-center space-x-6">
+                        <div className="relative group">
+                            <div className="absolute -inset-1 bg-purple-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <span className="relative text-sm font-medium">{studentProfile.name}</span>
                         </div>
                         <button
                             onClick={() => signOut()}
-                            className="flex items-center space-x-1 text-sm hover:text-red-200"
+                            className="flex items-center text-red-400 hover:text-white transition-all duration-300 group relative"
                         >
-                            <FiLogOut size={16} />
-                            <span>Logout</span>
+                            <span className="absolute -inset-1 bg-red-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span className="relative flex items-center">
+                                <FiLogOut className="mr-2" /> Logout
+                            </span>
                         </button>
                     </div>
                 </div>
             </header>
 
-            {/* Main Content Area */}
-            <div className="flex flex-1">
+            <div className="flex container mx-auto px-6 py-8 gap-8 relative z-0">
                 {/* Sidebar */}
-                <div className="w-64 bg-indigo-800 text-white p-4 flex flex-col">
-                    <div className="flex items-center space-x-3 p-4 border-b border-indigo-700">
-                        <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center">
-                            <FiUser size={20} />
+                <motion.aside
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 100 }}
+                    className="w-72 bg-glass rounded-xl shadow-cosmic p-6 flex flex-col"
+                >
+                    <div className="flex items-center space-x-4 mb-6">
+                        <div className="relative w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center group">
+                            <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <FiUser size={24} className="text-purple-400 z-10" />
                         </div>
                         <div>
-                            <h3 className="font-semibold">{studentProfile.name}</h3>
-                            <p className="text-xs text-indigo-200">{studentProfile.studentId}</p>
+                            <h3 className="font-semibold text-lg text-white">{studentProfile.name}</h3>
+                            <p className="text-xs text-white/60">{studentProfile.studentId}</p>
                         </div>
                     </div>
-
-                    <nav className="flex-1 mt-6">
-                        <button
-                            onClick={() => setActiveTab('courses')}
-                            className={`flex items-center space-x-3 w-full p-3 rounded-lg mb-2 ${activeTab === 'courses' ? 'bg-indigo-700' : 'hover:bg-indigo-700'}`}
-                        >
-                            <FiBook size={18} />
-                            <span>My Courses</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('grades')}
-                            className={`flex items-center space-x-3 w-full p-3 rounded-lg mb-2 ${activeTab === 'grades' ? 'bg-indigo-700' : 'hover:bg-indigo-700'}`}
-                        >
-                            <FiAward size={18} />
-                            <span>Grade Book</span>
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('profile')}
-                            className={`flex items-center space-x-3 w-full p-3 rounded-lg mb-2 ${activeTab === 'profile' ? 'bg-indigo-700' : 'hover:bg-indigo-700'}`}
-                        >
-                            <FiUser size={18} />
-                            <span>Profile</span>
-                        </button>
+                    <nav className="space-y-2">
+                        {navItems.map(({ tab, icon, label }) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`w-full flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 group ${
+                                    activeTab === tab
+                                        ? "bg-purple-500/20 text-purple-400 shadow-purple-glow"
+                                        : "hover:bg-white/5 text-white/80 hover:text-white"
+                                }`}
+                            >
+                                <span className={`transition-colors duration-300 ${activeTab === tab ? "text-purple-400" : "text-white/60 group-hover:text-white"}`}>
+                                    {icon}
+                                </span>
+                                <span>{label}</span>
+                            </button>
+                        ))}
                     </nav>
-                </div>
+                </motion.aside>
 
-                {/* Dashboard Content */}
-                <div className="flex-1 overflow-auto">
-                    {/* Dashboard Header */}
-                    <div className="bg-white shadow-sm p-4 flex justify-between items-center">
-                        <h1 className="text-2xl font-bold text-gray-800">
-                            {activeTab === 'courses' && 'My Courses'}
-                            {activeTab === 'grades' && 'Grade Book'}
-                            {activeTab === 'profile' && 'My Profile'}
-                        </h1>
-                        <div className="flex items-center space-x-4">
-                            <div className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
-                                CGPA: {studentProfile.cgpa}
-                            </div>
-                        </div>
-                    </div>
+                {/* Main Content */}
+                <main className="flex-1 bg-glass rounded-xl shadow-cosmic p-8 overflow-auto">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ type: "spring", stiffness: 100 }}
+                        className="text-3xl font-bold text-white mb-6"
+                    >
+                        {activeTab === "dashboard" ? "Dashboard" : activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                    </motion.h1>
 
-                    {/* Main Content */}
-                    <main className="p-6">
-                        {activeTab === 'courses' && (
-                            <div className="space-y-6">
-                                <h2 className="text-xl font-semibold text-gray-700">Enrolled Courses ({courses.length})</h2>
-
-                                <div className="grid gap-6">
-                                    {courses.map((course) => (
-                                        <div key={course.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                                            <div
-                                                className="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50"
-                                                onClick={() => toggleCourseExpand(course.id)}
-                                            >
-                                                <div>
-                                                    <h3 className="font-bold text-lg">{course.title}</h3>
-                                                    <p className="text-sm text-gray-600">{course.code}</p>
-                                                </div>
-                                                <div className="flex items-center space-x-4">
-                                                    <div className="text-right">
-                                                        <span className="text-sm font-medium text-gray-500">Progress</span>
-                                                        <div className="w-32 bg-gray-200 rounded-full h-2.5">
-                                                            <div
-                                                                className="bg-green-500 h-2.5 rounded-full"
-                                                                style={{ width: `${course.progress}%` }}
-                                                            ></div>
-                                                        </div>
-                                                        <span className="text-xs font-medium">{course.progress}%</span>
-                                                    </div>
-                                                    {expandedCourse === course.id ? (
-                                                        <FiChevronDown size={20} className="text-gray-500" />
-                                                    ) : (
-                                                        <FiChevronRight size={20} className="text-gray-500" />
-                                                    )}
-                                                </div>
-                                            </div>
-
-                                            {expandedCourse === course.id && (
-                                                <div className="border-t border-gray-200 p-4">
-                                                    <div className="grid md:grid-cols-3 gap-6">
-                                                        {/* Course Activities */}
-                                                        <div className="md:col-span-2">
-                                                            <h4 className="font-medium text-gray-700 mb-3">Course Activities</h4>
-                                                            <div className="grid grid-cols-3 gap-3">
-                                                                <a href="#" className="flex flex-col items-center p-3 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100">
-                                                                    <BsFileEarmarkText size={20} />
-                                                                    <span className="text-sm mt-1">Assignments ({course.assignmentsDue})</span>
-                                                                </a>
-                                                                <a href="#" className="flex flex-col items-center p-3 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100">
-                                                                    <BsQuestionSquare size={20} />
-                                                                    <span className="text-sm mt-1">Quizzes ({course.upcomingQuizzes})</span>
-                                                                </a>
-                                                                <a href="#" className="flex flex-col items-center p-3 rounded-lg bg-green-50 text-green-700 hover:bg-green-100">
-                                                                    <RiDiscussLine size={20} />
-                                                                    <span className="text-sm mt-1">Discussions ({course.unreadDiscussions})</span>
-                                                                </a>
-                                                            </div>
-
-                                                            <div className="mt-4">
-                                                                <h4 className="font-medium text-gray-700 mb-2">Recent Announcements</h4>
-                                                                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-2">
-                                                                    <p className="text-sm font-medium">Midterm exam schedule posted</p>
-                                                                    <p className="text-xs text-gray-500">2 days ago</p>
-                                                                </div>
-                                                                <div className="bg-blue-50 border-l-4 border-blue-400 p-3">
-                                                                    <p className="text-sm font-medium">Assignment 2 deadline extended</p>
-                                                                    <p className="text-xs text-gray-500">1 week ago</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Instructor Info */}
-                                                        <div>
-                                                            <h4 className="font-medium text-gray-700 mb-3">Instructor</h4>
-                                                            <div className="bg-gray-50 p-4 rounded-lg">
-                                                                <div className="flex items-center space-x-3 mb-3">
-                                                                    <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                                                                        <FaChalkboardTeacher className="text-indigo-600" />
-                                                                    </div>
-                                                                    <div>
-                                                                        <p className="font-medium">{course.instructor.name}</p>
-                                                                        <p className="text-xs text-gray-500">{course.code} Instructor</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="space-y-2 text-sm">
-                                                                    <p className="flex items-center">
-                                                                        <FiUser className="mr-2 text-gray-500" />
-                                                                        <span>{course.instructor.email}</span>
-                                                                    </p>
-                                                                    <p className="flex items-center">
-                                                                        <FiClock className="mr-2 text-gray-500" />
-                                                                        <span>Office Hours: {course.instructor.officeHours}</span>
-                                                                    </p>
-                                                                </div>
-                                                                <button className="mt-3 w-full py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700">
-                                                                    Send Message
-                                                                </button>
-                                                            </div>
-
-                                                            {/* Course Grade */}
-                                                            <div className="mt-4 bg-gray-50 p-4 rounded-lg">
-                                                                <h5 className="font-medium text-gray-700 mb-2">Your Grade</h5>
-                                                                <div className="flex items-center justify-between">
-                                                                    <div className="flex items-center">
-                                                                        <FiAward className="text-yellow-500 mr-2" />
-                                                                        <span className="font-medium">Current Grade:</span>
-                                                                    </div>
-                                                                    <span className="text-lg font-bold">{course.grade}</span>
-                                                                </div>
-                                                                <button className="mt-3 w-full py-2 border border-indigo-600 text-indigo-600 rounded-lg text-sm hover:bg-indigo-50">
-                                                                    View Grade Details
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'grades' && (
-                            <div>
-                                <h2 className="text-xl font-semibold text-gray-700 mb-6">Grade Book - {studentProfile.semester}</h2>
-
-                                <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                                    <table className="min-w-full divide-y divide-gray-200">
-                                        <thead className="bg-gray-50">
-                                        <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assignments</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quizzes</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Midterm</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Final</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody className="bg-white divide-y divide-gray-200">
-                                        {gradeBook.map((item) => (
-                                            <tr key={item.courseId} className="hover:bg-gray-50">
-                                                <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div className="font-medium text-gray-900">{item.courseTitle}</div>
-                                                    <div className="text-sm text-gray-500">{item.courseId.toUpperCase()}</div>
-                                                </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.assignments}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.quizzes}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.midterm}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.final}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{item.total}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                                    ${item.grade === 'A' ? 'bg-green-100 text-green-800' :
-                                                    item.grade === 'B+' ? 'bg-blue-100 text-blue-800' :
-                                                        'bg-yellow-100 text-yellow-800'}`}>
-                                                    {item.grade}
-                                                </span>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div className="mt-6 grid md:grid-cols-3 gap-6">
-                                    <div className="bg-white p-6 rounded-lg shadow-md">
-                                        <h3 className="font-medium text-gray-700 mb-4">Semester Summary</h3>
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="text-gray-600">Courses Taken:</span>
-                                            <span className="font-medium">3</span>
-                                        </div>
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="text-gray-600">Completed:</span>
-                                            <span className="font-medium">2</span>
-                                        </div>
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="text-gray-600">In Progress:</span>
-                                            <span className="font-medium">1</span>
-                                        </div>
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-gray-600">Current SGPA:</span>
-                                            <span className="font-bold text-indigo-600">3.82</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-white p-6 rounded-lg shadow-md md:col-span-2">
-                                        <h3 className="font-medium text-gray-700 mb-4">GPA Progress</h3>
-                                        <div className="h-64">
-                                            {/* This would be a chart in a real implementation */}
-                                            <div className="bg-gray-100 rounded-lg h-full flex items-center justify-center text-gray-400">
-                                                GPA Trend Chart Visualization
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'profile' && (
-                            <div className="grid md:grid-cols-3 gap-6">
-                                <div className="md:col-span-1">
-                                    <div className="bg-white p-6 rounded-lg shadow-md">
-                                        <div className="flex flex-col items-center">
-                                            <div className="w-24 h-24 rounded-full bg-indigo-100 mb-4 flex items-center justify-center">
-                                                {studentProfile.avatar ? (
-                                                    <Image src={studentProfile.avatar} alt="Profile" className="w-full h-full rounded-full object-cover" />
-                                                ) : (
-                                                    <FiUser size={32} className="text-indigo-600" />
-                                                )}
-                                            </div>
-                                            <h3 className="text-xl font-bold text-gray-800">{studentProfile.name}</h3>
-                                            <p className="text-sm text-gray-500">{studentProfile.studentId}</p>
-
-                                            <div className="mt-4 w-full">
-                                                <button className="w-full py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
-                                                    Upload New Photo
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div className="mt-6 pt-6 border-t border-gray-200">
-                                            <h4 className="font-medium text-gray-700 mb-3">Academic Information</h4>
-                                            <div className="space-y-2 text-sm">
-                                                <p className="flex justify-between">
-                                                    <span className="text-gray-600">Program:</span>
-                                                    <span className="font-medium">{studentProfile.program}</span>
-                                                </p>
-                                                <p className="flex justify-between">
-                                                    <span className="text-gray-600">Current Semester:</span>
-                                                    <span className="font-medium">{studentProfile.semester}</span>
-                                                </p>
-                                                <p className="flex justify-between">
-                                                    <span className="text-gray-600">CGPA:</span>
-                                                    <span className="font-bold text-indigo-600">{studentProfile.cgpa}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="md:col-span-2">
-                                    <div className="bg-white p-6 rounded-lg shadow-md">
-                                        <h3 className="text-lg font-bold text-gray-800 mb-6">Personal Information</h3>
-
-                                        <form className="space-y-4">
-                                            <div className="grid md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                                    <input
-                                                        type="text"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                        defaultValue="Alex"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                                    <input
-                                                        type="text"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                        defaultValue="Johnson"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                                <input
-                                                    type="email"
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                    defaultValue={studentProfile.email}
-                                                />
-                                            </div>
-
-                                            <div className="grid md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                                    <input
-                                                        type="tel"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                        placeholder="+1 (___) ___-____"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-                                                    <input
-                                                        type="date"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                                                <textarea
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                    rows={3}
-                                                    placeholder="Enter your address"
-                                                ></textarea>
-                                            </div>
-
-                                            <div className="pt-4 border-t border-gray-200 flex justify-end">
-                                                <button
-                                                    type="button"
-                                                    className="mr-3 px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
-                                                >
-                                                    Cancel
-                                                </button>
-                                                <button
-                                                    type="submit"
-                                                    className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm font-medium hover:bg-indigo-700"
-                                                >
-                                                    Save Changes
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div className="mt-6 bg-white p-6 rounded-lg shadow-md">
-                                        <h3 className="text-lg font-bold text-gray-800 mb-6">Change Password</h3>
-
-                                        <form className="space-y-4">
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
-                                                <input
-                                                    type="password"
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                    placeholder="Enter current password"
-                                                />
-                                            </div>
-
-                                            <div className="grid md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
-                                                    <input
-                                                        type="password"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                        placeholder="Enter new password"
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-                                                    <input
-                                                        type="password"
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                                        placeholder="Confirm new password"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            <div className="pt-4 border-t border-gray-200 flex justify-end">
-                                                <button
-                                                    type="submit"
-                                                    className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm font-medium hover:bg-indigo-700"
-                                                >
-                                                    Update Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </main>
-                </div>
+                    {renderActiveTab()}
+                </main>
             </div>
 
-            {/* MVIT Footer */}
-            <footer className="bg-gray-800 text-white py-4">
-                <div className="container mx-auto px-4 text-center text-sm">
-                    <p>© {new Date().getFullYear()} Mansha Virtual Institute of Technologies. All rights reserved.</p>
-                    <div className="flex justify-center space-x-4 mt-2">
-                        <a href="#" className="hover:text-red-400">Terms of Service</a>
-                        <a href="#" className="hover:text-red-400">Privacy Policy</a>
-                        <a href="#" className="hover:text-red-400">Contact Us</a>
-                    </div>
-                </div>
+            {/* Footer */}
+            <footer className="bg-glass-header py-4 text-center text-white/50 text-sm border-t border-white/10">
+                <p>© {new Date().getFullYear()} Mansha Virtual Institute of Technologies. All rights reserved.</p>
             </footer>
+
+            <style jsx global>{`
+                .bg-space-gradient {
+                    background: radial-gradient(ellipse at bottom, #0F172A 0%, #020617 100%);
+                }
+
+                .bg-glass {
+                    background: rgba(15, 23, 42, 0.7);
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                }
+
+                .bg-glass-header {
+                    background: rgba(15, 23, 42, 0.8);
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                }
+
+                .bg-glass-inner {
+                    background: rgba(30, 41, 59, 0.5);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                }
+
+                .shadow-cosmic {
+                    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1), 0 0 40px rgba(124, 58, 237, 0.1);
+                }
+
+                .shadow-purple-glow {
+                    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.3);
+                }
+
+                .shadow-purple-glow-sm {
+                    box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.3);
+                }
+
+                .bg-starfield {
+                    background-image:
+                            radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 1px),
+                            radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 1px),
+                            radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
+                    background-size: 200px 200px, 300px 300px, 400px 400px;
+                    background-position: 0 0, 40px 60px, 130px 270px;
+                }
+
+                @keyframes float {
+                    0% {
+                        transform: translateY(0) translateX(0);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(-100vh) translateX(20px);
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes float-slow {
+                    0%, 100% {
+                        transform: translate(0, 0);
+                    }
+                    50% {
+                        transform: translate(20px, 20px);
+                    }
+                }
+
+                @keyframes float-medium {
+                    0%, 100% {
+                        transform: translate(0, 0);
+                    }
+                    50% {
+                        transform: translate(-15px, -15px);
+                    }
+                }
+
+                .animate-float-slow {
+                    animation: float-slow 15s ease-in-out infinite;
+                }
+
+                .animate-float-medium {
+                    animation: float-medium 10s ease-in-out infinite;
+                }
+
+                @keyframes twinkle {
+                    0%, 100% {
+                        opacity: 0.2;
+                    }
+                    50% {
+                        opacity: 1;
+                    }
+                }
+
+                .animate-twinkle {
+                    animation: twinkle 3s ease-in-out infinite;
+                }
+            `}</style>
         </div>
     );
 };

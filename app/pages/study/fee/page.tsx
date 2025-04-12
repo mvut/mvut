@@ -14,9 +14,7 @@ import { Montserrat } from 'next/font/google';
 import { FaGolang } from "react-icons/fa6";
 import { useState } from 'react';
 import Link from 'next/link';
-import Picture1 from '@/public/faculty/awais.jpg'
-import Picture2 from '@/public/faculty/daha.jpg'
-import Picture3 from '@/public/faculty/ali.png'
+
 import Image from "next/image";
 
 const montserrat = Montserrat({
@@ -1199,6 +1197,8 @@ export default function CertificationComparison() {
                                         src={testimonial.avatar}
                                         alt={testimonial.name}
                                         className="w-12 h-12 rounded-full mr-4 object-cover"
+                                        height={48}
+                                        width={48}
                                     />
                                     <div>
                                         <p className="font-bold text-gray-900">{testimonial.name}</p>

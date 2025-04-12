@@ -1,121 +1,143 @@
 'use client';
 import Link from 'next/link';
-import {FaRobot, FaCode, FaChalkboardTeacher, FaPython, FaPhp, FaLaptopCode, FaClipboardList, FaAward, FaBookOpen, FaUsers, FaSearch, FaConnectdevelop, FaQuoteLeft, FaQuoteRight} from 'react-icons/fa';
-import {SiHiveBlockchain} from "react-icons/si";
-import { motion } from 'framer-motion';
+import { FaRobot, FaCode, FaChalkboardTeacher, FaPython, FaPhp, FaLaptopCode, FaClipboardList, FaAward, FaBookOpen, FaUsers, FaSearch, FaConnectdevelop, FaRocket, FaGlobe, FaHandsHelping } from 'react-icons/fa';
+import { SiHiveBlockchain } from "react-icons/si";
+import { motion, Variants } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
 import React from "react";
 
-// Load Google Font
+// Font configuration
 const montserrat = Montserrat({
     subsets: ['latin'],
     weight: ['400', '600', '700'],
 });
 
+// Interfaces
+interface StudyProgram {
+    title: string;
+    description: string;
+    icon: JSX.Element;
+    link: string;
+    gradient: string;
+}
+
+interface Testimonial {
+    quote: string;
+    name: string;
+    position: string;
+    gradient: string;
+}
+
+interface Skill {
+    name: string;
+    icon: JSX.Element;
+    description: string;
+}
+
 // Study Programs Data
-const studyPrograms = [
+const studyPrograms: StudyProgram[] = [
     {
         title: 'Mansha Robotics and Software Engineer',
         description: 'Develop advanced skills in robotics, software engineering, and automation technologies.',
-        icon: <FaLaptopCode className="text-5xl" />,
+        icon: <FaLaptopCode className="text-4xl" />,
         link: '/study/mrse',
         gradient: 'from-purple-600 to-indigo-700'
     },
     {
         title: 'Mansha Certified AI Agents Developer',
         description: 'Master the art of building intelligent agents and AI systems with hands-on projects.',
-        icon: <FaRobot className="text-5xl" />,
+        icon: <FaRobot className="text-4xl" />,
         link: '/study/mcaad',
         gradient: 'from-teal-600 to-emerald-700'
     },
     {
         title: 'Office Management, AI and Prompt Engineering',
         description: 'Combine office management skills with AI and prompt engineering expertise.',
-        icon: <FaRobot className="text-5xl" />,
+        icon: <FaRobot className="text-4xl" />,
         link: '/study/om-ai-prompt',
         gradient: 'from-pink-600 to-rose-700'
     },
     {
         title: 'Mansha Certified Blockchain Technician',
         description: 'Learn blockchain fundamentals and gain hands-on experience in decentralized applications.',
-        icon: <SiHiveBlockchain className="text-5xl" />,
+        icon: <SiHiveBlockchain className="text-4xl" />,
         link: '/study/mcbt',
         gradient: 'from-yellow-600 to-amber-700'
     },
     {
         title: 'Full Stack Development with Next.js',
         description: 'Learn modern web development techniques with Next.js and React.',
-        icon: <FaCode className="text-5xl" />,
+        icon: <FaCode className="text-4xl" />,
         link: '/study/fsdn',
         gradient: 'from-green-600 to-lime-700'
     },
     {
         title: 'Next-Generation Web Development with Python',
         description: 'Build dynamic web applications using Python frameworks like Django and Flask.',
-        icon: <FaPython className="text-5xl" />,
+        icon: <FaPython className="text-4xl" />,
         link: '/study/nxgdp',
         gradient: 'from-red-600 to-orange-700'
     },
     {
         title: 'Full Stack PHP Development',
         description: 'Master server-side scripting and full-stack development with PHP.',
-        icon: <FaPhp className="text-5xl" />,
+        icon: <FaPhp className="text-4xl" />,
         link: '/study/fsp',
         gradient: 'from-indigo-600 to-violet-700'
     },
     {
         title: 'Kindergarten (K.G.) STEM Entrepreneurs',
         description: 'Introduce young minds to STEM concepts and entrepreneurial thinking.',
-        icon: <FaChalkboardTeacher className="text-5xl" />,
+        icon: <FaChalkboardTeacher className="text-4xl" />,
         link: '/study/kg-stem',
         gradient: 'from-blue-600 to-cyan-700'
     },
     {
         title: 'Corporate Communication for IT Professionals',
         description: 'Enhance communication skills tailored for IT professionals in corporate environments.',
-        icon: <FaUsers className="text-5xl" />,
+        icon: <FaUsers className="text-4xl" />,
         link: '/study/corporate-communication',
         gradient: 'from-orange-600 to-amber-700'
     },
     {
         title: 'Office Management and Work Ethics',
         description: 'Enhance productivity and professionalism with office management skills.',
-        icon: <FaClipboardList className="text-5xl" />,
+        icon: <FaClipboardList className="text-4xl" />,
         link: '/study/omwe',
         gradient: 'from-cyan-600 to-sky-700'
     },
     {
         title: 'Research and Thesis Development',
         description: 'Develop advanced research skills and learn the process of thesis writing in technical fields.',
-        icon: <FaSearch className="text-5xl" />,
+        icon: <FaSearch className="text-4xl" />,
         link: '/study/research-thesis',
         gradient: 'from-gray-600 to-slate-700'
     },
     {
         title: 'Mansha Certified API Developer',
         description: 'Master API design, development, and security with industry best practices.',
-        icon: <FaConnectdevelop className="text-5xl" />,
+        icon: <FaConnectdevelop className="text-4xl" />,
         link: '/study/mcad',
         gradient: 'from-emerald-600 to-teal-700'
     },
     {
         title: 'Laravel Fullstack Engineer',
         description: 'Become proficient in fullstack development using Laravel PHP framework.',
-        icon: <FaPhp className="text-5xl" />,
+        icon: <FaPhp className="text-4xl" />,
         link: '/study/laravel-fullstack',
         gradient: 'from-violet-600 to-purple-700'
     },
     {
         title: 'Golang API Engineer',
         description: 'Learn to build high-performance APIs and microservices with Go (Golang).',
-        icon: <FaCode className="text-5xl" />,
+        icon: <FaCode className="text-4xl" />,
         link: '/study/golang-api',
         gradient: 'from-amber-600 to-orange-700'
     },
 ];
 
 // Testimonials Data
-const testimonials = [
+const testimonials: Testimonial[] = [
     {
         quote: "The Mansha Certified AI Agents Developer program transformed my career. Highly recommend it!",
         name: "Abid Hussain",
@@ -136,158 +158,303 @@ const testimonials = [
     },
 ];
 
-export default function StudyPrograms() {
-    return (
-        <div className={`min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 ${montserrat.className}`}>
-            {/* Animated Background Elements */}
-            <div className="fixed inset-0 overflow-hidden -z-10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent"></div>
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
-            </div>
+// Featured Skills Data
+const featuredSkills: Skill[] = [
+    {
+        name: "Problem Solving",
+        icon: <FaCode className="text-3xl text-blue-400" />,
+        description: "Learn to break down complex problems into manageable solutions using code."
+    },
+    {
+        name: "Collaboration",
+        icon: <FaUsers className="text-3xl text-purple-400" />,
+        description: "Work effectively in teams to build real-world applications."
+    },
+    {
+        name: "Innovation",
+        icon: <FaRocket className="text-3xl text-pink-400" />,
+        description: "Develop creative solutions using cutting-edge technologies."
+    }
+];
 
-            {/* Main Content */}
-            <div className="container mx-auto px-4 py-16 relative z-10">
-                {/* Section Title */}
+// Success Metrics Data
+const successMetrics = {
+    studentsTrained: "5,000+",
+    projectsCompleted: "1,200+",
+    employmentRate: "92%",
+    communityMembers: "10,000+"
+};
+
+const StudyPrograms: React.FC = () => {
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+        hover: { y: -10, transition: { duration: 0.3 } }
+    };
+
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    return (
+        <div className={`min-h-screen bg-gray-950 text-white ${montserrat.className}`}>
+            {/* Hero Section */}
+            <section className="relative overflow-hidden py-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-gray-900"></div>
                 <motion.div
-                    initial={{ opacity: 0, y: -50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="container mx-auto px-4 text-center relative z-10"
                 >
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-400 to-purple-400 mb-4">
-                        Explore Our Study Programs
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Future-Ready Education
                     </h1>
-                    <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                        Cutting-edge education programs designed for the digital future
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                        Empowering tomorrow&apos;s innovators with cutting-edge skills and knowledge
                     </p>
                 </motion.div>
+            </section>
 
-                {/* Study Program Cards */}
+            {/* Code Literacy Mission */}
+            <section className="container mx-auto px-4 py-16">
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="bg-gray-900/50 backdrop-blur-md rounded-xl p-8 text-center border border-gray-800/50"
+                >
+                    <FaGlobe className="text-4xl text-blue-400 mx-auto mb-4" />
+                    <h2 className="text-3xl font-bold mb-4">Code Literacy for All</h2>
+                    <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        At MVIT, we believe coding is a universal language that should be accessible to everyone. Our programs are designed to bridge the gap, offering beginner-friendly courses to advanced certifications, ensuring that learners of all backgrounds can thrive in the digital age.
+                    </p>
+                </motion.div>
+            </section>
+
+            {/* Programs Grid */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     {studyPrograms.map((program, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            className={`group relative overflow-hidden rounded-2xl shadow-xl bg-gradient-to-br ${program.gradient} hover:shadow-2xl transition-all duration-300`}
+                            variants={cardVariants}
+                            whileHover="hover"
+                            className={`relative rounded-xl overflow-hidden bg-gradient-to-br ${program.gradient} p-6 shadow-lg hover:shadow-xl transition-shadow`}
                         >
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
-                            <div className="relative p-8 h-full flex flex-col">
-                                <div className="mb-6 text-white group-hover:text-white/90 transition-all">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full transform translate-x-16 -translate-y-16"></div>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-4 mb-4">
                                     {program.icon}
+                                    <h2 className="text-xl font-semibold">{program.title}</h2>
                                 </div>
-                                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                                    {program.title}
-                                </h2>
-                                <p className="text-gray-200 mb-6 flex-grow">
-                                    {program.description}
-                                </p>
-                                <Link href={program.link} passHref legacyBehavior>
-                                    <motion.a
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="inline-block bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold border border-white/20 transition-all"
-                                    >
-                                        Learn More
-                                    </motion.a>
+                                <p className="text-gray-100 mb-6 text-sm">{program.description}</p>
+                                <Link href={program.link} className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                                    Explore Program
+                                    <span className="w-4 h-4 rounded-full border-2 border-white/50 flex items-center justify-center">→</span>
                                 </Link>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
+            </section>
 
-                {/* Why Choose Us Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-16"
+            {/* Featured Skills */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
                 >
-                    <div className="bg-gradient-to-r from-gray-800/50 to-purple-900/50 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-purple-800/30">
-                        <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="flex-shrink-0">
-                                <div className="bg-gradient-to-r from-teal-500 to-blue-500 p-4 rounded-full">
-                                    <FaAward size={50} className="text-white" />
-                                </div>
-                            </div>
-                            <div>
-                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                                    Why Choose MVIT?
-                                </h2>
-                                <p className="text-gray-300 leading-relaxed">
-                                    At MVIT, we provide cutting-edge education and training programs designed to empower students with the skills and knowledge needed to excel in their careers. Our programs are led by industry experts and supported by state-of-the-art resources.
-                                </p>
-                            </div>
+                    Skills You’ll Master
+                </motion.h2>
+                <div className="grid md:grid-cols-3 gap-6">
+                    {featuredSkills.map((skill, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className="bg-gray-900/50 rounded-xl p-6 text-center border border-gray-800/50"
+                        >
+                            {skill.icon}
+                            <h3 className="text-xl font-semibold mt-4 mb-2">{skill.name}</h3>
+                            <p className="text-gray-300 text-sm">{skill.description}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Why Choose Us */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="bg-gray-900/50 backdrop-blur-md rounded-xl p-8 border border-gray-800/50"
+                >
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-4 text-blue-400">Why MVIT?</h2>
+                            <p className="text-gray-300 leading-relaxed">
+                                Experience transformative education with industry-led programs, state-of-the-art facilities, and a commitment to your success. Join a community of innovators shaping the future.
+                            </p>
                         </div>
-                    </div>
-                </motion.div>
-
-                {/* Testimonials Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-16"
-                >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400 mb-12">
-                        What Our Students Say
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {testimonials.map((testimonial, index) => (
+                        <div className="flex justify-center">
                             <motion.div
-                                key={index}
-                                whileHover={{ y: -10 }}
-                                className={`bg-gradient-to-br ${testimonial.gradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all`}
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                className="bg-gradient-to-r from-blue-500 to-purple-500 p-1 rounded-full"
                             >
-                                <FaQuoteLeft size={24} className="text-white/50 mb-4" />
-                                <p className="text-white/90 italic mb-6">
-                                    &quot;{testimonial.quote}&quot;
-                                </p>
-                                <FaQuoteRight size={24} className="text-white/50 ml-auto mb-4" />
-                                <div className="border-t border-white/20 pt-4">
-                                    <p className="text-white font-bold">{testimonial.name}</p>
-                                    <p className="text-white/80">{testimonial.position}</p>
-                                </div>
+                                <FaAward className="text-5xl text-white bg-gray-900 rounded-full p-2" />
                             </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Upcoming Programs Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <div className="bg-gradient-to-r from-gray-800/50 to-blue-900/50 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-blue-800/30">
-                        <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="flex-shrink-0">
-                                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full">
-                                    <FaBookOpen size={50} className="text-white" />
-                                </div>
-                            </div>
-                            <div>
-                                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                                    Upcoming Programs
-                                </h2>
-                                <p className="text-gray-300 leading-relaxed mb-6">
-                                    Stay tuned for exciting new programs launching soon. These include advanced certifications in AI, blockchain, cloud computing, and specialized workshops tailored to meet the demands of modern industries.
-                                </p>
-                                <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all">
-                                    Notify Me
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </motion.div>
-            </div>
+            </section>
+
+            {/* Success Metrics */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+                >
+                    Our Impact
+                </motion.h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <p className="text-4xl font-bold text-blue-400">{successMetrics.studentsTrained}</p>
+                        <p className="text-gray-300">Students Trained</p>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                    >
+                        <p className="text-4xl font-bold text-purple-400">{successMetrics.projectsCompleted}</p>
+                        <p className="text-gray-300">Projects Completed</p>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <p className="text-4xl font-bold text-pink-400">{successMetrics.employmentRate}</p>
+                        <p className="text-gray-300">Employment Rate</p>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                        <p className="text-4xl font-bold text-teal-400">{successMetrics.communityMembers}</p>
+                        <p className="text-gray-300">Community Members</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Testimonials */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+                >
+                    Student Success Stories
+                </motion.h2>
+                <div className="grid md:grid-cols-3 gap-6">
+                    {testimonials.map((testimonial, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className={`rounded-xl p-6 bg-gradient-to-br ${testimonial.gradient} shadow-md`}
+                        >
+                            <p className="text-gray-100 italic mb-4">&quot;{testimonial.quote}&quot;</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                                    {testimonial.name[0]}
+                                </div>
+                                <div>
+                                    <p className="font-semibold">{testimonial.name}</p>
+                                    <p className="text-sm text-gray-200">{testimonial.position}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Resources & Community */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="bg-gray-900/50 backdrop-blur-md rounded-xl p-8 border border-gray-800/50"
+                >
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-4 text-purple-400">Resources & Community</h2>
+                            <p className="text-gray-300 leading-relaxed mb-4">
+                                Join our vibrant community and access free resources to kickstart your coding journey. From beginner tutorials to advanced workshops, we’ve got you covered.
+                            </p>
+                            <div className="flex gap-4">
+                                <Link href="/resources" className="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                                    Free Resources
+                                </Link>
+                                <Link href="/community" className="bg-transparent hover:bg-purple-600/20 px-4 py-2 rounded-full text-sm font-medium border border-purple-500 transition-colors">
+                                    Join Community
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="flex justify-center">
+                            <FaHandsHelping className="text-6xl text-purple-400" />
+                        </div>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="container mx-auto px-4 py-16">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-8 text-center"
+                >
+                    <FaBookOpen className="text-4xl text-blue-400 mx-auto mb-4" />
+                    <h2 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h2>
+                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                        Discover new programs in AI, blockchain, and more. Join our waitlist for exclusive updates!
+                    </p>
+                    <button className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full font-semibold transition-colors">
+                        Join Waitlist
+                    </button>
+                </motion.div>
+            </section>
         </div>
     );
-}
+};
+
+export default StudyPrograms;

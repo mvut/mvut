@@ -36,156 +36,144 @@ export default function FooterComponent() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
+                staggerChildren: 0.2,
+                delayChildren: 0.3
             }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 type: 'spring',
                 stiffness: 100,
-                damping: 15
+                damping: 20
             }
         }
     };
 
     const socialLinks = [
-        { icon: <FaFacebookF size={18} />, href: "#", color: "hover:text-[#1877F2]" },
-        { icon: <FaInstagram size={18} />, href: "#", color: "hover:text-[#E1306C]" },
-        { icon: <FaLinkedin size={18} />, href: "#", color: "hover:text-[#0077B5]" },
-        { icon: <CiYoutube size={20} />, href: "#", color: "hover:text-[#FF0000]" },
-        { icon: <FaGithub size={18} />, href: "#", color: "hover:text-gray-400" }
-    ];
-
-    const quickLinks = [
-        { name: "Leadership", href: "/pages/leadership" },
-        { name: "Honoris", href: "/pages/honoraryphd" },
-        { name: "Validation", href: "/verify" },
-        { name: "Acceptees", href: "/pages/admlst" },
-        { name: "QAC", href: "/qac" }
+        { icon: <FaFacebookF size={24} />, href: "https://web.facebook.com/mvutus", color: "hover:text-[#D4AF37]" },
+        { icon: <FaInstagram size={24} />, href: "https://www.instagram.com/drsagher/", color: "hover:text-[#2DD4BF]" },
+        { icon: <FaLinkedin size={24} />, href: "https://www.linkedin.com/company/mvut/", color: "hover:text-[#D4AF37]" },
+        { icon: <CiYoutube size={26} />, href: "https://www.youtube.com/@mvutus", color: "hover:text-[#2DD4BF]" },
+        { icon: <FaGithub size={24} />, href: "https://github.com/drsagher/MVIT", color: "hover:text-[#D4AF37]" }
     ];
 
     return (
-        <footer className={`bg-gradient-to-b from-black to-gray-900 text-gray-300 ${montserrat.variable} ${oswald.variable}`}>
+        <footer className={`relative bg-gradient-to-b from-[#0F172A] to-black text-gray-200 ${montserrat.variable} ${oswald.variable} overflow-hidden`}>
+            {/* Background Animation */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="w-full h-full bg-[linear-gradient(45deg,#0F172A_0%,#1E3A8A_50%,#2DD4BF_100%)] bg-[length:200%_200%] animate-gradient-flow opacity-20"></div>
+                <div className="absolute top-10 left-10 w-1 h-1 bg-[#D4AF37] rounded-full animate-star-drift" style={{ animationDelay: '0s' }}></div>
+                <div className="absolute top-20 right-20 w-1 h-1 bg-[#2DD4BF] rounded-full animate-star-drift" style={{ animationDelay: '1.5s' }}></div>
+                <div className="absolute bottom-10 left-40 w-1 h-1 bg-[#D4AF37] rounded-full animate-star-drift" style={{ animationDelay: '3s' }}></div>
+            </div>
+
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="relative max-w-full mx-auto px-0 py-16 z-10">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
+                    className="grid grid-cols-1 lg:grid-cols-4 gap-8"
                 >
-                    {/* Contact Information */}
-                    <motion.div variants={itemVariants} className="space-y-6">
-                        <h3 className="text-xl font-bold text-white font-oswald tracking-wide">GET IN TOUCH</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-start gap-3">
-                                <FaMapMarkerAlt className="text-red-500 mt-1 flex-shrink-0" />
-                                <p>Mansha Virtual Institute of Technologies</p>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <FaMailBulk className="text-red-500" />
-                                <a href="mailto:mvut.usa@gmail.com" className="hover:text-white transition-colors">
+                    {/* MVIT Contact */}
+                    <motion.div variants={itemVariants} className="px-6 space-y-4">
+                        <h3 className="text-xl font-bold font-oswald tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#2DD4BF]">
+                            MVIT Contact
+                        </h3>
+                        <p className="text-sm text-gray-300 leading-relaxed font-light">
+                            Mansha Virtual Institute of Technologies is dedicated to advancing education through innovative programs in AI, technology, and research, empowering global learners.
+                        </p>
+                        <div className="space-y-3">
+                            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
+                                <FaMailBulk className="text-[#D4AF37]" size={18} />
+                                <a href="mailto:mvut.usa@gmail.com" className="text-sm hover:text-[#D4AF37] transition-colors">
                                     mvut.usa@gmail.com
                                 </a>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <FaWhatsapp className="text-green-500" />
-                                <a href="https://wa.me/17472094775" className="hover:text-white transition-colors">
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
+                                <FaWhatsapp className="text-[#2DD4BF]" size={18} />
+                                <a href="https://wa.me/17472094775" className="text-sm hover:text-[#2DD4BF] transition-colors">
                                     +1 (747) 209-4775
                                 </a>
-                            </div>
-                        </div>
-
-                        {/* WhatsApp QR Code */}
-                        <div className="pt-2">
-                            <div className="relative w-32 h-32 rounded-lg overflow-hidden border-2 border-white/10 hover:border-red-500 transition-all">
-                                <Image
-                                    src={WhatsAppQR}
-                                    alt="WhatsApp QR Code"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <p className="text-xs mt-2 text-gray-400">Scan to chat on WhatsApp</p>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
+                                <FaMapMarkerAlt className="text-[#D4AF37]" size={18} />
+                                <p className="text-sm text-gray-300">MVIT Headquarters, USA</p>
+                            </motion.div>
                         </div>
                     </motion.div>
 
-                    {/* Quick Links */}
-                    <motion.div variants={itemVariants} className="space-y-6">
-                        <h3 className="text-xl font-bold text-white font-oswald tracking-wide">QUICK LINKS</h3>
-                        <ul className="space-y-3">
-                            {quickLinks.map((link, index) => (
-                                <li key={index}>
-                                    <Link
-                                        href={link.href}
-                                        className="hover:text-red-500 transition-colors flex items-center gap-2"
-                                    >
-                                        <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                    {/* Google Map */}
+                    <motion.div variants={itemVariants} className="px-6 space-y-4">
+                        <h3 className="text-xl font-bold font-oswald tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#2DD4BF]">
+                            Our Location
+                        </h3>
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="w-full h-56 rounded-xl overflow-hidden border-2 border-[#D4AF37]/20 hover:border-[#D4AF37]/50 transition-all shadow-[0_0_10px_rgba(212,175,55,0.2)]"
+                        >
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.678123456789!2d-118.12345678901234!3d34.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA3JzI0LjQiTiAxMTjCsDA3JzI0LjQiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="rounded-xl"
+                                title="MVIT Location Map"
+                            ></iframe>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Newsletter */}
-                    <motion.div variants={itemVariants} className="space-y-6">
-                        <h3 className="text-xl font-bold text-white font-oswald tracking-wide">NEWSLETTER</h3>
-                        <p className="text-gray-400">Subscribe to our newsletter for the latest updates</p>
-                        <form className="space-y-4">
-                            <input
-                                type="email"
-                                placeholder="Your email address"
-                                className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 text-white placeholder-gray-500"
+                    {/* Connect via WhatsApp */}
+                    <motion.div variants={itemVariants} className="px-6 space-y-4">
+                        <h3 className="text-xl font-bold font-oswald tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#2DD4BF]">
+                            Connect via WhatsApp
+                        </h3>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="relative w-32 h-32 rounded-xl overflow-hidden bg-gray-900/30 backdrop-blur-sm border-2 border-[#2DD4BF]/20 hover:border-[#2DD4BF]/50 transition-all shadow-[0_0_10px_rgba(45,212,191,0.2)]"
+                        >
+                            <Image
+                                src={WhatsAppQR}
+                                alt="WhatsApp QR Code"
+                                fill
+                                className="object-cover"
                             />
-                            <button
-                                type="submit"
-                                className="w-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/20"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
+                        </motion.div>
+                        <p className="text-xs text-gray-400 font-light">Scan to connect with us</p>
                     </motion.div>
 
-                    {/* Social Media & Location */}
-                    <motion.div variants={itemVariants} className="space-y-6">
-                        <h3 className="text-xl font-bold text-white font-oswald tracking-wide">CONNECT WITH US</h3>
-                        <div className="flex gap-4">
+                    {/* Follow Us (Social Media) */}
+                    <motion.div variants={itemVariants} className="px-6 space-y-4">
+                        <h3 className="text-xl font-bold font-oswald tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#2DD4BF]">
+                            Follow Us
+                        </h3>
+                        <div className="flex flex-col gap-3">
                             {socialLinks.map((social, index) => (
-                                <Link
+                                <motion.a
                                     key={index}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`text-gray-400 hover:text-white ${social.color} transition-colors p-2 rounded-full bg-gray-800 hover:bg-gray-700`}
+                                    whileHover={{ scale: 1.1, x: 5, boxShadow: "0 0 8px rgba(212, 175, 55, 0.3)" }}
+                                    className={`text-gray-300 ${social.color} p-2 rounded-full bg-gray-900/30 backdrop-blur-sm border border-[#D4AF37]/20 transition-all duration-300 flex items-center gap-2`}
+                                    aria-label={`Visit our ${social.href.includes('facebook') ? 'Facebook' : social.href.includes('instagram') ? 'Instagram' : social.href.includes('linkedin') ? 'LinkedIn' : social.href.includes('youtube') ? 'YouTube' : 'GitHub'}`}
                                 >
                                     {social.icon}
-                                </Link>
+                                    <span className="text-sm font-light hidden sm:inline">
+                                        {social.href.includes('facebook') ? 'Facebook' : social.href.includes('instagram') ? 'Instagram' : social.href.includes('linkedin') ? 'LinkedIn' : social.href.includes('youtube') ? 'YouTube' : 'GitHub'}
+                                    </span>
+                                </motion.a>
                             ))}
-                        </div>
-
-                        <div className="pt-4">
-                            <h4 className="text-lg font-semibold text-white mb-3">OUR LOCATION</h4>
-                            <div className="w-full h-48 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.678123456789!2d-118.12345678901234!3d34.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA3JzI0LjQiTiAxMTjCsDA3JzI0LjQiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    className="rounded-xl"
-                                ></iframe>
-                            </div>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -197,30 +185,50 @@ export default function FooterComponent() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="border-t border-gray-800 py-6"
+                className="relative border-t border-[#D4AF37]/10 py-6 bg-gray-900/30 backdrop-blur-sm z-10"
             >
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-gray-500">
-                        © {new Date().getFullYear()} MVIT. All rights reserved.
-                    </p>
-
-                    <div className="flex items-center gap-6">
-                        <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
-                            Terms of Service
-                        </Link>
-                        <Link
-                            href="https://www.mvut.us/"
-                            target="_blank"
-                            className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
-                        >
-                            Official Website
-                        </Link>
+                <div className="max-w-full mx-auto px-0">
+                    <div className="px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <p className="text-xs text-gray-400 font-light">
+                            © {new Date().getFullYear()} MVIT. All rights reserved.
+                        </p>
+                        <div className="flex items-center gap-4">
+                            <Link href="/privacy" className="text-xs text-gray-400 hover:text-[#D4AF37] transition-colors font-light">
+                                Privacy Policy
+                            </Link>
+                            <Link href="/terms" className="text-xs text-gray-400 hover:text-[#D4AF37] transition-colors font-light">
+                                Terms of Service
+                            </Link>
+                            <Link
+                                href="https://www.mvut.us/"
+                                target="_blank"
+                                className="text-xs font-medium text-[#2DD4BF] hover:text-[#2DD4BF]/80 transition-colors font-light"
+                            >
+                                Official Website
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </motion.div>
+
+            <style jsx global>{`
+                .animate-gradient-flow {
+                    animation: gradientFlow 15s ease infinite;
+                }
+                @keyframes gradientFlow {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+                .animate-star-drift {
+                    animation: starDrift 10s linear infinite;
+                }
+                @keyframes starDrift {
+                    0% { transform: translate(0, 0); opacity: 0.3; }
+                    50% { opacity: 0.8; }
+                    100% { transform: translate(20px, 20px); opacity: 0.3; }
+                }
+            `}</style>
         </footer>
     );
 }
