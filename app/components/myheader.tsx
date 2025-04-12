@@ -125,7 +125,7 @@ export default function Header() {
                             <div className="flex items-center gap-2">
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-blue-900/70 hover:bg-blue-800 px-3 py-1 rounded-full transition-colors border border-blue-800/50">
                                     <FaGraduationCap className="text-yellow-400" />
-                                    <Link href="/pages/k-hub" className="font-medium text-sm text-white">Free Courses</Link>
+                                    <Link href="" className="font-medium text-sm text-white">Free Courses</Link>
                                 </motion.div>
 
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-green-900/70 hover:bg-green-800 px-3 py-1 rounded-full transition-colors border border-green-800/50">
