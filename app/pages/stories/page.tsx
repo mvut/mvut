@@ -4,6 +4,7 @@ import { FaQuoteLeft, FaTrophy, FaBriefcase, FaUserTie, FaChartLine, FaStar, FaR
 import { MdSchool, MdLocationOn, MdDateRange } from "react-icons/md";
 import { Montserrat } from 'next/font/google';
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // Font configuration
 const montserrat = Montserrat({
@@ -15,50 +16,50 @@ const montserrat = Montserrat({
 const successStories = [
     {
         id: 1,
-        name: "Rajesh Kumar",
-        role: "Founder & CEO, TechNova Solutions",
-        certification: "MVIT Certified Cloud Architect",
-        location: "Bangalore, India",
-        year: 2021,
-        story: "The MVIT certification gave me the credibility and skills needed to launch my own cloud consulting firm. Within 18 months, we've grown to a team of 25 serving clients across 3 countries.",
-        stats: "₹5.2Cr annual revenue",
-        image: "https://randomuser.me/api/portraits/men/32.jpg",
+        name: "Daha Qalbi",
+        role: "Founder & CEO, The Coding Verse",
+        certification: "MVIT Certified MERN Stack Developer",
+        location: "Pakpattan, Pakistan",
+        year: 2023,
+        story: "The MVIT certification gave me the credibility and skills needed to launch my own Company. Within 18 months, we've grown to a team of 25 serving clients across 3 countries.",
+        stats: "10M annual revenue",
+        image: "/faculty/daha.jpg",
         gradient: "from-blue-600 to-indigo-700"
     },
     {
         id: 2,
-        name: "Priya Sharma",
-        role: "Senior Data Scientist, Global Analytics Inc.",
-        certification: "MVIT Certified Data Science Professional",
-        location: "New York, USA",
-        year: 2020,
+        name: "Muhammad Awais",
+        role: "UX/UI Designer",
+        certification: "MVIT Certified Front-end Developer",
+        location: "Pakpattan, Pakistan",
+        year: 2024,
         story: "After my MVIT certification, I received three job offers within weeks. The hands-on projects were exactly what employers were looking for. My salary increased by 140% after certification.",
-        stats: "Promoted twice in 2 years",
-        image: "https://randomuser.me/api/portraits/women/44.jpg",
+        stats: "Promoted as Senior Front-end Developer",
+        image: "/faculty/awais.jpg",
         gradient: "from-teal-600 to-emerald-700"
     },
     {
         id: 3,
-        name: "Amit Patel",
-        role: "Cybersecurity Lead, SecureBank",
-        certification: "MVIT Certified Ethical Hacker",
-        location: "Singapore",
-        year: 2022,
-        story: "The MVIT program's practical penetration testing labs helped me transition from network admin to cybersecurity specialist. I now lead a team protecting financial systems across Asia.",
-        stats: "Team of 15 security professionals",
-        image: "https://randomuser.me/api/portraits/men/75.jpg",
+        name: "Ghulam Muhammad",
+        role: "Amazon Virtual Assistant",
+        certification: "MVIT Certified Amazon VA",
+        location: "Freelance",
+        year: 2024,
+        story: "I recently completed the Amazon Virtual Assistant program through MVIT, and I'm blown away by the practical skills I gained! The hands-on penetration testing labs were incredibly valuable, and I've already seen a significant impact on my career. Highly recommend this program to anyone looking to boost their cybersecurity skills!",
+        stats: "Secured a high-paying six-figure income",
+        image: "/faculty/gami.jpg",
         gradient: "from-purple-600 to-violet-700"
     },
     {
         id: 4,
-        name: "Ananya Desai",
-        role: "AI Product Manager, FutureTech",
-        certification: "MVIT Certified AI Specialist",
-        location: "London, UK",
-        year: 2023,
-        story: "The MVIT certification bridged my technical knowledge gaps and helped me communicate effectively with engineering teams. I now oversee development of AI products used by millions.",
+        name: "Abdul Hameed",
+        role: "Wordpress Developer and Blogger",
+        certification: "MVIT Certified Wordpress Developer",
+        location: "Pakpattan, Pakistan",
+        year: 2024,
+        story: "Thanks to the skills I gained as a WordPress developer and blogger, I've been able to land high-paying clients and build a thriving online business. The flexibility and creativity of this career path have been incredibly rewarding, and I'm grateful for the financial freedom that comes with it - including a comfortable six-figure income!",
         stats: "2 patents filed",
-        image: "https://randomuser.me/api/portraits/women/68.jpg",
+        image: "/faculty/hameed.jpg",
         gradient: "from-pink-600 to-rose-700"
     }
 ];
@@ -151,7 +152,7 @@ export default function MVITSuccessStories () {
                     <FaTrophy className="text-5xl text-yellow-400" />
                 </div>
                 <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-                    MVIT Success Stories
+                    Success Stories
                 </h1>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                     Celebrating the achievements of our certified professionals who are making an impact worldwide
@@ -259,9 +260,9 @@ export default function MVITSuccessStories () {
                     <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                         Join our network of high-achieving professionals. MVIT certifications open doors to new opportunities.
                     </p>
-                    <button className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full shadow-md hover:shadow-lg transition duration-300">
+                    <Link href={'/pages/study'} className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full shadow-md hover:shadow-lg transition duration-300">
                         Explore Certification Programs
-                    </button>
+                    </Link>
                 </div>
             </motion.div>
         </div>

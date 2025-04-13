@@ -334,11 +334,11 @@ const InteractiveSessions: React.FC = () => {
                         Whether you&apos;re a student, educator, or career builder, join our interactive sessions to unlock your potential in computer science and AI. Register for upcoming events or request a session at your institution.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <Link href="/register" className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full font-semibold transition-colors">
+                        <Link href="/pages/apply" className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full font-semibold transition-colors">
                             Register Now
                         </Link>
-                        <Link href="/contact" className="bg-transparent hover:bg-blue-600/20 px-6 py-3 rounded-full font-semibold border border-blue-500 transition-colors">
-                            Contact Us
+                        <Link href="/pages/trainings" className="bg-transparent hover:bg-blue-600/20 px-6 py-3 rounded-full font-semibold border border-blue-500 transition-colors">
+                            Training Programs
                         </Link>
                     </div>
                 </motion.div>

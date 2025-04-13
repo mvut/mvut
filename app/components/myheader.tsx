@@ -66,8 +66,6 @@ export default function Header() {
         { title: 'Faculties', href: '/pages/faculty' },
         { title: 'Tariff', href: '/pages/study/fee' },
         { title: 'Services', href: '/pages/services' },
-
-
     ];
 
     const moreLinks = [
@@ -125,7 +123,7 @@ export default function Header() {
                             <div className="flex items-center gap-2">
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-blue-900/70 hover:bg-blue-800 px-3 py-1 rounded-full transition-colors border border-blue-800/50">
                                     <FaGraduationCap className="text-yellow-400" />
-                                    <Link href="" className="font-medium text-sm text-white">Free Courses</Link>
+                                    <Link href="/" className="font-medium text-sm text-white">Free Courses</Link>
                                 </motion.div>
 
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-green-900/70 hover:bg-green-800 px-3 py-1 rounded-full transition-colors border border-green-800/50">
@@ -262,7 +260,7 @@ export default function Header() {
                             <div className="py-4 space-y-2">
                                 {mainNavItems.map((item) => (
                                     <motion.div key={item.title} whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
-                                        <Link href={item.title} onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                                        <Link href={item.href} onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
                                             {item.title}
                                         </Link>
                                     </motion.div>
@@ -285,13 +283,13 @@ export default function Header() {
                                 </div>
 
                                 <div className="pt-4 flex flex-col gap-3">
-                                    <Link href="/mlms" className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium">
+                                    <Link href="/mlms" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium">
                                         MLMS Login <FaArrowRight />
                                     </Link>
-                                    <Link href="/apply" className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-full font-medium">
+                                    <Link href="/pages/apply" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-full font-medium">
                                         Apply Now <FaArrowRight />
                                     </Link>
-                                    <Link href="/free-courses" className="flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-3 rounded-full font-medium">
+                                    <Link href="" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-3 rounded-full font-medium">
                                         Free Courses <FaArrowRight />
                                     </Link>
                                 </div>
