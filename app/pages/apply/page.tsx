@@ -280,6 +280,7 @@ export default function ApplicationForm(){
                             required
                         >
                             <option value="">Select a program</option>
+                            <option value="Excellence in Language and Innovation Testing Evaluation">Excellence in Language and Innovation Testing Evaluation</option>
                             <option value="Mansha Robotics and Software Engineer">Mansha Robotics and Software Engineer</option>
                             <option value="Mansha Certified AI Agents Developer">Mansha Certified AI Agents Developer</option>
                             <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>
@@ -294,6 +295,9 @@ export default function ApplicationForm(){
                             <option value="Golang API Engineer">Golang API Engineer</option>
                             <option value="Laravel Fullstack Engineer">Laravel Fullstack Engineer</option>
                             <option value="Mansha Certified API Developer">Mansha Certified API Developer</option>
+                            <option value="SDLC Process Architect Certification">SDLC Process Architect Certification</option>
+                            <option value="Certified Software Product Designer">Certified Software Product Designer</option>
+                            <option value="UX/UI Designer">UX/UI Designer</option>
                         </select>
                     </motion.div>
 

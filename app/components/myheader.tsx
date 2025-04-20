@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/mvutflame.png';
@@ -13,9 +14,12 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [showMoreLinks, setShowMoreLinks] = useState(false);
+    const [showProducts, setShowProducts] = useState(false); // New state for Products dropdown
     const [windowHeight, setWindowHeight] = useState(0);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const productsDropdownRef = useRef<HTMLDivElement>(null); // Ref for Products dropdown
+    const productsButtonRef = useRef<HTMLButtonElement>(null); // Ref for Products button
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -25,8 +29,9 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
 
-        // Close dropdown when clicking outside
+        // Close dropdowns when clicking outside
         const handleClickOutside = (event: MouseEvent) => {
+            // Handle More Links dropdown
             if (
                 dropdownRef.current &&
                 !dropdownRef.current.contains(event.target as Node) &&
@@ -34,6 +39,15 @@ export default function Header() {
                 !buttonRef.current.contains(event.target as Node)
             ) {
                 setShowMoreLinks(false);
+            }
+            // Handle Products dropdown
+            if (
+                productsDropdownRef.current &&
+                !productsDropdownRef.current.contains(event.target as Node) &&
+                productsButtonRef.current &&
+                !productsButtonRef.current.contains(event.target as Node)
+            ) {
+                setShowProducts(false);
             }
         };
 
@@ -48,10 +62,17 @@ export default function Header() {
 
     const toggleMoreLinks = () => {
         setShowMoreLinks((prev) => !prev);
+        setShowProducts(false); // Close Products dropdown when opening More Links
+    };
+
+    const toggleProducts = () => {
+        setShowProducts((prev) => !prev);
+        setShowMoreLinks(false); // Close More Links dropdown when opening Products
     };
 
     const handleLinkClick = () => {
         setShowMoreLinks(false);
+        setShowProducts(false); // Close both dropdowns on link click
     };
 
     const newsItems = [
@@ -68,6 +89,14 @@ export default function Header() {
         { title: 'Services', href: '/pages/services' },
     ];
 
+    const productItems = [
+        { title: 'Careers', href: '/pages/mycareer' },
+        { title: 'AI Education', href: '/pages/aie' },
+        { title: 'ELITE Certification', href: '/pages/elite' },
+        { title: 'AI Solutions', href: '/pages/agents' },
+
+    ];
+
     const moreLinks = [
         { title: 'Leadership', href: '/pages/leadership' },
         { title: 'Honorary Ph.D.', href: '/pages/honoraryphd' },
@@ -78,6 +107,9 @@ export default function Header() {
         { title: 'Success Stories', href: '/pages/stories' },
         { title: 'Trainings', href: '/pages/trainings' },
         { title: 'Research', href: '/pages/research' },
+        { title: 'Scholarship', href: '/pages/scholarship' },
+        { title: 'ABS Academy', href: '/pages/absacademy' },
+        { title: 'ABS International', href: '/pages/absinternational' },
     ];
 
     const socialLinks = [
@@ -123,7 +155,7 @@ export default function Header() {
                             <div className="flex items-center gap-2">
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-blue-900/70 hover:bg-blue-800 px-3 py-1 rounded-full transition-colors border border-blue-800/50">
                                     <FaGraduationCap className="text-yellow-400" />
-                                    <Link href="/" className="font-medium text-sm text-white">Free Courses</Link>
+                                    <Link href="/pages/learnfree" className="font-medium text-sm text-white">Free Courses</Link>
                                 </motion.div>
 
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-green-900/70 hover:bg-green-800 px-3 py-1 rounded-full transition-colors border border-green-800/50">
@@ -181,6 +213,56 @@ export default function Header() {
                                     </motion.li>
                                 ))}
 
+                                {/* Products Dropdown */}
+                                <motion.li className="relative flex items-center h-full">
+                                    <motion.button
+                                        ref={productsButtonRef}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={toggleProducts}
+                                        className="relative px-4 py-2 text-gray-300 hover:text-white font-medium group flex items-center h-full gap-1"
+                                        aria-label="Toggle Products Dropdown"
+                                        aria-expanded={showProducts}
+                                    >
+                                        Projects
+                                        <motion.span animate={{ rotate: showProducts ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                                            <FaChevronDown className="text-xs mt-0.5" />
+                                        </motion.span>
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-green-400 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
+                                    </motion.button>
+
+                                    {showProducts && (
+                                        <motion.div
+                                            ref={productsDropdownRef}
+                                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                            transition={{ duration: 0.3, ease: 'easeOut' }}
+                                            className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-lg shadow-xl rounded-lg border border-gray-700 z-50"
+                                        >
+                                            <div className="py-2">
+                                                {productItems.map((item, index) => (
+                                                    <motion.div
+                                                        key={index}
+                                                        initial={{ opacity: 0, x: -10 }}
+                                                        animate={{ opacity: 1, x: 0 }}
+                                                        transition={{ delay: index * 0.05, duration: 0.2 }}
+                                                    >
+                                                        <Link
+                                                            href={item.href}
+                                                            className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-200"
+                                                            onClick={handleLinkClick}
+                                                        >
+                                                            {item.title}
+                                                        </Link>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </motion.li>
+
+                                {/* Important Links Dropdown */}
                                 <motion.li className="relative flex items-center h-full">
                                     <motion.button
                                         ref={buttonRef}
@@ -189,6 +271,7 @@ export default function Header() {
                                         onClick={toggleMoreLinks}
                                         className="relative px-4 py-2 text-gray-300 hover:text-white font-medium group flex items-center h-full gap-1"
                                         aria-label="Toggle More Links"
+                                        aria-expanded={showMoreLinks}
                                     >
                                         Important Links
                                         <motion.span animate={{ rotate: showMoreLinks ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -266,6 +349,24 @@ export default function Header() {
                                     </motion.div>
                                 ))}
 
+                                {/* Products in Mobile Menu */}
+                                <div className="px-4 py-3">
+                                    <h3 className="text-gray-400 font-medium mb-2">Products</h3>
+                                    <div className="grid grid-cols-1 gap-2">
+                                        {productItems.map((item, index) => (
+                                            <Link
+                                                key={index}
+                                                href={item.href}
+                                                onClick={() => setIsOpen(false)}
+                                                className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded transition-colors"
+                                            >
+                                                {item.title}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* More Links in Mobile Menu */}
                                 <div className="px-4 py-3">
                                     <h3 className="text-gray-400 font-medium mb-2">More Links</h3>
                                     <div className="grid grid-cols-1 gap-2">
@@ -315,10 +416,10 @@ export default function Header() {
             </header>
 
             <style jsx global>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
-                body { font-family: 'Poppins', sans-serif; }
-                h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Montserrat', sans-serif; }
-            `}</style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
+body { font-family: 'Poppins', sans-serif; }
+h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Montserrat', sans-serif; }
+`}</style>
         </>
     );
 }

@@ -1,6 +1,24 @@
 'use client';
 import Link from 'next/link';
-import { FaRobot, FaCode, FaChalkboardTeacher, FaPython, FaPhp, FaLaptopCode, FaClipboardList, FaAward, FaBookOpen, FaUsers, FaSearch, FaConnectdevelop, FaRocket, FaGlobe, FaHandsHelping } from 'react-icons/fa';
+import {
+    FaRobot,
+    FaCode,
+    FaChalkboardTeacher,
+    FaPython,
+    FaPhp,
+    FaLaptopCode,
+    FaClipboardList,
+    FaAward,
+    FaBookOpen,
+    FaUsers,
+    FaSearch,
+    FaConnectdevelop,
+    FaRocket,
+    FaGlobe,
+    FaHandsHelping,
+    FaPalette,
+    FaPaintBrush, FaProjectDiagram
+} from 'react-icons/fa';
 import { SiHiveBlockchain } from "react-icons/si";
 import { motion, Variants } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
@@ -37,99 +55,127 @@ interface Skill {
 // Study Programs Data
 const studyPrograms: StudyProgram[] = [
     {
+        title: 'Excellence in Language and Innovation Testing Evaluation',
+        description: 'Master global language and innovation skills for academic and professional excellence.',
+        icon: <FaGlobe className="text-4xl" />,
+        link: '/study/glint',
+        gradient: 'from-blue-700 to-teal-600'
+    },
+    {
+        title: 'SDLC Process Architect Certification',
+        description: 'Command the software lifecycle, from ideation to deployment, mastering Agile, Waterfall, and DevOps.',
+        icon: <FaProjectDiagram className="text-4xl" />,
+        link: '/study/sdlc-architect',
+        gradient: 'from-blue-600 to-cyan-600'
+    },
+    {
+        title: 'Certified Software Product Designer',
+        description: 'Craft user-focused software with expertise in UX/UI, full-stack coding, and market-driven strategies.',
+        icon: <FaPaintBrush className="text-4xl" />,
+        link: '/study/cspd',
+        gradient: 'from-indigo-500 to-purple-600'
+    },
+    {
+        title: 'UX/UI Designer',
+        description: 'Design intuitive digital experiences, excelling in user-centered principles and prototyping.',
+        icon: <FaPalette className="text-4xl" />,
+        link: '/study/ux-ui',
+        gradient: 'from-fuchsia-600 to-pink-700'
+    },
+    {
         title: 'Mansha Robotics and Software Engineer',
-        description: 'Develop advanced skills in robotics, software engineering, and automation technologies.',
+        description: 'Build cutting-edge robotics and automation solutions with advanced software engineering skills.',
         icon: <FaLaptopCode className="text-4xl" />,
         link: '/study/mrse',
         gradient: 'from-purple-600 to-indigo-700'
     },
     {
         title: 'Mansha Certified AI Agents Developer',
-        description: 'Master the art of building intelligent agents and AI systems with hands-on projects.',
+        description: 'Forge intelligent AI agents through hands-on projects, shaping the future of technology.',
         icon: <FaRobot className="text-4xl" />,
         link: '/study/mcaad',
         gradient: 'from-teal-600 to-emerald-700'
     },
     {
         title: 'Office Management, AI and Prompt Engineering',
-        description: 'Combine office management skills with AI and prompt engineering expertise.',
+        description: 'Elevate office leadership with AI expertise and innovative prompt engineering techniques.',
         icon: <FaRobot className="text-4xl" />,
         link: '/study/om-ai-prompt',
         gradient: 'from-pink-600 to-rose-700'
     },
     {
         title: 'Mansha Certified Blockchain Technician',
-        description: 'Learn blockchain fundamentals and gain hands-on experience in decentralized applications.',
+        description: 'Master blockchain innovation, building decentralized apps through dynamic, real-world projects.',
         icon: <SiHiveBlockchain className="text-4xl" />,
         link: '/study/mcbt',
         gradient: 'from-yellow-600 to-amber-700'
     },
     {
         title: 'Full Stack Development with Next.js',
-        description: 'Learn modern web development techniques with Next.js and React.',
+        description: 'Create modern web applications, mastering full-stack development with Next.js and React.',
         icon: <FaCode className="text-4xl" />,
         link: '/study/fsdn',
         gradient: 'from-green-600 to-lime-700'
     },
     {
         title: 'Next-Generation Web Development with Python',
-        description: 'Build dynamic web applications using Python frameworks like Django and Flask.',
+        description: 'Develop dynamic web apps using Python’s powerful Django and Flask frameworks.',
         icon: <FaPython className="text-4xl" />,
         link: '/study/nxgdp',
         gradient: 'from-red-600 to-orange-700'
     },
     {
         title: 'Full Stack PHP Development',
-        description: 'Master server-side scripting and full-stack development with PHP.',
+        description: 'Excel in server-side scripting, crafting robust full-stack solutions with PHP expertise.',
         icon: <FaPhp className="text-4xl" />,
         link: '/study/fsp',
         gradient: 'from-indigo-600 to-violet-700'
     },
     {
         title: 'Kindergarten (K.G.) STEM Entrepreneurs',
-        description: 'Introduce young minds to STEM concepts and entrepreneurial thinking.',
+        description: 'Inspire young innovators with STEM fundamentals and entrepreneurial thinking skills.',
         icon: <FaChalkboardTeacher className="text-4xl" />,
         link: '/study/kg-stem',
         gradient: 'from-blue-600 to-cyan-700'
     },
     {
         title: 'Corporate Communication for IT Professionals',
-        description: 'Enhance communication skills tailored for IT professionals in corporate environments.',
+        description: 'Sharpen communication skills tailored for IT experts in corporate environments.',
         icon: <FaUsers className="text-4xl" />,
         link: '/study/corporate-communication',
         gradient: 'from-orange-600 to-amber-700'
     },
     {
         title: 'Office Management and Work Ethics',
-        description: 'Enhance productivity and professionalism with office management skills.',
+        description: 'Boost professionalism and efficiency with expert office management and ethics.',
         icon: <FaClipboardList className="text-4xl" />,
         link: '/study/omwe',
         gradient: 'from-cyan-600 to-sky-700'
     },
     {
         title: 'Research and Thesis Development',
-        description: 'Develop advanced research skills and learn the process of thesis writing in technical fields.',
+        description: 'Hone research techniques and excel in thesis creation for technical fields.',
         icon: <FaSearch className="text-4xl" />,
         link: '/study/research-thesis',
         gradient: 'from-gray-600 to-slate-700'
     },
     {
         title: 'Mansha Certified API Developer',
-        description: 'Master API design, development, and security with industry best practices.',
+        description: 'Design secure, high-performance APIs using industry-leading development practices.',
         icon: <FaConnectdevelop className="text-4xl" />,
         link: '/study/mcad',
         gradient: 'from-emerald-600 to-teal-700'
     },
     {
         title: 'Laravel Fullstack Engineer',
-        description: 'Become proficient in fullstack development using Laravel PHP framework.',
+        description: 'Master full-stack development, building scalable web apps with Laravel expertise.',
         icon: <FaPhp className="text-4xl" />,
         link: '/study/laravel-fullstack',
         gradient: 'from-violet-600 to-purple-700'
     },
     {
         title: 'Golang API Engineer',
-        description: 'Learn to build high-performance APIs and microservices with Go (Golang).',
+        description: 'Engineer high-speed APIs and microservices with Go for optimal performance.',
         icon: <FaCode className="text-4xl" />,
         link: '/study/golang-api',
         gradient: 'from-amber-600 to-orange-700'
@@ -156,6 +202,7 @@ const testimonials: Testimonial[] = [
         position: "Software Engineer, Class of 2021",
         gradient: 'from-purple-600 to-violet-700'
     },
+
 ];
 
 // Featured Skills Data
