@@ -243,7 +243,7 @@ const ScholarshipPage = () => {
               </span>
                         </h2>
                         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                            Policies and procedures for MVIT's scholarship program (Admitted Students Only)
+                            Policies and procedures for MVIT&apos;s scholarship program (Admitted Students Only)
                         </p>
                     </motion.div>
 
