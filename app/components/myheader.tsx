@@ -86,7 +86,7 @@ export default function Header() {
         { title: 'Programs', href: '/pages/study' },
         { title: 'Faculties', href: '/pages/faculty' },
         { title: 'Tariff', href: '/pages/study/fee' },
-        { title: 'Services', href: '/pages/services' },
+        { title: 'Articles', href: '/pages/articles' },
     ];
 
     const productItems = [
@@ -98,6 +98,7 @@ export default function Header() {
     ];
 
     const moreLinks = [
+        { title: 'Services', href: '/pages/services' },
         { title: 'Leadership', href: '/pages/leadership' },
         { title: 'Honorary Ph.D.', href: '/pages/honoraryphd' },
         { title: 'Degree Verification', href: '/verify' },
