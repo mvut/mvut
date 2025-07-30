@@ -279,25 +279,26 @@ export default function ApplicationForm(){
                             name="program"
                             required
                         >
-                            <option value="">Select a program</option>
-                            <option value="Excellence in Language and Innovation Testing Evaluation">Excellence in Language and Innovation Testing Evaluation</option>
-                            <option value="Mansha Robotics and Software Engineer">Mansha Robotics and Software Engineer</option>
-                            <option value="Mansha Certified AI Agents Developer">Mansha Certified AI Agents Developer</option>
-                            <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>
-                            <option value="Mansha Certified Blockchain Technician">Mansha Certified Blockchain Technician</option>
-                            <option value="Full Stack Development with Next.js">Full Stack Development with Next.js</option>
-                            <option value="Next-Generation Web Development with Python">Next-Generation Web Development with Python</option>
-                            <option value="Full Stack PHP Development">Full Stack PHP Development</option>
-                            <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs</option>
-                            <option value="Corporate Communication for IT Professionals">Corporate Communication for IT Professionals</option>
-                            <option value="Office Management and Work Ethics">Office Management and Work Ethics</option>
-                            <option value="Research and Thesis Development">Research and Thesis Development</option>
-                            <option value="Golang API Engineer">Golang API Engineer</option>
-                            <option value="Laravel Fullstack Engineer">Laravel Fullstack Engineer</option>
-                            <option value="Mansha Certified API Developer">Mansha Certified API Developer</option>
-                            <option value="SDLC Process Architect Certification">SDLC Process Architect Certification</option>
-                            <option value="Certified Software Product Designer">Certified Software Product Designer</option>
-                            <option value="UX/UI Designer">UX/UI Designer</option>
+                            {/*<option value="">Select a program</option>*/}
+                            {/*<option value="Excellence in Language and Innovation Testing Evaluation">Excellence in Language and Innovation Testing Evaluation</option>*/}
+                            {/*<option value="Mansha Robotics and Software Engineer">Mansha Robotics and Software Engineer</option>*/}
+                            {/*<option value="Mansha Certified AI Agents Developer">Mansha Certified AI Agents Developer</option>*/}
+                            {/*<option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>*/}
+                            {/*<option value="Mansha Certified Blockchain Technician">Mansha Certified Blockchain Technician</option>*/}
+                            {/*<option value="Full Stack Development with Next.js">Full Stack Development with Next.js</option>*/}
+                            {/*<option value="Next-Generation Web Development with Python">Next-Generation Web Development with Python</option>*/}
+                            {/*<option value="Full Stack PHP Development">Full Stack PHP Development</option>*/}
+                            {/*<option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs</option>*/}
+                            {/*<option value="Corporate Communication for IT Professionals">Corporate Communication for IT Professionals</option>*/}
+                            {/*<option value="Office Management and Work Ethics">Office Management and Work Ethics</option>*/}
+                            {/*<option value="Research and Thesis Development">Research and Thesis Development</option>*/}
+                            {/*<option value="Golang API Engineer">Golang API Engineer</option>*/}
+                            {/*<option value="Laravel Fullstack Engineer">Laravel Fullstack Engineer</option>*/}
+                            {/*<option value="Mansha Certified API Developer">Mansha Certified API Developer</option>*/}
+                            {/*<option value="SDLC Process Architect Certification">SDLC Process Architect Certification</option>*/}
+                            {/*<option value="Certified Software Product Designer">Certified Software Product Designer</option>*/}
+                            {/*<option value="UX/UI Designer">UX/UI Designer</option>*/}
+                            <option value="Mansha Certified Autonomous Systems and Cloud Engineer">Mansha Certified Autonomous Systems and Cloud Engineer</option>
                         </select>
                     </motion.div>
 
@@ -321,7 +322,7 @@ export default function ApplicationForm(){
                             name="semester"
                             required
                         >
-                            <option value="Spring 2025">Spring 2025</option>
+                            <option value="Spring 2025">Fall 2025</option>
                         </select>
                     </motion.div>
 
@@ -334,7 +335,7 @@ export default function ApplicationForm(){
                             required
                         >
                             <option value="Onsite">Onsite (Only in Pakpattan)</option>
-                            <option value="Online">Online</option>
+                            <option value="Online">Online (For all cities / countries</option>
                         </select>
                     </motion.div>
 
@@ -347,15 +348,15 @@ export default function ApplicationForm(){
                         <ul className="space-y-2 text-gray-700">
                             <li className="flex justify-between">
                                 <span>Admission Fee:</span>
-                                <span className="font-semibold">$50 (one-time)</span>
+                                <span className="font-semibold">$70 (one-time)</span>
                             </li>
                             <li className="flex justify-between">
                                 <span>Monthly Fee:</span>
-                                <span className="font-semibold">$20 per month</span>
+                                <span className="font-semibold">$35 per month</span>
                             </li>
                             <li className="flex justify-between pt-2 border-t border-red-200">
                                 <span className="font-medium">Total Estimated Cost (2 years):</span>
-                                <span className="font-bold text-red-900">$530</span>
+                                <span className="font-bold text-red-900">$910</span>
                             </li>
                         </ul>
                     </motion.div>

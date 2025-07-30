@@ -76,10 +76,9 @@ export default function Header() {
     };
 
     const newsItems = [
-        "🎓 Admissions open for 2025 intake - Apply now!",
-        "🏆 MVIT ranked among top 10 technical institutes",
-        "🔬 Research grant awarded for AI projects",
-        "🌍 New international partnerships announced"
+        "Apply for MCASCE Eligibility Test",
+        "Eligibility Test Fee - $5",
+        "Admission Test Fee- $70, Monthly Fee-$35",
     ];
 
     const mainNavItems = [
@@ -126,13 +125,13 @@ export default function Header() {
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col sm:flex-row justify-between items-center py-2 gap-2 sm:gap-0">
                             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                                <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm">
-                                    <FaPhoneAlt className="text-blue-400" />
-                                    <Link href="tel:+17472094775">+1 (747) 209-4775</Link>
-                                </motion.div>
+                                {/*<motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm">*/}
+                                {/*    <FaPhoneAlt className="text-blue-400" />*/}
+                                {/*    <Link href="tel:+923017362696">+923017362696</Link>*/}
+                                {/*</motion.div>*/}
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm">
                                     <FaEnvelope className="text-blue-400" />
-                                    <Link href="mailto:mvut.usa@gmail.com">mvut.usa@gmail.com</Link>
+                                    <Link href="mailto:dr.sagher@gmail.com">dr.sagher@gmail.com</Link>
                                 </motion.div>
                             </div>
 
@@ -161,7 +160,7 @@ export default function Header() {
 
                                 <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-green-900/70 hover:bg-green-800 px-3 py-1 rounded-full transition-colors border border-green-800/50">
                                     <FaWhatsapp className="text-green-300" />
-                                    <Link href="https://wa.me/17472094775" target="_blank" rel="noopener noreferrer" className="font-medium text-sm text-white">WhatsApp</Link>
+                                    <Link href="https://whatsapp.com/channel/0029VbBCRZEEVccR46xZwh3Y" target="_blank" rel="noopener noreferrer" className="font-medium text-sm text-white">WhatsApp</Link>
                                 </motion.div>
 
                                 <div className="hidden sm:flex items-center gap-1 ml-2">

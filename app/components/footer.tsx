@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import WhatsAppQR from '@/public/mvit-whtsapp.png';
+import WhatsAppQR from '@/public/mvit-whtsapp.jpg';
 import {
     FaFacebookF,
     FaWhatsapp,
@@ -85,7 +85,7 @@ export default function FooterComponent() {
                     {/* MVIT Contact */}
                     <motion.div variants={itemVariants} className="px-6 space-y-4">
                         <h3 className="text-xl font-bold font-oswald tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#2DD4BF]">
-                            MVIT Contact
+                            MVIT
                         </h3>
                         <p className="text-sm text-gray-300 leading-relaxed font-light">
                             Mansha Virtual Institute of Technologies is dedicated to advancing education through innovative programs in AI, technology, and research, empowering global learners.
@@ -97,16 +97,16 @@ export default function FooterComponent() {
                                     mvut.usa@gmail.com
                                 </a>
                             </motion.div>
-                            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
-                                <FaWhatsapp className="text-[#2DD4BF]" size={18} />
-                                <a href="https://wa.me/17472094775" className="text-sm hover:text-[#2DD4BF] transition-colors">
-                                    +1 (747) 209-4775
-                                </a>
-                            </motion.div>
-                            <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">
-                                <FaMapMarkerAlt className="text-[#D4AF37]" size={18} />
-                                <p className="text-sm text-gray-300">MVIT Headquarters, USA</p>
-                            </motion.div>
+                            {/*<motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">*/}
+                            {/*    <FaWhatsapp className="text-[#2DD4BF]" size={18} />*/}
+                            {/*    <a href="https://chat.whatsapp.com/Ilrz17rzdlCLMsGH3amsu1" className="text-sm hover:text-[#2DD4BF] transition-colors">*/}
+                            {/*        +1 (747) 209-4775*/}
+                            {/*    </a>*/}
+                            {/*</motion.div>*/}
+                            {/*<motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3">*/}
+                            {/*    <FaMapMarkerAlt className="text-[#D4AF37]" size={18} />*/}
+                            {/*    <p className="text-sm text-gray-300">MVIT Headquarters, USA</p>*/}
+                            {/*</motion.div>*/}
                         </div>
                     </motion.div>
 
@@ -200,7 +200,7 @@ export default function FooterComponent() {
                                 Terms of Service
                             </Link>
                             <Link
-                                href="https://www.mvut.us/"
+                                href="https://www.mvitech.org/"
                                 target="_blank"
                                 className="text-xs font-medium text-[#2DD4BF] hover:text-[#2DD4BF]/80 transition-colors font-light"
                             >
