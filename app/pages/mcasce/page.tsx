@@ -376,7 +376,7 @@ export default function MCASCEProgram() {
                                     {programData.eligibility.items.map((item, index) => (
                                         <motion.li
                                             key={index}
-                                            variants={item}
+
                                             className="flex items-start"
                                         >
                                             <FaRegCheckCircle className="text-red-400 mt-1 mr-4 flex-shrink-0" />
