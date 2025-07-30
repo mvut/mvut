@@ -78,15 +78,14 @@ export default function Header() {
     const newsItems = [
         "Apply for MCASCE Eligibility Test",
         "Eligibility Test Fee - $5",
-        "Admission Test Fee- $70, Monthly Fee-$35",
-        "Start your research project, today"
+        "Admission Fee- $70, Monthly Fee-$35",
     ];
 
     const mainNavItems = [
         { title: 'Programs', href: '/pages/study' },
         { title: 'Faculties', href: '/pages/faculty' },
         { title: 'Tariff', href: '/pages/study/fee' },
-        { title: 'Articles', href: '/pages/articles' },
+        // { title: 'Articles', href: '/pages/articles' },
     ];
 
     const productItems = [

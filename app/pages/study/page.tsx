@@ -23,6 +23,7 @@ import { SiHiveBlockchain } from "react-icons/si";
 import { motion, Variants } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
 import React from "react";
+import { GrCertificate } from "react-icons/gr";
 
 // Font configuration
 const montserrat = Montserrat({
@@ -54,6 +55,13 @@ interface Skill {
 
 // Study Programs Data
 const studyPrograms: StudyProgram[] = [
+    {
+        title: 'Mansha Certified Autonomous Systems and Cloud Engineer (MCASCE)',
+        description: 'Master the integration of cloud computing, robotics, and AI, Machine Learning and Data Science.',
+        icon: <GrCertificate  className="text-8xl" />,
+        link: '/pages/mcasce',
+        gradient: 'from-indigo-700 to-black-600'
+    },
     {
         title: 'Excellence in Language and Innovation Testing Evaluation',
         description: 'Master global language and innovation skills for academic and professional excellence.',
