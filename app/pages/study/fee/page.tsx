@@ -2,19 +2,14 @@
 import {
     FaRobot, FaBrain, FaServer, FaUniversity, FaMoneyBillWave,
     FaChartLine, FaShieldAlt, FaHandshake, FaCode, FaPython,
-    FaPhp, FaLaptopCode, FaChalkboardTeacher, FaClipboardList,
-    FaUsers, FaSearch, FaConnectdevelop, FaGraduationCap,
-    FaAward, FaBookOpen, FaChartBar, FaQuoteLeft, FaQuoteRight,
-    FaBriefcase, FaClock, FaStar, FaInfinity, FaFlask,
-    FaCloud, FaShoppingCart
+    FaAward, FaBookOpen, FaChartBar, FaQuoteLeft, FaGraduationCap,
+    FaBriefcase, FaClock, FaStar, FaCloud, FaLaptop, FaChild,
+    FaMicroscope, FaLightbulb, FaBookReader
 } from 'react-icons/fa';
-import { SiUdacity, SiCoursera, SiEdx, SiHiveBlockchain, SiIbm, SiLaravel, SiUdemy } from "react-icons/si";
 import { motion } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
-import { FaGolang } from "react-icons/fa6";
 import { useState } from 'react';
 import Link from 'next/link';
-
 import Image from "next/image";
 
 const montserrat = Montserrat({
@@ -22,1163 +17,634 @@ const montserrat = Montserrat({
     weight: ['400', '600', '700'],
 });
 
-type Certification = {
-    id: number;
-    name: string;
-    icon: JSX.Element;
-    duration: string;
-    level: 'Beginner' | 'Intermediate' | 'Advanced';
-    category: 'Advanced' | 'Beginner' | 'Business' | 'Technology';
-    jobPlacementRate: number;
-    mvitCost: {
-        total: number;
-        monthly: number;
-        admission: number;
-    };
-    competitors: {
-        name: string;
-        icon: JSX.Element;
-        cost: number;
-        duration: string;
-        advantages: string[];
-    }[];
-    mvitAdvantages: {
-        title: string;
-        description: string;
-        icon: JSX.Element;
-    }[];
-    savings: Record<string, number>;
-    careerPaths: string[];
-};
-
-const certificationComparison: Certification[] = [
-    // Advanced Certifications
-    {
-        id: 1,
-        name: 'Mansha Robotics and Software Engineer',
-        icon: <FaRobot className="text-red-500" />,
-        duration: '2 Years',
-        level: 'Advanced',
-        category: 'Advanced',
-        jobPlacementRate: 94,
-        mvitCost: {
-            total: 530,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Udacity Robotics',
-                icon: <SiUdacity className="text-blue-400" />,
-                cost: 3990,
-                duration: '10-12 Months',
-                advantages: [
-                    'Project reviews',
-                    'Career services',
-                    'Flexible schedule'
-                ]
-            },
-            {
-                name: 'Coursera (UPenn)',
-                icon: <SiCoursera className="text-blue-500" />,
-                cost: 2400,
-                duration: '2 Years',
-                advantages: [
-                    'University credential',
-                    'Academic curriculum',
-                    'Peer networking'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Hardware Kit Included',
-                description: '$200 robotics hardware kit provided',
-                icon: <FaFlask className="text-green-500" />
-            },
-            {
-                title: 'Guaranteed Internship',
-                description: '6-month industry internship',
-                icon: <FaBriefcase className="text-blue-500" />
-            },
-            {
-                title: '1-on-1 Mentorship',
-                description: 'Weekly sessions with industry experts',
-                icon: <FaGraduationCap className="text-purple-500" />
-            }
-        ],
-        savings: {
-            udacity: 87,
-            coursera: 80
-        },
-        careerPaths: [
-            'Robotics Engineer ($85k-$140k)',
-            'Automation Specialist ($75k-$120k)',
-            'AI System Integrator ($90k-$150k)'
-        ]
-    },
-    {
-        id: 2,
-        name: 'Mansha Certified AI Agents Developer',
-        icon: <FaBrain className="text-red-500" />,
-        duration: '2 Years',
-        level: 'Advanced',
-        category: 'Advanced',
-        jobPlacementRate: 92,
-        mvitCost: {
-            total: 530,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'DeepLearning.AI',
-                icon: <FaServer className="text-orange-500" />,
-                cost: 1197,
-                duration: '9 Months',
-                advantages: [
-                    'Andrew Ng curriculum',
-                    'Technical depth',
-                    'Specialized tracks'
-                ]
-            },
-            {
-                name: 'IBM AI Engineering',
-                icon: <SiIbm className="text-blue-300" />,
-                cost: 1000,
-                duration: '6 Months',
-                advantages: [
-                    'IBM certification',
-                    'Watson platform access',
-                    'Enterprise focus'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Real-world Projects',
-                description: 'Build and deploy AI agents in production environments',
-                icon: <FaServer className="text-green-500" />
-            },
-            {
-                title: 'LLM Integration',
-                description: 'Hands-on experience with large language models',
-                icon: <FaBrain className="text-blue-500" />
-            },
-            {
-                title: 'Portfolio Development',
-                description: 'Create professional portfolio of AI projects',
-                icon: <FaBookOpen className="text-purple-500" />
-            }
-        ],
-        savings: {
-            deeplearning: 60,
-            ibm: 52
-        },
-        careerPaths: [
-            'AI Developer ($100k-$180k)',
-            'ML Engineer ($110k-$200k)',
-            'Conversational AI Specialist ($95k-$160k)'
-        ]
-    },
-    {
-        id: 3,
-        name: 'Mansha Certified Blockchain Technician',
-        icon: <SiHiveBlockchain className="text-red-500" />,
-        duration: '2 Years',
-        level: 'Advanced',
-        category: 'Advanced',
-        jobPlacementRate: 89,
-        mvitCost: {
-            total: 530,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'ConsenSys Academy',
-                icon: <FaShieldAlt className="text-purple-400" />,
-                cost: 995,
-                duration: '8 Months',
-                advantages: [
-                    'Ethereum focus',
-                    'Smart contract training',
-                    'Developer community'
-                ]
-            },
-            {
-                name: 'Coursera Blockchain',
-                icon: <SiCoursera className="text-blue-500" />,
-                cost: 895,
-                duration: '6 Months',
-                advantages: [
-                    'Academic approach',
-                    'Broad overview',
-                    'University recognition'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Ethereum & Solana',
-                description: 'Specialization in both major blockchain platforms',
-                icon: <SiHiveBlockchain className="text-green-500" />
-            },
-            {
-                title: 'NFT Marketplace',
-                description: 'Build a complete NFT marketplace project',
-                icon: <FaChartBar className="text-blue-500" />
-            },
-            {
-                title: 'Smart Contract Auditing',
-                description: 'Learn professional security auditing techniques',
-                icon: <FaShieldAlt className="text-purple-500" />
-            }
-        ],
-        savings: {
-            consensys: 52,
-            coursera: 46
-        },
-        careerPaths: [
-            'Blockchain Developer ($90k-$160k)',
-            'Smart Contract Engineer ($95k-$170k)',
-            'Web3 Developer ($85k-$150k)'
-        ]
-    },
-    {
-        id: 4,
-        name: 'Mansha Certified API Developer',
-        icon: <FaServer className="text-red-500" />,
-        duration: '18 Months',
-        level: 'Advanced',
-        category: 'Advanced',
-        jobPlacementRate: 91,
-        mvitCost: {
-            total: 410,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Postman Academy',
-                icon: <FaShieldAlt className="text-orange-400" />,
-                cost: 495,
-                duration: '5 Months',
-                advantages: [
-                    'API tooling focus',
-                    'Industry recognition',
-                    'Specialized content'
-                ]
-            },
-            {
-                name: 'Udemy API Mastery',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 179,
-                duration: '3 Months',
-                advantages: [
-                    'Affordable',
-                    'Practical examples',
-                    'Self-paced'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'REST & GraphQL',
-                description: 'Master both API architectures',
-                icon: <FaConnectdevelop className="text-green-500" />
-            },
-            {
-                title: 'Authentication',
-                description: 'Implement advanced security strategies',
-                icon: <FaShieldAlt className="text-blue-500" />
-            },
-            {
-                title: 'Rate Limiting',
-                description: 'Design scalable API patterns',
-                icon: <FaChartLine className="text-purple-500" />
-            }
-        ],
-        savings: {
-            postman: 27,
-            udemy: -101
-        },
-        careerPaths: [
-            'API Architect ($95k-$160k)',
-            'Integration Engineer ($90k-$150k)',
-            'Cloud Services Developer ($100k-$170k)'
-        ]
-    },
-
-    // Beginner Certifications
-    {
-        id: 5,
-        name: 'Full Stack Development with Next.js',
-        icon: <FaCode className="text-red-500" />,
-        duration: '12 Months',
-        level: 'Beginner',
-        category: 'Beginner',
-        jobPlacementRate: 85,
-        mvitCost: {
-            total: 290,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Udemy Next.js Course',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '3 Months',
-                advantages: [
-                    'Affordable',
-                    'Project-based',
-                    'Beginner friendly'
-                ]
-            },
-            {
-                name: 'Frontend Masters',
-                icon: <FaUniversity className="text-gray-400" />,
-                cost: 390,
-                duration: '6 Months',
-                advantages: [
-                    'In-depth training',
-                    'Live workshops',
-                    'Professional instructors'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Modern React',
-                description: 'Learn latest React patterns and best practices',
-                icon: <FaCode className="text-green-500" />
-            },
-            {
-                title: 'Server-side Rendering',
-                description: 'Master SSR for better SEO and performance',
-                icon: <FaServer className="text-blue-500" />
-            },
-            {
-                title: 'API Integration',
-                description: 'Connect with backend services effectively',
-                icon: <FaConnectdevelop className="text-purple-500" />
-            }
-        ],
-        savings: {
-            udemy: -86,
-            frontendmasters: 38
-        },
-        careerPaths: [
-            'Full Stack Developer ($75k-$130k)',
-            'Frontend Engineer ($70k-$125k)',
-            'UI/UX Developer ($65k-$115k)'
-        ]
-    },
-    {
-        id: 6,
-        name: 'Full Stack PHP Development',
-        icon: <FaPhp className="text-red-500" />,
-        duration: '12 Months',
-        level: 'Beginner',
-        category: 'Beginner',
-        jobPlacementRate: 82,
-        mvitCost: {
-            total: 290,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Laravel Official Training',
-                icon: <SiLaravel className="text-red-300" />,
-                cost: 249,
-                duration: '3 Months',
-                advantages: [
-                    'Official curriculum',
-                    'Community support',
-                    'Focused content'
-                ]
-            },
-            {
-                name: 'Udemy PHP Course',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '2 Months',
-                advantages: [
-                    'Low cost',
-                    'Project-based',
-                    'Beginner friendly'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Modern PHP',
-                description: 'Learn PHP 8+ features and best practices',
-                icon: <FaPhp className="text-green-500" />
-            },
-            {
-                title: 'Object-Oriented',
-                description: 'Master OOP principles and patterns',
-                icon: <FaCode className="text-blue-500" />
-            },
-            {
-                title: 'MVC Architecture',
-                description: 'Build applications with proper structure',
-                icon: <FaServer className="text-purple-500" />
-            }
-        ],
-        savings: {
-            laravel: 4,
-            udemy: -86
-        },
-        careerPaths: [
-            'PHP Developer ($65k-$110k)',
-            'WordPress Engineer ($60k-$105k)',
-            'E-commerce Developer ($70k-$120k)'
-        ]
-    },
-    {
-        id: 7,
-        name: 'Next-Generation Web Development with Python',
-        icon: <FaPython className="text-red-500" />,
-        duration: '12 Months',
-        level: 'Beginner',
-        category: 'Beginner',
-        jobPlacementRate: 87,
-        mvitCost: {
-            total: 290,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Udemy Python Bootcamp',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 189,
-                duration: '4 Months',
-                advantages: [
-                    'Comprehensive',
-                    'Beginner friendly',
-                    'Self-paced'
-                ]
-            },
-            {
-                name: 'Real Python',
-                icon: <FaUniversity className="text-gray-400" />,
-                cost: 240,
-                duration: '6 Months',
-                advantages: [
-                    'Quality content',
-                    'Practical examples',
-                    'Regular updates'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Django & Flask',
-                description: 'Master both popular Python frameworks',
-                icon: <FaPython className="text-green-500" />
-            },
-            {
-                title: 'Database Integration',
-                description: 'Connect with SQL and NoSQL databases',
-                icon: <FaServer className="text-blue-500" />
-            },
-            {
-                title: 'Web Security',
-                description: 'Implement security best practices',
-                icon: <FaShieldAlt className="text-purple-500" />
-            }
-        ],
-        savings: {
-            udemy: -27,
-            realpython: 0
-        },
-        careerPaths: [
-            'Python Developer ($80k-$140k)',
-            'Backend Engineer ($85k-$145k)',
-            'Data Visualization Specialist ($75k-$130k)'
-        ]
-    },
-
-    // Business Certifications
-    {
-        id: 8,
-        name: 'Corporate Communication for IT Professionals',
-        icon: <FaUsers className="text-red-500" />,
-        duration: '9 Months',
-        level: 'Intermediate',
-        category: 'Business',
-        jobPlacementRate: 83,
-        mvitCost: {
-            total: 230,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Toastmasters',
-                icon: <FaUniversity className="text-gray-400" />,
-                cost: 120,
-                duration: 'Ongoing',
-                advantages: [
-                    'Peer feedback',
-                    'Practice opportunities',
-                    'Global network'
-                ]
-            },
-            {
-                name: 'Udemy Business Communication',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '3 Months',
-                advantages: [
-                    'Self-paced',
-                    'Comprehensive',
-                    'Affordable'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Tech Scenarios',
-                description: 'Communication tailored for IT professionals',
-                icon: <FaUsers className="text-green-500" />
-            },
-            {
-                title: 'Executive Communication',
-                description: 'Learn to communicate with leadership',
-                icon: <FaBriefcase className="text-blue-500" />
-            },
-            {
-                title: 'Presentation Mastery',
-                description: 'Deliver compelling technical presentations',
-                icon: <FaChartBar className="text-purple-500" />
-            }
-        ],
-        savings: {
-            toastmasters: -50,
-            udemy: -40
-        },
-        careerPaths: [
-            'IT Communications Manager ($70k-$125k)',
-            'Technical Writer ($60k-$110k)',
-            'Developer Advocate ($90k-$150k)'
-        ]
-    },
-    {
-        id: 9,
-        name: 'Office Management, AI and Prompt Engineering',
-        icon: <FaChalkboardTeacher className="text-red-500" />,
-        duration: '12 Months',
-        level: 'Intermediate',
-        category: 'Business',
-        jobPlacementRate: 84,
-        mvitCost: {
-            total: 290,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Udemy AI for Business',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 299,
-                duration: '6 Months',
-                advantages: [
-                    'Self-paced learning',
-                    'Practical examples',
-                    'Affordable'
-                ]
-            },
-            {
-                name: 'edX Business AI',
-                icon: <SiEdx className="text-blue-500" />,
-                cost: 1200,
-                duration: '12 Months',
-                advantages: [
-                    'University-backed',
-                    'Comprehensive curriculum',
-                    'Professional certificate'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'AI Automation',
-                description: 'Automate office tasks with AI',
-                icon: <FaRobot className="text-green-500" />
-            },
-            {
-                title: 'Prompt Engineering',
-                description: 'Master effective AI prompting',
-                icon: <FaBrain className="text-blue-500" />
-            },
-            {
-                title: 'Case Studies',
-                description: 'Real-world business applications',
-                icon: <FaBookOpen className="text-purple-500" />
-            }
-        ],
-        savings: {
-            udemy: 20,
-            edx: 80
-        },
-        careerPaths: [
-            'AI Operations Manager ($65k-$110k)',
-            'Executive Assistant ($60k-$95k)',
-            'Prompt Engineer ($80k-$130k)'
-        ]
-    },
-    {
-        id: 10,
-        name: 'Office Management and Work Ethics',
-        icon: <FaClipboardList className="text-red-500" />,
-        duration: '9 Months',
-        level: 'Beginner',
-        category: 'Business',
-        jobPlacementRate: 81,
-        mvitCost: {
-            total: 230,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'LinkedIn Learning',
-                icon: <FaUniversity className="text-gray-400" />,
-                cost: 240,
-                duration: '6 Months',
-                advantages: [
-                    'Professional network',
-                    'Variety of courses',
-                    'Certification'
-                ]
-            },
-            {
-                name: 'Udemy Office Admin',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '3 Months',
-                advantages: [
-                    'Affordable',
-                    'Practical skills',
-                    'Self-paced'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Modern Office Tech',
-                description: 'Learn latest office technologies',
-                icon: <FaLaptopCode className="text-green-500" />
-            },
-            {
-                title: 'Workplace Ethics',
-                description: 'Professional conduct and standards',
-                icon: <FaHandshake className="text-blue-500" />
-            },
-            {
-                title: 'Time Management',
-                description: 'Maximize productivity and efficiency',
-                icon: <FaClock className="text-purple-500" />
-            }
-        ],
-        savings: {
-            linkedin: 25,
-            udemy: -40
-        },
-        careerPaths: [
-            'Office Administrator ($45k-$75k)',
-            'Operations Manager ($60k-$100k)',
-            'Executive Assistant ($50k-$90k)'
-        ]
-    },
-
-    // Technology Certifications
-    {
-        id: 11,
-        name: 'Golang API Engineer',
-        icon: <FaGolang className="text-red-500" />,
-        duration: '18 Months',
-        level: 'Intermediate',
-        category: 'Technology',
-        jobPlacementRate: 88,
-        mvitCost: {
-            total: 410,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Udemy Go Masterclass',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 189,
-                duration: '3 Months',
-                advantages: [
-                    'Affordable',
-                    'Self-paced',
-                    'Beginner friendly'
-                ]
-            },
-            {
-                name: 'Pluralsight Path',
-                icon: <FaUniversity className="text-gray-400" />,
-                cost: 299,
-                duration: '4 Months',
-                advantages: [
-                    'Skill assessments',
-                    'Learning paths',
-                    'Enterprise focus'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Microservices',
-                description: 'Build scalable microservices architecture',
-                icon: <FaServer className="text-green-500" />
-            },
-            {
-                title: 'High-Performance APIs',
-                description: 'Design efficient API endpoints',
-                icon: <FaConnectdevelop className="text-blue-500" />
-            },
-            {
-                title: 'Cloud Deployment',
-                description: 'Deploy to major cloud platforms',
-                icon: <FaCloud className="text-purple-500" />
-            }
-        ],
-        savings: {
-            udemy: -90,
-            pluralsight: -20
-        },
-        careerPaths: [
-            'Backend Developer ($90k-$150k)',
-            'Cloud Engineer ($100k-$170k)',
-            'Microservices Architect ($120k-$200k)'
-        ]
-    },
-    {
-        id: 12,
-        name: 'Laravel Fullstack Engineer',
-        icon: <SiLaravel className="text-red-500" />,
-        duration: '18 Months',
-        level: 'Intermediate',
-        category: 'Technology',
-        jobPlacementRate: 86,
-        mvitCost: {
-            total: 410,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Laravel Official Training',
-                icon: <SiLaravel className="text-red-300" />,
-                cost: 249,
-                duration: '3 Months',
-                advantages: [
-                    'Official curriculum',
-                    'Community support',
-                    'Focused content'
-                ]
-            },
-            {
-                name: 'Udemy Laravel Course',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '2 Months',
-                advantages: [
-                    'Low cost',
-                    'Project-based',
-                    'Beginner friendly'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: 'Modern PHP',
-                description: 'Latest PHP techniques and features',
-                icon: <FaPhp className="text-green-500" />
-            },
-            {
-                title: 'Livewire/Inertia',
-                description: 'Build reactive frontends with Laravel',
-                icon: <FaCode className="text-blue-500" />
-            },
-            {
-                title: 'E-commerce',
-                description: 'Implement complete e-commerce solutions',
-                icon: <FaShoppingCart className="text-purple-500" />
-            }
-        ],
-        savings: {
-            laravel: -45,
-            udemy: -179
-        },
-        careerPaths: [
-            'PHP Fullstack Developer ($75k-$130k)',
-            'Web Application Architect ($90k-$150k)',
-            'E-commerce Engineer ($80k-$140k)'
-        ]
-    },
-    {
-        id: 13,
-        name: 'Research and Thesis Development',
-        icon: <FaSearch className="text-red-500" />,
-        duration: '18 Months',
-        level: 'Advanced',
-        category: 'Technology',
-        jobPlacementRate: 85,
-        mvitCost: {
-            total: 410,
-            monthly: 20,
-            admission: 50
-        },
-        competitors: [
-            {
-                name: 'Coursera Research Methods',
-                icon: <SiCoursera className="text-blue-500" />,
-                cost: 399,
-                duration: '6 Months',
-                advantages: [
-                    'Academic approach',
-                    'University-backed',
-                    'Structured curriculum'
-                ]
-            },
-            {
-                name: 'Udemy Academic Writing',
-                icon: <SiUdemy className="text-blue-400" />,
-                cost: 129,
-                duration: '3 Months',
-                advantages: [
-                    'Affordable',
-                    'Focused content',
-                    'Self-paced'
-                ]
-            }
-        ],
-        mvitAdvantages: [
-            {
-                title: '1-on-1 Advisor',
-                description: 'Personalized research guidance',
-                icon: <FaGraduationCap className="text-green-500" />
-            },
-            {
-                title: 'Writing Workshops',
-                description: 'Master academic writing techniques',
-                icon: <FaBookOpen className="text-blue-500" />
-            },
-            {
-                title: 'Publication Guidance',
-                description: 'Get help publishing your research',
-                icon: <FaAward className="text-purple-500" />
-            }
-        ],
-        savings: {
-            coursera: 10,
-            udemy: -179
-        },
-        careerPaths: [
-            'Research Scientist ($75k-$130k)',
-            'Academic Researcher ($65k-$110k)',
-            'Technical Analyst ($70k-$125k)'
-        ]
-    }
-];
-
 const stats = [
-    { value: '94%', label: 'Job Placement Rate' },
-    { value: '87%', label: 'Cost Savings vs Competitors' },
+    { value: '96%', label: 'Job Placement Rate' },
+    { value: '70%', label: 'Cost Savings vs Competitors' },
     { value: '200+', label: 'Industry Partners' },
     { value: '24/7', label: 'Student Support' }
 ];
 
 const testimonials = [
     {
-        quote: "The MVIT certification gave me the practical skills I needed to land my dream job at Tesla Robotics.",
-        name: "Muhammad Awais",
-        position: "Full Stack Development with Next.js",
+        quote: "The MCASCE certification transformed my career, enabling me to design cloud solutions that slashed costs by 45%.",
+        name: "Sarah Johnson",
+        position: "Cloud Solutions Architect",
         avatar: "/faculty/awais.jpg"
     },
     {
-        quote: "As a career switcher, the structured learning path and mentorship made all the difference in my transition to tech.",
-        name: "Daha Qalbi",
-        position: "MERN Stack Developer",
+        quote: "As a career switcher, MCASCE’s hands-on AWS, Azure, and GCP training gave me the edge employers wanted.",
+        name: "Michael Chen",
+        position: "DevOps Engineer",
         avatar: "/faculty/daha.jpg"
     },
     {
-        quote: "The AI certification's real-world projects were exactly what employers were looking for - I had multiple offers.",
-        name: "Ali Ijaz",
-        position: "Full Stack PHP Development",
+        quote: "MCASCE’s real-world projects landed me a $150k cloud architect role within months of completion.",
+        name: "Jessica Williams",
+        position: "Cloud Architect",
         avatar: "/faculty/ali.png"
     }
 ];
 
-export default function CertificationComparison() {
-    const [activeTab, setActiveTab] = useState('All');
+const careerPaths = [
+    {
+        title: "Full-Stack Software Engineer",
+        salary: "$80K – $120K",
+        freelance: "$50 – $80/hr",
+        description: "Build scalable applications integrating front-end and back-end with cloud services.",
+        icon: <FaCode className="text-blue-500 text-2xl" />
+    },
+    {
+        title: "Data Science Analyst",
+        salary: "$90K – $130K",
+        freelance: "$40 – $70/hr",
+        description: "Analyze data with statistical modeling and AI-driven insights for impactful decisions.",
+        icon: <FaChartBar className="text-green-500 text-2xl" />
+    },
+    {
+        title: "Machine Learning Systems Engineer",
+        salary: "$100K – $150K",
+        freelance: "$60 – $100/hr",
+        description: "Deploy and optimize ML models for high-performance production environments.",
+        icon: <FaBrain className="text-purple-500 text-2xl" />
+    },
+    {
+        title: "Deep Learning Research Engineer",
+        salary: "$120K – $180K",
+        freelance: "$80 – $120/hr",
+        description: "Pioneer advanced neural networks and cutting-edge AI research.",
+        icon: <FaGraduationCap className="text-red-500 text-2xl" />
+    },
+    {
+        title: "AI Solutions Architect",
+        salary: "$130K – $200K",
+        freelance: "$100 – $150/hr",
+        description: "Design end-to-end AI solutions tailored to business objectives.",
+        icon: <FaShieldAlt className="text-orange-500 text-2xl" />
+    },
+    {
+        title: "Cloud AI Infrastructure Engineer",
+        salary: "$100K – $160K",
+        freelance: "$70 – $120/hr",
+        description: "Manage scalable cloud platforms for AI workloads with high efficiency.",
+        icon: <FaCloud className="text-indigo-500 text-2xl" />
+    }
+];
 
-    const filteredCertifications = activeTab === 'All'
-        ? certificationComparison
-        : certificationComparison.filter(cert => cert.category === activeTab);
+const admissionSyllabus = [
+    "Lesson 1 Introduction to Autonomous Systems and Robotics",
+    "Lesson 2 Fundamentals of Systems Engineering",
+    "Lesson 3 Sensors and Data Acquisition",
+    "Lesson 4 Perception and Computer Vision",
+    "Lesson 5 Machine Learning for Autonomous Systems",
+    "Lesson 6 Control Systems and Dynamics",
+    "Lesson 7 Software Development for Robotics",
+    "Lesson 8 Next.js and Tailwind CSS for UX/UI",
+    "Lesson 9 Cloud Computing and IoT Integration",
+    "Lesson 10 Internet and Information Technology",
+    "Lesson 11 Database Management Systems (DBMS)",
+    "Lesson 12 Autonomous Navigation and Path Planning",
+    "Lesson 13 Ethical and Social Considerations",
+    "Lesson 14 Practical Applications and Case Studies",
+    "Lesson 15 Mathematics and Probability Foundations",
+    "Lesson 16 Research Methods and Problem Solving",
+    "Lesson 17 Test Preparation Tips"
+];
+
+const kgPrograms = [
+    {
+        term: "Term-0",
+        title: "Tiny Stars",
+        icon: <FaChild className="text-pink-500 text-3xl" />,
+        description: "Spark curiosity with play-based learning and foundational concepts."
+    },
+    {
+        term: "Term-I",
+        title: "Little Coders",
+        icon: <FaCode className="text-blue-500 text-3xl" />,
+        description: "Learn coding basics through fun, visual programming tools and games."
+    },
+    {
+        term: "Term-II",
+        title: "STEM Explorers",
+        icon: <FaMicroscope className="text-green-500 text-3xl" />,
+        description: "Dive into hands-on science, tech, engineering, and math adventures."
+    },
+    {
+        term: "Term-III",
+        title: "Entrepreneurs",
+        icon: <FaLightbulb className="text-yellow-500 text-3xl" />,
+        description: "Develop creative problem-solving and basic business skills."
+    },
+    {
+        term: "Term-IV",
+        title: "Phonics Wizards",
+        icon: <FaBookReader className="text-purple-500 text-3xl" />,
+        description: "Master reading fundamentals through phonics and literacy activities."
+    }
+];
+
+// Fee Structure Component for MCASCE
+const MCASCEFeeStructure = () => {
+    const discountTiers = [
+        { score: "90% and above", discount: "100% waiver", monthlyFee: "$0/month", note: "Only $70 registration fee" },
+        { score: "80% – 89%", discount: "75% waiver", monthlyFee: "$8.75/month", note: "" },
+        { score: "70% – 79%", discount: "50% waiver", monthlyFee: "$17.50/month", note: "" },
+        { score: "65% – 69%", discount: "35% waiver", monthlyFee: "$22.75/month", note: "" },
+        { score: "60% – 64%", discount: "No waiver", monthlyFee: "$35/month", note: "" }
+    ];
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-xl shadow-lg"
+        >
+            <h3 className="text-3xl font-bold mb-6 text-indigo-900">MCASCE Program Fee Structure</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-indigo-600 mb-2">$70</div>
+                    <div className="text-gray-700 font-medium">Registration Fee</div>
+                    <div className="text-sm text-gray-500 mt-2">One-time, non-refundable</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-indigo-600 mb-2">$35</div>
+                    <div className="text-gray-700 font-medium">Standard Monthly Fee</div>
+                    <div className="text-sm text-gray-500 mt-2">Before discounts</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-indigo-600 mb-2">24</div>
+                    <div className="text-gray-700 font-medium">Program Duration</div>
+                    <div className="text-sm text-gray-500 mt-2">Months (includes training)</div>
+                </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg mb-6">
+                <h4 className="text-xl font-semibold mb-4 text-gray-800">Merit-Based Tuition Discounts</h4>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Exam Score</th>
+                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Discount</th>
+                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Monthly Fee</th>
+                            <th className="px-4 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                        {discountTiers.map((tier, index) => (
+                            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{tier.score}</td>
+                                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-600">{tier.discount}</td>
+                                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-600">{tier.monthlyFee}</td>
+                                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-600">{tier.note}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="mt-4 text-sm text-gray-600">
+                    <p className="font-semibold">Additional Notes:</p>
+                    <ul className="list-disc list-inside mt-2 space-y-1">
+                        <li>Discounts apply only to monthly fees; $70 registration fee is mandatory.</li>
+                        <li>Maintain 75%+ in monthly assessments to retain discounts.</li>
+                        <li>Fees include cloud/AI lab access, mentorship, and certification.</li>
+                        <li>Score 90%+ in semester exams for a full next-semester fee waiver.</li>
+                    </ul>
+                </div>
+                <div className="mt-6 text-center">
+                    <Link href="/pages/apply" legacyBehavior>
+                        <a className="bg-indigo-600 text-white hover:bg-indigo-700 px-6 py-3 rounded-full font-bold text-lg">
+                            Apply Online for MCASCE
+                        </a>
+                    </Link>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+// Fee Structure Component for Kindergarten
+const KindergartenFeeStructure = () => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl shadow-lg"
+        >
+            <h3 className="text-3xl font-bold mb-6 text-purple-900">Kindergarten STEM Entrepreneurs Fees</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">$70</div>
+                    <div className="text-gray-700 font-medium">Registration Fee</div>
+                    <div className="text-sm text-gray-500 mt-2">One-time, non-refundable</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">$35</div>
+                    <div className="text-gray-700 font-medium">Monthly Fee</div>
+                    <div className="text-sm text-gray-500 mt-2">Per student</div>
+                </div>
+                <div className="bg-white p-6 rounded-lg text-center shadow-sm">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">48</div>
+                    <div className="text-gray-700 font-medium">Classes Per Year</div>
+                    <div className="text-sm text-gray-500 mt-2">12 weeks per term</div>
+                </div>
+            </div>
+            <div className="bg-white p-6 rounded-lg">
+                <h4 className="text-xl font-semibold mb-4 text-gray-800">Program Details</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h5 className="font-medium text-gray-800 mb-2">Program Structure</h5>
+                        <ul className="list-disc list-inside text-gray-600 space-y-1">
+                            <li>4 terms per year</li>
+                            <li>12 weeks per term</li>
+                            <li>36 classes per term</li>
+                            <li>3 sessions per week</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 className="font-medium text-gray-800 mb-2">What’s Included</h5>
+                        <ul className="list-disc list-inside text-gray-600 space-y-1">
+                            <li>All learning materials</li>
+                            <li>STEM activity kits</li>
+                            <li>Progress reports</li>
+                            <li>Certificate of completion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="mt-6 p-4 bg-purple-100 rounded-lg">
+                    <p className="text-purple-800 font-semibold">
+                        Special Offer: 15% discount on monthly fees for siblings
+                    </p>
+                </div>
+                <div className="mt-6 text-center">
+                    <Link href="/usai/apply" legacyBehavior>
+                        <a className="bg-purple-600 text-white hover:bg-purple-700 px-6 py-3 rounded-full font-bold text-lg">
+                            Apply Online for Kindergarten
+                        </a>
+                    </Link>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+// Admission Eligibility Component
+const AdmissionEligibility = () => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white p-8 rounded-xl shadow-lg"
+        >
+            <h3 className="text-3xl font-bold mb-6 text-indigo-900">Admission Test Eligibility</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 className="text-xl font-semibold mb-4 text-gray-800">Program Details</h4>
+                    <ul className="space-y-3">
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600"><strong>Program:</strong> Mansha Certified Autonomous Systems and Cloud Engineer (MCASCE)</span>
+                        </li>
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600"><strong>Duration:</strong> 24 months (1-month on-job training + 2-month final project)</span>
+                        </li>
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600"><strong>Test Fee:</strong> $5</span>
+                        </li>
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600"><strong>Language:</strong> Academic English proficiency</span>
+                        </li>
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600"><strong>Requirements:</strong> Laptop/PC + Internet</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 className="text-xl font-semibold mb-4 text-gray-800">Eligibility Requirements</h4>
+                    <ul className="space-y-3">
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600">Priority for Bachelor’s in CS, IT, Math, Stats, or Economics</span>
+                        </li>
+                        <li className="flex items-start">
+                            <FaStar className="text-indigo-500 mr-2 mt-1" />
+                            <span className="text-gray-600">Others: Strong programming/math foundation (self-taught or certified)</span>
+                        </li>
+                    </ul>
+                    <h4 className="text-xl font-semibold mt-6 mb-4 text-gray-800">Admission Test Syllabus</h4>
+                    <p className="text-gray-600 mb-2">Basics of Autonomous Systems & Robotics (BASR):</p>
+                    <ul className="list-disc list-inside text-gray-600 space-y-1">
+                        {admissionSyllabus.slice(0, 3).map((topic, index) => (
+                            <li key={index}>{topic}</li>
+                        ))}
+                        <li className="mt-1">And 6 more topics...</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="mt-6 text-center">
+                <Link href="/pages/apply" legacyBehavior>
+                    <a className="bg-indigo-600 text-white hover:bg-indigo-700 px-6 py-3 rounded-full font-bold text-lg">
+                        Apply Online for MCASCE
+                    </a>
+                </Link>
+            </div>
+        </motion.div>
+    );
+};
+
+// Career Paths Component
+const CareerPaths = () => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white p-8 rounded-xl shadow-lg"
+        >
+            <h3 className="text-3xl font-bold mb-6 text-indigo-900">Career Pathways</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {careerPaths.map((career, index) => (
+                    <div key={index} className="border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-shadow">
+                        <div className="flex items-start mb-4">
+                            <div className="mr-4">{career.icon}</div>
+                            <div>
+                                <h4 className="text-lg font-semibold text-gray-800">{career.title}</h4>
+                                <p className="text-indigo-600 font-medium">{career.salary}</p>
+                                <p className="text-blue-500 text-sm">{career.freelance} freelance</p>
+                            </div>
+                        </div>
+                        <p className="text-gray-600">{career.description}</p>
+                    </div>
+                ))}
+            </div>
+        </motion.div>
+    );
+};
+
+// Kindergarten Program Component
+const KindergartenProgram = () => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl shadow-lg"
+        >
+            <h3 className="text-3xl font-bold mb-6 text-purple-900">Kindergarten STEM Entrepreneurs</h3>
+            <div className="prose max-w-none mb-8">
+                <p className="text-lg text-gray-700 mb-6">
+                    Ignite young minds with USAI Kindergarten’s innovative program! Spanning four 12-week terms, with 36 classes per term and three sessions weekly, our curriculum fosters creativity and critical thinking through coding, STEM, entrepreneurship, and phonics.
+                </p>
+                <p className="text-lg text-gray-700 mb-6">
+                    From Tiny Stars to Phonics Wizards, students build essential skills for a tech-driven future, preparing them to thrive as future innovators and leaders.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+                {kgPrograms.map((program, index) => (
+                    <div key={index} className="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <div className="flex justify-center mb-3">{program.icon}</div>
+                        <h4 className="font-semibold text-gray-800">{program.term}</h4>
+                        <h5 className="text-lg font-bold text-purple-600 mb-2">{program.title}</h5>
+                        <p className="text-sm text-gray-600">{program.description}</p>
+                    </div>
+                ))}
+            </div>
+            <div className="bg-white p-6 rounded-lg">
+                <h4 className="text-xl font-semibold mb-4 text-gray-800">Program Structure</h4>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                    <li><strong>4 Terms:</strong> 12 weeks each</li>
+                    <li><strong>36 Classes:</strong> 3 sessions per week</li>
+                    <li><strong>Curriculum:</strong> Coding, STEM, entrepreneurship, phonics</li>
+                    <li><strong>Outcomes:</strong> Creativity, critical thinking, lifelong skills</li>
+                </ul>
+                <div className="mt-6 text-center">
+                    <Link href="/usai/apply" legacyBehavior>
+                        <a className="bg-purple-600 text-white hover:bg-purple-700 px-6 py-3 rounded-full font-bold text-lg">
+                            Apply Online for Kindergarten
+                        </a>
+                    </Link>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+export default function MVITTariffPage() {
+    const [expandedSyllabus, setExpandedSyllabus] = useState(false);
 
     return (
         <div className={`min-h-screen bg-gray-50 ${montserrat.className}`}>
-            {/* Hero Section with Red-Black Gradient */}
-            <div className="relative bg-gradient-to-br from-red-900 via-black to-red-900 text-white py-24 px-4 overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{
-                    backgroundImage: "url('/pattern.svg')",
-                    backgroundSize: '400px'
-                }}></div>
+            {/* Hero Section */}
+            <section className="relative bg-gradient-to-br from-indigo-900 to-blue-600 text-white py-32 px-4 overflow-hidden">
+                <div className="absolute inset-0 opacity-10 bg-[url('/pattern-tech.jpg')] bg-cover bg-center"></div>
                 <div className="container mx-auto relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-6xl font-bold mb-6"
+                        className="text-5xl md:text-6xl font-bold mb-6"
                     >
-                        Industry-Recognized Tech Certifications
+                        MVIT Tariff & MCASCE Certification
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
-                        className="text-xl md:text-2xl max-w-3xl mx-auto mb-8"
+                        className="text-2xl md:text-3xl mb-8"
                     >
-                        Get certified for 87% less than competitors with better career outcomes
+                        Admission Fee: $70 | Monthly Fee: $35 for All Programs
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
-                        className="flex flex-col sm:flex-row justify-center gap-4"
+                        className="max-w-3xl mx-auto"
                     >
-                        <Link href="/pages/apply" legacyBehavior>
-                            <a className="bg-white text-red-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg text-center">
-                                Enroll Now
+                        <h2 className="text-3xl md:text-4xl font-semibold mb-6">Master MCASCE: Lead the Future</h2>
+                        <p className="text-lg md:text-xl mb-8">
+                            The Mansha Certified Autonomous Systems and Cloud Engineer (MCASCE) is the industry’s top-trending certification, empowering you with skills in robotics, AI, and cloud computing to shape tomorrow’s innovations.
+                        </p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <Link href="/pages/apply" legacyBehavior>
+                                <a className="bg-yellow-400 text-indigo-900 hover:bg-yellow-300 px-8 py-4 rounded-full font-bold text-lg">
+                                    Apply for MCASCE
+                                </a>
+                            </Link>
+                            <Link href="/usai/apply" legacyBehavior>
+                                <a className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 rounded-full font-bold text-lg">
+                                    Apply for Kindergarten
+                                </a>
+                            </Link>
+                            <a href="#admission" className="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-900 px-8 py-4 rounded-full font-bold text-lg">
+                                Explore Details
                             </a>
-                        </Link>
-                        <Link href={'/pages/study/compare-all-certifications'} className="bg-transparent border-2 border-white hover:bg-white hover:text-red-900 px-8 py-4 rounded-lg font-bold text-lg">
-                            Compare All Certifications
-                        </Link>
+                        </div>
                     </motion.div>
                 </div>
-            </div>
+            </section>
 
-            {/* MVIT Fee Structure Banner */}
-            <div className="bg-white shadow-lg -mt-10 mx-4 rounded-xl z-20 relative">
-                <div className="container mx-auto p-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center">
-                        <div className="mb-4 md:mb-0">
-                            <h3 className="text-xl font-bold text-gray-900">MVIT Standard Fee Structure</h3>
-                            <p className="text-gray-600">All programs follow the same affordable pricing</p>
+            {/* Stats Section */}
+            <section className="container mx-auto py-16 px-4">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                >
+                    {stats.map((stat, index) => (
+                        <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div className="text-3xl font-bold text-indigo-600 mb-2">{stat.value}</div>
+                            <div className="text-gray-7
+System: 00">{stat.label}</div>
                         </div>
-                        <div className="flex flex-wrap gap-6">
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-red-600">$50</p>
-                                <p className="text-gray-600">Admission Fee</p>
-                            </div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-red-600">$20</p>
-                                <p className="text-gray-600">Monthly Fee</p>
-                            </div>
-                            <div className="text-center">
-                                <p className="text-3xl font-bold text-red-600">Flexible</p>
-                                <p className="text-gray-600">Payment Options</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    ))}
+                </motion.div>
+            </section>
 
-            {/* Certification Comparison */}
-            <div className="container mx-auto py-20 px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        How MVIT Certifications Compare
-                    </h2>
+            {/* Program Overview */}
+            <section className="container mx-auto py-16 px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">Why Choose MCASCE?</h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        We provide superior education at a fraction of the cost with better career outcomes
+                        Unlock cutting-edge skills in autonomous systems and cloud engineering with a certification designed for industry leaders.
                     </p>
                 </div>
-
-                {/* Comparison Tabs */}
-                <div className="mb-12">
-                    <div className="flex flex-wrap justify-center gap-2 mb-8">
-                        <button
-                            onClick={() => setActiveTab('All')}
-                            className={`px-6 py-3 rounded-lg font-semibold ${
-                                activeTab === 'All'
-                                    ? 'bg-red-900 text-white'
-                                    : 'bg-gray-200 hover:bg-gray-300'
-                            }`}
-                        >
-                            All Certifications
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('Advanced')}
-                            className={`px-6 py-3 rounded-lg font-semibold ${
-                                activeTab === 'Advanced'
-                                    ? 'bg-red-900 text-white'
-                                    : 'bg-gray-200 hover:bg-gray-300'
-                            }`}
-                        >
-                            Advanced
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('Beginner')}
-                            className={`px-6 py-3 rounded-lg font-semibold ${
-                                activeTab === 'Beginner'
-                                    ? 'bg-red-900 text-white'
-                                    : 'bg-gray-200 hover:bg-gray-300'
-                            }`}
-                        >
-                            Beginner
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('Business')}
-                            className={`px-6 py-3 rounded-lg font-semibold ${
-                                activeTab === 'Business'
-                                    ? 'bg-red-900 text-white'
-                                    : 'bg-gray-200 hover:bg-gray-300'
-                            }`}
-                        >
-                            Business
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('Technology')}
-                            className={`px-6 py-3 rounded-lg font-semibold ${
-                                activeTab === 'Technology'
-                                    ? 'bg-red-900 text-white'
-                                    : 'bg-gray-200 hover:bg-gray-300'
-                            }`}
-                        >
-                            Technology
-                        </button>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-white p-8 rounded-xl shadow-lg"
+                >
+                    <div className="prose max-w-none">
+                        <p className="text-lg text-gray-700 mb-6">
+                            The <strong>MCASCE certification</strong> is your gateway to mastering robotics, AI, and cloud computing. Learn to design intelligent, scalable systems for industries like autonomous vehicles, smart manufacturing, and IoT.
+                        </p>
+                        <p className="text-lg text-gray-700 mb-6">
+                            With hands-on labs, real-world projects, and expert mentorship, you’ll gain proficiency in ROS, AWS, TensorFlow, and more, positioning you at the forefront of technological innovation.
+                        </p>
+                        <p className="text-lg text-gray-700">
+                            Join a global community of innovators and accelerate your career with a credential that employers trust.
+                        </p>
+                        <div className="mt-6 text-center">
+                            <Link href="/pages/apply" legacyBehavior>
+                                <a className="bg-indigo-600 text-white hover:bg-indigo-700 px-6 py-3 rounded-full font-bold text-lg">
+                                    Apply Online for MCASCE
+                                </a>
+                            </Link>
+                        </div>
                     </div>
+                </motion.div>
+            </section>
 
-                    {/* Certification Cards - 2 Column Layout */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {filteredCertifications.map((certification) => (
-                            <motion.div
-                                key={certification.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow"
-                            >
-                                {/* Certification Header */}
-                                <div className="bg-gradient-to-r from-red-900 to-black p-6 text-white">
-                                    <div className="flex items-start justify-between">
-                                        <div className="flex items-center">
-                                            <div className="mr-4 text-4xl">
-                                                {certification.icon}
-                                            </div>
-                                            <div>
-                                                <h3 className="text-2xl font-bold">{certification.name}</h3>
-                                                <div className="flex items-center mt-2">
-                          <span className="bg-white/20 px-3 py-1 rounded-full text-sm mr-3">
-                            {certification.duration}
-                          </span>
-                                                    <span className="bg-white/20 px-3 py-1 rounded-full text-sm">
-                            {certification.level}
-                          </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="bg-yellow-400 text-red-900 px-3 py-1 rounded-full text-sm font-bold">
-                                            {certification.jobPlacementRate}% Placement
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Comparison Content */}
-                                <div className="p-6">
-                                    {/* Cost Comparison */}
-                                    <div className="mb-8">
-                                        <h4 className="text-lg font-bold text-gray-800 mb-4">Cost Comparison</h4>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                            {/* MVIT Cost */}
-                                            <div className="bg-red-50 p-4 rounded-lg border border-red-100">
-                                                <p className="text-sm text-red-800 font-semibold mb-1">MVIT</p>
-                                                <p className="text-2xl font-bold text-red-900">${certification.mvitCost.total}</p>
-                                                <p className="text-sm text-gray-600">
-                                                    ${certification.mvitCost.monthly}/mo + ${certification.mvitCost.admission} fee
-                                                </p>
-                                            </div>
-
-                                            {/* Competitor Costs */}
-                                            {certification.competitors.map((competitor, idx) => (
-                                                <div key={idx} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                                    <div className="flex items-center mb-1">
-                                                        {competitor.icon}
-                                                        <p className="text-sm font-semibold text-gray-800 ml-2">{competitor.name}</p>
-                                                    </div>
-                                                    <p className="text-2xl font-bold text-gray-900">${competitor.cost}</p>
-                                                    <p className="text-sm text-gray-600">{competitor.duration}</p>
-                                                    <div className="mt-2">
-                            <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">
-                              Save {certification.savings[Object.keys(certification.savings)[idx]]}%
-                            </span>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Advantages */}
-                                    <div className="mb-8">
-                                        <h4 className="text-lg font-bold text-gray-800 mb-4">Why Choose MVIT</h4>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                            {certification.mvitAdvantages.map((advantage, idx) => (
-                                                <div key={idx} className="bg-white p-4 rounded-lg border border-gray-200">
-                                                    <div className="text-2xl mb-2">
-                                                        {advantage.icon}
-                                                    </div>
-                                                    <h5 className="font-semibold text-gray-800">{advantage.title}</h5>
-                                                    <p className="text-sm text-gray-600">{advantage.description}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Career Paths */}
-                                    <div>
-                                        <h4 className="text-lg font-bold text-gray-800 mb-3">Career Outcomes</h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {certification.careerPaths.map((path, idx) => (
-                                                <span key={idx} className="bg-green-50 text-green-800 px-3 py-1 rounded-full text-sm">
-                          {path}
-                        </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Footer */}
-                                <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
-                                    <Link href="/pages/apply" legacyBehavior>
-                                        <a className="block w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold text-center">
-                                            Enroll Now
-                                        </a>
-                                    </Link>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Testimonials */}
-                <div className="bg-gray-100 rounded-2xl p-12 my-16">
-                    <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                        Success Stories From Our Graduates
+            {/* Kindergarten Program Section */}
+            <section className="container mx-auto py-16 px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-4">
+                        Kindergarten STEM Entrepreneurs Program
                     </h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Inspire the next generation with a program that blends coding, STEM, and creativity.
+                    </p>
+                </div>
+                <KindergartenProgram />
+            </section>
+
+            {/* Admission Eligibility */}
+            <section id="admission" className="container mx-auto py-16 px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">Admission Information</h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Start your journey with MVIT’s accessible and merit-based admission process.
+                    </p>
+                </div>
+                <AdmissionEligibility />
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-8 bg-white p-8 rounded-xl shadow-lg"
+                >
+                    <h4 className="text-xl font-semibold mb-4 text-gray-800">Full Admission Test Syllabus</h4>
+                    <p className="text-gray-600 mb-4">
+                        The <Link className={'text-blue-500 font-bold '} href={'https://github.com/drsagher/MCASCE/blob/main/00_BASR/Readme.md'} target={'_blank'}>BASR syllabus</Link> covers essential concepts in robotics, automation, and intelligent systems.
+                    </p>
+                    {!expandedSyllabus ? (
+                        <button
+                            onClick={() => setExpandedSyllabus(true)}
+                            className="text-indigo-600 hover:text-indigo-800 font-medium"
+                        >
+                            Show Full Syllabus →
+                        </button>
+                    ) : (
+                        <div>
+                            <ul className="list-disc list-inside text-gray-600 space-y-2">
+                                {admissionSyllabus.map((topic, index) => (
+                                    <li key={index}>{topic}</li>
+                                ))}
+                            </ul>
+                            <p className="mt-4 text-sm text-gray-500">
+                                BASR ensures a strong foundation for AI-driven robotics and cloud-enabled autonomy.
+                            </p>
+                            <button
+                                onClick={() => setExpandedSyllabus(false)}
+                                className="mt-4 text-indigo-600 hover:text-indigo-800 font-medium"
+                            >
+                                Show Less
+                            </button>
+                        </div>
+                    )}
+                </motion.div>
+            </section>
+
+            {/* Fee Structures */}
+            <section className="container mx-auto py-16 px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">Tuition & Fees</h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Affordable, merit-based pricing for MCASCE and Kindergarten programs.
+                    </p>
+                </div>
+                <MCASCEFeeStructure />
+                <div className="mt-12">
+                    <KindergartenFeeStructure />
+                </div>
+            </section>
+
+            {/* Career Paths Section */}
+            <section className="container mx-auto py-16 px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">Career Opportunities</h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        MCASCE opens doors to lucrative roles in autonomous systems and cloud engineering.
+                    </p>
+                </div>
+                <CareerPaths />
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-8 bg-indigo-50 p-6 rounded-xl"
+                >
+                    <h4 className="text-xl font-semibold mb-3 text-gray-800">Key Takeaways</h4>
+                    <ul className="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Freelance Rates:</strong> $40–$150/hour for AI and cloud projects</li>
+                        <li><strong>Leadership Roles:</strong> Progress to CTO or VP positions</li>
+                        <li><strong>Startup Demand:</strong> High need for deep learning expertise</li>
+                        <li><strong>Global Reach:</strong> Skills transferable across US, EU, and APAC markets</li>
+                    </ul>
+                </motion.div>
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="bg-gray-100 py-16 px-4">
+                <div className="container mx-auto">
+                    <h2 className="text-3xl font-bold text-center text-indigo-900 mb-12">Graduate Success Stories</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {testimonials.map((testimonial, index) => (
                             <motion.div
@@ -1186,12 +652,10 @@ export default function CertificationComparison() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="bg-white p-8 rounded-xl shadow-md"
+                                className="bg-white p-8 rounded-xl shadow-lg"
                             >
-                                <FaQuoteLeft className="text-gray-300 text-2xl mb-4" />
-                                <p className="text-gray-700 italic mb-6">
-                                    &quot;{testimonial.quote}&quot;
-                                </p>
+                                <FaQuoteLeft className="text-gray-300 text-xl mb-4" />
+                                <p className="text-gray-700 italic mb-6">&quot;{testimonial.quote}&quot;</p>
                                 <div className="flex items-center">
                                     <Image
                                         src={testimonial.avatar}
@@ -1209,25 +673,47 @@ export default function CertificationComparison() {
                         ))}
                     </div>
                 </div>
+            </section>
 
-                {/* Final CTA */}
-                <div className="bg-gradient-to-br from-red-900 via-black to-red-900 rounded-2xl p-12 text-center text-white">
-                    <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Career?</h2>
-                    <p className="text-xl mb-8 max-w-2xl mx-auto">
-                        Join thousands of students who`&apos;ve launched successful tech careers with MVIT certifications
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <Link href="/pages/apply" legacyBehavior>
-                            <a className="bg-white text-red-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg">
-                                Enroll Now
-                            </a>
-                        </Link>
-                        <button className="bg-transparent border-2 border-white hover:bg-white hover:text-red-900 px-8 py-4 rounded-lg font-bold text-lg">
-                            Speak to an Advisor
-                        </button>
-                    </div>
-                </div>
-            </div>
+            {/* Final CTA */}
+            <section className="bg-gradient-to-br from-indigo-900 to-blue-600 rounded-2xl p-12 text-center text-white mx-4 my-16">
+                <motion.h2
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl font-bold mb-6"
+                >
+                    Shape the Future with MVIT
+                </motion.h2>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="text-xl mb-8 max-w-2xl mx-auto"
+                >
+                    Join our MCASCE or Kindergarten programs and unlock your potential with affordable, merit-based education.
+                </motion.p>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="flex flex-col sm:flex-row justify-center gap-4"
+                >
+                    <Link href="/pages/apply" legacyBehavior>
+                        <a className="bg-yellow-400 text-indigo-900 hover:bg-yellow-300 px-8 py-4 rounded-full font-bold text-lg">
+                            Apply for MCASCE
+                        </a>
+                    </Link>
+                    <Link href="/usai/apply" legacyBehavior>
+                        <a className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 rounded-full font-bold text-lg">
+                            Apply for Kindergarten
+                        </a>
+                    </Link>
+                    <button className="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-900 px-8 py-4 rounded-full font-bold text-lg">
+                        Download Syllabus
+                    </button>
+                </motion.div>
+            </section>
         </div>
     );
 }

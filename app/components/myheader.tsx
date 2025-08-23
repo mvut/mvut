@@ -76,19 +76,21 @@ export default function Header() {
     };
 
     const newsItems = [
-        "Apply for MCASCE Eligibility Test",
+        "Learning AI is Mandatory",
+        "Apply for MCASCE Eligibility Test till 15 Sep",
         "Eligibility Test Fee - $5",
         "Admission Fee- $70, Monthly Fee-$35",
     ];
 
     const mainNavItems = [
-        { title: 'Programs', href: '/pages/study' },
-        { title: 'Faculties', href: '/pages/faculty' },
-        { title: 'Tariff', href: '/pages/study/fee' },
-        // { title: 'Articles', href: '/pages/articles' },
+        { title: 'MCASCE', href: '/pages/mcasce' },
+        { title: 'USAI', href: '/usai' },
     ];
 
     const productItems = [
+        { title: 'Programs', href: '/pages/study' },
+        { title: 'Faculties', href: '/pages/faculty' },
+        { title: 'Tariff', href: '/pages/study/fee' },
         { title: 'Careers', href: '/pages/mycareer' },
         { title: 'AI Education', href: '/pages/aie' },
         { title: 'ELITE Certification', href: '/pages/elite' },
@@ -102,7 +104,6 @@ export default function Header() {
         { title: 'Honorary Ph.D.', href: '/pages/honoraryphd' },
         { title: 'Degree Verification', href: '/verify' },
         { title: 'Admitted Candidates', href: '/pages/admlst' },
-        { title: 'United School of AI', href: '/usai' },
         { title: 'Quality Assurance Commission', href: '/qac' },
         { title: 'Success Stories', href: '/pages/stories' },
         { title: 'Trainings', href: '/pages/trainings' },
@@ -190,7 +191,7 @@ export default function Header() {
                                 <motion.div whileHover={{ scale: 1.05 }}>
                                     <Image src={Logo} alt="MVIT Logo" width={50} height={50} className="object-contain" />
                                 </motion.div>
-                                <span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">MVIT</span>
+                                {/*<span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">MVIT</span>*/}
                             </Link>
                         </motion.div>
 
@@ -224,7 +225,7 @@ export default function Header() {
                                         aria-label="Toggle Products Dropdown"
                                         aria-expanded={showProducts}
                                     >
-                                        Projects
+                                        Education
                                         <motion.span animate={{ rotate: showProducts ? 180 : 0 }} transition={{ duration: 0.3 }}>
                                             <FaChevronDown className="text-xs mt-0.5" />
                                         </motion.span>
@@ -315,13 +316,13 @@ export default function Header() {
 
                         <div className="hidden md:flex items-center gap-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Link href="/mlms" className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2 rounded-full font-medium hover:from-blue-600 hover:to-blue-700 transition-all">
-                                    MLMS <FaArrowRight className="text-sm" />
-                                </Link>
+                                {/*<Link href="/mlms" className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2 rounded-full font-medium hover:from-blue-600 hover:to-blue-700 transition-all">*/}
+                                {/*    MLMS <FaArrowRight className="text-sm" />*/}
+                                {/*</Link>*/}
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link href="/pages/apply" className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2 rounded-full font-medium hover:from-green-600 hover:to-green-700 transition-all">
-                                    Apply Now <FaArrowRight className="text-sm" />
+                                    Get Started with AI <FaArrowRight className="text-sm" />
                                 </Link>
                             </motion.div>
                         </div>
@@ -384,9 +385,9 @@ export default function Header() {
                                 </div>
 
                                 <div className="pt-4 flex flex-col gap-3">
-                                    <Link href="/mlms" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium">
-                                        MLMS Login <FaArrowRight />
-                                    </Link>
+                                    {/*<Link href="/mlms" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium">*/}
+                                    {/*    MLMS Login <FaArrowRight />*/}
+                                    {/*</Link>*/}
                                     <Link href="/pages/apply" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-full font-medium">
                                         Apply Now <FaArrowRight />
                                     </Link>

@@ -60,17 +60,17 @@ export default function ResearchComponent() {
     const courses = [
         {
             name: "K.G. STEM Entrepreneurs",
-            price: "$20/month",
+            price: "$35/month",
             duration: "60 Weeks"
         },
         {
             name: "Certified AI Developer",
-            price: "$20/month",
+            price: "$35/month",
             duration: "72 Weeks"
         },
         {
             name: "Robotics Engineer",
-            price: "$20/month",
+            price: "$35/month",
             duration: "96 Weeks"
         }
     ];
@@ -136,7 +136,7 @@ export default function ResearchComponent() {
                 >
                     <div className="text-center mb-8">
                         <h3 className="text-2xl font-bold text-indigo-900 mb-2">Affordable Programs</h3>
-                        <p className="text-gray-700">$50 admission fee for all programs</p>
+                        <p className="text-gray-700">$70 admission fee for all programs</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

@@ -143,7 +143,7 @@ const studyPrograms: StudyProgram[] = [
         title: 'Kindergarten (K.G.) STEM Entrepreneurs',
         description: 'Inspire young innovators with STEM fundamentals and entrepreneurial thinking skills.',
         icon: <FaChalkboardTeacher className="text-4xl" />,
-        link: '/study/kg-stem',
+        link: '/usai',
         gradient: 'from-blue-600 to-cyan-700'
     },
     {

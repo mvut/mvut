@@ -105,7 +105,7 @@ const ageGroups: AgeGroup[] = [
 const pricingTiers: PricingTier[] = [
   {
     name: 'Starter',
-    price: '$50',
+    price: '$70',
     period: 'one-time',
     features: [
       'Lifetime access to core curriculum',
@@ -119,7 +119,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: 'Professional',
-    price: '$20',
+    price: '$35',
     period: 'month',
     features: [
       'All Starter features',
@@ -134,7 +134,7 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: 'Enterprise',
-    price: '$250',
+    price: '$490',
     period: 'year',
     features: [
       'All Professional features',
@@ -413,7 +413,7 @@ const AIEducationPage = () => {
                     className="relative group inline-flex items-center justify-center"
                 >
                 <span className="relative z-10 px-8 py-3 bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-full font-medium text-white group-hover:from-yellow-500 group-hover:to-yellow-700 transition-all duration-300 shadow-lg group-hover:shadow-yellow-500/30 whitespace-nowrap">
-                  Enroll Now - $50
+                  Enroll Now - $70
                 </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-yellow-900 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-md"></span>
                 </Link>
@@ -886,7 +886,7 @@ const AIEducationPage = () => {
                     className="relative group inline-flex items-center justify-center"
                 >
                 <span className="relative z-10 px-8 py-3 bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-full font-medium text-white group-hover:from-yellow-500 group-hover:to-yellow-700 transition-all duration-300 shadow-lg group-hover:shadow-yellow-500/30 whitespace-nowrap">
-                  Enroll Now - $50
+                  Enroll Now - $70
                 </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-yellow-900 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-md"></span>
                 </Link>
