@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGraduationCap, FaRocket, FaArrowRight } from "react-icons/fa";
+import { FaGraduationCap, FaArrowRight } from "react-icons/fa";
 import { MdScience } from "react-icons/md";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
+import { useEffect, useState } from "react";
 
 const roboto = Roboto({
     weight: ["400", "700"],
@@ -12,6 +13,12 @@ const roboto = Roboto({
 });
 
 export default function ProgramsIntro() {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     const cardVariants = {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0 },
@@ -22,30 +29,33 @@ export default function ProgramsIntro() {
             {/* Animated Gradient Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1a0000] to-[#2d0000] animate-gradient-xy z-0"></div>
 
-            {/* Animated particles */}
-            <div className="absolute inset-0 z-0">
-                {[...Array(15)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-2 h-2 bg-red-600 rounded-full opacity-30"
-                        initial={{
-                            x: Math.random() * 100 + 'vw',
-                            y: Math.random() * 100 + 'vh'
-                        }}
-                        animate={{
-                            x: [null, Math.random() * 100 + 'vw'],
-                            y: [null, Math.random() * 100 + 'vh']
-                        }}
-                        transition={{
-                            duration: Math.random() * 10 + 10,
-                            repeat: Infinity,
-                            repeatType: "reverse"
-                        }}
-                    />
-                ))}
-            </div>
+            {/* Animated particles - Only render on client side */}
+            {isClient && (
+                <div className="absolute inset-0 z-0">
+                    {[...Array(15)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute w-2 h-2 bg-red-600 rounded-full opacity-30"
+                            initial={{
+                                x: Math.random() * 100 + 'vw',
+                                y: Math.random() * 100 + 'vh'
+                            }}
+                            animate={{
+                                x: [null, Math.random() * 100 + 'vw'],
+                                y: [null, Math.random() * 100 + 'vh']
+                            }}
+                            transition={{
+                                duration: Math.random() * 10 + 10,
+                                repeat: Infinity,
+                                repeatType: "reverse"
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
 
             <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+                {/* ... rest of your component remains the same ... */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -107,9 +117,9 @@ export default function ProgramsIntro() {
                             </p>
 
                             <div className="flex justify-between items-center">
-                                <span className="text-sm font-medium text-red-400 bg-red-900/30 px-3 py-1 rounded-full border border-red-800/20">
-                                    High Industry Demand
-                                </span>
+                <span className="text-sm font-medium text-red-400 bg-red-900/30 px-3 py-1 rounded-full border border-red-800/20">
+                  High Industry Demand
+                </span>
                                 <Link
                                     href="/pages/apply"
                                     className="inline-flex items-center bg-gradient-to-r from-red-700 to-red-900 text-white px-5 py-3 rounded-xl shadow-lg hover:shadow-red-900/30 transition-all group-hover:gap-2 gap-1 border border-red-700/30"
@@ -151,9 +161,9 @@ export default function ProgramsIntro() {
                             </p>
 
                             <div className="flex justify-between items-center">
-                                <span className="text-sm font-medium text-red-400 bg-red-900/30 px-3 py-1 rounded-full border border-red-800/20">
-                                    Future Innovators
-                                </span>
+                <span className="text-sm font-medium text-red-400 bg-red-900/30 px-3 py-1 rounded-full border border-red-800/20">
+                  Future Innovators
+                </span>
                                 <Link
                                     href="/usai/apply"
                                     className="inline-flex items-center bg-gradient-to-r from-red-700 to-red-900 text-white px-5 py-3 rounded-xl shadow-lg hover:shadow-red-900/30 transition-all group-hover:gap-2 gap-1 border border-red-700/30"
@@ -182,20 +192,20 @@ export default function ProgramsIntro() {
             </div>
 
             <style jsx>{`
-                @keyframes gradient-xy {
-                    0%, 100% {
-                        background-position: 0% 50%;
-                        background-size: 200% 200%;
-                    }
-                    50% {
-                        background-position: 100% 50%;
-                        background-size: 200% 200%;
-                    }
-                }
-                .animate-gradient-xy {
-                    animation: gradient-xy 15s ease infinite;
-                }
-            `}</style>
+        @keyframes gradient-xy {
+          0%, 100% {
+            background-position: 0% 50%;
+            background-size: 200% 200%;
+          }
+          50% {
+            background-position: 100% 50%;
+            background-size: 200% 200%;
+          }
+        }
+        .animate-gradient-xy {
+          animation: gradient-xy 15s ease infinite;
+        }
+      `}</style>
         </section>
     );
 }

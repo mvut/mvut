@@ -283,7 +283,7 @@ export default function ApplicationForm(){
                             {/*<option value="Excellence in Language and Innovation Testing Evaluation">Excellence in Language and Innovation Testing Evaluation</option>*/}
                             {/*<option value="Mansha Robotics and Software Engineer">Mansha Robotics and Software Engineer</option>*/}
                             {/*<option value="Mansha Certified AI Agents Developer">Mansha Certified AI Agents Developer</option>*/}
-                            {/*<option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>*/}
+                            <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>
                             {/*<option value="Mansha Certified Blockchain Technician">Mansha Certified Blockchain Technician</option>*/}
                             {/*<option value="Full Stack Development with Next.js">Full Stack Development with Next.js</option>*/}
                             {/*<option value="Next-Generation Web Development with Python">Next-Generation Web Development with Python</option>*/}
@@ -298,6 +298,8 @@ export default function ApplicationForm(){
                             {/*<option value="SDLC Process Architect Certification">SDLC Process Architect Certification</option>*/}
                             {/*<option value="Certified Software Product Designer">Certified Software Product Designer</option>*/}
                             {/*<option value="UX/UI Designer">UX/UI Designer</option>*/}
+
+                            <option value="Basics of Autonomous Systems & Robotics">Basics of Autonomous Systems & Robotics (MCASCE Admission Test)</option>
                             <option value="Mansha Certified Autonomous Systems and Cloud Engineer">Mansha Certified Autonomous Systems and Cloud Engineer</option>
                         </select>
                     </motion.div>

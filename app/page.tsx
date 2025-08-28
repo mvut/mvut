@@ -7,10 +7,12 @@ import NewsAndEvents from "@/app/components/news";
 import StudyAreaComponent from "@/app/components/studyarea";
 import FounderMessage from "@/app/components/founder";
 import ProgramsIntro from "@/app/components/certificates";
+import FloatingAd from "@/app/components/ad";
 
 export default function Home() {
   return (
     <main >
+        <FloatingAd/>
         <NavComponent/>
         <ProgramsIntro />
         <FounderMessage/>

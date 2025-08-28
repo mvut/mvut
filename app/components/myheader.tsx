@@ -76,10 +76,10 @@ export default function Header() {
     };
 
     const newsItems = [
-        "Learning AI is Mandatory",
-        "Apply for MCASCE Eligibility Test till 15 Sep",
+        "Apply for MCASCE Eligibility Test till 27 Sep",
         "Eligibility Test Fee - $5",
-        "Admission Fee- $70, Monthly Fee-$35",
+        "MCASCE Admission Fee- $70, Monthly Fee-$35",
+        "Start your AI career today ***",
     ];
 
     const mainNavItems = [
