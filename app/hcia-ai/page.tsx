@@ -25,289 +25,367 @@ const OnlineTest = () => {
 
     // Dummy questions with correct answers (unchanged)
     const questions = [
-        {
-            "id": 1,
-            "question": "Which of the following is a correct file extension for Python scripts?",
-            "options": [".py", ".python", ".pt", ".p"],
-            "correctAnswer": ".py"
-        },
-        {
-            "id": 2,
-            "question": "What is the output of print(2 ** 3) in Python?",
-            "options": ["6", "8", "9", "None of the above"],
-            "correctAnswer": "8"
-        },
-        {
-            "id": 3,
-            "question": "Which data type is mutable in Python?",
-            "options": ["Tuple", "String", "List", "Integer"],
-            "correctAnswer": "List"
-        },
-        {
-            "id": 4,
-            "question": "How do you create a function in Python?",
-            "options": ["def myFunction():", "function myFunction():", "create myFunction():", "define myFunction():"],
-            "correctAnswer": "def myFunction():"
-        },
-        {
-            "id": 5,
-            "question": "Which keyword is used to handle exceptions in Python?",
-            "options": ["try", "catch", "error", "except"],
-            "correctAnswer": "try"
-        },
-        {
-            "id": 6,
-            "question": "Which of the following is NOT an AI domain?",
-            "options": ["Natural Language Processing", "Computer Vision", "Mechanical Engineering", "Reinforcement Learning"],
-            "correctAnswer": "Mechanical Engineering"
-        },
-        {
-            "id": 7,
-            "question": "What does NLP stand for in AI?",
-            "options": ["Neural Language Processing", "Natural Language Processing", "New Language Protocol", "Natural Logic Processing"],
-            "correctAnswer": "Natural Language Processing"
-        },
-        {
-            "id": 8,
-            "question": "Which AI technique enables machines to interpret visual information from the world?",
-            "options": ["Speech Recognition", "Computer Vision", "Robotics", "Data Mining"],
-            "correctAnswer": "Computer Vision"
-        },
-        {
-            "id": 9,
-            "question": "Which algorithm is commonly used in supervised learning for classification tasks?",
-            "options": ["K-Means Clustering", "Decision Trees", "Principal Component Analysis", "Apriori Algorithm"],
-            "correctAnswer": "Decision Trees"
-        },
-        {
-            "id": 10,
-            "question": "What is Reinforcement Learning based on?",
-            "options": ["Feedback in the form of rewards or penalties", "Labeled datasets", "Unlabeled data", "Statistical models only"],
-            "correctAnswer": "Feedback in the form of rewards or penalties"
-        },
-        {
-            "id": 11,
-            "question": "Which certification path focuses on AI application development using Huawei Cloud?",
-            "options": ["HCIA-AI", "HCIP-AI", "HCIE-AI", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 12,
-            "question": "Which Huawei certification covers deep learning frameworks like TensorFlow and PyTorch?",
-            "options": ["HCIA-AI", "HCIP-AI", "HCIE-AI", "None of the above"],
-            "correctAnswer": "HCIP-AI"
-        },
-        {
-            "id": 13,
-            "question": "Which Huawei certification is considered expert-level in AI?",
-            "options": ["HCIA-AI", "HCIP-AI", "HCIE-AI", "HCCP-AI"],
-            "correctAnswer": "HCIE-AI"
-        },
-        {
-            "id": 14,
-            "question": "Which service in Huawei Cloud provides AI model training capabilities?",
-            "options": ["ModelArts", "ECS", "VPC", "OBS"],
-            "correctAnswer": "ModelArts"
-        },
-        {
-            "id": 15,
-            "question": "Which Huawei Cloud service allows deployment of AI applications at the edge?",
-            "options": ["Edge Computing Service (ECS)", "IoT Edge", "ModelArts", "Cloud Eye"],
-            "correctAnswer": "IoT Edge"
-        },
-        {
-            "id": 16,
-            "question": "What is the full form of OBS in Huawei Cloud?",
-            "options": ["Object Backup Service", "Object Browser Storage", "Object-Based System", "Object Storage Service"],
-            "correctAnswer": "Object Storage Service"
-        },
-        {
-            "id": 17,
-            "question": "Which Python library is primarily used for data manipulation and analysis?",
-            "options": ["NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
-            "correctAnswer": "Pandas"
-        },
-        {
-            "id": 18,
-            "question": "Which tool is best suited for data visualization in Python?",
-            "options": ["TensorFlow", "Seaborn", "Keras", "SciPy"],
-            "correctAnswer": "Seaborn"
-        },
-        {
-            "id": 19,
-            "question": "Which statistical method is used to find relationships between variables in a dataset?",
-            "options": ["Clustering", "Regression", "Classification", "Dimensionality Reduction"],
-            "correctAnswer": "Regression"
-        },
-        {
-            "id": 20,
-            "question": "Which technique helps in reducing the number of input variables in a model?",
-            "options": ["Cross-validation", "Regularization", "Feature Selection", "Hyperparameter Tuning"],
-            "correctAnswer": "Feature Selection"
-        },
-        {
-            "id": 21,
-            "question": "What is Anaconda primarily used for?",
-            "options": ["Web Development", "Game Development", "Data Science and Machine Learning", "Network Security"],
-            "correctAnswer": "Data Science and Machine Learning"
-        },
-        {
-            "id": 22,
-            "question": "Which command creates a new environment in Anaconda?",
-            "options": ["conda create --env myenv", "conda create -n myenv", "conda add env myenv", "conda make env myenv"],
-            "correctAnswer": "conda create -n myenv"
-        },
-        {
-            "id": 23,
-            "question": "Jupyter Notebook is based on which concept?",
-            "options": ["Notebook Interface", "IDE Interface", "Command Line Interface", "Graphical User Interface"],
-            "correctAnswer": "Notebook Interface"
-        },
-        {
-            "id": 24,
-            "question": "Which language kernel is not supported by default in Jupyter Notebook?",
-            "options": ["Python", "R", "C++", "Julia"],
-            "correctAnswer": "C++"
-        },
-        {
-            "id": 25,
-            "question": "Which of the following is a Large Language Model (LLM)?",
-            "options": ["BERT", "GPT-3", "ResNet", "Both A and B"],
-            "correctAnswer": "Both A and B"
-        },
-        {
-            "id": 26,
-            "question": "What is the primary goal of transfer learning in AI?",
-            "options": ["To train models faster", "To apply knowledge from one task to another related task", "To reduce data size", "To increase model accuracy"],
-            "correctAnswer": "To apply knowledge from one task to another related task"
-        },
-        {
-            "id": 27,
-            "question": "Which of the following is a pre-trained model for NLP tasks?",
-            "options": ["YOLO", "BERT", "AlexNet", "Inception"],
-            "correctAnswer": "BERT"
-        },
-        {
-            "id": 28,
-            "question": "What is overfitting in machine learning?",
-            "options": ["When a model performs well on training data but poorly on test data", "When a model performs well on both training and test data", "When a model underperforms on training data", "None of the above"],
-            "correctAnswer": "When a model performs well on training data but poorly on test data"
-        },
-        {
-            "id": 29,
-            "question": "Which framework is NOT typically used for building LLMs?",
-            "options": ["TensorFlow", "PyTorch", "Keras", "MySQL"],
-            "correctAnswer": "MySQL"
-        },
-        {
-            "id": 30,
-            "question": "Which job role involves designing and implementing ML models?",
-            "options": ["AI Product Manager", "Machine Learning Engineer", "Data Analyst", "UX Designer"],
-            "correctAnswer": "Machine Learning Engineer"
-        },
-        {
-            "id": 31,
-            "question": "Which skill is most important for a career in AI?",
-            "options": ["Graphic Design", "Mathematics and Statistics", "Public Speaking", "Cooking Skills"],
-            "correctAnswer": "Mathematics and Statistics"
-        },
-        {
-            "id": 32,
-            "question": "Which of the following is a key responsibility of a Data Scientist?",
-            "options": ["Building web applications", "Analyzing data and deriving insights", "Managing databases", "Designing logos"],
-            "correctAnswer": "Analyzing data and deriving insights"
-        },
-        {
-            "id": 33,
-            "question": "Which component is part of the AI technical stack?",
-            "options": ["Hardware (GPUs)", "Frameworks (TensorFlow)", "Algorithms (CNN)", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 34,
-            "question": "Which hardware accelerates AI model training?",
-            "options": ["CPU", "GPU", "RAM", "ROM"],
-            "correctAnswer": "GPU"
-        },
-        {
-            "id": 35,
-            "question": "Which open-source framework is widely used for deep learning?",
-            "options": ["Docker", "Kubernetes", "TensorFlow", "Apache Spark"],
-            "correctAnswer": "TensorFlow"
-        },
-        {
-            "id": 36,
-            "question": "Which tool is used for containerizing AI applications?",
-            "options": ["TensorBoard", "Keras", "Docker", "Jupyter"],
-            "correctAnswer": "Docker"
-        },
-        {
-            "id": 37,
-            "question": "What is the purpose of a validation set in model training?",
-            "options": ["To train the model", "To evaluate the model during training", "To test final performance", "To visualize data"],
-            "correctAnswer": "To evaluate the model during training"
-        },
-        {
-            "id": 38,
-            "question": "Which metric is commonly used for evaluating classification models?",
-            "options": ["Mean Squared Error", "Accuracy", "R-squared", "Adjusted R-squared"],
-            "correctAnswer": "Accuracy"
-        },
-        {
-            "id": 39,
-            "question": "Which technique prevents overfitting in neural networks?",
-            "options": ["Batch Normalization", "Dropout", "Early Stopping", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 40,
-            "question": "Which optimizer is commonly used in training deep learning models?",
-            "options": ["Linear Regression", "Logistic Regression", "Adam", "KNN"],
-            "correctAnswer": "Adam"
-        },
-        {
-            "id": 41,
-            "question": "Which industry is expected to be transformed the most by AI in the future?",
-            "options": ["Healthcare", "Agriculture", "Education", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 42,
-            "question": "Which technology will likely work closely with AI in future applications?",
-            "options": ["Blockchain", "Quantum Computing", "Augmented Reality", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 43,
-            "question": "Which AI trend is expected to dominate in the next decade?",
-            "options": ["Explainable AI", "AutoML", "Edge AI", "All of the above"],
-            "correctAnswer": "All of the above"
-        },
-        {
-            "id": 44,
-            "question": "What is federated learning used for?",
-            "options": ["Centralized data collection", "Training models across decentralized devices", "Improving graphics rendering", "Reducing cloud costs"],
-            "correctAnswer": "Training models across decentralized devices"
-        },
-        {
-            "id": 45,
-            "question": "What is prompt engineering related to?",
-            "options": ["Image Classification", "Working with LLMs", "Mobile App Development", "Cybersecurity"],
-            "correctAnswer": "Working with LLMs"
-        },
-        {
-            "id": 46,
-            "question": "Which AI field aims to understand how models make decisions?",
-            "options": ["Deep Learning", "Explainable AI", "Computer Vision", "Natural Language Generation"],
-            "correctAnswer": "Explainable AI"
-        },
-        {
-            "id": 47,
-            "question": "Which architecture is the basis for many modern LLMs like GPT?",
-            "options": ["Recurrent Neural Networks", "Transformers", "Convolutional Neural Networks", "Autoencoders"],
-            "correctAnswer": "Transformers"
-        }
-    ]
+    {
+        "id": 1,
+        "question": "When was the term \"Artificial Intelligence\" first proposed?",
+        "options": ["1945", "1956", "1966", "1976"],
+        "correctAnswer": "1956"
+    },
+    {
+        "id": 2,
+        "question": "Who is known as the \"Father of AI\"?",
+        "options": ["Alan Turing", "John McCarthy", "Marvin Minsky", "Arthur Samuel"],
+        "correctAnswer": "John McCarthy"
+    },
+    {
+        "id": 3,
+        "question": "Which of the following is NOT one of the four key elements of AI according to Huawei?",
+        "options": ["Data", "Algorithm", "Human intuition", "Scenario"],
+        "correctAnswer": "Human intuition"
+    },
+    {
+        "id": 4,
+        "question": "What is the primary goal of Artificial Intelligence?",
+        "options": ["To replace all human jobs", "To simulate and extend human intelligence", "To create self-aware machines", "To reduce the need for computing power"],
+        "correctAnswer": "To simulate and extend human intelligence"
+    },
+    {
+        "id": 5,
+        "question": "Which of the following best describes Machine Learning (ML)?",
+        "options": ["A subset of AI focused on rule-based systems", "A method to manually program AI responses", "A core research field of AI where computers learn from data", "A technique to simulate human emotions"],
+        "correctAnswer": "A core research field of AI where computers learn from data"
+    },
+    {
+        "id": 6,
+        "question": "Deep Learning is primarily associated with which of the following?",
+        "options": ["Symbolic reasoning", "Rule-based expert systems", "Artificial Neural Networks", "Genetic algorithms"],
+        "correctAnswer": "Artificial Neural Networks"
+    },
+    {
+        "id": 7,
+        "question": "Which school of thought in AI emphasizes the use of symbols and rules to represent knowledge?",
+        "options": ["Connectionism", "Behaviorism", "Symbolism", "Functionalism"],
+        "correctAnswer": "Symbolism"
+    },
+    {
+        "id": 8,
+        "question": "Which AI school of thought models the brain using neural networks?",
+        "options": ["Symbolism", "Behaviorism", "Connectionism", "Functionalism"],
+        "correctAnswer": "Connectionism"
+    },
+    {
+        "id": 9,
+        "question": "Which school of thought in AI emphasizes intelligence emerging from interaction with the environment?",
+        "options": ["Symbolism", "Behaviorism", "Connectionism", "Functionalism"],
+        "correctAnswer": "Behaviorism"
+    },
+    {
+        "id": 10,
+        "question": "Which AI technology is primarily used in facial recognition systems?",
+        "options": ["Natural Language Processing", "Speech Processing", "Computer Vision", "Reinforcement Learning"],
+        "correctAnswer": "Computer Vision"
+    },
+    {
+        "id": 11,
+        "question": "What is the main function of Speech Processing in AI?",
+        "options": ["Understanding written text", "Recognizing and generating spoken language", "Classifying images", "Detecting anomalies in data"],
+        "correctAnswer": "Recognizing and generating spoken language"
+    },
+    {
+        "id": 12,
+        "question": "Which AI field focuses on enabling machines to understand and use natural language?",
+        "options": ["Computer Vision", "Speech Processing", "Natural Language Processing (NLP)", "Robotics"],
+        "correctAnswer": "Natural Language Processing (NLP)"
+    },
+    {
+        "id": 13,
+        "question": "Which of the following is a typical application of AI in healthcare?",
+        "options": ["Facial recognition for security", "Autonomous vehicles", "Medical image analysis", "Smart city traffic systems"],
+        "correctAnswer": "Medical image analysis"
+    },
+    {
+        "id": 14,
+        "question": "Which AI application is commonly used in smart homes?",
+        "options": ["Voice-controlled appliances", "Autonomous vehicles", "AI in stock trading", "AI in military drones"],
+        "correctAnswer": "Voice-controlled appliances"
+    },
+    {
+        "id": 15,
+        "question": "What is the name of Huawei's AI computing framework?",
+        "options": ["TensorFlow", "MindSpore", "PyTorch", "Keras"],
+        "correctAnswer": "MindSpore"
+    },
+    {
+        "id": 16,
+        "question": "What is the primary function of Huawei's ModelArts?",
+        "options": ["To provide AI chips", "To offer cloud-based AI services", "To enable end-to-end AI model development and deployment", "To simulate AI behavior in robots"],
+        "correctAnswer": "To enable end-to-end AI model development and deployment"
+    },
+    {
+        "id": 17,
+        "question": "Which Huawei AI chip is known for its high energy efficiency and used in edge devices?",
+        "options": ["Ascend 910", "Ascend 310", "Ascend 510", "Ascend 710"],
+        "correctAnswer": "Ascend 310"
+    },
+    {
+        "id": 18,
+        "question": "What is a common cause of algorithmic bias in AI systems?",
+        "options": ["Poorly written code", "Data bias", "High computing costs", "Lack of user feedback"],
+        "correctAnswer": "Data bias"
+    },
+    {
+        "id": 19,
+        "question": "Which of the following is a major privacy concern related to AI?",
+        "options": ["Too much computing power", "Overuse of cloud computing", "Data-driven models collecting personal information", "Lack of AI frameworks"],
+        "correctAnswer": "Data-driven models collecting personal information"
+    },
+    {
+        "id": 20,
+        "question": "What is Federated Learning used for?",
+        "options": ["To centralize all data for training", "To compress AI models for efficiency", "To train models across decentralized data sources while preserving privacy", "To reduce the need for AI frameworks"],
+        "correctAnswer": "To train models across decentralized data sources while preserving privacy"
+    },
+    {
+        "id": 21,
+        "question": "Which type of AI can truly reason and solve problems and is self-aware?",
+        "options": ["Weak AI", "Strong AI", "Narrow AI", "General AI"],
+        "correctAnswer": "Strong AI"
+    },
+    {
+        "id": 22,
+        "question": "Which type of AI is used in current applications like Siri or Alexa?",
+        "options": ["Strong AI", "Weak AI", "General AI", "Autonomous AI"],
+        "correctAnswer": "Weak AI"
+    },
+    {
+        "id": 23,
+        "question": "What is the primary goal of machine learning?",
+        "options": ["To manually create rules for decision-making", "To enable computers to learn from experience", "To write programs that follow fixed instructions", "To reduce the number of datasets used in AI"],
+        "correctAnswer": "To enable computers to learn from experience"
+    },
+    {
+        "id": 24,
+        "question": "Which type of machine learning uses labeled data for training?",
+        "options": ["Unsupervised learning", "Reinforcement learning", "Semi-supervised learning", "Supervised learning"],
+        "correctAnswer": "Supervised learning"
+    },
+    {
+        "id": 25,
+        "question": "In unsupervised learning, the algorithm is given:",
+        "options": ["Labeled data", "Feedback signals", "No labels", "Reward and punishment signals"],
+        "correctAnswer": "No labels"
+    },
+    {
+        "id": 26,
+        "question": "Which of the following is a common task in unsupervised learning?",
+        "options": ["Predicting house prices", "Classifying emails as spam or not", "Grouping similar customers together", "Training a robot to walk"],
+        "correctAnswer": "Grouping similar customers together"
+    },
+    {
+        "id": 27,
+        "question": "What is the main purpose of gradient descent in machine learning?",
+        "options": ["To reduce the number of features", "To find the minimum of the loss function", "To normalize the data", "To split the dataset into training and test sets"],
+        "correctAnswer": "To find the minimum of the loss function"
+    },
+    {
+        "id": 28,
+        "question": "What is a hyperparameter in machine learning?",
+        "options": ["A value learned from the data", "A value that controls the learning process", "A label in the dataset", "A type of feature selection method"],
+        "correctAnswer": "A value that controls the learning process"
+    },
+    {
+        "id": 29,
+        "question": "What is the purpose of regularization in machine learning?",
+        "options": ["To increase model complexity", "To reduce overfitting", "To improve data quality", "To reduce the number of features"],
+        "correctAnswer": "To reduce overfitting"
+    },
+    {
+        "id": 30,
+        "question": "Which algorithm is used for binary classification and outputs probabilities using the sigmoid function?",
+        "options": ["Linear Regression", "Decision Tree", "Logistic Regression", "KNN"],
+        "correctAnswer": "Logistic Regression"
+    },
+    {
+        "id": 31,
+        "question": "Which of the following is NOT a type of supervised learning algorithm?",
+        "options": ["K-means", "Decision Tree", "SVM", "Naive Bayes"],
+        "correctAnswer": "K-means"
+    },
+    {
+        "id": 32,
+        "question": "Which algorithm is known for building multiple decision trees and aggregating their results?",
+        "options": ["GBDT", "Random Forest", "Logistic Regression", "KNN"],
+        "correctAnswer": "Random Forest"
+    },
+    {
+        "id": 33,
+        "question": "What is the key advantage of deep learning over traditional machine learning?",
+        "options": ["Lower hardware requirements", "Ability to automatically extract features", "Simpler model interpretability", "Better performance with small datasets"],
+        "correctAnswer": "Ability to automatically extract features"
+    },
+    {
+        "id": 34,
+        "question": "What is the primary function of an activation function in a neural network?",
+        "options": ["To reduce the number of layers in the network", "To introduce non-linearity into the model", "To normalize input data", "To speed up training by simplifying computation"],
+        "correctAnswer": "To introduce non-linearity into the model"
+    },
+    {
+        "id": 35,
+        "question": "Which of the following is not a common loss function used in deep learning?",
+        "options": ["Mean Squared Error", "Cross-Entropy", "Hinge Loss", "Principal Component Analysis"],
+        "correctAnswer": "Principal Component Analysis"
+    },
+    {
+        "id": 36,
+        "question": "What is the main difference between Batch Gradient Descent (BGD) and Stochastic Gradient Descent (SGD)?",
+        "options": ["BGD uses fewer parameters", "SGD updates weights after each training sample", "BGD converges faster", "SGD uses more memory"],
+        "correctAnswer": "SGD updates weights after each training sample"
+    },
+    {
+        "id": 37,
+        "question": "Which optimizer introduces a momentum term to accelerate convergence?",
+        "options": ["AdaGrad", "RMSProp", "Momentum optimizer", "Adam"],
+        "correctAnswer": "Momentum optimizer"
+    },
+    {
+        "id": 38,
+        "question": "What is the purpose of the Softmax function in a neural network?",
+        "options": ["To normalize weights", "To introduce sparsity in the model", "To convert outputs into probability distributions", "To regularize the model"],
+        "correctAnswer": "To convert outputs into probability distributions"
+    },
+    {
+        "id": 39,
+        "question": "What is the primary function of a pooling layer in a CNN?",
+        "options": ["To increase the spatial dimensions of the input", "To reduce the spatial dimensions of the input", "To apply filters to the input", "To classify the input"],
+        "correctAnswer": "To reduce the spatial dimensions of the input"
+    },
+    {
+        "id": 40,
+        "question": "Which activation function is most commonly used in hidden layers of deep neural networks?",
+        "options": ["Sigmoid", "Tanh", "ReLU", "Softplus"],
+        "correctAnswer": "ReLU"
+    },
+    {
+        "id": 41,
+        "question": "What is the vanishing gradient problem?",
+        "options": ["Gradients become too large and cause instability", "Gradients remain constant across layers", "Gradients shrink exponentially through layers", "Gradients are zero for all layers"],
+        "correctAnswer": "Gradients shrink exponentially through layers"
+    },
+    {
+        "id": 42,
+        "question": "Which of the following neural networks is best suited for processing sequential data?",
+        "options": ["Convolutional Neural Network (CNN)", "Recurrent Neural Network (RNN)", "Feedforward Neural Network", "Radial Basis Function Network"],
+        "correctAnswer": "Recurrent Neural Network (RNN)"
+    },
+    {
+        "id": 43,
+        "question": "What is the purpose of the dropout technique in neural networks?",
+        "options": ["To increase the learning rate", "To reduce the number of epochs", "To randomly remove neurons during training to prevent overfitting", "To normalize the input data"],
+        "correctAnswer": "To randomly remove neurons during training to prevent overfitting"
+    },
+    {
+        "id": 44,
+        "question": "What is the primary purpose of a deep learning framework?",
+        "options": ["To replace traditional machine learning algorithms", "To simplify and accelerate the development of deep learning models", "To perform hardware-level optimization for GPUs", "To provide a database for storing large datasets"],
+        "correctAnswer": "To simplify and accelerate the development of deep learning models"
+    },
+    {
+        "id": 45,
+        "question": "Which deep learning framework was developed by Facebook?",
+        "options": ["TensorFlow", "Keras", "PyTorch", "MXNet"],
+        "correctAnswer": "PyTorch"
+    },
+    {
+        "id": 46,
+        "question": "Which deep learning framework was developed by Google and is known for its support of distributed computing?",
+        "options": ["PyTorch", "TensorFlow", "Caffe", "Theano"],
+        "correctAnswer": "TensorFlow"
+    },
+    {
+        "id": 47,
+        "question": "What is the fundamental data structure in TensorFlow?",
+        "options": ["Arrays", "Vectors", "Tensors", "Scalars"],
+        "correctAnswer": "Tensors"
+    },
+    {
+        "id": 48,
+        "question": "Which TensorFlow module is primarily used for defining and training neural networks?",
+        "options": ["tf.data", "tf.image", "tf.keras", "tf.errors"],
+        "correctAnswer": "tf.keras"
+    },
+    {
+        "id": 49,
+        "question": "What is the primary objective of the Huawei MindSpore AI development framework?",
+        "options": ["To replace all existing AI frameworks", "To provide a unified AI development experience across devices, edge, and cloud", "To specialize only in image recognition tasks", "To focus solely on hardware acceleration"],
+        "correctAnswer": "To provide a unified AI development experience across devices, edge, and cloud"
+    },
+    {
+        "id": 50,
+        "question": "What is the primary purpose of AI chips?",
+        "options": ["To replace CPUs in all computing tasks", "To process massive computing tasks in AI applications", "To enhance the performance of GPUs", "To manage data storage in cloud environments"],
+        "correctAnswer": "To process massive computing tasks in AI applications"
+    },
+    {
+        "id": 51,
+        "question": "Which AI chip is characterized by reconfigurable hardware that can be programmed after manufacturing?",
+        "options": ["CPU", "GPU", "ASIC", "FPGA"],
+        "correctAnswer": "FPGA"
+    },
+    {
+        "id": 52,
+        "question": "What is the core architecture of the Huawei HiAI platform?",
+        "options": ["chip-device-cloud", "chip-cloud-device", "device-cloud-chip", "cloud-device-chip"],
+        "correctAnswer": "chip-device-cloud"
+    },
+    {
+        "id": 53,
+        "question": "What is the primary objective of HUAWEI CLOUD EI?",
+        "options": ["To provide cloud-based entertainment services", "To drive enterprises' intelligent transformation using AI and big data", "To offer cybersecurity solutions for small businesses", "To develop consumer-grade AI applications"],
+        "correctAnswer": "To drive enterprises' intelligent transformation using AI and big data"
+    },
+    {
+        "id": 54,
+        "question": "What is the primary function of ModelArts?",
+        "options": ["A cloud-based gaming platform", "A one-stop AI development platform", "A cybersecurity analytics tool", "A video streaming service"],
+        "correctAnswer": "A one-stop AI development platform"
+    },
+    {
+        "id": 55,
+        "question": "What is the main use of Huawei HiLens?",
+        "options": ["To provide cloud-based office software", "To develop multimodal AI applications with device-cloud synergy", "To offer AI-based cryptocurrency mining", "To host AI training courses"],
+        "correctAnswer": "To develop multimodal AI applications with device-cloud synergy"
+    },
+    {
+        "id": 56,
+        "question": "Which service is used to automate reimbursement processes using invoice data?",
+        "options": ["ModelArts", "OCR (Optical Character Recognition)", "GES", "CBS"],
+        "correctAnswer": "OCR (Optical Character Recognition)"
+    },
+    {
+        "id": 57,
+        "question": "What is a benefit of using OCR in logistics?",
+        "options": ["Increased manual data entry", "Reduced privacy security", "Up to 98% accuracy in waybill recognition", "Slower shipment processing"],
+        "correctAnswer": "Up to 98% accuracy in waybill recognition"
+    },
+    {
+        "id": 58,
+        "question": "What is the main function of the Intelligent Q&A system in enterprise settings?",
+        "options": ["To replace human customer service entirely", "To provide automated, accurate answers based on enterprise knowledge", "To analyze employee performance", "To manage inventory systems"],
+        "correctAnswer": "To provide automated, accurate answers based on enterprise knowledge"
+    },
+    {
+        "id": 59,
+        "question": "Which of the following is a feature of the Smart Campus solution?",
+        "options": ["Facial recognition for access control", "Cloud-based cryptocurrency mining", "Real-time stock market analysis", "Automated tax filing"],
+        "correctAnswer": "Facial recognition for access control"
+    },
+    {
+        "id": 60,
+        "question": "What is the purpose of intrusion detection in campus surveillance systems?",
+        "options": ["To track employee salaries", "To identify unauthorized access to restricted areas", "To monitor internet usage", "To manage student grades"],
+        "correctAnswer": "To identify unauthorized access to restricted areas"
+    }
+]
 
     // Handle answer selection (unchanged)
     const handleAnswer = (option: string) => {
@@ -416,7 +494,7 @@ const OnlineTest = () => {
                             HCIA-AI Certification
                         </h2>
                         <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 font-roboto">
-                            Assessment for Python and AI Fundamentals
+                            Assessment Level 1
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center bg-white/10 rounded-lg p-2 sm:p-3">
