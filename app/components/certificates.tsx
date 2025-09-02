@@ -181,12 +181,12 @@ export default function ProgramsIntro() {
                     transition={{ delay: 0.5, duration: 0.8 }}
                     className="mt-16 pt-8 border-t border-gray-800"
                 >
-                    <p className="text-gray-400 mb-4">Have questions about our programs?</p>
+                    <p className="text-gray-400 mb-4">Certification Programs Designed for Career Success — For All</p>
                     <Link
-                        href="/pages/study"
+                        href="/pages/lists/mcasce-list"
                         className="inline-flex items-center text-red-400 font-semibold hover:text-red-300 transition-colors"
                     >
-                        Explore Career Growth Opportunities <FaArrowRight className="ml-2 text-sm" />
+                        View Recently Received Applications <FaArrowRight className="ml-2 text-sm" />
                     </Link>
                 </motion.div>
             </div>

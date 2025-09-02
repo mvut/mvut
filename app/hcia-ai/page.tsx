@@ -25,367 +25,1307 @@ const OnlineTest = () => {
 
     // Dummy questions with correct answers (unchanged)
     const questions = [
-    {
-        "id": 1,
-        "question": "When was the term \"Artificial Intelligence\" first proposed?",
-        "options": ["1945", "1956", "1966", "1976"],
-        "correctAnswer": "1956"
-    },
-    {
-        "id": 2,
-        "question": "Who is known as the \"Father of AI\"?",
-        "options": ["Alan Turing", "John McCarthy", "Marvin Minsky", "Arthur Samuel"],
-        "correctAnswer": "John McCarthy"
-    },
-    {
-        "id": 3,
-        "question": "Which of the following is NOT one of the four key elements of AI according to Huawei?",
-        "options": ["Data", "Algorithm", "Human intuition", "Scenario"],
-        "correctAnswer": "Human intuition"
-    },
-    {
-        "id": 4,
-        "question": "What is the primary goal of Artificial Intelligence?",
-        "options": ["To replace all human jobs", "To simulate and extend human intelligence", "To create self-aware machines", "To reduce the need for computing power"],
-        "correctAnswer": "To simulate and extend human intelligence"
-    },
-    {
-        "id": 5,
-        "question": "Which of the following best describes Machine Learning (ML)?",
-        "options": ["A subset of AI focused on rule-based systems", "A method to manually program AI responses", "A core research field of AI where computers learn from data", "A technique to simulate human emotions"],
-        "correctAnswer": "A core research field of AI where computers learn from data"
-    },
-    {
-        "id": 6,
-        "question": "Deep Learning is primarily associated with which of the following?",
-        "options": ["Symbolic reasoning", "Rule-based expert systems", "Artificial Neural Networks", "Genetic algorithms"],
-        "correctAnswer": "Artificial Neural Networks"
-    },
-    {
-        "id": 7,
-        "question": "Which school of thought in AI emphasizes the use of symbols and rules to represent knowledge?",
-        "options": ["Connectionism", "Behaviorism", "Symbolism", "Functionalism"],
-        "correctAnswer": "Symbolism"
-    },
-    {
-        "id": 8,
-        "question": "Which AI school of thought models the brain using neural networks?",
-        "options": ["Symbolism", "Behaviorism", "Connectionism", "Functionalism"],
-        "correctAnswer": "Connectionism"
-    },
-    {
-        "id": 9,
-        "question": "Which school of thought in AI emphasizes intelligence emerging from interaction with the environment?",
-        "options": ["Symbolism", "Behaviorism", "Connectionism", "Functionalism"],
-        "correctAnswer": "Behaviorism"
-    },
-    {
-        "id": 10,
-        "question": "Which AI technology is primarily used in facial recognition systems?",
-        "options": ["Natural Language Processing", "Speech Processing", "Computer Vision", "Reinforcement Learning"],
-        "correctAnswer": "Computer Vision"
-    },
-    {
-        "id": 11,
-        "question": "What is the main function of Speech Processing in AI?",
-        "options": ["Understanding written text", "Recognizing and generating spoken language", "Classifying images", "Detecting anomalies in data"],
-        "correctAnswer": "Recognizing and generating spoken language"
-    },
-    {
-        "id": 12,
-        "question": "Which AI field focuses on enabling machines to understand and use natural language?",
-        "options": ["Computer Vision", "Speech Processing", "Natural Language Processing (NLP)", "Robotics"],
-        "correctAnswer": "Natural Language Processing (NLP)"
-    },
-    {
-        "id": 13,
-        "question": "Which of the following is a typical application of AI in healthcare?",
-        "options": ["Facial recognition for security", "Autonomous vehicles", "Medical image analysis", "Smart city traffic systems"],
-        "correctAnswer": "Medical image analysis"
-    },
-    {
-        "id": 14,
-        "question": "Which AI application is commonly used in smart homes?",
-        "options": ["Voice-controlled appliances", "Autonomous vehicles", "AI in stock trading", "AI in military drones"],
-        "correctAnswer": "Voice-controlled appliances"
-    },
-    {
-        "id": 15,
-        "question": "What is the name of Huawei's AI computing framework?",
-        "options": ["TensorFlow", "MindSpore", "PyTorch", "Keras"],
-        "correctAnswer": "MindSpore"
-    },
-    {
-        "id": 16,
-        "question": "What is the primary function of Huawei's ModelArts?",
-        "options": ["To provide AI chips", "To offer cloud-based AI services", "To enable end-to-end AI model development and deployment", "To simulate AI behavior in robots"],
-        "correctAnswer": "To enable end-to-end AI model development and deployment"
-    },
-    {
-        "id": 17,
-        "question": "Which Huawei AI chip is known for its high energy efficiency and used in edge devices?",
-        "options": ["Ascend 910", "Ascend 310", "Ascend 510", "Ascend 710"],
-        "correctAnswer": "Ascend 310"
-    },
-    {
-        "id": 18,
-        "question": "What is a common cause of algorithmic bias in AI systems?",
-        "options": ["Poorly written code", "Data bias", "High computing costs", "Lack of user feedback"],
-        "correctAnswer": "Data bias"
-    },
-    {
-        "id": 19,
-        "question": "Which of the following is a major privacy concern related to AI?",
-        "options": ["Too much computing power", "Overuse of cloud computing", "Data-driven models collecting personal information", "Lack of AI frameworks"],
-        "correctAnswer": "Data-driven models collecting personal information"
-    },
-    {
-        "id": 20,
-        "question": "What is Federated Learning used for?",
-        "options": ["To centralize all data for training", "To compress AI models for efficiency", "To train models across decentralized data sources while preserving privacy", "To reduce the need for AI frameworks"],
-        "correctAnswer": "To train models across decentralized data sources while preserving privacy"
-    },
-    {
-        "id": 21,
-        "question": "Which type of AI can truly reason and solve problems and is self-aware?",
-        "options": ["Weak AI", "Strong AI", "Narrow AI", "General AI"],
-        "correctAnswer": "Strong AI"
-    },
-    {
-        "id": 22,
-        "question": "Which type of AI is used in current applications like Siri or Alexa?",
-        "options": ["Strong AI", "Weak AI", "General AI", "Autonomous AI"],
-        "correctAnswer": "Weak AI"
-    },
-    {
-        "id": 23,
-        "question": "What is the primary goal of machine learning?",
-        "options": ["To manually create rules for decision-making", "To enable computers to learn from experience", "To write programs that follow fixed instructions", "To reduce the number of datasets used in AI"],
-        "correctAnswer": "To enable computers to learn from experience"
-    },
-    {
-        "id": 24,
-        "question": "Which type of machine learning uses labeled data for training?",
-        "options": ["Unsupervised learning", "Reinforcement learning", "Semi-supervised learning", "Supervised learning"],
-        "correctAnswer": "Supervised learning"
-    },
-    {
-        "id": 25,
-        "question": "In unsupervised learning, the algorithm is given:",
-        "options": ["Labeled data", "Feedback signals", "No labels", "Reward and punishment signals"],
-        "correctAnswer": "No labels"
-    },
-    {
-        "id": 26,
-        "question": "Which of the following is a common task in unsupervised learning?",
-        "options": ["Predicting house prices", "Classifying emails as spam or not", "Grouping similar customers together", "Training a robot to walk"],
-        "correctAnswer": "Grouping similar customers together"
-    },
-    {
-        "id": 27,
-        "question": "What is the main purpose of gradient descent in machine learning?",
-        "options": ["To reduce the number of features", "To find the minimum of the loss function", "To normalize the data", "To split the dataset into training and test sets"],
-        "correctAnswer": "To find the minimum of the loss function"
-    },
-    {
-        "id": 28,
-        "question": "What is a hyperparameter in machine learning?",
-        "options": ["A value learned from the data", "A value that controls the learning process", "A label in the dataset", "A type of feature selection method"],
-        "correctAnswer": "A value that controls the learning process"
-    },
-    {
-        "id": 29,
-        "question": "What is the purpose of regularization in machine learning?",
-        "options": ["To increase model complexity", "To reduce overfitting", "To improve data quality", "To reduce the number of features"],
-        "correctAnswer": "To reduce overfitting"
-    },
-    {
-        "id": 30,
-        "question": "Which algorithm is used for binary classification and outputs probabilities using the sigmoid function?",
-        "options": ["Linear Regression", "Decision Tree", "Logistic Regression", "KNN"],
-        "correctAnswer": "Logistic Regression"
-    },
-    {
-        "id": 31,
-        "question": "Which of the following is NOT a type of supervised learning algorithm?",
-        "options": ["K-means", "Decision Tree", "SVM", "Naive Bayes"],
-        "correctAnswer": "K-means"
-    },
-    {
-        "id": 32,
-        "question": "Which algorithm is known for building multiple decision trees and aggregating their results?",
-        "options": ["GBDT", "Random Forest", "Logistic Regression", "KNN"],
-        "correctAnswer": "Random Forest"
-    },
-    {
-        "id": 33,
-        "question": "What is the key advantage of deep learning over traditional machine learning?",
-        "options": ["Lower hardware requirements", "Ability to automatically extract features", "Simpler model interpretability", "Better performance with small datasets"],
-        "correctAnswer": "Ability to automatically extract features"
-    },
-    {
-        "id": 34,
-        "question": "What is the primary function of an activation function in a neural network?",
-        "options": ["To reduce the number of layers in the network", "To introduce non-linearity into the model", "To normalize input data", "To speed up training by simplifying computation"],
-        "correctAnswer": "To introduce non-linearity into the model"
-    },
-    {
-        "id": 35,
-        "question": "Which of the following is not a common loss function used in deep learning?",
-        "options": ["Mean Squared Error", "Cross-Entropy", "Hinge Loss", "Principal Component Analysis"],
-        "correctAnswer": "Principal Component Analysis"
-    },
-    {
-        "id": 36,
-        "question": "What is the main difference between Batch Gradient Descent (BGD) and Stochastic Gradient Descent (SGD)?",
-        "options": ["BGD uses fewer parameters", "SGD updates weights after each training sample", "BGD converges faster", "SGD uses more memory"],
-        "correctAnswer": "SGD updates weights after each training sample"
-    },
-    {
-        "id": 37,
-        "question": "Which optimizer introduces a momentum term to accelerate convergence?",
-        "options": ["AdaGrad", "RMSProp", "Momentum optimizer", "Adam"],
-        "correctAnswer": "Momentum optimizer"
-    },
-    {
-        "id": 38,
-        "question": "What is the purpose of the Softmax function in a neural network?",
-        "options": ["To normalize weights", "To introduce sparsity in the model", "To convert outputs into probability distributions", "To regularize the model"],
-        "correctAnswer": "To convert outputs into probability distributions"
-    },
-    {
-        "id": 39,
-        "question": "What is the primary function of a pooling layer in a CNN?",
-        "options": ["To increase the spatial dimensions of the input", "To reduce the spatial dimensions of the input", "To apply filters to the input", "To classify the input"],
-        "correctAnswer": "To reduce the spatial dimensions of the input"
-    },
-    {
-        "id": 40,
-        "question": "Which activation function is most commonly used in hidden layers of deep neural networks?",
-        "options": ["Sigmoid", "Tanh", "ReLU", "Softplus"],
-        "correctAnswer": "ReLU"
-    },
-    {
-        "id": 41,
-        "question": "What is the vanishing gradient problem?",
-        "options": ["Gradients become too large and cause instability", "Gradients remain constant across layers", "Gradients shrink exponentially through layers", "Gradients are zero for all layers"],
-        "correctAnswer": "Gradients shrink exponentially through layers"
-    },
-    {
-        "id": 42,
-        "question": "Which of the following neural networks is best suited for processing sequential data?",
-        "options": ["Convolutional Neural Network (CNN)", "Recurrent Neural Network (RNN)", "Feedforward Neural Network", "Radial Basis Function Network"],
-        "correctAnswer": "Recurrent Neural Network (RNN)"
-    },
-    {
-        "id": 43,
-        "question": "What is the purpose of the dropout technique in neural networks?",
-        "options": ["To increase the learning rate", "To reduce the number of epochs", "To randomly remove neurons during training to prevent overfitting", "To normalize the input data"],
-        "correctAnswer": "To randomly remove neurons during training to prevent overfitting"
-    },
-    {
-        "id": 44,
-        "question": "What is the primary purpose of a deep learning framework?",
-        "options": ["To replace traditional machine learning algorithms", "To simplify and accelerate the development of deep learning models", "To perform hardware-level optimization for GPUs", "To provide a database for storing large datasets"],
-        "correctAnswer": "To simplify and accelerate the development of deep learning models"
-    },
-    {
-        "id": 45,
-        "question": "Which deep learning framework was developed by Facebook?",
-        "options": ["TensorFlow", "Keras", "PyTorch", "MXNet"],
-        "correctAnswer": "PyTorch"
-    },
-    {
-        "id": 46,
-        "question": "Which deep learning framework was developed by Google and is known for its support of distributed computing?",
-        "options": ["PyTorch", "TensorFlow", "Caffe", "Theano"],
-        "correctAnswer": "TensorFlow"
-    },
-    {
-        "id": 47,
-        "question": "What is the fundamental data structure in TensorFlow?",
-        "options": ["Arrays", "Vectors", "Tensors", "Scalars"],
-        "correctAnswer": "Tensors"
-    },
-    {
-        "id": 48,
-        "question": "Which TensorFlow module is primarily used for defining and training neural networks?",
-        "options": ["tf.data", "tf.image", "tf.keras", "tf.errors"],
-        "correctAnswer": "tf.keras"
-    },
-    {
-        "id": 49,
-        "question": "What is the primary objective of the Huawei MindSpore AI development framework?",
-        "options": ["To replace all existing AI frameworks", "To provide a unified AI development experience across devices, edge, and cloud", "To specialize only in image recognition tasks", "To focus solely on hardware acceleration"],
-        "correctAnswer": "To provide a unified AI development experience across devices, edge, and cloud"
-    },
-    {
-        "id": 50,
-        "question": "What is the primary purpose of AI chips?",
-        "options": ["To replace CPUs in all computing tasks", "To process massive computing tasks in AI applications", "To enhance the performance of GPUs", "To manage data storage in cloud environments"],
-        "correctAnswer": "To process massive computing tasks in AI applications"
-    },
-    {
-        "id": 51,
-        "question": "Which AI chip is characterized by reconfigurable hardware that can be programmed after manufacturing?",
-        "options": ["CPU", "GPU", "ASIC", "FPGA"],
-        "correctAnswer": "FPGA"
-    },
-    {
-        "id": 52,
-        "question": "What is the core architecture of the Huawei HiAI platform?",
-        "options": ["chip-device-cloud", "chip-cloud-device", "device-cloud-chip", "cloud-device-chip"],
-        "correctAnswer": "chip-device-cloud"
-    },
-    {
-        "id": 53,
-        "question": "What is the primary objective of HUAWEI CLOUD EI?",
-        "options": ["To provide cloud-based entertainment services", "To drive enterprises' intelligent transformation using AI and big data", "To offer cybersecurity solutions for small businesses", "To develop consumer-grade AI applications"],
-        "correctAnswer": "To drive enterprises' intelligent transformation using AI and big data"
-    },
-    {
-        "id": 54,
-        "question": "What is the primary function of ModelArts?",
-        "options": ["A cloud-based gaming platform", "A one-stop AI development platform", "A cybersecurity analytics tool", "A video streaming service"],
-        "correctAnswer": "A one-stop AI development platform"
-    },
-    {
-        "id": 55,
-        "question": "What is the main use of Huawei HiLens?",
-        "options": ["To provide cloud-based office software", "To develop multimodal AI applications with device-cloud synergy", "To offer AI-based cryptocurrency mining", "To host AI training courses"],
-        "correctAnswer": "To develop multimodal AI applications with device-cloud synergy"
-    },
-    {
-        "id": 56,
-        "question": "Which service is used to automate reimbursement processes using invoice data?",
-        "options": ["ModelArts", "OCR (Optical Character Recognition)", "GES", "CBS"],
-        "correctAnswer": "OCR (Optical Character Recognition)"
-    },
-    {
-        "id": 57,
-        "question": "What is a benefit of using OCR in logistics?",
-        "options": ["Increased manual data entry", "Reduced privacy security", "Up to 98% accuracy in waybill recognition", "Slower shipment processing"],
-        "correctAnswer": "Up to 98% accuracy in waybill recognition"
-    },
-    {
-        "id": 58,
-        "question": "What is the main function of the Intelligent Q&A system in enterprise settings?",
-        "options": ["To replace human customer service entirely", "To provide automated, accurate answers based on enterprise knowledge", "To analyze employee performance", "To manage inventory systems"],
-        "correctAnswer": "To provide automated, accurate answers based on enterprise knowledge"
-    },
-    {
-        "id": 59,
-        "question": "Which of the following is a feature of the Smart Campus solution?",
-        "options": ["Facial recognition for access control", "Cloud-based cryptocurrency mining", "Real-time stock market analysis", "Automated tax filing"],
-        "correctAnswer": "Facial recognition for access control"
-    },
-    {
-        "id": 60,
-        "question": "What is the purpose of intrusion detection in campus surveillance systems?",
-        "options": ["To track employee salaries", "To identify unauthorized access to restricted areas", "To monitor internet usage", "To manage student grades"],
-        "correctAnswer": "To identify unauthorized access to restricted areas"
-    }
-]
+        {
+            "id": 1,
+            "question": "Which of the following best defines the primary objective of Artificial Intelligence according to the document?",
+            "options": [
+                "To replace all human decision-making processes",
+                "To simulate and extend human intelligence",
+                "To create fully autonomous robots",
+                "To maximize computational speed"
+            ],
+            "correctAnswer": "To simulate and extend human intelligence",
+            "domain": "AI Fundamentals",
+            "level": "hard"
+        },
+        {
+            "id": 2,
+            "question": "Huawei’s full-stack, all-scenario AI strategy includes all of the following EXCEPT:",
+            "options": [
+                "Ascend AI chips",
+                "MindSpore framework",
+                "ModelArts platform",
+                "Android-based device integration"
+            ],
+            "correctAnswer": "Android-based device integration",
+            "domain": "Huawei AI Strategy",
+            "level": "hard"
+        },
+        {
+            "id": 3,
+            "question": "What is the key reason for algorithmic bias in AI systems as highlighted in the document?",
+            "options": [
+                "Insufficient computing power",
+                "Poorly designed neural networks",
+                "Data bias in training datasets",
+                "Inadequate model interpretability"
+            ],
+            "correctAnswer": "Data bias in training datasets",
+            "domain": "AI Ethics",
+            "level": "hard"
+        },
+        {
+            "id": 4,
+            "question": "Which of the following is NOT one of the four key elements of AI according to Huawei's framework?",
+            "options": [
+                "Data",
+                "Algorithm",
+                "Computing Power",
+                "Human Intuition"
+            ],
+            "correctAnswer": "Human Intuition",
+            "domain": "AI Fundamentals",
+            "level": "hard"
+        },
+        {
+            "id": 5,
+            "question": "The Huawei HiAI platform follows which architectural model to enable cross-device intelligence?",
+            "options": [
+                "cloud-device-chip",
+                "chip-cloud-device",
+                "device-cloud-chip",
+                "chip-device-cloud"
+            ],
+            "correctAnswer": "chip-device-cloud",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 6,
+            "question": "Which component of Huawei HiAI provides developers with direct access to AI capabilities like CV, ASR, and NLP through APIs?",
+            "options": [
+                "HiAI Service",
+                "HiAI Engine",
+                "HiAI Foundation",
+                "HiAI Framework"
+            ],
+            "correctAnswer": "HiAI Engine",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 7,
+            "question": "What is the primary function of the AscendCL interface in the Ascend software stack?",
+            "options": [
+                "To manage power consumption",
+                "To generate offline models",
+                "To provide a programming interface for developers",
+                "To optimize image decoding"
+            ],
+            "correctAnswer": "To provide a programming interface for developers",
+            "domain": "AI Hardware & Software Stack",
+            "level": "hard"
+        },
+        {
+            "id": 8,
+            "question": "Which of the following best describes the role of the L3 application enabling layer in the Ascend software architecture?",
+            "options": [
+                "Handles hardware resource allocation",
+                "Provides application-level AI processing engines",
+                "Converts neural networks for hardware execution",
+                "Manages data dependencies"
+            ],
+            "correctAnswer": "Provides application-level AI processing engines",
+            "domain": "AI Hardware & Software Stack",
+            "level": "hard"
+        },
+        {
+            "id": 9,
+            "question": "What is the main purpose of the framework adapter in the Ascend AI software stack?",
+            "options": [
+                "To reduce power consumption",
+                "To support frameworks like TensorFlow and PyTorch",
+                "To manage model deployment",
+                "To accelerate video decoding"
+            ],
+            "correctAnswer": "To support frameworks like TensorFlow and PyTorch",
+            "domain": "AI Frameworks & Integration",
+            "level": "hard"
+        },
+        {
+            "id": 10,
+            "question": "Which Huawei AI processor is specifically optimized for high-performance AI training in data centers?",
+            "options": [
+                "Ascend 310",
+                "Ascend 510",
+                "Ascend 710",
+                "Ascend 910"
+            ],
+            "correctAnswer": "Ascend 910",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 11,
+            "question": "For an AI application requiring ultra-low power inference on a surveillance camera at the edge, the most suitable Huawei chip is:",
+            "options": [
+                "Ascend 910",
+                "Ascend 810",
+                "Ascend 310",
+                "Ascend 710"
+            ],
+            "correctAnswer": "Ascend 310",
+            "domain": "Edge AI & IoT",
+            "level": "hard"
+        },
+        {
+            "id": 12,
+            "question": "Which of the following is a key benefit of the Atlas 900 AI cluster?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "World's fastest AI training cluster",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 13,
+            "question": "The Atlas 500 AI edge station is particularly suited for transportation applications due to its:",
+            "options": [
+                "High training throughput",
+                "Massive parallel computing",
+                "Fanless design and wide temperature range",
+                "Cloud-native deployment"
+            ],
+            "correctAnswer": "Fanless design and wide temperature range",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 14,
+            "question": "Which Huawei platform enables multimodal AI development with device-cloud synergy?",
+            "options": [
+                "ModelArts",
+                "HiAI",
+                "HiLens",
+                "GES"
+            ],
+            "correctAnswer": "HiLens",
+            "domain": "AI Development Platforms",
+            "level": "hard"
+        },
+        {
+            "id": 15,
+            "question": "What is the maximum FP16 computing power of the Atlas 800 AI server?",
+            "options": [
+                "1 PFLOPS",
+                "2 PFLOPS",
+                "4 PFLOPS",
+                "8 PFLOPS"
+            ],
+            "correctAnswer": "2 PFLOPS",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 16,
+            "question": "Which service in HUAWEI CLOUD EI is used to detect and filter inappropriate content such as pornography or terrorism?",
+            "options": [
+                "ModelArts",
+                "Content Moderation",
+                "Graph Engine Service",
+                "Conversational Bot Service"
+            ],
+            "correctAnswer": "Content Moderation",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 17,
+            "question": "Which of the following is NOT a core component of HUAWEI CLOUD EI?",
+            "options": [
+                "Industry know-how",
+                "Algorithms",
+                "Cloud gaming infrastructure",
+                "Computing power"
+            ],
+            "correctAnswer": "Cloud gaming infrastructure",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 18,
+            "question": "What is the primary purpose of the FusionDirector tool in the Atlas AI platform?",
+            "options": [
+                "To manage power consumption",
+                "To decode video streams",
+                "To manage large-scale AI deployments and push updates",
+                "To store intermediate results"
+            ],
+            "correctAnswer": "To manage large-scale AI deployments and push updates",
+            "domain": "AI Management & Orchestration",
+            "level": "hard"
+        },
+        {
+            "id": 19,
+            "question": "For an IoT application requiring real-time anomaly detection on a power line using video analytics, the most suitable Huawei product would be the:",
+            "options": [
+                "Atlas 900 AI cluster",
+                "Atlas 800 AI server",
+                "Atlas 500 AI edge station",
+                "Ascend 910 chip in a cloud data center"
+            ],
+            "correctAnswer": "Atlas 500 AI edge station",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 20,
+            "question": "Which of the following is a key feature of the Atlas 200 Developer Kit?",
+            "options": [
+                "High-density video decoding",
+                "Edge-cloud collaboration",
+                "Ultra-low cost for local development",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Ultra-low cost for local development",
+            "domain": "Edge AI Development",
+            "level": "hard"
+        },
+        {
+            "id": 21,
+            "question": "What is the main function of the Graph Engine Service (GES) in HUAWEI CLOUD EI?",
+            "options": [
+                "Image recognition",
+                "Analyzing complex relationships in data",
+                "Text-to-speech synthesis",
+                "Video transcoding"
+            ],
+            "correctAnswer": "Analyzing complex relationships in data",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 22,
+            "question": "Which AI capability is primarily used for intelligent photo categorization in Huawei HiAI?",
+            "options": [
+                "NLP",
+                "ASR",
+                "CV",
+                "OCR"
+            ],
+            "correctAnswer": "CV",
+            "domain": "Computer Vision",
+            "level": "hard"
+        },
+        {
+            "id": 23,
+            "question": "What is the projected size of the global AI market by 2025 according to the document?",
+            "options": [
+                "$1 trillion",
+                "$2 trillion",
+                "$3 trillion",
+                "$4 trillion"
+            ],
+            "correctAnswer": "$3 trillion",
+            "domain": "AI Industry Trends",
+            "level": "hard"
+        },
+        {
+            "id": 24,
+            "question": "Which of the following is a major challenge in current AI development as mentioned in the document?",
+            "options": [
+                "Too much data",
+                "Lack of computing power",
+                "Algorithmic bias",
+                "Excessive regulation"
+            ],
+            "correctAnswer": "Algorithmic bias",
+            "domain": "AI Challenges",
+            "level": "hard"
+        },
+        {
+            "id": 25,
+            "question": "Which of the following is NOT a benefit of using Huawei HiAI for app development?",
+            "options": [
+                "Real-time performance",
+                "Lower cost",
+                "Reduced security",
+                "Stability"
+            ],
+            "correctAnswer": "Reduced security",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 26,
+            "question": "What is the primary purpose of AI image super-resolution (SR)?",
+            "options": [
+                "Improve battery life",
+                "Enhance image clarity",
+                "Increase app size",
+                "Reduce data usage"
+            ],
+            "correctAnswer": "Enhance image clarity",
+            "domain": "Computer Vision",
+            "level": "hard"
+        },
+        {
+            "id": 27,
+            "question": "Which Huawei AI framework is designed to provide a unified experience across device, edge, and cloud?",
+            "options": [
+                "TensorFlow",
+                "PyTorch",
+                "MindSpore",
+                "Keras"
+            ],
+            "correctAnswer": "MindSpore",
+            "domain": "AI Frameworks",
+            "level": "hard"
+        },
+        {
+            "id": 28,
+            "question": "Which of the following is NOT a key component of the MindSpore architecture?",
+            "options": [
+                "Mind Expression (ME)",
+                "Graph Engine (GE)",
+                "Tensor Backend Engine (TBE)",
+                "Central Control Engine (CCE)"
+            ],
+            "correctAnswer": "Central Control Engine (CCE)",
+            "domain": "AI Frameworks",
+            "level": "hard"
+        },
+        {
+            "id": 29,
+            "question": "What is the main focus of Huawei’s AI ecosystem strategy?",
+            "options": [
+                "Monopolize the AI market",
+                "Promote intelligent transformation with partners",
+                "Replace all traditional apps",
+                "Focus only on hardware"
+            ],
+            "correctAnswer": "Promote intelligent transformation with partners",
+            "domain": "AI Strategy",
+            "level": "hard"
+        },
+        {
+            "id": 30,
+            "question": "Which service in HUAWEI CLOUD EI is used for intelligent Q&A and task-based interactions?",
+            "options": [
+                "ModelArts",
+                "Content Moderation",
+                "Conversational Bot Service",
+                "Graph Engine Service"
+            ],
+            "correctAnswer": "Conversational Bot Service",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 31,
+            "question": "Which of the following is a key application of NLP in HUAWEI CLOUD EI?",
+            "options": [
+                "Image recognition",
+                "Text summarization",
+                "Video editing",
+                "Network optimization"
+            ],
+            "correctAnswer": "Text summarization",
+            "domain": "Natural Language Processing",
+            "level": "hard"
+        },
+        {
+            "id": 32,
+            "question": "What is the primary purpose of federated learning as highlighted in the document?",
+            "options": [
+                "To increase model size",
+                "To preserve privacy and security in AI training",
+                "To reduce the need for data",
+                "To replace cloud computing"
+            ],
+            "correctAnswer": "To preserve privacy and security in AI training",
+            "domain": "AI Trends & Security",
+            "level": "hard"
+        },
+        {
+            "id": 33,
+            "question": "Which of the following is a key benefit of the Atlas 800 AI server in inference tasks?",
+            "options": [
+                "High training performance",
+                "High inference performance",
+                "Low power consumption",
+                "Fanless design"
+            ],
+            "correctAnswer": "High inference performance",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 34,
+            "question": "Which Huawei platform supports the full lifecycle of AI model development, from data preparation to deployment?",
+            "options": [
+                "HiAI",
+                "HiLens",
+                "ModelArts",
+                "GES"
+            ],
+            "correctAnswer": "ModelArts",
+            "domain": "AI Development Platforms",
+            "level": "hard"
+        },
+        {
+            "id": 35,
+            "question": "Which module in the Ascend software stack ensures proper execution order and resolves data dependencies?",
+            "options": [
+                "Event synchronization module",
+                "Memory management unit",
+                "Power control engine",
+                "Data encoding layer"
+            ],
+            "correctAnswer": "Event synchronization module",
+            "domain": "AI Hardware & Software Stack",
+            "level": "hard"
+        },
+        {
+            "id": 36,
+            "question": "Which of the following is a key feature of the Ascend Graph Optimization Engine?",
+            "options": [
+                "Real-time video encoding",
+                "Neural network graph optimization and compilation",
+                "Battery life extension",
+                "Cloud storage integration"
+            ],
+            "correctAnswer": "Neural network graph optimization and compilation",
+            "domain": "AI Hardware & Software Stack",
+            "level": "hard"
+        },
+        {
+            "id": 37,
+            "question": "What is the main use of the Intelligent EdgeFabric (IEF) in Huawei’s ecosystem?",
+            "options": [
+                "To provide cloud office tools",
+                "To manage edge applications and push models to edge nodes",
+                "To host AI training courses",
+                "To mine cryptocurrency"
+            ],
+            "correctAnswer": "To manage edge applications and push models to edge nodes",
+            "domain": "Edge AI & IoT",
+            "level": "hard"
+        },
+        {
+            "id": 38,
+            "question": "Which of the following best describes the purpose of the ModelArts platform?",
+            "options": [
+                "To provide cloud-based office productivity tools",
+                "To support the full lifecycle of AI model development",
+                "To offer online gaming services",
+                "To manage cryptocurrency transactions"
+            ],
+            "correctAnswer": "To support the full lifecycle of AI model development",
+            "domain": "AI Development Platforms",
+            "level": "hard"
+        },
+        {
+            "id": 39,
+            "question": "Which AI technology is essential for autonomous vehicles to perform object detection and real-time navigation?",
+            "options": [
+                "NLP",
+                "ASR",
+                "CV",
+                "OCR"
+            ],
+            "correctAnswer": "CV",
+            "domain": "Autonomous Systems",
+            "level": "hard"
+        },
+        {
+            "id": 40,
+            "question": "Which of the following is a major application of the Atlas AI platform in the electric power industry?",
+            "options": [
+                "Customer service chatbots",
+                "Smart meter data analysis",
+                "Predictive maintenance of power lines",
+                "Employee training simulations"
+            ],
+            "correctAnswer": "Predictive maintenance of power lines",
+            "domain": "Industry-Specific AI",
+            "level": "hard"
+        },
+        {
+            "id": 41,
+            "question": "Which of the following is a key breakthrough enabling the widespread adoption of AI?",
+            "options": [
+                "Quantum encryption",
+                "Blockchain technology",
+                "Advancements in computing power, algorithms, and data",
+                "5G network billing models"
+            ],
+            "correctAnswer": "Advancements in computing power, algorithms, and data",
+            "domain": "AI Enablers",
+            "level": "hard"
+        },
+        {
+            "id": 42,
+            "question": "What is the primary purpose of AI chips as stated in the document?",
+            "options": [
+                "To replace CPUs in all computing tasks",
+                "To process massive computing tasks in AI applications",
+                "To enhance GPU graphics rendering",
+                "To manage cloud storage"
+            ],
+            "correctAnswer": "To process massive computing tasks in AI applications",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 43,
+            "question": "Which of the following is a key challenge faced by AI developers today?",
+            "options": [
+                "Long training cycles and low efficiency",
+                "Too many open-source models",
+                "Excessive user feedback",
+                "Lack of interest from enterprises"
+            ],
+            "correctAnswer": "Long training cycles and low efficiency",
+            "domain": "AI Development Challenges",
+            "level": "hard"
+        },
+        {
+            "id": 44,
+            "question": "Which of the following is NOT a type of machine learning described in the document?",
+            "options": [
+                "Supervised learning",
+                "Unsupervised learning",
+                "Reinforcement learning",
+                "Deterministic learning"
+            ],
+            "correctAnswer": "Deterministic learning",
+            "domain": "Machine Learning Overview",
+            "level": "hard"
+        },
+        {
+            "id": 45,
+            "question": "Which AI processor is used in the Atlas 200 AI accelerator module?",
+            "options": [
+                "Ascend 910",
+                "Ascend 310",
+                "Ascend 710",
+                "Ascend 510"
+            ],
+            "correctAnswer": "Ascend 310",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 46,
+            "question": "Which of the following is a key benefit of device-edge-cloud collaboration in the Atlas platform?",
+            "options": [
+                "Reduced power consumption",
+                "Centralized development and deployment",
+                "High-density video decoding",
+                "Fanless design"
+            ],
+            "correctAnswer": "Centralized development and deployment",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 47,
+            "question": "Which technology enables AI models to be trained across decentralized devices without sharing raw data?",
+            "options": [
+                "Edge computing",
+                "Federated learning",
+                "Cloud bursting",
+                "Model pruning"
+            ],
+            "correctAnswer": "Federated learning",
+            "domain": "AI Trends & Security",
+            "level": "hard"
+        },
+        {
+            "id": 48,
+            "question": "Which of the following is a real-world application of Huawei HiAI in the tourism industry?",
+            "options": [
+                "Battery optimization",
+                "Voice recognition for bookings",
+                "Enhancing photo quality for Ctrip",
+                "Flight scheduling"
+            ],
+            "correctAnswer": "Enhancing photo quality for Ctrip",
+            "domain": "Industry Applications",
+            "level": "hard"
+        },
+        {
+            "id": 49,
+            "question": "Which feature is used for real-time AI image segmentation in smart devices?",
+            "options": [
+                "GPU",
+                "NPU",
+                "CPU",
+                "DSP"
+            ],
+            "correctAnswer": "NPU",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 50,
+            "question": "Which of the following is NOT a way Huawei connects with developers?",
+            "options": [
+                "HiAI open courses",
+                "Technical symposiums",
+                "Game development contests",
+                "Cloud service ecosystem co-construction"
+            ],
+            "correctAnswer": "Game development contests",
+            "domain": "Developer Ecosystem",
+            "level": "hard"
+        },
+        {
+            "id": 51,
+            "question": "What is the main purpose of the Ascend 910 AI processor?",
+            "options": [
+                "Edge inference",
+                "High-performance AI training",
+                "Video decoding",
+                "Power management"
+            ],
+            "correctAnswer": "High-performance AI training",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 52,
+            "question": "Which of the following is a key feature of the Atlas 200 AI accelerator module?",
+            "options": [
+                "High-density video decoding",
+                "Edge-cloud collaboration",
+                "Ultra-low cost for local development",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Edge-cloud collaboration",
+            "domain": "Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 53,
+            "question": "Which of the following best describes the purpose of the ModelArts platform?",
+            "options": [
+                "To provide AI chips",
+                "To offer cloud-based AI services",
+                "To enable end-to-end AI model development and deployment",
+                "To simulate AI behavior in robots"
+            ],
+            "correctAnswer": "To enable end-to-end AI model development and deployment",
+            "domain": "AI Development Platforms",
+            "level": "hard"
+        },
+        {
+            "id": 54,
+            "question": "Which Huawei AI chip is known for its high energy efficiency and used in edge devices?",
+            "options": [
+                "Ascend 910",
+                "Ascend 310",
+                "Ascend 510",
+                "Ascend 710"
+            ],
+            "correctAnswer": "Ascend 310",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 55,
+            "question": "Which of the following best describes Huawei's Atlas AI Computing Platform?",
+            "options": [
+                "A cloud-based AI development tool",
+                "A platform for AI training and inference across device, edge, and cloud",
+                "An AI chip for mobile phones",
+                "A framework for natural language processing"
+            ],
+            "correctAnswer": "A platform for AI training and inference across device, edge, and cloud",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 56,
+            "question": "What is one use of image scene recognition?",
+            "options": [
+                "Improving GPS accuracy",
+                "Identifying objects in a photo",
+                "Increasing app download speed",
+                "Enhancing battery life"
+            ],
+            "correctAnswer": "Identifying objects in a photo",
+            "domain": "Computer Vision",
+            "level": "hard"
+        },
+        {
+            "id": 57,
+            "question": "Which of the following is a key component of Huawei’s AI development strategy?",
+            "options": [
+                "Limited to cloud computing",
+                "Full-stack, all-scenario AI portfolio",
+                "Exclusive use of open-source frameworks",
+                "Focus on only one AI application"
+            ],
+            "correctAnswer": "Full-stack, all-scenario AI portfolio",
+            "domain": "AI Strategy",
+            "level": "hard"
+        },
+        {
+            "id": 58,
+            "question": "Which of the following is a challenge faced by AI today?",
+            "options": [
+                "Too much data",
+                "Lack of computing power",
+                "Algorithmic bias",
+                "Excessive regulation in all countries"
+            ],
+            "correctAnswer": "Algorithmic bias",
+            "domain": "AI Ethics",
+            "level": "hard"
+        },
+        {
+            "id": 59,
+            "question": "What is the primary objective of HUAWEI CLOUD EI?",
+            "options": [
+                "To provide cloud-based entertainment services",
+                "To drive enterprises' intelligent transformation using AI and big data",
+                "To offer cybersecurity solutions for small businesses",
+                "To develop consumer-grade AI applications"
+            ],
+            "correctAnswer": "To drive enterprises' intelligent transformation using AI and big data",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 60,
+            "question": "Which of the following is a key benefit of the Atlas 500 AI edge station in transportation applications?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "Fanless design and wide temperature range",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Fanless design and wide temperature range",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 61,
+            "question": "Which of the following is a key benefit of the Atlas 800 AI server in inference tasks?",
+            "options": [
+                "High training performance",
+                "High inference performance",
+                "Low power consumption",
+                "Fanless design"
+            ],
+            "correctAnswer": "High inference performance",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 62,
+            "question": "What is the main purpose of the FusionDirector management tool in the Atlas platform?",
+            "options": [
+                "To manage power consumption",
+                "To decode video streams",
+                "To manage large-scale AI deployments and push updates",
+                "To store intermediate results"
+            ],
+            "correctAnswer": "To manage large-scale AI deployments and push updates",
+            "domain": "AI Management",
+            "level": "hard"
+        },
+        {
+            "id": 63,
+            "question": "What is the main function of the Ascend 310 AI processor?",
+            "options": [
+                "High-performance training",
+                "Edge inference",
+                "Cloud computing",
+                "Video decoding"
+            ],
+            "correctAnswer": "Edge inference",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 64,
+            "question": "Which of the following is a key benefit of the Atlas 500 AI edge station in transportation applications?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "Fanless design and wide temperature range",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Fanless design and wide temperature range",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 65,
+            "question": "Which of the following is a key benefit of the Atlas 800 AI server in inference tasks?",
+            "options": [
+                "High training performance",
+                "High inference performance",
+                "Low power consumption",
+                "Fanless design"
+            ],
+            "correctAnswer": "High inference performance",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 66,
+            "question": "What is the main function of the Ascend 910 AI processor?",
+            "options": [
+                "Edge inference",
+                "High-performance AI training",
+                "Video decoding",
+                "Power management"
+            ],
+            "correctAnswer": "High-performance AI training",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 67,
+            "question": "Which of the following is a key feature of the Atlas 200 AI accelerator module?",
+            "options": [
+                "High-density video decoding",
+                "Edge-cloud collaboration",
+                "Ultra-low cost for local development",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Edge-cloud collaboration",
+            "domain": "Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 68,
+            "question": "Which of the following is a key benefit of the Atlas 900 AI cluster?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "World's fastest AI training cluster",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 69,
+            "question": "Which of the following is a key benefit of the Atlas 900 AI cluster?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "World's fastest AI training cluster",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 70,
+            "question": "What is the maximum computing power of the Atlas 800 AI server in FP16 precision?",
+            "options": [
+                "1 PFLOPS",
+                "2 PFLOPS",
+                "4 PFLOPS",
+                "8 PFLOPS"
+            ],
+            "correctAnswer": "2 PFLOPS",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 71,
+            "question": "Which of the following is a key feature of the Atlas 900 AI cluster?",
+            "options": [
+                "Highest density video decoding",
+                "World's fastest AI training cluster",
+                "Ultra-low cost for local development",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 72,
+            "question": "Which of the following is a key benefit of the device-edge-cloud collaboration in the Atlas platform?",
+            "options": [
+                "Reduced power consumption",
+                "Centralized development and deployment",
+                "High-density video decoding",
+                "Fanless design"
+            ],
+            "correctAnswer": "Centralized development and deployment",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 73,
+            "question": "Which of the following is a major application of the Atlas AI platform in the electric power industry?",
+            "options": [
+                "Customer service automation",
+                "Smart metering",
+                "Predictive maintenance of power lines",
+                "Energy trading"
+            ],
+            "correctAnswer": "Predictive maintenance of power lines",
+            "domain": "Industry-Specific AI",
+            "level": "hard"
+        },
+        {
+            "id": 74,
+            "question": "Which of the following is NOT a benefit of apps using Huawei HiAI?",
+            "options": [
+                "Real-time performance",
+                "Lower cost",
+                "Reduced security",
+                "Stability"
+            ],
+            "correctAnswer": "Reduced security",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 75,
+            "question": "What is one of the key AI capabilities used in photo categorization?",
+            "options": [
+                "NLP",
+                "ASR",
+                "CV",
+                "OCR"
+            ],
+            "correctAnswer": "CV",
+            "domain": "Computer Vision",
+            "level": "hard"
+        },
+        {
+            "id": 76,
+            "question": "What does Huawei HiAI help with in the example with Ctrip?",
+            "options": [
+                "Real-time translation",
+                "Enhancing photo quality",
+                "Voice recognition",
+                "Battery optimization"
+            ],
+            "correctAnswer": "Enhancing photo quality",
+            "domain": "Industry Applications",
+            "level": "hard"
+        },
+        {
+            "id": 77,
+            "question": "Which feature is used for real-time AI image segmentation?",
+            "options": [
+                "GPU",
+                "NPU",
+                "CPU",
+                "DSP"
+            ],
+            "correctAnswer": "NPU",
+            "domain": "Smart Devices & HiAI",
+            "level": "hard"
+        },
+        {
+            "id": 78,
+            "question": "Which of the following is NOT a way Huawei connects with developers?",
+            "options": [
+                "HiAI open courses",
+                "Technical symposiums",
+                "Game development contests",
+                "Cloud service ecosystem co-construction"
+            ],
+            "correctAnswer": "Game development contests",
+            "domain": "Developer Ecosystem",
+            "level": "hard"
+        },
+        {
+            "id": 79,
+            "question": "What is the primary purpose of AI chips according to the text?",
+            "options": [
+                "To replace CPUs in all computing tasks",
+                "To process massive computing tasks in AI applications",
+                "To enhance the performance of GPUs",
+                "To manage data storage in cloud environments"
+            ],
+            "correctAnswer": "To process massive computing tasks in AI applications",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 80,
+            "question": "Which of the following is a key feature of the L3 application enabling layer in the Ascend software stack?",
+            "options": [
+                "It handles hardware resource allocation",
+                "It provides application-level AI processing engines",
+                "It generates offline models",
+                "It converts neural networks for hardware execution"
+            ],
+            "correctAnswer": "It provides application-level AI processing engines",
+            "domain": "AI Software Stack",
+            "level": "hard"
+        },
+        {
+            "id": 81,
+            "question": "Which of the following is a key feature of the Ascend 910 AI processor?",
+            "options": [
+                "Low power consumption",
+                "High training performance",
+                "Fanless design",
+                "Small form factor"
+            ],
+            "correctAnswer": "High training performance",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 82,
+            "question": "What is the main purpose of the FusionDirector management tool in the Atlas platform?",
+            "options": [
+                "To manage power consumption",
+                "To decode video streams",
+                "To manage large-scale AI deployments and push updates",
+                "To store intermediate results"
+            ],
+            "correctAnswer": "To manage large-scale AI deployments and push updates",
+            "domain": "AI Management",
+            "level": "hard"
+        },
+        {
+            "id": 83,
+            "question": "What is the main function of the Ascend 310 AI processor?",
+            "options": [
+                "High-performance training",
+                "Edge inference",
+                "Cloud computing",
+                "Video decoding"
+            ],
+            "correctAnswer": "Edge inference",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 84,
+            "question": "Which of the following is a key benefit of the Atlas 500 AI edge station in transportation applications?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "Fanless design and wide temperature range",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Fanless design and wide temperature range",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 85,
+            "question": "Which of the following is a key benefit of the Atlas 800 AI server in inference tasks?",
+            "options": [
+                "High training performance",
+                "High inference performance",
+                "Low power consumption",
+                "Fanless design"
+            ],
+            "correctAnswer": "High inference performance",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 86,
+            "question": "What is the main function of the Ascend 910 AI processor?",
+            "options": [
+                "Edge inference",
+                "High-performance AI training",
+                "Video decoding",
+                "Power management"
+            ],
+            "correctAnswer": "High-performance AI training",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 87,
+            "question": "Which of the following is a key feature of the Atlas 200 AI accelerator module?",
+            "options": [
+                "High-density video decoding",
+                "Edge-cloud collaboration",
+                "Ultra-low cost for local development",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Edge-cloud collaboration",
+            "domain": "Edge AI",
+            "level": "hard"
+        },
+        {
+            "id": 88,
+            "question": "Which of the following is a key benefit of the Atlas 900 AI cluster?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "World's fastest AI training cluster",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 89,
+            "question": "Which of the following is a key feature of the Atlas 900 AI cluster?",
+            "options": [
+                "Highest density video decoding",
+                "World's fastest AI training cluster",
+                "Ultra-low cost for local development",
+                "Fanless design"
+            ],
+            "correctAnswer": "World's fastest AI training cluster",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 90,
+            "question": "Which of the following is a key benefit of the device-edge-cloud collaboration in the Atlas platform?",
+            "options": [
+                "Reduced power consumption",
+                "Centralized development and deployment",
+                "High-density video decoding",
+                "Fanless design"
+            ],
+            "correctAnswer": "Centralized development and deployment",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 91,
+            "question": "Which of the following is a major application of the Atlas AI platform in the electric power industry?",
+            "options": [
+                "Customer service chatbots",
+                "Smart meter data analysis",
+                "Predictive maintenance of power lines",
+                "Employee training"
+            ],
+            "correctAnswer": "Predictive maintenance of power lines",
+            "domain": "Industry-Specific AI",
+            "level": "hard"
+        },
+        {
+            "id": 92,
+            "question": "What is the primary objective of HUAWEI CLOUD EI?",
+            "options": [
+                "To provide cloud-based entertainment services",
+                "To drive enterprises' intelligent transformation using AI and big data",
+                "To offer cybersecurity solutions for small businesses",
+                "To develop consumer-grade AI applications"
+            ],
+            "correctAnswer": "To drive enterprises' intelligent transformation using AI and big data",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 93,
+            "question": "Which of the following is NOT a core component of the HUAWEI CLOUD EI ecosystem?",
+            "options": [
+                "Industry know-how",
+                "Computing power",
+                "Cloud gaming infrastructure",
+                "Algorithms"
+            ],
+            "correctAnswer": "Cloud gaming infrastructure",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 94,
+            "question": "What is the main use of Huawei HiLens?",
+            "options": [
+                "To provide cloud-based office software",
+                "To develop multimodal AI applications with device-cloud synergy",
+                "To offer AI-based cryptocurrency mining",
+                "To host AI training courses"
+            ],
+            "correctAnswer": "To develop multimodal AI applications with device-cloud synergy",
+            "domain": "AI Development Platforms",
+            "level": "hard"
+        },
+        {
+            "id": 95,
+            "question": "What is the Graph Engine Service (GES) primarily used for?",
+            "options": [
+                "Image recognition",
+                "Analyzing complex relationships in data",
+                "Text-to-speech",
+                "Video transcoding"
+            ],
+            "correctAnswer": "Analyzing complex relationships in data",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 96,
+            "question": "What is one of the key applications of Natural Language Processing (NLP) in HUAWEI CLOUD EI?",
+            "options": [
+                "Image recognition",
+                "Text summarization",
+                "Video editing",
+                "Network optimization"
+            ],
+            "correctAnswer": "Text summarization",
+            "domain": "Natural Language Processing",
+            "level": "hard"
+        },
+        {
+            "id": 97,
+            "question": "Which service is used for identifying sensitive or inappropriate content in media?",
+            "options": [
+                "ModelArts",
+                "Content Moderation",
+                "Graph Engine Service",
+                "Huawei HiLens"
+            ],
+            "correctAnswer": "Content Moderation",
+            "domain": "Enterprise AI",
+            "level": "hard"
+        },
+        {
+            "id": 98,
+            "question": "Which of the following is a key feature of the Ascend 310 AI processor?",
+            "options": [
+                "High-performance training",
+                "Edge inference",
+                "Cloud computing",
+                "Video decoding"
+            ],
+            "correctAnswer": "Edge inference",
+            "domain": "AI Hardware",
+            "level": "hard"
+        },
+        {
+            "id": 99,
+            "question": "Which of the following is a key benefit of the Atlas 800 AI server in inference tasks?",
+            "options": [
+                "High training performance",
+                "High inference performance",
+                "Low power consumption",
+                "Fanless design"
+            ],
+            "correctAnswer": "High inference performance",
+            "domain": "AI Infrastructure",
+            "level": "hard"
+        },
+        {
+            "id": 100,
+            "question": "Which of the following is a key benefit of the Atlas 500 AI edge station in transportation applications?",
+            "options": [
+                "High-density video decoding",
+                "Ultra-low cost for local development",
+                "Fanless design and wide temperature range",
+                "Massive parallel computing"
+            ],
+            "correctAnswer": "Fanless design and wide temperature range",
+            "domain": "IoT & Edge AI",
+            "level": "hard"
+        }
+    ]
 
     // Handle answer selection (unchanged)
     const handleAnswer = (option: string) => {
@@ -494,7 +1434,7 @@ const OnlineTest = () => {
                             HCIA-AI Certification
                         </h2>
                         <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 font-roboto">
-                            Assessment Level 1
+                            Assessment Level 2
                         </p>
                         <div className="space-y-4">
                             <div className="flex items-center bg-white/10 rounded-lg p-2 sm:p-3">
@@ -533,7 +1473,7 @@ const OnlineTest = () => {
                         </h2>
                         <div className="text-center">
                             <p className="text-lg sm:text-xl lg:text-2xl font-roboto">Name: {userName}</p>
-                            <p className="text-lg sm:text-xl lg:text-2xl font-roboto">Registration ID: {registrationId}</p>
+                            <p className="text-lg sm:text-xl lg:text-2xl font-roboto">CNIC: {registrationId}</p>
                         </div>
                         <div className="text-center">
                             <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-roboto">
@@ -554,7 +1494,7 @@ const OnlineTest = () => {
                                         correctAnswers={result.correctAnswers}
                                         totalQuestions={result.totalQuestions}
                                         percentage={result.percentage}
-                                        subjectName="Python and AI Fundamentals" // Add your subject name here
+                                        subjectName="HCIA-AI Certification Pre-Assessment Level 2" // Add your subject name here
                                     />
                                 }
                                 fileName="qat_result_mvc201.pdf"
