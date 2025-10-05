@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { X, AlertCircle } from 'lucide-react';
-import { FaLaptopCode } from 'react-icons/fa';
+import { X, AlertTriangle } from 'lucide-react';
+import { FaLaptopCode, FaRocket } from 'react-icons/fa';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
@@ -17,9 +17,9 @@ const FloatingAd: React.FC = () => {
     const [isVisible, setIsVisible] = useState<boolean>(true);
 
     const containerVariants = {
-        initial: { opacity: 0, scale: 0.9 },
-        animate: { opacity: 1, scale: 1, transition: { duration: 0.5, type: 'spring', stiffness: 120 } },
-        exit: { opacity: 0, scale: 0.9, transition: { duration: 0.3 } },
+        initial: { opacity: 0, y: 50, scale: 0.95 },
+        animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, type: 'spring', stiffness: 150 } },
+        exit: { opacity: 0, y: 20, scale: 0.9, transition: { duration: 0.3 } },
     };
 
     if (!isVisible) return null;
@@ -30,54 +30,66 @@ const FloatingAd: React.FC = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className={`fixed bottom-6 right-6 z-50 w-full max-w-sm bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl shadow-2xl border border-red-600 overflow-hidden ${inter.variable}`}
+            className={`fixed bottom-6 right-4 sm:right-6 z-50 w-full max-w-xs sm:max-w-sm rounded-2xl shadow-2xl overflow-hidden ${inter.variable} font-sans`}
+            style={{
+                background: 'linear-gradient(135deg, #FFD700 0%, #FF4500 100%)', // Yellow to Red
+            }}
         >
-            <div className="relative p-4 bg-red-600/10">
-                <h3 className="text-xl font-bold text-center text-white">MCASCE Certification</h3>
-                <button
-                    onClick={() => setIsVisible(false)}
-                    className="absolute top-3 right-3 text-white hover:text-red-400 transition-colors"
-                    aria-label="Close advertisement"
-                >
-                    <X size={18} />
-                </button>
+            {/* Close Button */}
+            <button
+                onClick={() => setIsVisible(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-full bg-black/20 hover:bg-black/30 transition-colors"
+                aria-label="Close advertisement"
+            >
+                <X size={16} className="text-white" />
+            </button>
+
+            {/* Alert Banner */}
+            <div className="flex items-center justify-center gap-2 py-2 bg-red-700 text-white text-xs font-bold tracking-wide">
+                <AlertTriangle size={14} className="animate-pulse" />
+                <span>LAST CHANCE TO APPLY!</span>
             </div>
 
-            <div className="p-6 flex flex-col items-center space-y-4">
-                <div className="p-3 bg-red-600/20 rounded-lg border border-red-600/30">
-                    <FaLaptopCode size={40} className="text-red-400" />
-                </div>
-                <h4 className="text-lg font-semibold text-white text-center">Master AI & Cloud Engineering</h4>
-                <p className="text-sm text-gray-300 text-center leading-relaxed">
-                    Build expertise in AI-driven software development and cloud technologies to shape the future of tech with MVIT’s MCASCE program.
+            {/* Content */}
+            <div className="p-5 pt-3 text-gray-900">
+                <h3 className="text-lg font-bold text-center mb-2">🚀 Apply Before Oct 31!</h3>
+                <p className="text-xs text-center mb-4 font-medium">
+                    Join MVIT’s flagship programs—limited seats available!
                 </p>
-                <div className="text-sm space-y-2 w-full">
-                    <p className="flex justify-between">
-                        <span className="font-semibold text-red-400">BASR Test Fee:</span>
-                        <span>$5</span>
-                    </p>
-                    <p className="flex justify-between">
-                        <span className="font-semibold text-red-400">Admission Fee:</span>
-                        <span>$70</span>
-                    </p>
-                    <p className="flex justify-between">
-                        <span className="font-semibold text-red-400">Monthly Fee:</span>
-                        <span>$35</span>
-                    </p>
-                    <p className="flex items-center justify-center gap-2 text-center text-lg font-bold text-red-400 mt-4">
-                        <AlertCircle size={24} className="text-red-300" aria-hidden="true" />
-                        Last Date to Apply for BASR: <span className="text-2xl text-red-300">27 Sep</span>
-                    </p>
-                </div>
-            </div>
 
-            <div className="p-4 bg-red-600/10">
-                <Link
-                    href="/pages/apply"
-                    className="block w-full py-2.5 text-center text-sm font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 rounded-lg hover:scale-105 transition-transform duration-200 shadow-md"
-                >
-                    Apply Now
-                </Link>
+                {/* MCASCE */}
+                <div className="flex items-start gap-3 mb-3 p-2.5 bg-white/30 backdrop-blur-sm rounded-xl">
+                    <FaLaptopCode size={20} className="text-red-800 mt-0.5 flex-shrink-0" />
+                    <div>
+                        <h4 className="text-sm font-bold text-gray-900">MCASCE Certification</h4>
+                        <p className="text-xs text-gray-800">AI & Cloud Engineering</p>
+                    </div>
+                </div>
+
+                {/* KG STEM Entre */}
+                <div className="flex items-start gap-3 mb-4 p-2.5 bg-white/30 backdrop-blur-sm rounded-xl">
+                    <FaRocket size={20} className="text-orange-800 mt-0.5 flex-shrink-0" />
+                    <div>
+                        <h4 className="text-sm font-bold text-gray-900">Kindergarten STEM Entrepreneurs</h4>
+                        <p className="text-xs text-gray-800">Youth Innovation Program</p>
+                    </div>
+                </div>
+
+                {/* Dual CTA Buttons */}
+                <div className="space-y-2.5">
+                    <Link
+                        href="/pages/apply"
+                        className="block w-full py-2.5 text-center text-sm font-bold text-white bg-red-800 hover:bg-red-700 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.99]"
+                    >
+                        Apply for MCASCE
+                    </Link>
+                    <Link
+                        href="/usai/apply"
+                        className="block w-full py-2.5 text-center text-sm font-bold text-white bg-orange-700 hover:bg-orange-600 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.99]"
+                    >
+                        Apply for Kindergarten STEM Entrepreneurs
+                    </Link>
+                </div>
             </div>
         </motion.div>
     );

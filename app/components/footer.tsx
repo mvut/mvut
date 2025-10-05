@@ -64,15 +64,15 @@ const FooterComponent: React.FC = () => {
     ];
 
     const programs: Program[] = [
-        { title: 'MCASCE Certification', href: '/pages/mcasce' },
+        { title: 'Mansha Certified Autonomous Systems and Cloud Engineer', href: '/pages/mcasce' },
         { title: 'Kindergarten (K.G.) STEM Entrepreneurs', href: '/usai' },
     ];
 
     const resources: Resource[] = [
-        { title: 'Admitted Candidates', href: '/pages/admlst' },
         { title: 'Careers', href: '/pages/mycareer' },
         { title: 'Programs', href: '/pages/study' },
         { title: 'Tariff', href: '/pages/study/fee' },
+        { title: 'Admitted Candidates', href: '/pages/admlst' },
     ];
 
     return (

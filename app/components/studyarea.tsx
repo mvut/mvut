@@ -280,7 +280,7 @@ export default function ComputerSciencePage() {
                             transition={{ duration: 0.3 }}
                             viewport={{ once: true }}
                         >
-                            <div className="text-3xl font-bold mb-1">22%</div>
+                            <div className="text-3xl font-bold mb-1">100%</div>
                             <p className="text-blue-200 text-sm">Projected job growth</p>
                         </motion.div>
                         <motion.div

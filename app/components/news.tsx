@@ -8,63 +8,63 @@ export default function NewsAndEventsPage() {
     const cards = [
         {
             id: '1',
-            title: 'Quantum Computing Breakthrough',
-            description: 'Our researchers achieve quantum supremacy with revolutionary 128-qubit processor design',
-            date: 'May 15, 2024',
-            type: 'news',
-            category: 'Research',
-            gradient: 'from-blue-500 to-blue-700',
-            link: '/news/quantum-computing'
-        },
-        {
-            id: '2',
-            title: 'Annual Tech Conference',
-            description: 'Join 50+ industry leaders discussing AI, Web3 and future technologies',
-            date: 'June 10-12, 2024',
+            title: 'MVIT Global AI Ethics Symposium',
+            description: 'Join thought leaders, researchers, and policymakers to shape the future of responsible AI in education and industry.',
+            date: 'February 15, 2026', // Sunday
             type: 'event',
             category: 'Conference',
             gradient: 'from-purple-500 to-purple-700',
-            link: '/events/tech-conference'
+            link: '/events/ai-ethics-symposium-2026'
+        },
+        {
+            id: '2',
+            title: 'Kindergarten STEM Entrepreneurs: Spring Showcase',
+            description: 'Watch 5–6 year olds present their AI-powered toys, smart gardens, and robot pets at our family innovation fair.',
+            date: 'April 5, 2026', // Sunday
+            type: 'event',
+            category: 'Education',
+            gradient: 'from-amber-500 to-amber-700',
+            link: '/events/kg-showcase-spring-2026'
         },
         {
             id: '3',
-            title: 'Student App Wins National Award',
-            description: 'Campus team wins first prize for innovative mental health tracking application',
-            date: 'April 28, 2024',
-            type: 'news',
-            category: 'Achievement',
-            gradient: 'from-green-500 to-green-700',
-            link: '/news/student-award'
+            title: 'MCASCE Graduation & Industry Demo Day',
+            description: 'Celebrate the next generation of Autonomous Systems Engineers as they demo capstone projects to tech partners and investors.',
+            date: 'June 14, 2026', // Sunday
+            type: 'event',
+            category: 'Program Milestone',
+            gradient: 'from-red-500 to-red-700',
+            link: '/news/mcasce-graduation-2026'
         },
         {
             id: '4',
-            title: 'Blockchain Workshop',
-            description: 'Hands-on session building smart contracts with Ethereum and Solidity',
-            date: 'May 25, 2024',
+            title: 'Youth AI Olympiad 2026 Finals',
+            description: 'Top 100 student teams compete in Lahore to solve real-world challenges using AI, robotics, and data science.',
+            date: 'August 9, 2026', // Sunday
             type: 'event',
-            category: 'Workshop',
-            gradient: 'from-red-500 to-red-700',
-            link: '/events/blockchain-workshop'
+            category: 'Competition',
+            gradient: 'from-blue-500 to-blue-700',
+            link: '/events/youth-ai-olympiad-finals-2026'
         },
         {
             id: '5',
-            title: '$5M Grant for AI Research',
-            description: 'Department secures major funding for ethical AI development initiatives',
-            date: 'March 22, 2024',
+            title: 'MVIT Launches AI Literacy Caravan Phase II',
+            description: 'New fleet of mobile labs to bring hands-on AI and robotics workshops to 100+ rural schools across Pakistan.',
+            date: 'September 13, 2026', // Sunday
             type: 'news',
-            category: 'Funding',
-            gradient: 'from-amber-500 to-amber-700',
-            link: '/news/ai-grant'
+            category: 'Community Impact',
+            gradient: 'from-green-500 to-green-700',
+            link: '/news/ai-caravan-phase2-launch'
         },
         {
             id: '6',
-            title: 'Hackathon: Climate Solutions',
-            description: '48-hour competition to build tech solutions addressing climate change',
-            date: 'July 8-9, 2024',
+            title: 'Annual Tech & Innovation Family Day',
+            description: 'A day of interactive exhibits, coding games, robot races, and AI art — open to students, parents, and the public.',
+            date: 'November 8, 2026', // Sunday
             type: 'event',
-            category: 'Hackathon',
+            category: 'Community',
             gradient: 'from-indigo-500 to-indigo-700',
-            link: '/events/climate-hackathon'
+            link: '/events/family-tech-day-2026'
         }
     ];
 

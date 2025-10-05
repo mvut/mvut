@@ -15,19 +15,19 @@ const montserrat = Montserrat({
 export default function StatisticsComponent() {
     const stats = [
         {
-            value: "10+",
+            value: "3+",
             label: "Professional Certifications",
             icon: <MdOutlineSchool className="text-3xl" />,
             color: "from-indigo-500 to-indigo-600"
         },
         {
-            value: "7+",
+            value: "10+",
             label: "Specialization Programs",
             icon: <GiDiploma className="text-3xl" />,
             color: "from-blue-500 to-blue-600"
         },
         {
-            value: "200+",
+            value: "300+",
             label: "Skills Courses",
             icon: <PiCertificateDuotone className="text-3xl" />,
             color: "from-green-500 to-green-600"
@@ -39,7 +39,7 @@ export default function StatisticsComponent() {
             color: "from-amber-500 to-amber-600"
         },
         {
-            value: "150+",
+            value: "1K+",
             label: "Total Certified",
             icon: <FaAward className="text-3xl" />,
             color: "from-rose-500 to-rose-600"

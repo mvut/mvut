@@ -76,15 +76,15 @@ export default function Header() {
     };
 
     const newsItems = [
-        "Apply for MCASCE Eligibility Test till 27 Sep",
-        "Eligibility Test Fee - $5",
-        "MCASCE Admission Fee- $70, Monthly Fee-$35",
-        "Start your AI career today ***",
+        "Admissions are open now!",
+        "Admission fee: $70",
+        "Monthly fee: $35",
+        "*Online Affordable Education",
     ];
 
     const mainNavItems = [
-        { title: 'MCASCE', href: '/pages/mcasce' },
-        { title: 'USAI', href: '/usai' },
+        { title: 'Home', href: '/' },
+        { title: 'Services', href: '/pages/services' },
     ];
 
     const productItems = [
