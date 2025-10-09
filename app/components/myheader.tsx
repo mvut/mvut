@@ -76,6 +76,7 @@ export default function Header() {
     };
 
     const newsItems = [
+        "Date Sheet Issued Term-I Exam",
         "Admissions are open now!",
         "Admission fee: $70",
         "Monthly fee: $35",
@@ -91,6 +92,7 @@ export default function Header() {
         { title: 'Programs', href: '/pages/study' },
         { title: 'Faculties', href: '/pages/faculty' },
         { title: 'Tariff', href: '/pages/study/fee' },
+        { title: 'Date Sheet', href: '/pages/datesheet' },
         { title: 'Careers', href: '/pages/mycareer' },
         { title: 'AI Education', href: '/pages/aie' },
         { title: 'ELITE Certification', href: '/pages/elite' },

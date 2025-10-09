@@ -72,6 +72,7 @@ const FooterComponent: React.FC = () => {
         { title: 'Careers', href: '/pages/mycareer' },
         { title: 'Programs', href: '/pages/study' },
         { title: 'Tariff', href: '/pages/study/fee' },
+        { title: 'Date Sheet', href: '/pages/datesheet' },
         { title: 'Admitted Candidates', href: '/pages/admlst' },
     ];
 

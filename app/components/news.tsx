@@ -7,6 +7,16 @@ import { motion } from 'framer-motion';
 export default function NewsAndEventsPage() {
     const cards = [
         {
+            id: '7',
+            title: 'Spring 2025 Term-I Exam Date Sheet Announced',
+            description: 'The MCASCE Term-I Examination schedule has been officially released. Exams will begin on October 13, 2025. Students are advised to review the date sheet carefully, and ensure timely attendance for each paper.',
+            date: 'February 15, 2026', // Sunday
+            type: 'event',
+            category: 'Conference',
+            gradient: 'from-purple-500 to-purple-700',
+            link: '/pages/datesheet'
+        },
+        {
             id: '1',
             title: 'MVIT Global AI Ethics Symposium',
             description: 'Join thought leaders, researchers, and policymakers to shape the future of responsible AI in education and industry.',
