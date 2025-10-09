@@ -27,32 +27,9 @@ export default function DatasheetPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="flex justify-center mb-4">
-                        <div className="bg-gradient-to-r from-cyan-500 to-blue-600 w-14 h-14 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">M</span>
-                        </div>
-                    </div>
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800">MVIT MCASCE EXAMINATION</h1>
                     <p className="text-gray-600">M1 Full-Stack Software Engineer (FSSE) — DATASHEET TERM-I SPRING-2025</p>
                 </motion.div>
-
-                {/* Download Button */}
-                <div className="flex justify-center mb-8">
-                    <PDFDownloadLink
-                        document={<DatasheetPDF />}
-                        fileName="MVIT_Datasheet_Term-I_Spring-2025.pdf"
-                        className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-lg transition shadow-md"
-                    >
-                        {({ loading }) =>
-                            loading ? 'Preparing PDF...' : (
-                                <>
-                                    <FaFilePdf className="text-xl" />
-                                    Download PDF Datasheet
-                                </>
-                            )
-                        }
-                    </PDFDownloadLink>
-                </div>
 
                 {/* Table */}
                 <motion.div
