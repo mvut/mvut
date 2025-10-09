@@ -118,12 +118,6 @@ const CollaborationPage: React.FC = () => {
 
     return (
         <>
-            <Head>
-                <title>MVIT & ABS Academy Collaboration</title>
-                <meta name="description" content="Strategic partnership between MVIT and ABS Academy for educational excellence" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-            </Head>
-
             <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
                 {/* Hero Section */}
                 <div className="relative overflow-hidden">

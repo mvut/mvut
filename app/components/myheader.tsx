@@ -107,7 +107,6 @@ export default function Header() {
         { title: 'Degree Verification', href: '/verify' },
         { title: 'Admitted Candidates', href: '/pages/admlst' },
         { title: 'Quality Assurance Commission', href: '/qac' },
-        { title: 'Success Stories', href: '/pages/stories' },
         { title: 'Trainings', href: '/pages/trainings' },
         { title: 'Research', href: '/pages/research' },
         { title: 'Scholarship', href: '/pages/scholarship' },
