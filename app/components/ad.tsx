@@ -111,7 +111,7 @@ const DatesheetAlert: React.FC<DatesheetAlertProps> = ({ startDate = '13-10-2025
                                 </div>
 
                                 <p className="text-sm text-blue-100 mb-4 leading-relaxed">
-                                    The wait is over! MVIT's first MCASCE examination is here.
+                                    The wait is over! MVIT&apos;s first MCASCE examination is here.
                                     <span className="block text-yellow-200 font-semibold mt-1">
                                         Make history with us! 📚✨
                                     </span>
