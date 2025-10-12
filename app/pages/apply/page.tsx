@@ -217,6 +217,7 @@ export default function ApplicationForm(){
                             required
                         >
                             <option value="">Select qualification</option>
+                            <option value="Fresher">Fresher</option>
                             <option value="Secondary School Certificate (SSC)">Secondary School Certificate (SSC)</option>
                             <option value="Higher Secondary School Certificate (HSSC)">Higher Secondary School Certificate (HSSC)</option>
                             <option value="Bachelor's Degree">Bachelor&apos;s Degree</option>
@@ -279,9 +280,11 @@ export default function ApplicationForm(){
                             name="program"
                             required
                         >
-                            <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs</option>
-                            <option value="Mansha Certified Autonomous Systems and Cloud Engineer">Mansha Certified Autonomous Systems and Cloud Engineer (MCASCE)</option>
-                            <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering</option>
+                            <option value="AI Agents Developer">AI Agents Developer (for Kids)</option>
+                            <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs (for Kids)</option>
+                            <option value="Full-Stack AI Engineer">Full-Stack AI Engineer (for Kids)</option>
+                            <option value="Mansha Certified Autonomous Systems and Cloud Engineer">Mansha Certified Autonomous Systems and Cloud Engineer - MCASCE (for Graduates) </option>
+                            <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering (for All)</option>
                         </select>
                     </motion.div>
 

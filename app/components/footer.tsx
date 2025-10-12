@@ -65,7 +65,7 @@ const FooterComponent: React.FC = () => {
 
     const programs: Program[] = [
         { title: 'Mansha Certified Autonomous Systems and Cloud Engineer', href: '/pages/mcasce' },
-        { title: 'Kindergarten (K.G.) STEM Entrepreneurs', href: '/usai' },
+        { title: 'Kindergarten (K.G.) STEM Entrepreneurs', href: '/pages/kg-ai' },
     ];
 
     const resources: Resource[] = [
@@ -73,7 +73,6 @@ const FooterComponent: React.FC = () => {
         { title: 'Programs', href: '/pages/study' },
         { title: 'Tariff', href: '/pages/study/fee' },
         { title: 'Date Sheet', href: '/pages/datesheet' },
-        { title: 'Admitted Candidates', href: '/pages/admlst' },
     ];
 
     return (

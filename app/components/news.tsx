@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function NewsAndEventsPage() {
     const cards = [
         {
-            id: '7',
+            id: '4',
             title: 'Spring 2025 Term-I Exam Date Sheet Announced',
             description: 'The MCASCE Term-I Examination schedule has been officially released. Exams will begin on October 13, 2025. Students are advised to review the date sheet carefully, and ensure timely attendance for each paper.',
             date: 'February 15, 2026', // Sunday
@@ -17,17 +17,7 @@ export default function NewsAndEventsPage() {
             link: '/pages/datesheet'
         },
         {
-            id: '1',
-            title: 'MVIT Global AI Ethics Symposium',
-            description: 'Join thought leaders, researchers, and policymakers to shape the future of responsible AI in education and industry.',
-            date: 'February 15, 2026', // Sunday
-            type: 'event',
-            category: 'Conference',
-            gradient: 'from-purple-500 to-purple-700',
-            link: '/events/ai-ethics-symposium-2026'
-        },
-        {
-            id: '2',
+            id: '3',
             title: 'Kindergarten STEM Entrepreneurs: Spring Showcase',
             description: 'Watch 5–6 year olds present their AI-powered toys, smart gardens, and robot pets at our family innovation fair.',
             date: 'April 5, 2026', // Sunday
@@ -37,7 +27,7 @@ export default function NewsAndEventsPage() {
             link: '/events/kg-showcase-spring-2026'
         },
         {
-            id: '3',
+            id: '2',
             title: 'MCASCE Graduation & Industry Demo Day',
             description: 'Celebrate the next generation of Autonomous Systems Engineers as they demo capstone projects to tech partners and investors.',
             date: 'June 14, 2026', // Sunday
@@ -47,7 +37,7 @@ export default function NewsAndEventsPage() {
             link: '/news/mcasce-graduation-2026'
         },
         {
-            id: '4',
+            id: '1',
             title: 'Youth AI Olympiad 2026 Finals',
             description: 'Top 100 student teams compete in Lahore to solve real-world challenges using AI, robotics, and data science.',
             date: 'August 9, 2026', // Sunday
@@ -55,26 +45,6 @@ export default function NewsAndEventsPage() {
             category: 'Competition',
             gradient: 'from-blue-500 to-blue-700',
             link: '/events/youth-ai-olympiad-finals-2026'
-        },
-        {
-            id: '5',
-            title: 'MVIT Launches AI Literacy Caravan Phase II',
-            description: 'New fleet of mobile labs to bring hands-on AI and robotics workshops to 100+ rural schools across Pakistan.',
-            date: 'September 13, 2026', // Sunday
-            type: 'news',
-            category: 'Community Impact',
-            gradient: 'from-green-500 to-green-700',
-            link: '/news/ai-caravan-phase2-launch'
-        },
-        {
-            id: '6',
-            title: 'Annual Tech & Innovation Family Day',
-            description: 'A day of interactive exhibits, coding games, robot races, and AI art — open to students, parents, and the public.',
-            date: 'November 8, 2026', // Sunday
-            type: 'event',
-            category: 'Community',
-            gradient: 'from-indigo-500 to-indigo-700',
-            link: '/events/family-tech-day-2026'
         }
     ];
 

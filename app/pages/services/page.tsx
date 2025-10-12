@@ -1,568 +1,265 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import {
-    FaReact, FaNodeJs, FaDatabase, FaCloud,
-    FaMobile, FaCode, FaServer, FaShieldAlt,
-    FaPython, FaDocker, FaGraduationCap, FaQuoteLeft,
-    FaUserTie, FaHtml5, FaCss3Alt, FaRobot, FaChalkboardTeacher,
-    FaDesktop, FaLaptopCode, FaUniversity, FaSchool
-} from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
-import {
-    SiTypescript, SiTailwindcss, SiKubernetes,
-    SiMongodb, SiPostgresql, SiPhp, SiCsharp,
-    SiJavascript, SiTensorflow, SiPytorch, SiOpenai
-} from "react-icons/si";
-import Image from "next/image";
-import MVITLogo from "@/public/mvutflame.png";
+
+import React, { useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import MVITLogo from '@/public/mvutflame.png';
+
+// icons (keep only those used to reduce bundle)
+import { FaReact, FaRobot, FaSchool, FaUniversity, FaCloud, FaServer, FaQuoteLeft, FaUserTie, FaMobile, FaDesktop, FaLaptopCode } from 'react-icons/fa';
+import { RiNextjsFill } from 'react-icons/ri';
+import { SiTypescript, SiTailwindcss, SiTensorflow, SiPytorch, SiMongodb, SiPostgresql, SiDocker, SiKubernetes } from 'react-icons/si';
+
+// ---------- Types ----------
+type Category = 'development' | 'ai' | 'education' | 'enterprise';
 
 type Service = {
+    id: string;
     title: string;
     description: string;
     features: string[];
-    icon: React.ComponentType<{ className?: string }>;
-    category: 'development' | 'ai' | 'education' | 'enterprise';
+    icon: React.ComponentType<any>;
+    category: Category;
 };
 
-type Technology = {
-    name: string;
-    icon: React.ComponentType<{ className?: string }>;
-    category: 'frontend' | 'backend' | 'ai-ml' | 'devops' | 'database' | 'languages';
-};
+type Technology = { name: string; icon: React.ComponentType<any>; category: string };
 
-type Testimonial = {
-    quote: string;
-    name: string;
-    position: string;
-    company: string;
-};
+type Testimonial = { quote: string; name: string; position: string; company: string };
 
+// ---------- Data (kept local for single-file demo) ----------
+const SERVICES: Service[] = [
+    { id: 'web', title: 'Custom Web Development', description: 'Fast, accessible, scalable web apps using modern tools.', features: ['Next.js + React', 'TypeScript', 'PWA', 'SEO'], icon: FaReact, category: 'development' },
+    { id: 'mobile', title: 'Mobile Apps', description: 'Cross-platform mobile apps that feel native.', features: ['React Native', 'Performance focused', 'Push notifications'], icon: FaMobile, category: 'development' },
+    { id: 'desktop', title: 'Desktop Apps', description: 'Electron and native desktop solutions.', features: ['Auto-updates', 'Native integrations'], icon: FaDesktop, category: 'development' },
+
+    { id: 'agents', title: 'AI Agents', description: 'Conversational and autonomous agents for automation.', features: ['NLP', 'Conversational flows', 'Deployable agents'], icon: FaRobot, category: 'ai' },
+    { id: 'ml', title: 'Machine Learning', description: 'Custom ML models from research to production.', features: ['TensorFlow / PyTorch', 'Model serving', 'Monitoring'], icon: FaLaptopCode, category: 'ai' },
+
+    { id: 'school', title: 'School Programs', description: 'Fun and practical STEM for K-12.', features: ['Scratch', 'Robotics basics', 'Game dev'], icon: FaSchool, category: 'education' },
+    { id: 'uni', title: 'University Curriculum', description: 'Industry-aligned university courses and capstones.', features: ['Capstones', 'Industry mentors'], icon: FaUniversity, category: 'education' },
+
+    { id: 'enterprise', title: 'Enterprise Software', description: 'Scalable solutions with strong security and SLA.', features: ['Microservices', 'High-availability', 'Observability'], icon: FaServer, category: 'enterprise' },
+    { id: 'devops', title: 'DevOps & Cloud', description: 'CI/CD, infra as code and cloud migrations.', features: ['K8s', 'IaC', 'Monitoring'], icon: FaCloud, category: 'enterprise' }
+];
+
+const TECHNOLOGIES: Technology[] = [
+    { name: 'TypeScript', icon: SiTypescript, category: 'languages' },
+    { name: 'React', icon: FaReact, category: 'frontend' },
+    { name: 'Next.js', icon: RiNextjsFill, category: 'frontend' },
+    { name: 'Tailwind', icon: SiTailwindcss, category: 'frontend' },
+    { name: 'TensorFlow', icon: SiTensorflow, category: 'ai-ml' },
+    { name: 'PyTorch', icon: SiPytorch, category: 'ai-ml' },
+    { name: 'MongoDB', icon: SiMongodb, category: 'database' },
+    { name: 'Postgres', icon: SiPostgresql, category: 'database' },
+    { name: 'Docker', icon: SiDocker, category: 'devops' },
+    { name: 'Kubernetes', icon: SiKubernetes, category: 'devops' }
+];
+
+const TESTIMONIALS: Testimonial[] = [
+    { quote: 'The AI agent we got handled 80% of queries and improved satisfaction significantly.', name: 'Sarah J.', position: 'Ops Director', company: 'Retail Co.' },
+    { quote: 'Students transitioned to jobs quickly after the MVIT program.', name: 'Dr. M. Chen', position: 'Dean', company: 'State University' }
+];
+
+// ---------- Motion variants ----------
+const fadeUp = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } };
+
+// ---------- Small UI components ----------
+const Tag: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+    <span className="px-2 py-0.5 text-xs rounded-full bg-white/6 border border-white/8 text-blue-100">{children}</span>
+);
+
+function IconWrap({ Icon, size = 28 }: { Icon: React.ComponentType<any>; size?: number }) {
+    return <Icon className="flex-shrink-0" style={{ width: size, height: size }} />;
+}
+
+// Service Card
+const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
+    <motion.article
+        initial="hidden"
+        whileInView="show"
+        variants={fadeUp}
+        viewport={{ once: true }}
+        className="group bg-gradient-to-br from-black/20 to-black/10 border border-blue-800 backdrop-blur-sm rounded-2xl p-5 hover:scale-[1.01] transition-transform"
+    >
+        <div className="flex items-start gap-4">
+            <div className="text-cyan-300 text-3xl">
+                <service.icon />
+            </div>
+            <div>
+                <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+                <p className="text-sm text-blue-200 mt-1">{service.description}</p>
+            </div>
+        </div>
+
+        <ul className="mt-4 text-sm text-blue-100 space-y-2">
+            {service.features.map((f, i) => (
+                <li key={i} className="flex items-start gap-2">
+                    <span className="text-cyan-300">•</span>
+                    <span>{f}</span>
+                </li>
+            ))}
+        </ul>
+
+        <div className="mt-4 flex justify-end">
+            <button className="text-sm px-3 py-1 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500">Learn More</button>
+        </div>
+    </motion.article>
+);
+
+// ---------- Main Page ----------
 export default function ServicesPage() {
-    const [isMounted, setIsMounted] = useState(false);
-    const [activeCategory, setActiveCategory] = useState<'all' | 'development' | 'ai' | 'education' | 'enterprise'>('all');
+    const [mounted, setMounted] = useState(false);
+    const [query, setQuery] = useState('');
+    const [active, setActive] = useState<'all' | Category | 'search'>('all');
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+    useEffect(() => setMounted(true), []);
 
-    if (!isMounted) {
-        return (
-            <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-900 py-12" />
-        );
-    }
+    const categories: ({ id: string; label: string })[] = [
+        { id: 'all', label: 'All' },
+        { id: 'development', label: 'Development' },
+        { id: 'ai', label: 'AI' },
+        { id: 'education', label: 'Education' },
+        { id: 'enterprise', label: 'Enterprise' }
+    ];
 
-    const filteredServices = activeCategory === 'all'
-        ? services
-        : services.filter(service => service.category === activeCategory);
+    const filtered = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        if (q) {
+            return SERVICES.filter(s => s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q) || s.features.join(' ').toLowerCase().includes(q));
+        }
+        if (active === 'all') return SERVICES;
+        return SERVICES.filter(s => s.category === active);
+    }, [query, active]);
+
+    if (!mounted) return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-900" />;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-blue-900 py-12 text-white relative overflow-hidden">
-            {/* Background Elements */}
-            <BackgroundCircles />
-
+        <div className="min-h-screen py-12 bg-gradient-to-br from-slate-900 via-black to-slate-900 text-white">
             <div className="container mx-auto px-4 relative z-10">
-                {/* Hero Section */}
-                <HeroSection />
+                <header className="flex items-center justify-between gap-4 mb-10">
+                    <div className="flex items-center gap-3">
+                        <div className="w-14 h-14 relative rounded-full overflow-hidden bg-white/5 p-2">
+                            <Image src={MVITLogo} alt="MVIT" fill className="object-contain" />
+                        </div>
+                        <div>
+                            <h1 className="text-xl md:text-2xl font-bold">MVIT — Technology & Education</h1>
+                            <p className="text-xs text-blue-200/80">Empowering communities through technology, AI & learning</p>
+                        </div>
+                    </div>
 
-                {/* Services Filter */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    {[
-                        { id: 'all', label: 'All Services' },
-                        { id: 'development', label: 'Development' },
-                        { id: 'ai', label: 'AI Solutions' },
-                        { id: 'education', label: 'Education' },
-                        { id: 'enterprise', label: 'Enterprise' }
-                    ].map(({id, label}) => (
-                        <motion.button
-                            key={id}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => setActiveCategory(id as any)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                                activeCategory === id
-                                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                                    : 'bg-black bg-opacity-40 text-blue-300 border border-blue-800'
-                            }`}
-                        >
-                            {label}
-                        </motion.button>
-                    ))}
+                    <div className="hidden md:flex items-center gap-3">
+                        <nav className="flex gap-2">
+                            {categories.map(c => (
+                                <button key={c.id} onClick={() => { setActive(c.id as any); setQuery(''); }} className={`px-3 py-1 rounded-lg text-sm ${active === c.id ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white' : 'bg-black/30 text-blue-200 border border-blue-800'}`}>
+                                    {c.label}
+                                </button>
+                            ))}
+                        </nav>
+                    </div>
+                </header>
+
+                {/* Hero */}
+                <section className="text-center mb-8">
+                    <motion.h2 initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">
+                        Build, Learn, Automate — with MVIT
+                    </motion.h2>
+                    <p className="text-sm text-blue-200 mt-2 max-w-2xl mx-auto">Custom software, AI agents, and practical education programs built for real outcomes.</p>
+                </section>
+
+                {/* Controls */}
+                <div className="flex flex-col md:flex-row items-center gap-3 mb-6 justify-between">
+                    <div className="w-full md:w-1/2">
+                        <input value={query} onChange={e => { setQuery(e.target.value); setActive('search'); }} placeholder="Search services, features or keywords..." className="w-full bg-black/20 border border-blue-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+                    </div>
+
+                    <div className="flex gap-3">
+                        <button onClick={() => { setQuery(''); setActive('all'); }} className="px-3 py-2 rounded-lg bg-black/30 border border-blue-800 text-sm">Reset</button>
+                        <a href="#contact" className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-sm">Contact</a>
+                    </div>
                 </div>
 
-                {/* Services Section */}
-                <ServicesGrid services={filteredServices} />
+                {/* Grid */}
+                <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <AnimatePresence mode="popLayout">
+                        {filtered.map(s => (
+                            <motion.div key={s.id} layout initial={{ opacity: 0, scale: 0.99 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
+                                <ServiceCard service={s} />
+                            </motion.div>
+                        ))}
 
-                {/* Special AI Section */}
-                <AISpecialSection />
+                        {filtered.length === 0 && (
+                            <motion.div className="col-span-full text-center text-blue-200/80 p-8 border border-blue-800 rounded-xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                                No services found for "{query}". Try a different keyword or select a category.
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </main>
+
+                {/* AI Highlight */}
+                <section className="mb-10 bg-gradient-to-r from-black/30 to-black/10 border border-cyan-800 rounded-2xl p-6">
+                    <div className="flex flex-col md:flex-row gap-6 items-center">
+                        <div className="flex-shrink-0 text-6xl text-cyan-300"><FaRobot /></div>
+                        <div>
+                            <h3 className="text-xl font-semibold">AI Agents & ML — Production Ready</h3>
+                            <p className="text-blue-200 mt-1">Conversational assistants, predictive models, and vision systems that integrate with your business workflows.</p>
+                            <div className="mt-3 flex gap-2 flex-wrap">
+                                <Tag>Conversational</Tag>
+                                <Tag>CV & NLP</Tag>
+                                <Tag>Model Monitoring</Tag>
+                                <Tag>Deployment</Tag>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Technology Stack */}
-                <TechnologySection />
-
-                {/* Education Section */}
-                <EducationSection />
+                <section className="mb-10">
+                    <h4 className="text-lg font-semibold mb-4">Technology highlights</h4>
+                    <div className="flex flex-wrap gap-3">
+                        {TECHNOLOGIES.map(t => (
+                            <div key={t.name} className="flex items-center gap-2 px-3 py-1 rounded-md bg-black/20 border border-blue-800 text-sm">
+                                <t.icon />
+                                <span className="text-blue-100">{t.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
                 {/* Testimonials */}
-                <TestimonialSection />
+                <section className="mb-12">
+                    <h4 className="text-lg font-semibold mb-4">What people say</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {TESTIMONIALS.map((t, i) => (
+                            <motion.blockquote key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="bg-black/20 border border-blue-800 p-4 rounded-xl">
+                                <div className="flex items-start gap-3">
+                                    <div className="text-2xl text-blue-300"><FaQuoteLeft /></div>
+                                    <div>
+                                        <p className="text-blue-200 italic">"{t.quote}"</p>
+                                        <div className="mt-3 flex items-center gap-3">
+                                            <div className="w-9 h-9 rounded-full bg-white/3 flex items-center justify-center"><FaUserTie className="text-blue-300" /></div>
+                                            <div>
+                                                <div className="font-semibold">{t.name}</div>
+                                                <div className="text-xs text-blue-300">{t.position} • {t.company}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.blockquote>
+                        ))}
+                    </div>
+                </section>
 
                 {/* CTA */}
-                <CallToAction />
+                <section id="contact" className="mb-20 bg-gradient-to-r from-black/30 to-black/10 p-6 rounded-2xl border border-blue-800 text-center">
+                    <h4 className="text-xl font-bold mb-2">Ready to start?</h4>
+                    <p className="text-blue-200 mb-4">Contact us for a free consult or ask about our trainings and certifications.</p>
+                    <div className="flex justify-center gap-3">
+                        <a className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500" href="mailto:info@mvitech.org">Email Us</a>
+                        <a className="px-4 py-2 rounded-lg bg-transparent border border-blue-800" href="#">View Programs</a>
+                    </div>
+                </section>
+
             </div>
         </div>
     );
 }
-
-const BackgroundCircles = () => (
-    <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 10 }).map((_, i) => (
-            <motion.div
-                key={i}
-                className="absolute rounded-full bg-blue-800 opacity-10"
-                initial={{
-                    x: `${Math.random() * 100}%`,
-                    y: `${Math.random() * 100}%`,
-                    width: `${Math.random() * 300 + 100}px`,
-                    height: `${Math.random() * 300 + 100}px`,
-                }}
-                animate={{
-                    x: `${Math.random() * 100}%`,
-                    y: `${Math.random() * 100}%`,
-                    transition: {
-                        duration: Math.random() * 10 + 10,
-                        repeat: Infinity,
-                        repeatType: "reverse"
-                    }
-                }}
-            />
-        ))}
-    </div>
-);
-
-const HeroSection = () => (
-    <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-16"
-    >
-        <motion.div
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-24 h-24 mx-auto mb-6 relative"
-        >
-            <Image
-                src={MVITLogo}
-                alt="MVIT Logo"
-                fill
-                className="object-contain"
-                priority
-            />
-        </motion.div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-            Empowering Through Technology
-        </h1>
-        <p className="text-lg text-blue-200 max-w-2xl mx-auto">
-            Comprehensive digital solutions, AI innovation, and technology education to strengthen and uplift communities
-        </p>
-    </motion.div>
-);
-
-const ServicesGrid = ({ services }: { services: Service[] }) => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {services.map((service, i) => (
-            <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="bg-black bg-opacity-40 backdrop-blur-sm rounded-xl p-6 border border-blue-800 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/20"
-            >
-                <div className="text-blue-400 text-3xl mb-4">
-                    <service.icon />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                <p className="text-blue-200 text-sm mb-4">{service.description}</p>
-                <ul className="text-sm text-blue-300 space-y-2">
-                    {service.features.map((feature, j) => (
-                        <li key={j} className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            {feature}
-                        </li>
-                    ))}
-                </ul>
-            </motion.div>
-        ))}
-    </div>
-);
-
-const AISpecialSection = () => (
-    <div className="mb-16 bg-gradient-to-r from-blue-900/50 to-cyan-900/30 rounded-xl p-8 border border-cyan-500">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-1/3 text-center md:text-right">
-                <FaRobot className="text-6xl text-cyan-300 mx-auto md:mx-0" />
-                <h2 className="text-2xl font-bold mt-4 text-cyan-200">AI Agents Development</h2>
-                <p className="text-blue-200 mt-2">State-of-the-art autonomous systems</p>
-            </div>
-            <div className="md:w-2/3">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
-                        <h3 className="font-bold text-cyan-300 mb-2">Conversational AI</h3>
-                        <p className="text-blue-200 text-sm">Advanced chatbots and virtual assistants with natural language understanding</p>
-                    </div>
-                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
-                        <h3 className="font-bold text-cyan-300 mb-2">Predictive Agents</h3>
-                        <p className="text-blue-200 text-sm">AI systems that anticipate needs and automate decision-making</p>
-                    </div>
-                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
-                        <h3 className="font-bold text-cyan-300 mb-2">Computer Vision</h3>
-                        <p className="text-blue-200 text-sm">Image and video analysis for automation and insights</p>
-                    </div>
-                    <div className="bg-black/30 p-4 rounded-lg border border-cyan-800">
-                        <h3 className="font-bold text-cyan-300 mb-2">Autonomous Systems</h3>
-                        <p className="text-blue-200 text-sm">Self-learning agents that optimize processes continuously</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-);
-
-const TechnologySection = () => {
-    const techCategories = [
-        { id: 'languages', name: 'Languages', icon: FaCode },
-        { id: 'frontend', name: 'Frontend', icon: FaReact },
-        { id: 'backend', name: 'Backend', icon: FaServer },
-        { id: 'ai-ml', name: 'AI/ML', icon: FaRobot },
-        { id: 'database', name: 'Databases', icon: FaDatabase },
-        { id: 'devops', name: 'DevOps', icon: FaDocker }
-    ];
-
-    return (
-        <div className="mb-16">
-            <h2 className="text-2xl font-bold text-center mb-6 text-blue-400">
-                Our Technology Stack
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {techCategories.map(category => (
-                    <div key={category.id} className="bg-black/20 rounded-lg border border-blue-800 p-4">
-                        <div className="flex items-center mb-3">
-                            <category.icon className="text-blue-400 mr-2" />
-                            <h3 className="font-semibold text-blue-300">{category.name}</h3>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {technologies
-                                .filter(tech => tech.category === category.id)
-                                .map((tech, i) => (
-                                    <motion.div
-                                        key={tech.name}
-                                        whileHover={{ scale: 1.05 }}
-                                        className="text-xs bg-blue-900/30 text-blue-200 px-2 py-1 rounded flex items-center"
-                                    >
-                                        <tech.icon className="mr-1" />
-                                        {tech.name}
-                                    </motion.div>
-                                ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-const EducationSection = () => (
-    <div className="mb-16 bg-black/30 rounded-xl p-8 border border-blue-700">
-        <h2 className="text-2xl font-bold text-center mb-8 text-blue-400">
-            Education & Training Programs
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
-                <FaSchool className="text-3xl text-blue-400 mb-4" />
-                <h3 className="text-xl font-bold mb-2">School Programs</h3>
-                <p className="text-blue-200 mb-4">Introduction to programming and computational thinking for students</p>
-                <ul className="text-sm text-blue-300 space-y-2">
-                    <li>• Scratch programming</li>
-                    <li>• Web development basics</li>
-                    <li>• Robotics foundations</li>
-                </ul>
-            </div>
-            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
-                <FaUniversity className="text-3xl text-blue-400 mb-4" />
-                <h3 className="text-xl font-bold mb-2">University Curriculum</h3>
-                <p className="text-blue-200 mb-4">Advanced software engineering and AI courses</p>
-                <ul className="text-sm text-blue-300 space-y-2">
-                    <li>• Full-stack development</li>
-                    <li>• Machine learning</li>
-                    <li>• Cloud computing</li>
-                </ul>
-            </div>
-            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-800">
-                <FaChalkboardTeacher className="text-3xl text-blue-400 mb-4" />
-                <h3 className="text-xl font-bold mb-2">Professional Training</h3>
-                <p className="text-blue-200 mb-4">Industry-relevant skills development</p>
-                <ul className="text-sm text-blue-300 space-y-2">
-                    <li>• AI/ML certification</li>
-                    <li>• DevOps engineering</li>
-                    <li>• Cybersecurity training</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-);
-
-const TestimonialSection = () => (
-    <div className="mb-16">
-        <h2 className="text-2xl font-bold text-center mb-8 text-blue-400">
-            Client & Student Testimonials
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-black bg-opacity-40 rounded-xl p-6 border border-blue-800"
-                >
-                    <div className="flex items-start mb-4">
-                        <FaQuoteLeft className="text-blue-500 mr-3 mt-1" />
-                        <p className="text-blue-200 italic">&quot;{testimonial.quote}&quot;</p>
-                    </div>
-                    <div className="flex items-center">
-                        <div className="w-10 h-10 rounded-full bg-blue-900 bg-opacity-30 flex items-center justify-center mr-3">
-                            <FaUserTie className="text-blue-400" />
-                        </div>
-                        <div>
-                            <p className="font-bold">{testimonial.name}</p>
-                            <p className="text-sm text-blue-300">{testimonial.position}</p>
-                            <p className="text-xs text-blue-400">{testimonial.company}</p>
-                        </div>
-                    </div>
-                </motion.div>
-            ))}
-        </div>
-    </div>
-);
-
-const CallToAction = () => (
-    <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-center bg-black bg-opacity-40 rounded-xl p-8 border border-blue-800 max-w-4xl mx-auto"
-    >
-        <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Business or Institution?</h3>
-        <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
-            Whether you need custom software, AI solutions, or technology training programs, our team is ready to help.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 rounded-lg font-medium"
-            >
-                Contact Our Team
-            </motion.button>
-            <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent border border-blue-500 px-6 py-3 rounded-lg font-medium hover:bg-blue-900/20 transition-colors"
-            >
-                Explore Training Programs
-            </motion.button>
-        </div>
-    </motion.div>
-);
-
-const services: Service[] = [
-    // Development Services
-    {
-        title: "Custom Web Development",
-        description: "Tailored web applications built for performance and scalability",
-        icon: FaReact,
-        features: [
-            "React/Next.js frontends",
-            "TypeScript development",
-            "Responsive design",
-            "Progressive Web Apps",
-            "SEO optimization"
-        ],
-        category: 'development'
-    },
-    {
-        title: "Mobile App Development",
-        description: "Cross-platform mobile solutions for iOS and Android",
-        icon: FaMobile,
-        features: [
-            "React Native development",
-            "Native iOS/Android apps",
-            "Offline functionality",
-            "Push notifications",
-            "App store deployment"
-        ],
-        category: 'development'
-    },
-    {
-        title: "Desktop Applications",
-        description: "Native desktop software for Windows, macOS, and Linux",
-        icon: FaDesktop,
-        features: [
-            "Electron-based solutions",
-            "Native performance",
-            "System integration",
-            "Automatic updates",
-            "Cross-platform compatibility"
-        ],
-        category: 'development'
-    },
-    // AI Services
-    {
-        title: "AI Agents Development",
-        description: "Autonomous AI systems for business automation",
-        icon: FaRobot,
-        features: [
-            "Conversational AI chatbots",
-            "Predictive analytics agents",
-            "Computer vision systems",
-            "Autonomous decision-making",
-            "Continuous learning"
-        ],
-        category: 'ai'
-    },
-    {
-        title: "Machine Learning Solutions",
-        description: "Custom ML models for your specific business needs",
-        icon: FaLaptopCode,
-        features: [
-            "Predictive modeling",
-            "Natural language processing",
-            "Anomaly detection",
-            "Recommendation systems",
-            "Model deployment"
-        ],
-        category: 'ai'
-    },
-    // Education Services
-    {
-        title: "School Coding Programs",
-        description: "Technology education for K-12 students",
-        icon: FaSchool,
-        features: [
-            "Intro to programming",
-            "Game development",
-            "Web design basics",
-            "Robotics foundations",
-            "STEM curriculum"
-        ],
-        category: 'education'
-    },
-    {
-        title: "University Tech Courses",
-        description: "Advanced curriculum for higher education",
-        icon: FaUniversity,
-        features: [
-            "Software engineering",
-            "Data science",
-            "Cloud computing",
-            "AI/ML fundamentals",
-            "Capstone projects"
-        ],
-        category: 'education'
-    },
-    // Enterprise Services
-    {
-        title: "Enterprise Software",
-        description: "Custom solutions for large organizations",
-        icon: FaServer,
-        features: [
-            "Scalable architecture",
-            "Microservices",
-            "Legacy system modernization",
-            "High availability",
-            "Enterprise security"
-        ],
-        category: 'enterprise'
-    },
-    {
-        title: "DevOps & Cloud",
-        description: "Infrastructure and deployment solutions",
-        icon: FaCloud,
-        features: [
-            "CI/CD pipelines",
-            "Container orchestration",
-            "Infrastructure as Code",
-            "Cloud migration",
-            "Monitoring & logging"
-        ],
-        category: 'enterprise'
-    }
-];
-
-const technologies: Technology[] = [
-    // Languages
-    { name: "Python", icon: FaPython, category: 'languages' },
-    { name: "JavaScript", icon: SiJavascript, category: 'languages' },
-    { name: "TypeScript", icon: SiTypescript, category: 'languages' },
-    { name: "PHP", icon: SiPhp, category: 'languages' },
-    { name: "C#", icon: SiCsharp, category: 'languages' },
-
-    // Frontend
-    { name: "React", icon: FaReact, category: 'frontend' },
-    { name: "Next.js", icon: RiNextjsFill, category: 'frontend' },
-    { name: "HTML5", icon: FaHtml5, category: 'frontend' },
-    { name: "CSS3", icon: FaCss3Alt, category: 'frontend' },
-    { name: "Tailwind CSS", icon: SiTailwindcss, category: 'frontend' },
-
-    // Backend
-    { name: "Node.js", icon: FaNodeJs, category: 'backend' },
-    { name: "Django", icon: FaPython, category: 'backend' },
-    { name: "Flask", icon: FaPython, category: 'backend' },
-    { name: ".NET", icon: SiCsharp, category: 'backend' },
-    { name: "Laravel", icon: SiPhp, category: 'backend' },
-
-    // AI/ML
-    { name: "TensorFlow", icon: SiTensorflow, category: 'ai-ml' },
-    { name: "PyTorch", icon: SiPytorch, category: 'ai-ml' },
-    { name: "OpenAI", icon: SiOpenai, category: 'ai-ml' },
-    { name: "Computer Vision", icon: FaRobot, category: 'ai-ml' },
-    { name: "NLP", icon: FaRobot, category: 'ai-ml' },
-
-    // Database
-    { name: "MongoDB", icon: SiMongodb, category: 'database' },
-    { name: "PostgreSQL", icon: SiPostgresql, category: 'database' },
-    { name: "MySQL", icon: FaDatabase, category: 'database' },
-    { name: "Redis", icon: FaDatabase, category: 'database' },
-
-    // DevOps
-    { name: "Docker", icon: FaDocker, category: 'devops' },
-    { name: "Kubernetes", icon: SiKubernetes, category: 'devops' },
-    { name: "AWS", icon: FaCloud, category: 'devops' },
-    { name: "Azure", icon: FaCloud, category: 'devops' },
-    { name: "CI/CD", icon: FaCode, category: 'devops' }
-];
-
-const testimonials: Testimonial[] = [
-    {
-        quote: "The AI agent developed by MVIT transformed our customer service operations, handling 80% of inquiries with 95% satisfaction rates.",
-        name: "Sarah Johnson",
-        position: "Director of Operations",
-        company: "Global Retail Inc."
-    },
-    {
-        quote: "Our students gained real-world skills through MVIT's training program, with many securing tech jobs immediately after graduation.",
-        name: "Dr. Michael Chen",
-        position: "Computer Science Dean",
-        company: "State University"
-    },
-    {
-        quote: "The custom ERP system MVIT built streamlined our operations across 12 countries, reducing costs by 30% in the first year.",
-        name: "David Wilson",
-        position: "CIO",
-        company: "Manufacturing Corp"
-    }
-];

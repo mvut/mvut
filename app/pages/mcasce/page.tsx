@@ -1,35 +1,27 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
     FaCode,
-    FaDatabase,
     FaBrain,
-    FaLayerGroup,
-    FaServer,
     FaCloud,
     FaCheckCircle,
-    FaRocket,
-    FaChartLine,
-    FaRobot,
-    FaNetworkWired,
-    FaGraduationCap,
     FaClock,
+    FaRobot,
     FaStar,
 } from 'react-icons/fa';
-import { MdSchool, MdComputer, MdAnalytics } from 'react-icons/md';
+import { MdAnalytics, MdOutlineSmartToy } from 'react-icons/md';
 import { TbMathSymbols } from 'react-icons/tb';
-import { motion } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 
-// Define types
 type Module = {
     id: string;
     title: string;
     subtitle: string;
     description: string;
     duration: string;
-    level: 'Level-0' | 'Level-1' | 'Level-2'| 'Level-3'| 'Level-4'| 'Level-5';
+    level: string;
     icon: React.ReactNode;
     skills: string[];
     projects: string[];
@@ -44,382 +36,431 @@ type Testimonial = {
     outcome: string;
 };
 
-export default function MCASCEPage() {
-    const [activeTab, setActiveTab] = useState<string>('overview');
-    const [mounted, setMounted] = useState(false);
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const MODULES: Module[] = [
+    {
+        id: 'fullstack',
+        title: 'Full-Stack Software Engineer',
+        subtitle: 'End-to-end apps with modern stacks',
+        description:
+            'Frontend to backend: building scalable web apps using TypeScript, React, and Node.js.',
+        duration: '16 weeks',
+        level: 'Level-0',
+        icon: <FaCode className="text-2xl text-red-400" />,
+        skills: ['React', 'TypeScript', 'Node.js', 'REST APIs', 'Testing'],
+        projects: ['E-commerce', 'Task Manager'],
+    },
+    {
+        id: 'datascience',
+        title: 'Data Science Analyst',
+        subtitle: 'Data → insight → action',
+        description:
+            'Ingest, clean, analyze and visualize data to inform product and business decisions.',
+        duration: '16 weeks',
+        level: 'Level-1',
+        icon: <MdAnalytics className="text-2xl text-green-400" />,
+        skills: ['Python', 'Pandas', 'SQL', 'Viz', 'Stats'],
+        projects: ['Sales Forecasting', 'Segmentation'],
+    },
+    {
+        id: 'mlengineer',
+        title: 'Machine Learning Systems Engineer',
+        subtitle: 'Production ML systems',
+        description:
+            'Train, evaluate, and deploy models with reliability and observability in mind.',
+        duration: '16 weeks',
+        level: 'Level-2',
+        icon: <FaBrain className="text-2xl text-indigo-400" />,
+        skills: ['TensorFlow/PyTorch', 'Pipelines', 'CI/CD', 'Feature Eng.'],
+        projects: ['Recommender', 'Fraud Detection'],
+    },
+    {
+        id: 'dlresearch',
+        title: 'Deep Learning Research Engineer',
+        subtitle: 'New architectures & experiments',
+        description:
+            'Implement research ideas, reproduce papers and prototype novel models.',
+        duration: '16 weeks',
+        level: 'Level-3',
+        icon: <TbMathSymbols className="text-2xl text-pink-400" />,
+        skills: ['PyTorch', 'Transformers', 'Research Methods'],
+        projects: ['Image Gen', 'NLP Tasks'],
+    },
+    {
+        id: 'aiarchitect',
+        title: 'AI Solutions Architect',
+        subtitle: 'Design enterprise AI systems',
+        description:
+            'Architect multi-service AI systems for scale, security and maintainability.',
+        duration: '16 weeks',
+        level: 'Level-4',
+        icon: <FaCheckCircle className="text-2xl text-yellow-400" />,
+        skills: ['System Design', 'Microservices', 'Security'],
+        projects: ['AI CRM', 'Analytics Platform'],
+    },
+    {
+        id: 'cloudai',
+        title: 'Cloud AI Infrastructure',
+        subtitle: 'Infra for ML at scale',
+        description:
+            'Cloud platforms, IaC, orchestration and cost-aware deployments for ML workloads.',
+        duration: '16 weeks',
+        level: 'Level-5',
+        icon: <FaCloud className="text-2xl text-cyan-400" />,
+        skills: ['Kubernetes', 'Docker', 'AWS/GCP', 'Monitoring'],
+        projects: ['Auto-scaling ML infra'],
+    },
+];
 
-    // Modules data (simplified gradients for consistency)
-    const modules: Module[] = [
-        {
-            id: 'fullstack',
-            title: 'Full-Stack Software Engineer',
-            subtitle: 'Build end-to-end applications with modern frameworks',
-            description: 'Master the complete software development lifecycle from frontend to backend, learning industry-standard tools and practices for building scalable web applications.',
-            duration: '16 weeks',
-            level: 'Level-0',
-            icon: <FaCode className="text-3xl text-red-400" />,
-            skills: ['React', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'REST APIs'],
-            projects: ['E-commerce Platform', 'Social Media App', 'Task Management System']
-        },
-        {
-            id: 'datascience',
-            title: 'Data Science Analyst',
-            subtitle: 'Transform data into actionable insights',
-            description: 'Learn to collect, process, analyze, and visualize data to extract meaningful insights and drive business decisions using statistical methods and modern tools.',
-            duration: '16 weeks',
-            level: 'Level-1',
-            icon: <MdAnalytics className="text-3xl text-green-400" />,
-            skills: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'SQL', 'Statistical Analysis'],
-            projects: ['Sales Forecasting', 'Customer Segmentation', 'Market Basket Analysis']
-        },
-        {
-            id: 'mlengineer',
-            title: 'Machine Learning Systems Engineer',
-            subtitle: 'Design and deploy ML-powered applications',
-            description: 'Develop expertise in building, training, and deploying machine learning models in production environments, focusing on scalability and reliability.',
-            duration: '16 weeks',
-            level: 'Level-2',
-            icon: <FaBrain className="text-3xl text-red-400" />,
-            skills: ['Scikit-learn', 'TensorFlow', 'Model Deployment', 'ML Pipelines', 'Feature Engineering'],
-            projects: ['Recommendation System', 'Fraud Detection', 'Predictive Maintenance']
-        },
-        {
-            id: 'dlresearch',
-            title: 'Deep Learning Research Engineer',
-            subtitle: 'Push the boundaries of AI innovation',
-            description: 'Dive deep into neural networks and cutting-edge research, learning to develop novel architectures and contribute to the advancement of artificial intelligence.',
-            duration: '16 weeks',
-            level: 'Level-3',
-            icon: <TbMathSymbols className="text-3xl text-red-400" />,
-            skills: ['PyTorch', 'CNN', 'RNN', 'Transformers', 'Research Methods', 'Paper Implementation'],
-            projects: ['Image Generation', 'Natural Language Understanding', 'Reinforcement Learning']
-        },
-        {
-            id: 'aiarchitect',
-            title: 'AI Solutions Architect',
-            subtitle: 'Design enterprise AI systems',
-            description: 'Learn to design comprehensive AI solutions that address complex business problems, integrating multiple technologies and ensuring scalability and security.',
-            duration: '16 weeks',
-            level: 'Level-4',
-            icon: <FaLayerGroup className="text-3xl text-green-400" />,
-            skills: ['System Design', 'AI Integration', 'Microservices', 'API Design', 'Security'],
-            projects: ['Enterprise Chatbot', 'AI-Powered CRM', 'Smart Analytics Platform']
-        },
-        {
-            id: 'cloudai',
-            title: 'Cloud AI Infrastructure Engineer',
-            subtitle: 'Build and manage AI infrastructure at scale',
-            description: 'Master cloud platforms and infrastructure as code to deploy and manage AI systems efficiently, ensuring high availability and performance.',
-            duration: '16 weeks',
-            level: 'Level-5',
-            icon: <FaCloud className="text-3xl text-red-400" />,
-            skills: ['AWS/Azure/GCP', 'Docker', 'Kubernetes', 'CI/CD', 'Monitoring', 'Cost Optimization'],
-            projects: ['Auto-scaling ML Platform', 'Data Pipeline Orchestration', 'Hybrid Cloud Deployment']
-        }
-    ];
+const TESTIMONIALS: Testimonial[] = [
+    {
+        id: 't1',
+        name: 'Daha Qalbi',
+        role: 'MERN Developer',
+        company: 'CodingVerse',
+        content:
+            'MCASCE’s project-first labs and mentorship helped me lead real AI initiatives with confidence.',
+        outcome: 'Promoted to Lead AI Engineer in 3 months',
+    },
+    {
+        id: 't2',
+        name: 'Samina Hassan',
+        role: 'Full-Stack Developer',
+        company: 'MVITech',
+        content:
+            'From Python basics to production ML — the program’s depth accelerated my career.',
+        outcome: 'Deployed 3 production ML systems',
+    },
+    {
+        id: 't3',
+        name: 'Shahpara Safdar',
+        role: 'Researcher',
+        company: 'MVITech',
+        content:
+            'The blend of research and engineering enabled me to publish and ship products.',
+        outcome: 'Published research with an industry partner',
+    },
+];
 
-    const testimonials: Testimonial[] = [
-        {
-            id: '1',
-            name: 'Daha Qalbi',
-            role: 'MERN Stack Developer',
-            company: 'CEO CodingVerse',
-            content: 'The MCASCE program transformed my career. The hands-on labs and real-world projects gave me the confidence to lead AI initiatives at my organization.',
-            outcome: 'Promoted to Lead AI Engineer within 3 months'
-        },
-        {
-            id: '2',
-            name: 'Samina Hassan',
-            role: 'Full-Stack Developer',
-            company: 'MVITech',
-            content: 'The depth and breadth of the curriculum exceeded my expectations. I went from knowing basic Python to deploying production ML systems in just 6 months.',
-            outcome: 'Deployed 3 production AI systems for clients'
-        },
-        {
-            id: '3',
-            name: 'Shahpara Safdar',
-            role: 'Researcher',
-            company: 'MVITech',
-            content: 'What sets MCASCE apart is the focus on practical skills. The certification opened doors to opportunities I never thought possible.',
-            outcome: 'Published research paper with industry partner'
-        }
-    ];
-
-    useEffect(() => setMounted(true), []);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-        }, 5000);
-        return () => clearInterval(interval);
-    }, [testimonials.length]);
-
-    // Level badge styling
-    const getLevelColor = (level: string) => {
-        switch (level) {
-            case 'Beginner': return 'bg-blue-500/20 text-blue-300';
-            case 'Intermediate': return 'bg-yellow-500/20 text-yellow-300';
-            case 'Advanced': return 'bg-purple-500/20 text-purple-300';
-            default: return 'bg-gray-500/20 text-gray-300';
-        }
+const levelBadge = (level: string) => {
+    const map: Record<string, string> = {
+        'Level-0': 'bg-sky-900/40 text-sky-200',
+        'Level-1': 'bg-emerald-900/40 text-emerald-200',
+        'Level-2': 'bg-violet-900/40 text-violet-200',
+        'Level-3': 'bg-pink-900/40 text-pink-200',
+        'Level-4': 'bg-yellow-900/40 text-yellow-200',
+        'Level-5': 'bg-rose-900/40 text-rose-200',
     };
+    return map[level] ?? 'bg-gray-800 text-gray-200';
+};
+
+export default function MCASCEPage(): JSX.Element {
+    const [tab, setTab] = useState<'overview' | 'modules' | 'outcomes' | 'testimonials'>(
+        'overview'
+    );
+    const [idx, setIdx] = useState(0);
+
+    // auto-rotate testimonials
+    useEffect(() => {
+        const t = setInterval(() => setIdx((i) => (i + 1) % TESTIMONIALS.length), 5500);
+        return () => clearInterval(t);
+    }, []);
 
     return (
-        <div className="min-h-screen bg-gray-950 text-gray-100">
-            {/* Hero Section */}
-            <section className="pt-20 pb-16 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <div className="inline-block mb-6">
-                <span className="px-4 py-2 bg-gradient-to-r from-red-500/20 to-green-500/20 text-red-300 rounded-full text-sm font-medium backdrop-blur-sm border border-red-500/30">
-                  MVIT Certified Program
-                </span>
-                            </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                                Mansha Certified
-                                <br />
-                                <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">
-                  Autonomous Systems & Cloud Engineer
-                </span>
-                            </h1>
-                            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
-                                A 24-month intensive certification program that transforms you into an industry-ready AI and cloud engineering professional.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                                <Link
-                                    href="/pages/apply"
-                                    className="bg-gradient-to-r from-red-500 to-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition"
-                                >
-                                    Enroll Now
-                                </Link>
-                                <button className="border border-gray-700 text-white px-8 py-4 rounded-xl font-medium hover:bg-gray-800 transition">
-                                    View Full Curriculum
-                                </button>
-                            </div>
-
-                            <div className="grid grid-cols-3 gap-6 text-center">
-                                <div>
-                                    <div className="text-2xl font-bold text-white">6</div>
-                                    <div className="text-sm text-gray-400">Specialized Modules</div>
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-white">2100+</div>
-                                    <div className="text-sm text-gray-400">Learning Hours</div>
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-white">50+</div>
-                                    <div className="text-sm text-gray-400">Hands-on Labs</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-                            <h3 className="text-xl font-bold mb-6 text-center">Integrated Learning Path</h3>
-                            <div className="space-y-4">
-                                {modules.map((module, idx) => (
-                                    <div key={module.id} className="flex items-center p-3 bg-gray-800/50 rounded-lg">
-                                        <div className="mr-4 text-red-400">{module.icon}</div>
-                                        <div className="flex-1">
-                                            <div className="font-medium">{module.title}</div>
-                                            <div className="text-xs text-gray-400">{module.duration}</div>
-                                        </div>
-                                        <span className={`text-xs px-2 py-1 rounded ${getLevelColor(module.level)}`}>
-                      {module.level}
-                    </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Modules Section */}
-            <section className="py-20 px-4 bg-gray-900/50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Comprehensive <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">Learning Modules</span>
-                        </h2>
-                        <p className="text-gray-400 max-w-3xl mx-auto">
-                            Six integrated modules designed to build your expertise from foundational concepts to advanced implementation.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                        {modules.map((module, index) => (
-                            <motion.div
-                                key={module.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ y: -8 }}
-                                className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-500/30 transition-all"
-                            >
-                                <div className="p-6 border-b border-gray-800">
-                                    <div className="flex items-start justify-between mb-3">
-                                        <div className="flex items-center">
-                                            {module.icon}
-                                            <h3 className="text-xl font-bold ml-3">{module.title}</h3>
-                                        </div>
-                                        <span className={`text-xs px-2 py-1 rounded ${getLevelColor(module.level)}`}>
-                      {module.level}
-                    </span>
-                                    </div>
-                                    <p className="text-gray-400 text-sm">{module.subtitle}</p>
-                                </div>
-                                <div className="p-6">
-                                    <p className="text-gray-300 mb-6 text-sm">{module.description}</p>
-
-                                    <div className="mb-6">
-                                        <div className="flex items-center text-sm text-gray-400 mb-3">
-                                            <FaClock className="text-red-400 mr-2" />
-                                            <span>{module.duration} • Full-time commitment</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-6">
-                                        <h4 className="font-semibold text-white mb-3 text-sm">Key Skills</h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {module.skills.map((skill, i) => (
-                                                <span key={i} className="px-2 py-1 bg-gray-800 text-xs rounded">
-                          {skill}
-                        </span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-3 text-sm">Projects</h4>
-                                        <ul className="space-y-2">
-                                            {module.projects.map((project, i) => (
-                                                <li key={i} className="flex items-start text-gray-300 text-sm">
-                                                    <FaCheckCircle className="text-green-400 mt-0.5 mr-2 flex-shrink-0" />
-                                                    <span>{project}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Outcomes Section */}
-            <section className="py-20 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Career <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">Outcomes</span>
-                        </h2>
-                        <p className="text-gray-400 max-w-3xl mx-auto">
-                            Our graduates are prepared for high-impact roles in AI engineering, cloud architecture, and data science.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { title: 'AI Engineer', salary: '$95K–$180K', growth: '+32% YoY' },
-                            { title: 'Cloud Architect', salary: '$120K–$220K', growth: '+28% YoY' },
-                            { title: 'ML Specialist', salary: '$110K–$200K', growth: '+35% YoY' },
-                            { title: 'Data Scientist', salary: '$90K–$170K', growth: '+25% YoY' }
-                        ].map((role, idx) => (
-                            <div key={idx} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center hover:border-green-500/30 transition">
-                                <div className="text-2xl font-bold text-white mb-2">{role.title}</div>
-                                <div className="text-green-400 font-medium mb-1">{role.salary}</div>
-                                <div className="text-gray-400 text-sm">{role.growth}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials */}
-            <section className="py-20 px-4 bg-gray-900/50">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Graduate <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">Success</span>
-                        </h2>
-                        <p className="text-gray-400">Real results from our certified professionals</p>
-                    </div>
-
-                    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-                        <div className="flex items-start mb-6">
-                            <div className="flex-shrink-0 mr-4">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-green-500 rounded-full flex items-center justify-center">
-                                    <FaRobot className="text-white text-lg" />
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex mb-3">
-                                    {[...Array(5)].map((_, i) => (
-                                        <FaStar key={i} className="text-yellow-400" />
-                                    ))}
-                                </div>
-                                <blockquote className="text-gray-200 italic mb-4">
-                                    &quot;{testimonials[currentTestimonial].content}&quot;
-                                </blockquote>
-                                <div className="font-medium text-white">{testimonials[currentTestimonial].name}</div>
-                                <div className="text-gray-400 text-sm">
-                                    {testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}
-                                </div>
-                                <div className="mt-2 text-green-400 text-sm font-medium">
-                                    → {testimonials[currentTestimonial].outcome}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-center space-x-2">
-                            {testimonials.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => setCurrentTestimonial(idx)}
-                                    className={`w-2 h-2 rounded-full transition ${
-                                        idx === currentTestimonial ? 'bg-red-500' : 'bg-gray-600'
-                                    }`}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-20 px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-8 md:p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                            Ready to Become an <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">AI & Cloud Professional</span>?
-                        </h2>
-                        <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-                            Join the next cohort of certified engineers building the future of autonomous systems.
+        <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-gray-100 antialiased">
+            {/* Header / Hero */}
+            <header className="max-w-7xl mx-auto px-6 py-16">
+                <div className="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+            <span className="inline-block px-3 py-1 rounded-full bg-red-600/20 text-red-300 text-xs font-semibold">
+              MVIT Certified
+            </span>
+                        <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+                            MCASCE — Autonomous Systems & Cloud Engineer
+                        </h1>
+                        <p className="mt-4 text-gray-300 max-w-2xl">
+                            A hands-on, integrated 24-month pathway that builds engineers who can research, ship,
+                            and operate AI systems at scale.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="mt-6 flex flex-wrap gap-3">
                             <Link
                                 href="/pages/apply"
-                                className="bg-gradient-to-r from-red-500 to-green-500 text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition"
+                                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500 to-rose-500 px-5 py-2 text-sm font-semibold"
                             >
-                                Apply Now — Limited Seats
+                                Enroll Now
                             </Link>
-                            {/*<button className="border border-gray-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-gray-800 transition">*/}
-                            {/*    Schedule Consultation*/}
-                            {/*</button>*/}
+                            <Link
+                                href="#modules"
+                                className="inline-flex items-center gap-2 rounded-full border border-gray-700 px-5 py-2 text-sm text-gray-300 hover:bg-gray-900"
+                            >
+                                View Curriculum
+                            </Link>
                         </div>
 
-                        <p className="text-gray-500 text-sm mt-6">
-                            24-month program • Flexible scheduling • Career support included • Industry certification
-                        </p>
+                        <div className="mt-8 grid grid-cols-3 gap-6 max-w-md">
+                            <div>
+                                <div className="text-2xl font-bold">6</div>
+                                <div className="text-sm text-gray-400">Modules</div>
+                            </div>
+                            <div>
+                                <div className="text-2xl font-bold">2100+</div>
+                                <div className="text-sm text-gray-400">Learning Hours</div>
+                            </div>
+                            <div>
+                                <div className="text-2xl font-bold">50+</div>
+                                <div className="text-sm text-gray-400">Labs</div>
+                            </div>
+                        </div>
                     </div>
+
+                    {/* Compact Modules summary */}
+                    <aside className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
+                        <h3 className="font-semibold text-lg mb-3">Integrated Pathway</h3>
+                        <ul className="space-y-3">
+                            {MODULES.slice(0, 4).map((m) => (
+                                <li
+                                    key={m.id}
+                                    className="flex items-center justify-between gap-3 bg-gray-800/40 p-3 rounded-lg"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 flex items-center justify-center rounded-md bg-gradient-to-tr from-red-600 to-black">
+                                            {m.icon}
+                                        </div>
+                                        <div>
+                                            <div className="text-sm font-medium">{m.title}</div>
+                                            <div className="text-xs text-gray-400">{m.duration}</div>
+                                        </div>
+                                    </div>
+                                    <span className={`text-xs px-2 py-1 rounded ${levelBadge(m.level)}`}>
+                    {m.level}
+                  </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className="mt-6 text-center">
+                            <Link href="#modules" className="text-sm font-semibold text-rose-400 hover:underline">
+                                See full modules →
+                            </Link>
+                        </div>
+                    </aside>
                 </div>
-            </section>
+            </header>
+
+            {/* Tabs */}
+            <nav className="max-w-7xl mx-auto px-6">
+                <div className="flex gap-2 bg-gray-900/30 rounded-full p-1 w-fit">
+                    {(['overview', 'modules', 'outcomes', 'testimonials'] as const).map((tKey) => (
+                        <button
+                            key={tKey}
+                            onClick={() => setTab(tKey)}
+                            className={`px-4 py-2 text-sm rounded-full transition ${
+                                tab === tKey ? 'bg-rose-600 text-white' : 'text-gray-300 hover:bg-white/5'
+                            }`}
+                            aria-pressed={tab === tKey}
+                        >
+                            {tKey.charAt(0).toUpperCase() + tKey.slice(1)}
+                        </button>
+                    ))}
+                </div>
+            </nav>
+
+            {/* Content */}
+            <main className="max-w-7xl mx-auto px-6 py-12">
+                {/* Overview */}
+                {tab === 'overview' && (
+                    <section aria-labelledby="overview-title" className="space-y-6">
+                        <h2 id="overview-title" className="text-2xl font-bold">
+                            Program Snapshot
+                        </h2>
+                        <p className="text-gray-300 max-w-3xl">
+                            MCASCE combines software engineering, data science, ML systems, research, architecture,
+                            and cloud infrastructure into one coherent pathway. Emphasis on deployed projects,
+                            reproducible experiments, and engineering best practices.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                            <div className="bg-gray-900/40 rounded-xl p-5 text-center">
+                                <div className="text-3xl font-bold">Hands-on</div>
+                                <div className="text-sm text-gray-400 mt-1">Project-driven labs & team sprints</div>
+                            </div>
+                            <div className="bg-gray-900/40 rounded-xl p-5 text-center">
+                                <div className="text-3xl font-bold">Mentored</div>
+                                <div className="text-sm text-gray-400 mt-1">Weekly 1:1 reviews & code audits</div>
+                            </div>
+                            <div className="bg-gray-900/40 rounded-xl p-5 text-center">
+                                <div className="text-3xl font-bold">Deployable</div>
+                                <div className="text-sm text-gray-400 mt-1">Production-grade systems & observability</div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Modules */}
+                {tab === 'modules' && (
+                    <section id="modules" aria-labelledby="modules-title" className="space-y-8">
+                        <h2 id="modules-title" className="text-2xl font-bold">
+                            Learning Modules — concise overview
+                        </h2>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            {MODULES.map((m, i) => (
+                                <motion.article
+                                    key={m.id}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.07 }}
+                                    className="bg-gray-900/40 border border-gray-800 rounded-2xl p-5"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex-none w-12 h-12 rounded-md bg-gradient-to-tr from-rose-600 to-black flex items-center justify-center">
+                                            {m.icon}
+                                        </div>
+                                        <div className="min-w-0">
+                                            <div className="flex items-center justify-between">
+                                                <h3 className="text-lg font-semibold">{m.title}</h3>
+                                                <span className={`text-xs px-2 py-1 rounded ${levelBadge(m.level)}`}>
+                          {m.level}
+                        </span>
+                                            </div>
+                                            <p className="text-sm text-gray-300 mt-2">{m.subtitle}</p>
+                                            <p className="text-xs text-gray-400 mt-3">{m.description}</p>
+
+                                            <div className="mt-4 flex flex-wrap gap-2">
+                                                {m.skills.slice(0, 6).map((s) => (
+                                                    <span key={s} className="text-xs bg-gray-800 px-2 py-1 rounded">
+                            {s}
+                          </span>
+                                                ))}
+                                            </div>
+
+                                            <div className="mt-4 flex items-center justify-between">
+                                                <div className="text-xs text-gray-400 flex items-center gap-2">
+                                                    <FaClock className="text-rose-400" /> <span>{m.duration}</span>
+                                                </div>
+                                                <Link
+                                                    href={`/modules/${m.id}`}
+                                                    className="text-xs font-semibold text-rose-400 hover:underline"
+                                                >
+                                                    View details →
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.article>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Outcomes */}
+                {tab === 'outcomes' && (
+                    <section aria-labelledby="outcomes-title" className="space-y-6">
+                        <h2 id="outcomes-title" className="text-2xl font-bold">
+                            Career Outcomes
+                        </h2>
+
+                        <p className="text-gray-300 max-w-3xl">
+                            Graduates move into roles such as AI Engineer, Cloud Architect, ML Specialist and Data
+                            Scientist — with practical experience in building, deploying, and operating real systems.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                            {[
+                                { title: 'AI Engineer', salary: '95k–180k', growth: '+32% YoY' },
+                                { title: 'Cloud Architect', salary: '120k–220k', growth: '+28% YoY' },
+                                { title: 'ML Specialist', salary: '110k–200k', growth: '+35% YoY' },
+                                { title: 'Data Scientist', salary: '90k–170k', growth: '+25% YoY' },
+                            ].map((r) => (
+                                <div
+                                    key={r.title}
+                                    className="bg-gradient-to-tr from-gray-900/60 to-black border border-gray-800 rounded-2xl p-6 text-center"
+                                >
+                                    <div className="text-lg font-bold">{r.title}</div>
+                                    <div className="text-rose-400 font-medium mt-2">{r.salary}</div>
+                                    <div className="text-sm text-gray-400 mt-1">{r.growth}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Testimonials */}
+                {tab === 'testimonials' && (
+                    <section aria-labelledby="testimonials-title" className="space-y-6">
+                        <h2 id="testimonials-title" className="text-2xl font-bold">
+                            Graduate Success
+                        </h2>
+
+                        <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
+                            <div className="flex items-start gap-4">
+                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center">
+                                    <FaRobot className="text-white" />
+                                </div>
+
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="flex gap-1">
+                                            {Array.from({ length: 5 }).map((_, i) => (
+                                                <FaStar key={i} className="text-yellow-400" />
+                                            ))}
+                                        </div>
+                                        <div className="text-xs text-gray-400">Real outcomes from grads</div>
+                                    </div>
+
+                                    <blockquote className="italic text-gray-200">
+                                        “{TESTIMONIALS[idx].content}”
+                                    </blockquote>
+
+                                    <div className="mt-3 font-semibold">{TESTIMONIALS[idx].name}</div>
+                                    <div className="text-sm text-gray-400">
+                                        {TESTIMONIALS[idx].role} — {TESTIMONIALS[idx].company}
+                                    </div>
+                                    <div className="mt-2 text-rose-400 font-medium">→ {TESTIMONIALS[idx].outcome}</div>
+
+                                    <div className="mt-4 flex items-center gap-2">
+                                        {TESTIMONIALS.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                aria-label={`Show testimonial ${i + 1}`}
+                                                onClick={() => setIdx(i)}
+                                                className={`w-2 h-2 rounded-full transition ${
+                                                    i === idx ? 'bg-rose-400' : 'bg-gray-600'
+                                                }`}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Universal CTA */}
+                <section className="mt-12">
+                    <div className="bg-gradient-to-tr from-gray-900 to-black border border-gray-800 rounded-2xl p-8 text-center">
+                        <h3 className="text-xl font-bold">Ready to build production AI systems?</h3>
+                        <p className="text-gray-300 mt-2">Apply to the next MCASCE cohort — seats are limited.</p>
+                        <div className="mt-6 flex justify-center gap-4">
+                            <Link
+                                href="/pages/apply"
+                                className="rounded-full bg-rose-500 px-6 py-2 font-semibold text-white hover:opacity-95"
+                            >
+                                Apply Now
+                            </Link>
+                            <Link
+                                href=""
+                                className="rounded-full border border-gray-700 px-6 py-2 text-sm text-gray-300 hover:bg-white/2"
+                            >
+                                Talk to Admissions
+                            </Link>
+                        </div>
+                        <div className="mt-4 text-xs text-gray-500">
+                            24-month program • Part-time options • Career support included
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
     );
 }

@@ -85,33 +85,17 @@ export default function Header() {
 
     const mainNavItems = [
         { title: 'Home', href: '/' },
+        { title: 'Profile', href: '/pages/profile' },
         { title: 'Services', href: '/pages/services' },
     ];
 
     const productItems = [
         { title: 'Programs', href: '/pages/study' },
-        { title: 'Faculties', href: '/pages/faculty' },
         { title: 'Tariff', href: '/pages/study/fee' },
         { title: 'Date Sheet', href: '/pages/datesheet' },
-        { title: 'Careers', href: '/pages/mycareer' },
-        { title: 'AI Education', href: '/pages/aie' },
-        { title: 'ELITE Certification', href: '/pages/elite' },
-        { title: 'AI Solutions', href: '/pages/agents' },
-
-    ];
-
-    const moreLinks = [
-        { title: 'Services', href: '/pages/services' },
-        { title: 'Leadership', href: '/pages/leadership' },
-        { title: 'Honorary Ph.D.', href: '/pages/honoraryphd' },
-        { title: 'Degree Verification', href: '/verify' },
-        { title: 'Admitted Candidates', href: '/pages/admlst' },
-        { title: 'Quality Assurance Commission', href: '/qac' },
+        { title: 'Results', href: '/pages/results' },
+        { title: 'Verification', href: '/verify' },
         { title: 'Trainings', href: '/pages/trainings' },
-        { title: 'Research', href: '/pages/research' },
-        { title: 'Scholarship', href: '/pages/scholarship' },
-        { title: 'ABS Academy', href: '/pages/absacademy' },
-        { title: 'ABS International', href: '/pages/absinternational' },
     ];
 
     const socialLinks = [
@@ -122,67 +106,6 @@ export default function Header() {
     return (
         <>
             <header className={`sticky top-0 z-50 ${scrolled ? 'bg-gray-900/95 shadow-xl' : 'bg-gray-900'} backdrop-blur-sm transition-all duration-300`}>
-                {/* Top Contact Bar */}
-                <div className="border-b border-gray-800 bg-gradient-to-r from-gray-900 to-gray-800">
-                    <div className="container mx-auto px-4">
-                        <div className="flex flex-col sm:flex-row justify-between items-center py-2 gap-2 sm:gap-0">
-                            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                                {/*<motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm">*/}
-                                {/*    <FaPhoneAlt className="text-blue-400" />*/}
-                                {/*    <Link href="tel:+923017362696">+923017362696</Link>*/}
-                                {/*</motion.div>*/}
-                                <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm">
-                                    <FaEnvelope className="text-blue-400" />
-                                    <Link href="mailto:dr.sagher@gmail.com">dr.sagher@gmail.com</Link>
-                                </motion.div>
-                            </div>
-
-                            <div className="hidden md:flex items-center overflow-hidden bg-gray-800/50 rounded-full px-3 py-1 max-w-lg">
-                                <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="text-blue-400 mr-2">
-                                    <IoMdNotifications />
-                                </motion.div>
-                                <div className="overflow-hidden">
-                                    <motion.div
-                                        className="whitespace-nowrap"
-                                        animate={{ x: ['100%', '-100%'] }}
-                                        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-                                    >
-                                        {newsItems.map((item, index) => (
-                                            <span key={index} className="inline-block mx-6 text-sm text-gray-300">{item}</span>
-                                        ))}
-                                    </motion.div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                                <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-blue-900/70 hover:bg-blue-800 px-3 py-1 rounded-full transition-colors border border-blue-800/50">
-                                    <FaGraduationCap className="text-yellow-400" />
-                                    <Link href="/pages/learnfree" className="font-medium text-sm text-white">Free Courses</Link>
-                                </motion.div>
-
-                                <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 bg-green-900/70 hover:bg-green-800 px-3 py-1 rounded-full transition-colors border border-green-800/50">
-                                    <FaWhatsapp className="text-green-300" />
-                                    <Link href="https://whatsapp.com/channel/0029VbBCRZEEVccR46xZwh3Y" target="_blank" rel="noopener noreferrer" className="font-medium text-sm text-white">WhatsApp</Link>
-                                </motion.div>
-
-                                <div className="hidden sm:flex items-center gap-1 ml-2">
-                                    {socialLinks.map((link, index) => (
-                                        <motion.a
-                                            key={index}
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            whileHover={{ scale: 1.2, y: -2 }}
-                                            className="text-gray-300 hover:text-white p-1.5 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
-                                        >
-                                            {link.icon}
-                                        </motion.a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Main Navigation */}
                 <div className="container mx-auto px-4">
@@ -192,7 +115,6 @@ export default function Header() {
                                 <motion.div whileHover={{ scale: 1.05 }}>
                                     <Image src={Logo} alt="MVIT Logo" width={50} height={50} className="object-contain" />
                                 </motion.div>
-                                {/*<span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">MVIT</span>*/}
                             </Link>
                         </motion.div>
 
@@ -264,54 +186,6 @@ export default function Header() {
                                     )}
                                 </motion.li>
 
-                                {/* Important Links Dropdown */}
-                                <motion.li className="relative flex items-center h-full">
-                                    <motion.button
-                                        ref={buttonRef}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={toggleMoreLinks}
-                                        className="relative px-4 py-2 text-gray-300 hover:text-white font-medium group flex items-center h-full gap-1"
-                                        aria-label="Toggle More Links"
-                                        aria-expanded={showMoreLinks}
-                                    >
-                                        Important Links
-                                        <motion.span animate={{ rotate: showMoreLinks ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                                            <FaChevronDown className="text-xs mt-0.5" />
-                                        </motion.span>
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-green-400 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
-                                    </motion.button>
-
-                                    {showMoreLinks && (
-                                        <motion.div
-                                            ref={dropdownRef}
-                                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                                            transition={{ duration: 0.3, ease: 'easeOut' }}
-                                            className="absolute top-full left-0 mt-2 w-64 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-lg shadow-xl rounded-lg border border-gray-700 z-50"
-                                        >
-                                            <div className="py-2">
-                                                {moreLinks.map((link, index) => (
-                                                    <motion.div
-                                                        key={index}
-                                                        initial={{ opacity: 0, x: -10 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        transition={{ delay: index * 0.05, duration: 0.2 }}
-                                                    >
-                                                        <Link
-                                                            href={link.href}
-                                                            className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-200"
-                                                            onClick={handleLinkClick}
-                                                        >
-                                                            {link.title}
-                                                        </Link>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </motion.li>
                             </ul>
                         </nav>
 
@@ -363,23 +237,6 @@ export default function Header() {
                                                 className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded transition-colors"
                                             >
                                                 {item.title}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* More Links in Mobile Menu */}
-                                <div className="px-4 py-3">
-                                    <h3 className="text-gray-400 font-medium mb-2">More Links</h3>
-                                    <div className="grid grid-cols-1 gap-2">
-                                        {moreLinks.map((link, index) => (
-                                            <Link
-                                                key={index}
-                                                href={link.href}
-                                                onClick={() => setIsOpen(false)}
-                                                className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded transition-colors"
-                                            >
-                                                {link.title}
                                             </Link>
                                         ))}
                                     </div>

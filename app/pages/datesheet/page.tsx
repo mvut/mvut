@@ -1,10 +1,7 @@
-// app/datasheet/page.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaFilePdf } from 'react-icons/fa';
-import { PDFDownloadLink } from '@react-pdf/renderer';
-import DatasheetPDF from '@/app/components/DatasheetPDF';
 
 const examData = [
     { sr: 1, courseCode: 'MRSE-201', courseName: 'HTML Fundamentals', date: '13-10-2025', day: 'Monday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
@@ -27,6 +24,7 @@ export default function DatasheetPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
+
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800">MVIT MCASCE EXAMINATION</h1>
                     <p className="text-gray-600">M1 Full-Stack Software Engineer (FSSE) — DATASHEET TERM-I SPRING-2025</p>
                 </motion.div>
@@ -91,11 +89,7 @@ export default function DatasheetPage() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.0 }}
                 >
-                    <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-sm">
-                        <FaGraduationCap className="text-gray-600" />
-                        Yasir Ali — Controller Examinations
-                    </div>
-                    <p className="mt-1 text-xs text-gray-500">Dated: October 2025</p>
+                    <p className="mt-1 text-xs text-gray-500">Dated: October 10, 2025</p>
                 </motion.div>
             </div>
         </div>

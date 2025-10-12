@@ -1,8 +1,6 @@
 'use client';
 
 import ABSI from '@/public/resources/partners/absi.png';
-import MIKES from '@/public/resources/partners/mikesint.png';
-import MIKEVERSITY from '@/public/resources/partners/mikeversity.png';
 import ABS_ACADEMY from '@/public/resources/partners/abs-academy.png';
 import Image from 'next/image';
 import Link from 'next/link';

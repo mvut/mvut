@@ -2,10 +2,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaRobot, FaDatabase, FaLock, FaMicrochip, FaRegLightbulb,
-    FaBrain, FaCube, FaAward, FaTrophy, FaGlobe, FaUniversity,
-    FaHandshake, FaChartLine, FaFlask, FaNetworkWired, FaUserGraduate,
-    FaMicroscope, FaCode, FaProjectDiagram
+    FaRobot,
+    FaGraduationCap,
+    FaLaptopCode,
+    FaBrain,
+    FaUsers,
+    FaLightbulb,
+    FaChartLine,
+    FaBook,
+    FaHandshake,
+    FaUniversity,
+    FaAward,
+    FaMicroscope,
+    FaCode,
+    FaProjectDiagram,
+    FaSeedling
 } from 'react-icons/fa';
 import { Poppins } from 'next/font/google';
 
@@ -15,276 +26,223 @@ const poppins = Poppins({
 });
 
 const ResearchPage = () => {
-    const researchDomains = [
+    const researchFocusAreas = [
         {
-            name: 'Artificial Intelligence',
-            icon: <FaRobot className="text-red-500" size={20} />,
-            description: 'Developing advanced AI systems for automation and decision-making',
-            details: [
-                'Natural Language Processing for regional languages',
-                'Computer vision for agricultural applications',
-                'Reinforcement learning for robotics',
-                'Ethical AI frameworks'
+            name: 'AI Education & Pedagogy',
+            icon: <FaGraduationCap className="text-blue-500" size={24} />,
+            description: 'Developing innovative teaching methods and curriculum for AI education',
+            projects: [
+                'Adaptive learning systems for STEM education',
+                'AI-powered educational assistants',
+                'Gamified learning platforms',
+                'Curriculum development for K-12 AI literacy'
             ],
-            projects: '12 ongoing projects',
-            lead: 'Dr. Abid Hussain'
+            outcomes: 'Enhanced learning outcomes through AI integration'
         },
         {
-            name: 'Cybersecurity',
-            icon: <FaLock className="text-red-500" size={20} />,
-            description: 'Next-gen encryption and threat detection systems',
-            details: [
-                'Blockchain-based security protocols',
-                'IoT device protection',
-                'Quantum-resistant cryptography',
-                'Cyber threat intelligence'
+            name: 'AI Software Development',
+            icon: <FaLaptopCode className="text-green-500" size={24} />,
+            description: 'Building practical AI applications and development frameworks',
+            projects: [
+                'Low-code AI development platforms',
+                'AI-powered code generation tools',
+                'Intelligent debugging systems',
+                'Automated software testing with AI'
             ],
-            projects: '5 industry partnerships',
-            lead: 'Dr. Babar Hussain'
+            outcomes: 'Streamlined software development processes'
         },
         {
-            name: 'Quantum Computing',
-            icon: <FaCube className="text-red-500" size={20} />,
-            description: 'Pioneering quantum algorithms and hardware',
-            details: [
-                'Quantum machine learning',
-                'Error correction techniques',
-                'Quantum simulation for materials science',
-                'Hybrid quantum-classical systems'
+            name: 'STEM Education Technology',
+            icon: <FaBrain className="text-purple-500" size={24} />,
+            description: 'Creating interactive tools for science, technology, engineering, and math education',
+            projects: [
+                'Virtual science laboratories',
+                'Interactive math learning apps',
+                'Programming education platforms',
+                'Robotics simulation environments'
             ],
-            projects: '3 patents pending',
-            lead: 'Dr. Muhammad Arshad'
+            outcomes: 'Engaging STEM learning experiences'
         },
         {
-            name: 'Biotechnology',
-            icon: <FaFlask className="text-red-500" size={20} />,
-            description: 'Engineering biological systems for healthcare',
-            details: [
-                'CRISPR-based diagnostics',
-                'Bioinformatics for personalized medicine',
-                'Synthetic biology applications',
-                'Nanomedicine delivery systems'
+            name: 'Educational Data Analytics',
+            icon: <FaChartLine className="text-orange-500" size={24} />,
+            description: 'Leveraging data to improve educational outcomes and personalize learning',
+            projects: [
+                'Learning analytics dashboards',
+                'Predictive student performance models',
+                'Personalized learning path recommendations',
+                'Educational data visualization tools'
             ],
-            projects: '8 clinical trials',
-            lead: 'Dr. Aneela Abubakar'
-        },
-        {
-            name: 'Data Science',
-            icon: <FaChartLine className="text-red-500" size={20} />,
-            description: 'Extracting insights from complex datasets',
-            details: [
-                'Predictive analytics for business',
-                'Geospatial data analysis',
-                'Time series forecasting',
-                'Explainable AI models'
-            ],
-            projects: '20+ publications',
-            lead: 'Dr. Muhammad Younas Alam'
-        },
-        {
-            name: 'IoT Systems',
-            icon: <FaNetworkWired className="text-red-500" size={20} />,
-            description: 'Connecting smart devices for intelligent environments',
-            details: [
-                'Smart city infrastructure',
-                'Industrial IoT monitoring',
-                'Edge computing solutions',
-                'LPWAN implementations'
-            ],
-            projects: '5 pilot deployments',
-            lead: 'Eng. Muhammad Shaaban'
+            outcomes: 'Data-driven educational insights'
         }
     ];
 
-    const researchFacilities = [
+    const currentProjects = [
         {
-            name: 'AI Research Lab',
-            equipment: '20 high-performance workstations with GPU clusters',
-            capabilities: 'Deep learning model training, computer vision prototyping'
+            title: 'AI Teaching Assistant Platform',
+            description: 'Developing an intelligent system to support educators in personalized teaching',
+            status: 'Prototype Development',
+            team: '3 researchers, 2 developers',
+            timeline: '6 months',
+            technologies: ['Python', 'React', 'TensorFlow', 'FastAPI']
         },
         {
-            name: 'Quantum Computing Center',
-            equipment: '5-qubit quantum processor, cryogenic systems',
-            capabilities: 'Quantum algorithm development, materials simulation'
+            title: 'STEM Learning Game Suite',
+            description: 'Creating interactive games to teach programming and computational thinking',
+            status: 'Beta Testing',
+            team: '4 researchers, 3 designers',
+            timeline: '8 months',
+            technologies: ['Unity', 'C#', 'Python', 'AWS']
         },
         {
-            name: 'Bioengineering Facility',
-            equipment: 'CRISPR-Cas9 systems, DNA sequencers, bioreactors',
-            capabilities: 'Genetic engineering, drug discovery research'
-        },
-        {
-            name: 'Cybersecurity Range',
-            equipment: 'Isolated network environment, penetration testing tools',
-            capabilities: 'Vulnerability assessment, digital forensics'
+            title: 'Code Learning Analytics',
+            description: 'Analyzing student coding patterns to provide personalized feedback',
+            status: 'Research Phase',
+            team: '2 researchers, 1 data scientist',
+            timeline: '12 months',
+            technologies: ['Python', 'Pandas', 'Scikit-learn', 'D3.js']
         }
     ];
 
-    const achievements = [
+    const researchGoals = [
         {
-            value: "150+",
-            label: "Peer-reviewed publications",
-            details: "Including 25 papers in top-tier journals (Nature, Science, IEEE)"
+            icon: <FaBook className="text-blue-500" size={20} />,
+            title: 'Publish Research',
+            description: 'Share findings in educational technology and AI conferences'
         },
         {
-            value: "$100k+",
-            label: "Research funding secured",
-            details: "From NSF, DARPA, and industry partners in 2023 alone"
+            icon: <FaHandshake className="text-green-500" size={20} />,
+            title: 'Industry Collaboration',
+            description: 'Partner with ed-tech companies for real-world impact'
         },
         {
-            value: "25",
-            label: "Patents filed",
-            details: "With 8 already granted in multiple jurisdictions"
+            icon: <FaUniversity className="text-purple-500" size={20} />,
+            title: 'Academic Contribution',
+            description: 'Develop open-source educational tools and frameworks'
         },
         {
-            value: "50+",
-            label: "Industry collaborations",
-            details: "Including partnerships with Google, IBM, and local startups"
+            icon: <FaSeedling className="text-orange-500" size={20} />,
+            title: 'Student Development',
+            description: 'Mentor next-generation AI and STEM educators'
         }
     ];
 
-    const awards = [
+    const collaborationAreas = [
         {
-            name: "2024 Global Innovation Award",
-            description: "For revolutionary work in quantum computing applications to healthcare",
-            organization: "International Technology Foundation"
+            area: 'Educational Institutions',
+            description: 'Partner with schools and universities for pilot programs',
+            benefits: ['Real classroom testing', 'Teacher feedback', 'Curriculum integration']
         },
         {
-            name: "Best Research Institution 2023",
-            description: "Recognized for interdisciplinary research impact",
-            organization: "Science & Technology Council"
+            area: 'Technology Companies',
+            description: 'Collaborate with ed-tech and AI software companies',
+            benefits: ['Industry expertise', 'Technical resources', 'Market validation']
         },
         {
-            name: "5 IEEE Fellows",
-            description: "Faculty honored for exceptional contributions to engineering",
-            organization: "Institute of Electrical and Electronics Engineers"
+            area: 'Research Organizations',
+            description: 'Work with academic research groups worldwide',
+            benefits: ['Knowledge sharing', 'Joint publications', 'Grant opportunities']
         }
     ];
 
-    const initiatives = [
+    const upcomingInitiatives = [
         {
-            title: "Quantum Research Center",
-            description: "State-of-the-art facilities for quantum computing development and education",
-            details: [
-                "1000 sqm dedicated lab space",
-                "Partnership with national quantum initiative",
-                "Graduate fellowship program"
-            ],
-            status: "Phase 1 construction underway",
-            timeline: "Completion Q2 2025"
+            title: 'AI in Education Workshop Series',
+            description: 'Monthly workshops for educators on integrating AI tools',
+            timeline: 'Starting March 2024',
+            participants: 'Teachers, educators, researchers'
         },
         {
-            title: "AI for Social Good",
-            description: "Applying AI to solve pressing societal challenges",
-            details: [
-                "Focus areas: healthcare, education, agriculture",
-                "Community partnership program",
-                "Annual hackathon and ideathon"
-            ],
-            status: "Accepting research proposals",
-            timeline: "Ongoing"
+            title: 'Open Source Education Tools',
+            description: 'Developing free AI-powered educational software',
+            timeline: 'Ongoing',
+            participants: 'Developers, educators, students'
         },
         {
-            title: "Industry Alliance Program",
-            description: "Strategic partnerships with technology leaders",
-            details: [
-                "Joint research projects",
-                "Technology transfer office",
-                "Executive education programs"
-            ],
-            status: "15 corporate partners joined",
-            timeline: "Expanding in 2024"
+            title: 'Student Research Program',
+            description: 'Undergraduate and graduate research opportunities',
+            timeline: 'Fall 2024',
+            participants: 'University students, faculty mentors'
         }
     ];
 
     return (
-        <div className={`min-h-screen bg-gray-900 text-gray-100 ${poppins.className}`}>
+        <div className={`min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 text-gray-900 ${poppins.className}`}>
             {/* Hero Section */}
-            <section className="relative py-20 bg-gradient-to-b from-red-900 to-gray-900">
-                <div className="container mx-auto px-6 text-center">
+            <section className="relative py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="container mx-auto px-6 text-center relative">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-5xl font-bold mb-6"
                     >
-                        Research & Innovation
+                        Research
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-red-200 max-w-3xl mx-auto"
+                        className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed"
                     >
-                        Pioneering discoveries that shape the future of technology through interdisciplinary collaboration
+                        Advancing the future of Education through Artificial Intelligence,
+                        innovative Software development, STEM, and Research
                     </motion.p>
                 </div>
             </section>
 
-            {/* Research Overview */}
+            {/* Research Focus Areas */}
             <section className="py-16 container mx-auto px-6">
-                <div className="max-w-6xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg">
-                    <h2 className="text-3xl font-bold mb-6">Research Excellence</h2>
-                    <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                        At our institute, we&apos;re redefining boundaries through interdisciplinary research that addresses global challenges.
-                        Our approach combines academic rigor with real-world impact, fostering innovation across multiple domains with
-                        state-of-the-art facilities and strategic partnerships.
-                    </p>
+                <div className="max-w-6xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                            Our Research Focus
+                        </h2>
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                            We specialize in practical research that bridges AI technology with educational innovation
+                        </p>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        {achievements.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-gray-700 p-6 rounded-lg"
-                            >
-                                <div className="text-3xl font-bold text-red-400 mb-2">{item.value}</div>
-                                <h3 className="text-xl font-semibold mb-2">{item.label}</h3>
-                                <p className="text-gray-300 text-sm">{item.details}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Research Domains */}
-            <section className="py-16 bg-gray-800">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-center mb-12">Research Domains</h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {researchDomains.map((domain, index) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {researchFocusAreas.map((area, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                                 whileHover={{ y: -5 }}
-                                className="bg-gray-700 rounded-lg p-6 border border-gray-600 shadow-md"
+                                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all"
                             >
-                                <div className="flex items-center gap-3 mb-4">
-                                    {domain.icon}
-                                    <h3 className="text-xl font-bold">{domain.name}</h3>
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-3 rounded-xl bg-blue-50">
+                                        {area.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900">{area.name}</h3>
                                 </div>
-                                <p className="text-gray-300 mb-4">{domain.description}</p>
+
+                                <p className="text-gray-600 mb-4 leading-relaxed">
+                                    {area.description}
+                                </p>
 
                                 <div className="mb-4">
-                                    <h4 className="font-semibold text-gray-200 mb-2">Research Focus:</h4>
-                                    <ul className="space-y-2 text-sm text-gray-300">
-                                        {domain.details.map((detail, i) => (
+                                    <h4 className="font-semibold text-gray-800 mb-2">Active Projects:</h4>
+                                    <ul className="space-y-2 text-sm text-gray-600">
+                                        {area.projects.map((project, i) => (
                                             <li key={i} className="flex items-start">
-                                                <span className="text-red-400 mr-2">•</span>
-                                                <span>{detail}</span>
+                                                <span className="text-blue-500 mr-2">•</span>
+                                                <span>{project}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
 
-                                <div className="text-sm space-y-2">
-                                    <div className="text-red-400 font-medium">{domain.projects}</div>
-                                    <div className="text-gray-400">Lead: {domain.lead}</div>
+                                <div className="text-sm text-blue-600 font-medium">
+                                    Expected Impact: {area.outcomes}
                                 </div>
                             </motion.div>
                         ))}
@@ -292,147 +250,230 @@ const ResearchPage = () => {
                 </div>
             </section>
 
-            {/* Research Facilities */}
-            <section className="py-16 container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Research Facilities</h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {researchFacilities.map((facility, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5 }}
-                                viewport={{ once: true }}
-                                className="bg-gray-800 rounded-xl p-6 border border-gray-700"
-                            >
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                                    <FaMicroscope className="text-red-500" />
-                                    {facility.name}
-                                </h3>
-                                <div className="mb-4">
-                                    <h4 className="font-medium text-gray-300 mb-2">Equipment:</h4>
-                                    <p className="text-gray-400">{facility.equipment}</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-300 mb-2">Capabilities:</h4>
-                                    <p className="text-gray-400">{facility.capabilities}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Awards & Recognition */}
-            <section className="py-16 bg-gray-800">
+            {/* Current Projects */}
+            <section className="py-16 bg-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl font-bold text-center mb-12">Awards & Recognition</h2>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                                Active Research Projects
+                            </h2>
+                            <p className="text-gray-600">
+                                Hands-on development of AI-powered educational solutions
+                            </p>
+                        </motion.div>
 
-                        <div className="bg-gray-700 rounded-xl p-8">
-                            <div className="flex items-center gap-3 mb-8">
-                                <FaTrophy className="text-red-500" size={24} />
-                                <h3 className="text-2xl font-bold">Our Achievements</h3>
-                            </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            {currentProjects.map((project, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-200"
+                                >
+                                    <div className="mb-4">
+                                        <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                                            {project.status}
+                                        </span>
+                                    </div>
 
-                            <div className="space-y-8">
-                                {awards.map((award, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                        viewport={{ once: true }}
-                                        className="border-b border-gray-600 pb-6 last:border-0"
-                                    >
-                                        <div className="flex items-start gap-4">
-                                            <FaAward className="text-red-500 mt-1 flex-shrink-0" />
-                                            <div>
-                                                <h4 className="text-xl font-bold mb-1">{award.name}</h4>
-                                                <p className="text-gray-300 mb-2">{award.description}</p>
-                                                <div className="text-sm text-gray-400">
-                                                    Awarded by: {award.organization}
-                                                </div>
+                                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="space-y-3 text-sm">
+                                        <div>
+                                            <span className="font-medium text-gray-700">Team:</span>
+                                            <span className="text-gray-600 ml-2">{project.team}</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-medium text-gray-700">Timeline:</span>
+                                            <span className="text-gray-600 ml-2">{project.timeline}</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-medium text-gray-700">Technologies:</span>
+                                            <div className="flex flex-wrap gap-1 mt-1">
+                                                {project.technologies.map((tech, i) => (
+                                                    <span key={i} className="px-2 py-1 bg-white text-gray-700 rounded text-xs border">
+                                                        {tech}
+                                                    </span>
+                                                ))}
                                             </div>
                                         </div>
-                                    </motion.div>
-                                ))}
-                            </div>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Future Initiatives */}
-            <section className="py-16 container mx-auto px-6">
-                <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Future Initiatives</h2>
+            {/* Research Goals */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-4xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                                Our Research Objectives
+                            </h2>
+                        </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {initiatives.map((initiative, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg"
-                            >
-                                <h3 className="text-xl font-bold mb-4">{initiative.title}</h3>
-                                <p className="text-gray-300 mb-4">{initiative.description}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {researchGoals.map((goal, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="text-center p-6"
+                                >
+                                    <div className="flex justify-center mb-4">
+                                        <div className="p-3 rounded-full bg-white shadow-lg">
+                                            {goal.icon}
+                                        </div>
+                                    </div>
+                                    <h3 className="font-bold text-gray-900 mb-2">{goal.title}</h3>
+                                    <p className="text-gray-600 text-sm">{goal.description}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                                <div className="mb-4">
-                                    <h4 className="font-medium text-gray-300 mb-2">Key Features:</h4>
-                                    <ul className="space-y-2 text-sm text-gray-400">
-                                        {initiative.details.map((detail, i) => (
-                                            <li key={i} className="flex items-start">
-                                                <span className="text-red-400 mr-2">•</span>
-                                                <span>{detail}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+            {/* Collaboration Opportunities */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-6xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                                Collaboration Opportunities
+                            </h2>
+                            <p className="text-gray-600">
+                                We welcome partnerships to advance AI education research
+                            </p>
+                        </motion.div>
 
-                                <div className="text-sm space-y-2">
-                                    <div className="text-red-400 font-medium">Status: {initiative.status}</div>
-                                    <div className="text-gray-400">Timeline: {initiative.timeline}</div>
-                                </div>
-                            </motion.div>
-                        ))}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {collaborationAreas.map((collab, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="bg-gray-50 rounded-2xl p-6 border border-gray-200"
+                                >
+                                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                                        {collab.area}
+                                    </h3>
+                                    <p className="text-gray-600 mb-4 text-sm">
+                                        {collab.description}
+                                    </p>
+                                    <div>
+                                        <h4 className="font-medium text-gray-800 mb-2">Benefits:</h4>
+                                        <ul className="space-y-1 text-sm text-gray-600">
+                                            {collab.benefits.map((benefit, i) => (
+                                                <li key={i} className="flex items-start">
+                                                    <span className="text-green-500 mr-2">✓</span>
+                                                    <span>{benefit}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Upcoming Initiatives */}
+            <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-4xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="text-3xl font-bold mb-4">
+                                Upcoming Initiatives
+                            </h2>
+                        </motion.div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {upcomingInitiatives.map((initiative, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                                >
+                                    <h3 className="font-bold text-lg mb-3">{initiative.title}</h3>
+                                    <p className="text-blue-100 text-sm mb-4 leading-relaxed">
+                                        {initiative.description}
+                                    </p>
+                                    <div className="space-y-2 text-sm">
+                                        <div>
+                                            <span className="font-medium">Timeline:</span>
+                                            <span className="ml-2 text-blue-100">{initiative.timeline}</span>
+                                        </div>
+                                        <div>
+                                            <span className="font-medium">Participants:</span>
+                                            <span className="ml-2 text-blue-100">{initiative.participants}</span>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 bg-red-900">
+            <section className="py-16 bg-white">
                 <div className="container mx-auto px-6 text-center">
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
                         className="max-w-3xl mx-auto"
                     >
-                        <h2 className="text-3xl font-bold mb-6">Join Our Research Community</h2>
-                        <p className="text-xl text-red-200 mb-8">
-                            Collaborate with leading researchers and access cutting-edge facilities
+                        <h2 className="text-3xl font-bold mb-6 text-gray-900">
+                            Interested in Collaborating?
+                        </h2>
+                        <p className="text-gray-600 mb-8 text-lg">
+                            Join us in reshaping the future through Artificial Intelligence, Education and Research
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-white text-red-900 font-semibold py-3 px-8 rounded-lg shadow-lg"
+                                className="border-2 border-blue-600 text-blue-600 font-semibold py-3 px-8 rounded-xl hover:bg-blue-50 transition-colors"
                             >
-                                Explore Research Opportunities
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg"
-                            >
-                                Partner With Us
+                                Submit Research Proposal
                             </motion.button>
                         </div>
                     </motion.div>

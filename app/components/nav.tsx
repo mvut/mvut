@@ -18,10 +18,10 @@ const poppins = Poppins({
 
 const HeroSection = () => {
     const stats = [
-        { value: "50+", label: "Research Papers" },
-        { value: "30+", label: "Industry Partners" },
-        { value: "100%", label: "Placement Rate" },
-        { value: "5x", label: "Growth Since 2020" }
+        { value: "5+", label: "Certification" },
+        { value: "$70", label: "Admissions Fee" },
+        { value: "100+", label: "Courses" },
+        { value: "$35", label: "Monthly Fee" }
     ];
 
     return (
