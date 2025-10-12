@@ -189,7 +189,7 @@ export default function ServicesPage() {
 
                         {filtered.length === 0 && (
                             <motion.div className="col-span-full text-center text-blue-200/80 p-8 border border-blue-800 rounded-xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                No services found for "{query}". Try a different keyword or select a category.
+                                No services found for &quot;{query}&quot;. Try a different keyword or select a category.
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -234,7 +234,7 @@ export default function ServicesPage() {
                                 <div className="flex items-start gap-3">
                                     <div className="text-2xl text-blue-300"><FaQuoteLeft /></div>
                                     <div>
-                                        <p className="text-blue-200 italic">"{t.quote}"</p>
+                                        <p className="text-blue-200 italic">&quot;{t.quote}&quot;</p>
                                         <div className="mt-3 flex items-center gap-3">
                                             <div className="w-9 h-9 rounded-full bg-white/3 flex items-center justify-center"><FaUserTie className="text-blue-300" /></div>
                                             <div>
