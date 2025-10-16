@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
 import { GrCertificate } from 'react-icons/gr';
-import { FaChalkboardTeacher, FaSearch, FaCode, FaUsers, FaRocket } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaSearch, FaCode, FaUsers, FaRocket, FaArrowRight } from 'react-icons/fa';
 import { SiHiveBlockchain } from 'react-icons/si';
 
 const montserrat = Montserrat({
     subsets: ['latin'],
-    weight: ['400', '600', '700'],
+    weight: ['400', '500', '600', '700'],
 });
 
 type Program = {
@@ -19,6 +19,7 @@ type Program = {
     link: string;
     icon: React.ReactNode;
     gradient: string;
+    badge?: string;
 };
 
 type Skill = {
@@ -29,120 +30,162 @@ type Skill = {
 
 const PROGRAMS: Program[] = [
     {
-        title: 'MCASCE — Autonomous Systems & Cloud',
-        subtitle: 'AI + Cloud + Robotics: hands-on integration & deployment.',
+        title: 'MCASCE — Mansha Certified Autonomous System and Cloud Engineer',
+        subtitle: 'Master AI, Cloud, and Robotics integration with hands-on deployment experience.',
         link: '/pages/mcasce',
-        icon: <GrCertificate className="text-6xl md:text-7xl" />,
-        gradient: 'from-indigo-700 to-black',
+        icon: <GrCertificate className="text-4xl" />,
+        gradient: 'from-blue-600 via-purple-600 to-indigo-700',
+        badge: 'Advanced'
     },
     {
         title: 'K.G. STEM Entrepreneurs',
-        subtitle: 'Playful STEM & early entrepreneurship for young learners.',
+        subtitle: 'Early-stage STEM education with entrepreneurial mindset development.',
         link: '/pages/kg-ai',
-        icon: <FaChalkboardTeacher className="text-6xl md:text-7xl" />,
-        gradient: 'from-blue-600 to-cyan-800',
+        icon: <FaChalkboardTeacher className="text-4xl" />,
+        gradient: 'from-emerald-500 to-teal-700',
+        badge: 'Popular'
     },
     {
-        title: 'Research',
-        subtitle: 'Methodology → experiments → publishable output.',
+        title: 'Research & Development',
+        subtitle: 'From methodology to publishable research output with expert guidance.',
         link: '/pages/research',
-        icon: <FaSearch className="text-6xl md:text-7xl" />,
-        gradient: 'from-gray-700 to-slate-900',
+        icon: <FaSearch className="text-4xl" />,
+        gradient: 'from-slate-600 to-gray-800',
+        badge: 'Elite'
     },
 ];
 
 const SKILLS: Skill[] = [
-    { name: 'Problem Solving', desc: 'Practical problem breakdown & coding solutions.', icon: <FaCode className="text-3xl" /> },
-    { name: 'Collaboration', desc: 'Team projects with peer code reviews.', icon: <FaUsers className="text-3xl" /> },
-    { name: 'Innovation', desc: 'Prototype fast, test often, iterate.', icon: <FaRocket className="text-3xl" /> },
-    { name: 'Emerging Tech', desc: 'Cloud, edge, and decentralized systems.', icon: <SiHiveBlockchain className="text-3xl" /> },
+    { name: 'Technical Excellence', desc: 'Industry-standard coding practices and solution architecture', icon: <FaCode className="text-2xl" /> },
+    { name: 'Team Collaboration', desc: 'Agile methodologies and peer review processes', icon: <FaUsers className="text-2xl" /> },
+    { name: 'Innovation Focus', desc: 'Rapid prototyping and iterative development cycles', icon: <FaRocket className="text-2xl" /> },
+    { name: 'Emerging Technologies', desc: 'Cloud-native, edge computing, and decentralized systems', icon: <SiHiveBlockchain className="text-2xl" /> },
 ];
 
 const METRICS = [
-    { value: '5,000+', label: 'Students Trained' },
-    { value: '1,200+', label: 'Projects Shipped' },
-    { value: '92%', label: 'Employment Rate' },
-    { value: '10,000+', label: 'Community Members' },
+    { value: '5,000+', label: 'Professionals Trained' },
+    { value: '1,200+', label: 'Projects Deployed' },
+    { value: '92%', label: 'Career Advancement' },
+    { value: '10,000+', label: 'Global Community' },
 ];
 
 const cardMotion = {
-    hidden: { opacity: 0, y: 18 },
-    visible: (i = 1) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, type: 'spring', stiffness: 110 } }),
-    hover: { scale: 1.025, y: -6, transition: { duration: 0.25 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: (i = 1) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: i * 0.1,
+            duration: 0.6,
+            ease: [0.25, 0.46, 0.45, 0.94]
+        }
+    }),
+    hover: {
+        y: -8,
+        transition: { duration: 0.3, ease: "easeOut" }
+    },
 };
 
 export default function StudyPrograms(): JSX.Element {
     return (
-        <main className={`min-h-screen bg-gradient-to-b from-gray-950 to-black text-white ${montserrat.className}`}>
-            {/* Hero */}
-            <section className="py-20 px-6 text-center">
-                <motion.h1 initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                    Programs Engineered for Tomorrow&apos;s Trailblazers
-                </motion.h1>
-                <p className="mt-4 text-sm text-gray-300 max-w-2xl mx-auto">
-                    A project-first pathways that combine practical skills, mentorship, and deployment experience.
-                </p>
+        <main className={`min-h-screen bg-neutral-50 text-gray-900 ${montserrat.className}`}>
+            {/* Hero Section */}
+            <section className="relative py-24 px-6 text-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+                <div className="relative max-w-5xl mx-auto">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+                    >
+                        Engineering Tomorrow&apos;s
+                        <span className="block bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent mt-2">
+                            Tech Leaders
+                        </span>
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.7 }}
+                        className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                    >
+                        Industry-aligned programs combining cutting-edge curriculum,
+                        expert mentorship, and real-world project experience.
+                    </motion.p>
+                </div>
             </section>
 
-            {/* Programs */}
-            {/* === Redesigned Program Cards Section === */}
-            <section className="px-6 pb-20 max-w-7xl mx-auto">
-                <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    {PROGRAMS.map((p, idx) => (
+            {/* Programs Section */}
+            <section className="py-20 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                        Premier Learning Programs
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Structured pathways designed for career advancement and technical mastery
+                    </p>
+                </div>
+
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {PROGRAMS.map((program, index) => (
                         <motion.article
-                            key={p.title}
-                            custom={idx}
+                            key={program.title}
+                            custom={index}
                             initial="hidden"
                             whileInView="visible"
                             whileHover="hover"
                             variants={cardMotion}
-                            className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${p.gradient} p-[1px] shadow-xl hover:shadow-2xl transition`}
+                            viewport={{ once: true }}
+                            className="group relative"
                         >
-                            <div className="relative h-full flex flex-col justify-between bg-black/70 rounded-3xl backdrop-blur-md p-6">
-                                {/* Header Badge */}
-                                <div className="absolute top-4 right-4">
-            <span className="text-[10px] uppercase tracking-wide bg-white/20 px-3 py-1 rounded-full text-gray-100">
-              {idx === 1 ? 'Popular' : 'Certified'}
-            </span>
+                            <div className="relative bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col">
+                                {/* Gradient Header */}
+                                <div className={`bg-gradient-to-r ${program.gradient} p-6 text-white`}>
+                                    <div className="flex items-start justify-between">
+                                        <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
+                                            {program.icon}
+                                        </div>
+                                        {program.badge && (
+                                            <span className="text-xs font-semibold bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                                                {program.badge}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <h3 className="text-xl font-bold mt-4 leading-tight">
+                                        {program.title}
+                                    </h3>
                                 </div>
 
-                                {/* Icon + Title */}
-                                <div className="flex items-center gap-4">
-                                    <div className="p-3 bg-white/10 rounded-2xl text-5xl text-white">
-                                        {p.icon}
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-white">{p.title}</h3>
-                                        <p className="text-sm text-gray-300 mt-1">{p.subtitle}</p>
-                                    </div>
-                                </div>
+                                {/* Content */}
+                                <div className="p-6 flex-grow flex flex-col">
+                                    <p className="text-gray-600 mb-6 flex-grow">
+                                        {program.subtitle}
+                                    </p>
 
-                                {/* Divider */}
-                                <div className="my-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                                    {/* Features List */}
+                                    <ul className="space-y-3 mb-6">
+                                        <li className="flex items-center text-sm text-gray-700">
+                                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-3" />
+                                            Project-based curriculum
+                                        </li>
+                                        <li className="flex items-center text-sm text-gray-700">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
+                                            Industry expert mentorship
+                                        </li>
+                                        <li className="flex items-center text-sm text-gray-700">
+                                            <div className="w-2 h-2 bg-purple-500 rounded-full mr-3" />
+                                            Professional certification
+                                        </li>
+                                    </ul>
 
-                                {/* Highlights */}
-                                <ul className="space-y-2 text-sm text-gray-200">
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span> Hands-on Projects
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-blue-400">•</span> Live Mentorship
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-purple-400">•</span> Certification Included
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-yellow-400">•</span> Portfolio-Based Learning
-                                    </li>
-                                </ul>
-
-                                {/* Footer CTA */}
-                                <div className="mt-8 flex items-center justify-between">
+                                    {/* CTA */}
                                     <Link
-                                        href={p.link}
-                                        className="relative inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 transition-all duration-300 shadow-lg"
+                                        href={program.link}
+                                        className="group/btn inline-flex items-center justify-center w-full bg-gray-900 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-800 hover:shadow-lg mt-auto"
                                     >
                                         Explore Program
+                                        <FaArrowRight className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
                                     </Link>
                                 </div>
                             </div>
@@ -151,38 +194,74 @@ export default function StudyPrograms(): JSX.Element {
                 </div>
             </section>
 
+            {/* Skills Section */}
+            <section className="py-16 bg-white border-y border-gray-200">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                            Core Competencies
+                        </h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Developing the essential skills that drive innovation and career success
+                        </p>
+                    </div>
 
-            {/* Skills */}
-            <section className="px-6 pb-12 border-t border-white/6">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 items-stretch px-4 py-10">
-                    {SKILLS.map((s, i) => (
-                        <motion.div
-                            key={s.name}
-                            initial={{ opacity: 0, y: 14 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.08 }}
-                            className="rounded-2xl bg-white/3 p-5 text-center"
-                            role="article"
-                        >
-                            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-tr from-red-600 to-black text-white mb-3">
-                                {s.icon}
-                            </div>
-                            <h4 className="font-semibold">{s.name}</h4>
-                            <p className="mt-1 text-xs text-gray-200">{s.desc}</p>
-                        </motion.div>
-                    ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {SKILLS.map((skill, index) => (
+                            <motion.div
+                                key={skill.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                            >
+                                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg mb-4">
+                                    {skill.icon}
+                                </div>
+                                <h3 className="font-semibold text-gray-900 mb-2">
+                                    {skill.name}
+                                </h3>
+                                <p className="text-sm text-gray-600 leading-relaxed">
+                                    {skill.desc}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            {/* Metrics */}
-            <section className="px-6 py-12">
-                <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    {METRICS.map((m, i) => (
-                        <motion.div key={m.label} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.08 }} className="p-6 rounded-xl bg-white/4">
-                            <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{m.value}</div>
-                            <div className="mt-2 text-xs text-gray-300">{m.label}</div>
-                        </motion.div>
-                    ))}
+            {/* Metrics Section */}
+            <section className="py-20 bg-gradient-to-br from-slate-900 to-gray-900 text-white">
+                <div className="max-w-5xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold mb-4">
+                            Proven Impact
+                        </h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto">
+                            Measurable results that demonstrate our commitment to excellence
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                        {METRICS.map((metric, index) => (
+                            <motion.div
+                                key={metric.label}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="text-center"
+                            >
+                                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent mb-2">
+                                    {metric.value}
+                                </div>
+                                <div className="text-sm text-gray-400 font-medium">
+                                    {metric.label}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </main>

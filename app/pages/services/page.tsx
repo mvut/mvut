@@ -1,265 +1,518 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import MVITLogo from '@/public/mvutflame.png';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaChevronDown, FaChevronUp, FaBrain, FaRobot, FaCog, FaChartLine } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
+import Link from "next/link";
 
-// icons (keep only those used to reduce bundle)
-import { FaReact, FaRobot, FaSchool, FaUniversity, FaCloud, FaServer, FaQuoteLeft, FaUserTie, FaMobile, FaDesktop, FaLaptopCode } from 'react-icons/fa';
-import { RiNextjsFill } from 'react-icons/ri';
-import { SiTypescript, SiTailwindcss, SiTensorflow, SiPytorch, SiMongodb, SiPostgresql, SiDocker, SiKubernetes } from 'react-icons/si';
-
-// ---------- Types ----------
-type Category = 'development' | 'ai' | 'education' | 'enterprise';
-
-type Service = {
+// Types
+interface Service {
     id: string;
     title: string;
+    category: string;
     description: string;
     features: string[];
-    icon: React.ComponentType<any>;
-    category: Category;
-};
+    deliverables: string[];
+}
 
-type Technology = { name: string; icon: React.ComponentType<any>; category: string };
+interface Solution {
+    icon: IconType;
+    title: string;
+    description: string;
+    benefits: string[];
+}
 
-type Testimonial = { quote: string; name: string; position: string; company: string };
+interface Testimonial {
+    name: string;
+    role: string;
+    quote: string;
+    company: string;
+}
 
-// ---------- Data (kept local for single-file demo) ----------
+interface FAQ {
+    question: string;
+    answer: string;
+}
+
+// Data
 const SERVICES: Service[] = [
-    { id: 'web', title: 'Custom Web Development', description: 'Fast, accessible, scalable web apps using modern tools.', features: ['Next.js + React', 'TypeScript', 'PWA', 'SEO'], icon: FaReact, category: 'development' },
-    { id: 'mobile', title: 'Mobile Apps', description: 'Cross-platform mobile apps that feel native.', features: ['React Native', 'Performance focused', 'Push notifications'], icon: FaMobile, category: 'development' },
-    { id: 'desktop', title: 'Desktop Apps', description: 'Electron and native desktop solutions.', features: ['Auto-updates', 'Native integrations'], icon: FaDesktop, category: 'development' },
-
-    { id: 'agents', title: 'AI Agents', description: 'Conversational and autonomous agents for automation.', features: ['NLP', 'Conversational flows', 'Deployable agents'], icon: FaRobot, category: 'ai' },
-    { id: 'ml', title: 'Machine Learning', description: 'Custom ML models from research to production.', features: ['TensorFlow / PyTorch', 'Model serving', 'Monitoring'], icon: FaLaptopCode, category: 'ai' },
-
-    { id: 'school', title: 'School Programs', description: 'Fun and practical STEM for K-12.', features: ['Scratch', 'Robotics basics', 'Game dev'], icon: FaSchool, category: 'education' },
-    { id: 'uni', title: 'University Curriculum', description: 'Industry-aligned university courses and capstones.', features: ['Capstones', 'Industry mentors'], icon: FaUniversity, category: 'education' },
-
-    { id: 'enterprise', title: 'Enterprise Software', description: 'Scalable solutions with strong security and SLA.', features: ['Microservices', 'High-availability', 'Observability'], icon: FaServer, category: 'enterprise' },
-    { id: 'devops', title: 'DevOps & Cloud', description: 'CI/CD, infra as code and cloud migrations.', features: ['K8s', 'IaC', 'Monitoring'], icon: FaCloud, category: 'enterprise' }
+    {
+        id: 'custom-ai',
+        title: 'Custom AI Solutions Development',
+        category: 'Enterprise AI',
+        description: 'Tailored AI systems designed to solve your specific business challenges. We build intelligent solutions that integrate seamlessly with your existing workflows.',
+        features: [
+            'Custom machine learning models',
+            'Real-time data processing',
+            'Scalable AI architecture',
+            'Continuous model optimization'
+        ],
+        deliverables: ['AI Strategy Document', 'Custom Model Deployment', 'Integration API', 'Performance Dashboard']
+    },
+    {
+        id: 'agentic-ai',
+        title: 'Agentic AI Systems',
+        category: 'Advanced AI',
+        description: 'Autonomous AI agents that can reason, plan, and execute complex tasks. Transform your operations with intelligent automation.',
+        features: [
+            'Multi-agent orchestration',
+            'Tool-calling capabilities',
+            'Memory and context management',
+            'Safety guardrails'
+        ],
+        deliverables: ['Agent Framework', 'Workflow Automation', 'Monitoring System', 'Training Documentation']
+    },
+    {
+        id: 'ai-integration',
+        title: 'AI Integration & Consulting',
+        category: 'Professional Services',
+        description: 'Seamlessly integrate cutting-edge AI capabilities into your existing systems with our expert consulting services.',
+        features: [
+            'System architecture design',
+            'API integration',
+            'Legacy system modernization',
+            'Team training & support'
+        ],
+        deliverables: ['Integration Plan', 'Custom API Suite', 'Training Program', 'Support Package']
+    }
 ];
 
-const TECHNOLOGIES: Technology[] = [
-    { name: 'TypeScript', icon: SiTypescript, category: 'languages' },
-    { name: 'React', icon: FaReact, category: 'frontend' },
-    { name: 'Next.js', icon: RiNextjsFill, category: 'frontend' },
-    { name: 'Tailwind', icon: SiTailwindcss, category: 'frontend' },
-    { name: 'TensorFlow', icon: SiTensorflow, category: 'ai-ml' },
-    { name: 'PyTorch', icon: SiPytorch, category: 'ai-ml' },
-    { name: 'MongoDB', icon: SiMongodb, category: 'database' },
-    { name: 'Postgres', icon: SiPostgresql, category: 'database' },
-    { name: 'Docker', icon: SiDocker, category: 'devops' },
-    { name: 'Kubernetes', icon: SiKubernetes, category: 'devops' }
+const SOLUTIONS: Solution[] = [
+    {
+        icon: FaRobot,
+        title: 'Intelligent Automation',
+        description: 'Streamline operations with AI-powered automation that learns and adapts to your business needs.',
+        benefits: ['Reduce operational costs', 'Increase efficiency', 'Minimize human error', 'Scale effortlessly']
+    },
+    {
+        icon: FaBrain,
+        title: 'Predictive Analytics',
+        description: 'Turn your data into actionable insights with advanced machine learning and forecasting models.',
+        benefits: ['Data-driven decisions', 'Market trend analysis', 'Risk assessment', 'Opportunity identification']
+    },
+    {
+        icon: FaCog,
+        title: 'Process Optimization',
+        description: 'Optimize your business processes with AI that continuously learns and improves over time.',
+        benefits: ['Continuous improvement', 'Quality enhancement', 'Resource optimization', 'Performance tracking']
+    },
+    {
+        icon: FaChartLine,
+        title: 'AI Strategy',
+        description: 'Develop a comprehensive AI roadmap aligned with your business objectives and growth targets.',
+        benefits: ['Competitive advantage', 'Future-proof planning', 'ROI optimization', 'Strategic alignment']
+    }
 ];
 
 const TESTIMONIALS: Testimonial[] = [
-    { quote: 'The AI agent we got handled 80% of queries and improved satisfaction significantly.', name: 'Sarah J.', position: 'Ops Director', company: 'Retail Co.' },
-    { quote: 'Students transitioned to jobs quickly after the MVIT program.', name: 'Dr. M. Chen', position: 'Dean', company: 'State University' }
+    {
+        name: 'Sarah Chen',
+        role: 'CTO',
+        quote: 'The custom AI solution transformed our customer service operations, reducing response time by 80% while maintaining quality.',
+        company: 'TechInnovate Inc.'
+    },
+    {
+        name: 'Marcus Rodriguez',
+        role: 'Operations Director',
+        quote: 'Their agentic AI system automated our complex workflow processes, saving us 200+ hours monthly in manual operations.',
+        company: 'Global Logistics Co.'
+    },
+    {
+        name: 'Dr. Emily Watson',
+        role: 'Research Lead',
+        quote: 'The predictive analytics platform provided insights we never could have uncovered with traditional methods.',
+        company: 'BioResearch Labs'
+    }
 ];
 
-// ---------- Motion variants ----------
-const fadeUp = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } };
+const FAQS: FAQ[] = [
+    {
+        question: 'How long does it take to implement a custom AI solution?',
+        answer: 'Implementation timelines vary based on complexity, ranging from 4 weeks for standard solutions to 6+ months for enterprise-scale deployments. We provide detailed project timelines during our initial consultation.'
+    },
+    {
+        question: 'Do you provide ongoing support and maintenance?',
+        answer: 'Yes, we offer comprehensive support packages including model monitoring, performance optimization, and regular updates to ensure your AI systems continue to deliver value.'
+    },
+    {
+        question: 'Can you work with our existing technology stack?',
+        answer: 'Absolutely. We specialize in integrating AI solutions with diverse technology stacks and can work with your current systems to ensure seamless implementation.'
+    }
+];
 
-// ---------- Small UI components ----------
-const Tag: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-    <span className="px-2 py-0.5 text-xs rounded-full bg-white/6 border border-white/8 text-blue-100">{children}</span>
-);
-
-function IconWrap({ Icon, size = 28 }: { Icon: React.ComponentType<any>; size?: number }) {
-    return <Icon className="flex-shrink-0" style={{ width: size, height: size }} />;
-}
-
-// Service Card
-const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
-    <motion.article
-        initial="hidden"
-        whileInView="show"
-        variants={fadeUp}
-        viewport={{ once: true }}
-        className="group bg-gradient-to-br from-black/20 to-black/10 border border-blue-800 backdrop-blur-sm rounded-2xl p-5 hover:scale-[1.01] transition-transform"
-    >
-        <div className="flex items-start gap-4">
-            <div className="text-cyan-300 text-3xl">
-                <service.icon />
-            </div>
-            <div>
-                <h3 className="text-lg font-semibold text-white">{service.title}</h3>
-                <p className="text-sm text-blue-200 mt-1">{service.description}</p>
-            </div>
-        </div>
-
-        <ul className="mt-4 text-sm text-blue-100 space-y-2">
-            {service.features.map((f, i) => (
-                <li key={i} className="flex items-start gap-2">
-                    <span className="text-cyan-300">•</span>
-                    <span>{f}</span>
-                </li>
-            ))}
-        </ul>
-
-        <div className="mt-4 flex justify-end">
-            <button className="text-sm px-3 py-1 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500">Learn More</button>
-        </div>
-    </motion.article>
-);
-
-// ---------- Main Page ----------
-export default function ServicesPage() {
-    const [mounted, setMounted] = useState(false);
-    const [query, setQuery] = useState('');
-    const [active, setActive] = useState<'all' | Category | 'search'>('all');
-
-    useEffect(() => setMounted(true), []);
-
-    const categories: ({ id: string; label: string })[] = [
-        { id: 'all', label: 'All' },
-        { id: 'development', label: 'Development' },
-        { id: 'ai', label: 'AI' },
-        { id: 'education', label: 'Education' },
-        { id: 'enterprise', label: 'Enterprise' }
-    ];
-
-    const filtered = useMemo(() => {
-        const q = query.trim().toLowerCase();
-        if (q) {
-            return SERVICES.filter(s => s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q) || s.features.join(' ').toLowerCase().includes(q));
-        }
-        if (active === 'all') return SERVICES;
-        return SERVICES.filter(s => s.category === active);
-    }, [query, active]);
-
-    if (!mounted) return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-900" />;
+export default function AIAgencyLanding() {
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     return (
-        <div className="min-h-screen py-12 bg-gradient-to-br from-slate-900 via-black to-slate-900 text-white">
-            <div className="container mx-auto px-4 relative z-10">
-                <header className="flex items-center justify-between gap-4 mb-10">
-                    <div className="flex items-center gap-3">
-                        <div className="w-14 h-14 relative rounded-full overflow-hidden bg-white/5 p-2">
-                            <Image src={MVITLogo} alt="MVIT" fill className="object-contain" />
-                        </div>
-                        <div>
-                            <h1 className="text-xl md:text-2xl font-bold">MVIT — Technology & Education</h1>
-                            <p className="text-xs text-blue-200/80">Empowering communities through technology, AI & learning</p>
-                        </div>
-                    </div>
-
-                    <div className="hidden md:flex items-center gap-3">
-                        <nav className="flex gap-2">
-                            {categories.map(c => (
-                                <button key={c.id} onClick={() => { setActive(c.id as any); setQuery(''); }} className={`px-3 py-1 rounded-lg text-sm ${active === c.id ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white' : 'bg-black/30 text-blue-200 border border-blue-800'}`}>
-                                    {c.label}
-                                </button>
-                            ))}
-                        </nav>
-                    </div>
-                </header>
-
-                {/* Hero */}
-                <section className="text-center mb-8">
-                    <motion.h2 initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">
-                        Build, Learn, Automate — with MVIT
-                    </motion.h2>
-                    <p className="text-sm text-blue-200 mt-2 max-w-2xl mx-auto">Custom software, AI agents, and practical education programs built for real outcomes.</p>
-                </section>
-
-                {/* Controls */}
-                <div className="flex flex-col md:flex-row items-center gap-3 mb-6 justify-between">
-                    <div className="w-full md:w-1/2">
-                        <input value={query} onChange={e => { setQuery(e.target.value); setActive('search'); }} placeholder="Search services, features or keywords..." className="w-full bg-black/20 border border-blue-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500" />
-                    </div>
-
-                    <div className="flex gap-3">
-                        <button onClick={() => { setQuery(''); setActive('all'); }} className="px-3 py-2 rounded-lg bg-black/30 border border-blue-800 text-sm">Reset</button>
-                        <a href="#contact" className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-sm">Contact</a>
+        <div className="min-h-screen bg-white text-gray-900">
+            {/* Hero Section */}
+            <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
+                        >
+                            Transform Your Business with <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI Solutions</span>
+                        </motion.h1>
+                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                            We build custom AI systems that drive innovation, automate complex processes, and deliver measurable business results.
+                        </p>
                     </div>
                 </div>
+            </section>
 
-                {/* Grid */}
-                <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <AnimatePresence mode="popLayout">
-                        {filtered.map(s => (
-                            <motion.div key={s.id} layout initial={{ opacity: 0, scale: 0.99 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}>
-                                <ServiceCard service={s} />
+            {/* Results Section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Delivering Measurable Business Impact
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Our AI solutions are designed to drive tangible results and create competitive advantages for your business.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                        {[
+                            { number: '40%', label: 'COST REDUCTION', icon: FaChartLine },
+                            { number: '3x', label: 'PROCESS SPEED', icon: FaCog },
+                            { number: '89%', label: 'ACCURACY RATE', icon: FaBrain },
+                            { number: '24/7', label: 'AUTOMATION', icon: FaRobot }
+                        ].map((stat, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
+                            >
+                                <stat.icon className="text-3xl text-blue-600 mx-auto mb-4" />
+                                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                             </motion.div>
                         ))}
-
-                        {filtered.length === 0 && (
-                            <motion.div className="col-span-full text-center text-blue-200/80 p-8 border border-blue-800 rounded-xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                No services found for &quot;{query}&quot;. Try a different keyword or select a category.
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </main>
-
-                {/* AI Highlight */}
-                <section className="mb-10 bg-gradient-to-r from-black/30 to-black/10 border border-cyan-800 rounded-2xl p-6">
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                        <div className="flex-shrink-0 text-6xl text-cyan-300"><FaRobot /></div>
-                        <div>
-                            <h3 className="text-xl font-semibold">AI Agents & ML — Production Ready</h3>
-                            <p className="text-blue-200 mt-1">Conversational assistants, predictive models, and vision systems that integrate with your business workflows.</p>
-                            <div className="mt-3 flex gap-2 flex-wrap">
-                                <Tag>Conversational</Tag>
-                                <Tag>CV & NLP</Tag>
-                                <Tag>Model Monitoring</Tag>
-                                <Tag>Deployment</Tag>
-                            </div>
-                        </div>
                     </div>
-                </section>
 
-                {/* Technology Stack */}
-                <section className="mb-10">
-                    <h4 className="text-lg font-semibold mb-4">Technology highlights</h4>
-                    <div className="flex flex-wrap gap-3">
-                        {TECHNOLOGIES.map(t => (
-                            <div key={t.name} className="flex items-center gap-2 px-3 py-1 rounded-md bg-black/20 border border-blue-800 text-sm">
-                                <t.icon />
-                                <span className="text-blue-100">{t.name}</span>
+                    {/* Approach */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                        {/* Process Column */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="sticky top-8">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
+                                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">Our AI Development Framework</h3>
+                                </div>
+
+                                <p className="text-gray-600 leading-relaxed text-lg mb-8">
+                                    A systematic approach to AI implementation that ensures scalability, reliability, and measurable business impact at every stage.
+                                </p>
+
+                                {/* Process Steps */}
+                                <div className="space-y-6">
+                                    {[
+                                        { step: "01", title: "Discovery & Strategy", desc: "Comprehensive business analysis and AI opportunity assessment" },
+                                        { step: "02", title: "Data Engineering", desc: "Data pipeline development and quality assurance" },
+                                        { step: "03", title: "Model Development", desc: "Iterative prototyping and validation cycles" },
+                                        { step: "04", title: "Deployment & Integration", desc: "Production deployment with CI/CD pipelines" },
+                                        { step: "05", title: "Optimization & Scaling", desc: "Performance monitoring and continuous improvement" }
+                                    ].map((item, index) => (
+                                        <div key={item.step} className="flex gap-4 group cursor-pointer">
+                                            <div className="flex flex-col items-center">
+                                                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                    <span className="text-white font-semibold text-sm">{item.step}</span>
+                                                </div>
+                                                {index < 4 && (
+                                                    <div className="w-0.5 h-8 bg-gradient-to-b from-blue-200 to-purple-200 mt-2" />
+                                                )}
+                                            </div>
+                                            <div className="flex-1 pb-6">
+                                                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                                    {item.title}
+                                                </h4>
+                                                <p className="text-gray-600 text-sm leading-relaxed">
+                                                    {item.desc}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
+                        </motion.div>
+
+                        {/* Value Proposition Column */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 rounded-2xl p-8 lg:p-10 text-white relative overflow-hidden">
+                                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -translate-y-16 translate-x-16" />
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full -translate-x-12 translate-y-12" />
+
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-2xl lg:text-3xl font-bold">Enterprise AI Excellence</h3>
+                                    </div>
+
+                                    <div className="mb-6">
+                                        <h4 className="text-xl font-semibold mb-4 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
+                                            Strategic AI Partnership
+                                        </h4>
+                                        <p className="text-gray-200 leading-relaxed text-lg mb-4">
+                                            We bridge the gap between cutting-edge AI technology and tangible business outcomes, delivering solutions that drive competitive advantage and sustainable growth.
+                                        </p>
+                                    </div>
+
+                                    {/* Value Points */}
+                                    <div className="space-y-4 mb-8">
+                                        {[
+                                            "Proven track record with Fortune 500 companies",
+                                            "End-to-end AI implementation expertise",
+                                            "Scalable, production-ready solutions",
+                                            "Measurable ROI and business impact",
+                                            "Ongoing optimization and support"
+                                        ].map((point, index) => (
+                                            <div key={index} className="flex items-center gap-3">
+                                                <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0" />
+                                                <span className="text-gray-200 text-sm">{point}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Stats */}
+                                    <div className="grid grid-cols-2 gap-4 p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 mb-6">
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-white mb-1">40%</div>
+                                            <div className="text-xs text-gray-300">Avg. Efficiency Gain</div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-white mb-1">12-16</div>
+                                            <div className="text-xs text-gray-300">Weeks to MVP</div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-white mb-1">98%</div>
+                                            <div className="text-xs text-gray-300">Project Success Rate</div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-white mb-1">3.2x</div>
+                                            <div className="text-xs text-gray-300">Avg. ROI</div>
+                                        </div>
+                                    </div>
+
+                                    <Link href={'/pages/aidevframework'} className="group inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-lg w-full justify-center">
+                                        Explore Our AI Methodology
+                                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </Link>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Solutions Grid */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {SOLUTIONS.map((solution, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+                            >
+                                <solution.icon className="text-3xl text-blue-600 mb-4" />
+                                <h3 className="font-semibold text-gray-900 mb-2">{solution.title}</h3>
+                                <p className="text-gray-600 text-sm mb-4">{solution.description}</p>
+                                <ul className="space-y-2">
+                                    {solution.benefits.map((benefit, idx) => (
+                                        <li key={idx} className="text-sm text-gray-600 flex items-center">
+                                            <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                            {benefit}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </div>
+            </section>
 
-                {/* Testimonials */}
-                <section className="mb-12">
-                    <h4 className="text-lg font-semibold mb-4">What people say</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {TESTIMONIALS.map((t, i) => (
-                            <motion.blockquote key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="bg-black/20 border border-blue-800 p-4 rounded-xl">
-                                <div className="flex items-start gap-3">
-                                    <div className="text-2xl text-blue-300"><FaQuoteLeft /></div>
-                                    <div>
-                                        <p className="text-blue-200 italic">&quot;{t.quote}&quot;</p>
-                                        <div className="mt-3 flex items-center gap-3">
-                                            <div className="w-9 h-9 rounded-full bg-white/3 flex items-center justify-center"><FaUserTie className="text-blue-300" /></div>
+            {/* Services Section */}
+            <section id="services" className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Comprehensive AI Services
+                        </h2>
+                    </div>
+
+                    <div className="space-y-8">
+                        {SERVICES.map((service, index) => (
+                            <motion.div
+                                key={service.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow"
+                            >
+                                <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+                                    <div className="flex-shrink-0">
+                                        <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white">
+                                            <FaBrain className="text-2xl" />
+                                        </div>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                                             <div>
-                                                <div className="font-semibold">{t.name}</div>
-                                                <div className="text-xs text-blue-300">{t.position} • {t.company}</div>
+                                                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-2">
+                                                    {service.category}
+                                                </span>
+                                                <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                                                <p className="text-gray-600 leading-relaxed text-lg mb-4">{service.description}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <h4 className="font-semibold text-gray-900 mb-3">Key Features</h4>
+                                                <ul className="space-y-2">
+                                                    {service.features.map((feature, featureIndex) => (
+                                                        <li key={featureIndex} className="text-gray-600 flex items-center">
+                                                            <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                                            {feature}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-semibold text-gray-900 mb-3">Deliverables</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {service.deliverables.map((deliverable, delIndex) => (
+                                                        <span key={delIndex} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                                                            {deliverable}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </motion.blockquote>
+                            </motion.div>
                         ))}
                     </div>
-                </section>
+                </div>
+            </section>
 
-                {/* CTA */}
-                <section id="contact" className="mb-20 bg-gradient-to-r from-black/30 to-black/10 p-6 rounded-2xl border border-blue-800 text-center">
-                    <h4 className="text-xl font-bold mb-2">Ready to start?</h4>
-                    <p className="text-blue-200 mb-4">Contact us for a free consult or ask about our trainings and certifications.</p>
-                    <div className="flex justify-center gap-3">
-                        <a className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500" href="mailto:info@mvitech.org">Email Us</a>
-                        <a className="px-4 py-2 rounded-lg bg-transparent border border-blue-800" href="#">View Programs</a>
+            {/* Testimonials */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Trusted by Industry Leaders
+                        </h2>
                     </div>
-                </section>
 
-            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {TESTIMONIALS.map((testimonial, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+                            >
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                                        {testimonial.name.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                                        <div className="text-sm text-gray-600">{testimonial.role}</div>
+                                        <div className="text-xs text-blue-600">{testimonial.company}</div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-600 italic">&quot;{testimonial.quote}&quot;</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQs */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        {FAQS.map((faq, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                className="border border-gray-200 rounded-2xl overflow-hidden"
+                            >
+                                <button
+                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                                >
+                                    <span className="font-semibold text-gray-900">{faq.question}</span>
+                                    {openFaq === index ? <FaChevronUp className="text-gray-400" /> : <FaChevronDown className="text-gray-400" />}
+                                </button>
+                                {openFaq === index && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        className="px-6 py-4 bg-gray-50 border-t border-gray-200"
+                                    >
+                                        <p className="text-gray-600">{faq.answer}</p>
+                                    </motion.div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        Ready to Transform Your Business with AI?
+                    </h2>
+                    <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                        Schedule a free consultation with our AI experts to discover how our solutions can drive growth and innovation for your organization.
+                    </p>
+                    <Link href={'/pages/bookfreeconsultation'} className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+                        Book Free Consultation
+                    </Link>
+                </div>
+            </section>
         </div>
     );
 }

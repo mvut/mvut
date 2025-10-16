@@ -197,7 +197,7 @@ export default function Header() {
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link href="/pages/apply" className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2 rounded-full font-medium hover:from-green-600 hover:to-green-700 transition-all">
-                                    Get Started with AI <FaArrowRight className="text-sm" />
+                                    Get Started
                                 </Link>
                             </motion.div>
                         </div>

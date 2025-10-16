@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub, FaChevronRight, FaMapMarkerAlt, FaPhone, FaEnvelope, FaShieldAlt, FaRocket, FaBrain, FaCog, FaChartLine } from 'react-icons/fa';
 import { CiYoutube } from 'react-icons/ci';
 import { Inter } from 'next/font/google';
 
@@ -18,6 +18,13 @@ interface SocialLink {
     href: string;
     color: string;
     label: string;
+}
+
+interface Service {
+    title: string;
+    href: string;
+    icon: React.ReactNode;
+    description: string;
 }
 
 interface Program {
@@ -36,141 +43,315 @@ const FooterComponent: React.FC = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
             },
         },
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 type: 'spring',
                 stiffness: 100,
-                damping: 20,
+                damping: 15,
             },
         },
     };
 
     const socialLinks: SocialLink[] = [
-        { icon: <FaFacebookF size={24} />, href: 'https://web.facebook.com/mvutus', color: 'hover:text-blue-500', label: 'Facebook' },
-        { icon: <FaInstagram size={24} />, href: 'https://www.instagram.com/drsagher/', color: 'hover:text-pink-500', label: 'Instagram' },
-        { icon: <FaLinkedin size={24} />, href: 'https://www.linkedin.com/company/mvut/', color: 'hover:text-blue-500', label: 'LinkedIn' },
-        { icon: <CiYoutube size={26} />, href: 'https://www.youtube.com/@mvutus', color: 'hover:text-red-500', label: 'YouTube' },
-        { icon: <FaGithub size={24} />, href: 'https://github.com/drsagher/MVIT', color: 'hover:text-gray-300', label: 'GitHub' },
+        { icon: <FaFacebookF size={20} />, href: 'https://web.facebook.com/mvutus', color: 'hover:text-blue-400', label: 'Facebook' },
+        { icon: <FaInstagram size={20} />, href: 'https://www.instagram.com/drsagher/', color: 'hover:text-pink-400', label: 'Instagram' },
+        { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/company/mvut/', color: 'hover:text-blue-400', label: 'LinkedIn' },
+        { icon: <CiYoutube size={22} />, href: 'https://www.youtube.com/@mvutus', color: 'hover:text-red-400', label: 'YouTube' },
+        { icon: <FaGithub size={20} />, href: 'https://github.com/drsagher/MVIT', color: 'hover:text-gray-300', label: 'GitHub' },
+    ];
+
+    const services: Service[] = [
+        {
+            title: 'Custom AI Solutions',
+            href: '/pages/services',
+            icon: <FaBrain className="text-blue-400" />,
+            description: 'Tailored AI systems for your business challenges'
+        },
+        {
+            title: 'Agentic AI Systems',
+            href: '/pages/services',
+            icon: <FaRocket className="text-purple-400" />,
+            description: 'Autonomous AI agents for complex tasks'
+        },
+        {
+            title: 'AI Integration',
+            href: '/pages/services',
+            icon: <FaCog className="text-green-400" />,
+            description: 'Seamless AI integration into existing systems'
+        },
+        {
+            title: 'Predictive Analytics',
+            href: '/pages/services',
+            icon: <FaChartLine className="text-orange-400" />,
+            description: 'Data-driven insights and forecasting'
+        }
     ];
 
     const programs: Program[] = [
-        { title: 'Mansha Certified Autonomous Systems and Cloud Engineer', href: '/pages/mcasce' },
-        { title: 'Kindergarten (K.G.) STEM Entrepreneurs', href: '/pages/kg-ai' },
+        { title: 'MCASCE', href: '/pages/mcasce' },
+        { title: 'K.G. STEM Entrepreneurs', href: '/pages/kg-ai' },
     ];
 
     const resources: Resource[] = [
-        { title: 'Careers', href: '/pages/mycareer' },
-        { title: 'Programs', href: '/pages/study' },
-        { title: 'Tariff', href: '/pages/study/fee' },
-        { title: 'Date Sheet', href: '/pages/datesheet' },
+        { title: 'Career Opportunities', href: '/pages/mycareer' },
+        { title: 'Academic Programs', href: '/pages/study' },
+        { title: 'Fee Structure', href: '/pages/study/fee' },
+        { title: 'Academic Calendar', href: '/pages/datesheet' },
+        { title: 'Research', href: '/pages/research' },
+    ];
+
+    const companyLinks = [
+        { title: 'About MVIT', href: '/pages/about' },
+
     ];
 
     return (
-        <footer className={`relative bg-gray-900 text-gray-200 ${inter.variable} py-12 overflow-hidden`}>
-            <div className="absolute inset-x-0 top-0 h-12 bg-gray-800 [clip-path:polygon(0_0,100%_0,50%_100%)]"></div>
-            <div className="absolute inset-x-0 bottom-0 h-12 bg-gray-800 [clip-path:polygon(50%_0,100%_100%,0_100%)]"></div>
+        <footer className={`relative bg-gradient-to-br from-gray-900 via-slate-900 to-gray-950 text-gray-300 ${inter.variable} overflow-hidden`}>
+            {/* Background Elements */}
+            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+            <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" />
 
-            <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            {/* Main Footer Content */}
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 z-10">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: '-100px' }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                    viewport={{ once: true, margin: '-50px' }}
+                    className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-6 gap-8 lg:gap-12"
                 >
-                    <motion.div variants={itemVariants} className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">About</h3>
-                        <p className="text-sm text-gray-300 leading-relaxed">
-                            MVIT pioneers AI-driven education, empowering learners from kindergarten through to professionals with cutting-edge skills in software development and innovative technologies. Our holistic programs bridge the gap between foundational learning and advanced AI proficiency, fostering future-ready innovators at every stage of their journey.                        </p>
+                    {/* Brand & Description */}
+                    <motion.div variants={itemVariants} className="xl:col-span-2 space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                                <span className="text-white font-bold text-sm">MVIT</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white">MVIT Labs</h3>
+                        </div>
+                        <p className="text-gray-400 leading-relaxed text-sm">
+                            Pioneering AI-driven education and enterprise solutions. We empower learners and businesses
+                            with cutting-edge AI technologies, bridging the gap between foundational knowledge and
+                            advanced artificial intelligence proficiency.
+                        </p>
+
+                        {/* Contact Info */}
+                        <div className="space-y-3 pt-4">
+                            <div className="flex items-center gap-3 text-sm text-gray-400">
+                                <FaMapMarkerAlt className="text-blue-400 flex-shrink-0" />
+                                <span>Virtual AI Research Center</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm text-gray-400">
+                                <FaPhone className="text-green-400 flex-shrink-0" />
+                                <span>+923460050008</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm text-gray-400">
+                                <FaEnvelope className="text-purple-400 flex-shrink-0" />
+                                <span>mvut.usa@gmail.com</span>
+                            </div>
+                        </div>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">Our Programs</h3>
-                        <div className="flex flex-col gap-2">
-                            {programs.map((program, index) => (
+                    {/* AI Services */}
+                    <motion.div variants={itemVariants} className="space-y-6">
+                        <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                            <FaRocket className="text-blue-400" />
+                            AI Services
+                        </h3>
+                        <div className="space-y-3">
+                            {services.map((service, index) => (
                                 <motion.div
                                     key={index}
-                                    whileHover={{ scale: 1.05, x: 5 }}
-                                    className="text-sm text-gray-300 hover:text-blue-500 transition-colors"
+                                    whileHover={{ x: 5 }}
+                                    className="group"
                                 >
-                                    <Link href={program.href}>{program.title}</Link>
+                                    <Link
+                                        href={service.href}
+                                        className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-all duration-300 group"
+                                    >
+                                        <div className="mt-0.5 flex-shrink-0">
+                                            {service.icon}
+                                        </div>
+                                        <div>
+                                            <div className="font-medium group-hover:text-blue-400 transition-colors">
+                                                {service.title}
+                                            </div>
+                                            <div className="text-xs text-gray-500 mt-1">
+                                                {service.description}
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </motion.div>
                             ))}
                         </div>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white">Resources</h3>
-                        <div className="flex flex-col gap-2">
+                    {/* Academic Programs */}
+                    <motion.div variants={itemVariants} className="space-y-6">
+                        <h3 className="text-lg font-semibold text-white">Academic Programs</h3>
+                        <div className="space-y-3">
+                            {programs.map((program, index) => (
+                                <motion.div
+                                    key={index}
+                                    whileHover={{ x: 5 }}
+                                    className="group"
+                                >
+                                    <Link
+                                        href={program.href}
+                                        className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all duration-300 group"
+                                    >
+                                        <FaChevronRight className="text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <span className="group-hover:text-blue-400 transition-colors">
+                                            {program.title}
+                                        </span>
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Resources */}
+                    <motion.div variants={itemVariants} className="space-y-6">
+                        <h3 className="text-lg font-semibold text-white">Resources</h3>
+                        <div className="space-y-3">
                             {resources.map((resource, index) => (
                                 <motion.div
                                     key={index}
-                                    whileHover={{ scale: 1.05, x: 5 }}
-                                    className="text-sm text-gray-300 hover:text-blue-500 transition-colors"
+                                    whileHover={{ x: 5 }}
+                                    className="group"
                                 >
-                                    <Link href={resource.href}>{resource.title}</Link>
+                                    <Link
+                                        href={resource.href}
+                                        className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all duration-300"
+                                    >
+                                        <FaChevronRight className="text-green-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <span className="group-hover:text-green-400 transition-colors">
+                                            {resource.title}
+                                        </span>
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Company */}
+                    <motion.div variants={itemVariants} className="space-y-6">
+                        <h3 className="text-lg font-semibold text-white">Company</h3>
+                        <div className="space-y-3">
+                            {companyLinks.map((link, index) => (
+                                <motion.div
+                                    key={index}
+                                    whileHover={{ x: 5 }}
+                                    className="group"
+                                >
+                                    <Link
+                                        href={link.href}
+                                        className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-all duration-300"
+                                    >
+                                        <FaChevronRight className="text-purple-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <span className="group-hover:text-purple-400 transition-colors">
+                                            {link.title}
+                                        </span>
+                                    </Link>
                                 </motion.div>
                             ))}
                         </div>
                     </motion.div>
                 </motion.div>
 
+                {/* Social Links & Newsletter */}
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="mt-10 flex justify-center gap-4"
+                    className="mt-12 pt-8 border-t border-gray-800/50"
                 >
-                    {socialLinks.map((social, index) => (
-                        <motion.a
-                            key={index}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
-                            className={`text-gray-300 ${social.color} p-2 rounded-full bg-gray-800/50 transition-all duration-300`}
-                            aria-label={`Visit our ${social.label}`}
-                        >
-                            {social.icon}
-                        </motion.a>
-                    ))}
+                    <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+                        {/* Social Links */}
+                        <motion.div variants={itemVariants} className="flex items-center gap-4">
+                            <span className="text-sm text-gray-400 font-medium">Follow our innovation:</span>
+                            <div className="flex gap-3">
+                                {socialLinks.map((social, index) => (
+                                    <motion.a
+                                        key={index}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        whileHover={{ scale: 1.1, y: -2 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className={`text-gray-400 ${social.color} p-2 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10`}
+                                        aria-label={`Visit our ${social.label}`}
+                                    >
+                                        {social.icon}
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Newsletter Signup */}
+                        <motion.div variants={itemVariants} className="flex-1 max-w-md">
+                            <div className="flex gap-2">
+                                <input
+                                    type="email"
+                                    placeholder="Subscribe to AI insights..."
+                                    className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
+                                />
+                                <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/25">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
                 </motion.div>
             </div>
 
+            {/* Bottom Bar */}
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mt-8 pt-6 border-t border-gray-800"
+                className="relative border-t border-gray-800/50 bg-gray-900/50 backdrop-blur-sm"
             >
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-                    <p>© {new Date().getFullYear()} MVIT. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        <Link href="/privacy" className="hover:text-blue-500 transition-colors">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/terms" className="hover:text-blue-500 transition-colors">
-                            Terms of Service
-                        </Link>
-                        <Link
-                            href="https://www.mvitech.org/"
-                            target="_blank"
-                            className="hover:text-blue-500 transition-colors"
-                        >
-                            Official Website
-                        </Link>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                        <div className="flex items-center gap-6 text-gray-400">
+                            <span>© {new Date().getFullYear()} MVIT. All rights reserved.</span>
+                            <div className="flex items-center gap-1 text-xs">
+                                <FaShieldAlt className="text-green-400" />
+                                <span>Enterprise-Grade Security</span>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap gap-6 text-gray-400">
+                            <Link href="/privacy" className="hover:text-blue-400 transition-colors text-sm">
+                                Privacy Policy
+                            </Link>
+                            <Link href="/terms" className="hover:text-blue-400 transition-colors text-sm">
+                                Terms of Service
+                            </Link>
+                            <Link href="/cookies" className="hover:text-blue-400 transition-colors text-sm">
+                                Cookie Policy
+                            </Link>
+                            <Link
+                                href="https://www.mvitech.org/"
+                                target="_blank"
+                                className="hover:text-blue-400 transition-colors text-sm"
+                            >
+                                Official Website
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </motion.div>
