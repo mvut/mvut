@@ -62,13 +62,6 @@ const SKILLS: Skill[] = [
     { name: 'Emerging Technologies', desc: 'Cloud-native, edge computing, and decentralized systems', icon: <SiHiveBlockchain className="text-2xl" /> },
 ];
 
-const METRICS = [
-    { value: '5,000+', label: 'Professionals Trained' },
-    { value: '1,200+', label: 'Projects Deployed' },
-    { value: '92%', label: 'Career Advancement' },
-    { value: '10,000+', label: 'Global Community' },
-];
-
 const cardMotion = {
     hidden: { opacity: 0, y: 20 },
     visible: (i = 1) => ({
@@ -225,40 +218,6 @@ export default function StudyPrograms(): JSX.Element {
                                 <p className="text-sm text-gray-600 leading-relaxed">
                                     {skill.desc}
                                 </p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Metrics Section */}
-            <section className="py-20 bg-gradient-to-br from-slate-900 to-gray-900 text-white">
-                <div className="max-w-5xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold mb-4">
-                            Proven Impact
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Measurable results that demonstrate our commitment to excellence
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {METRICS.map((metric, index) => (
-                            <motion.div
-                                key={metric.label}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="text-center"
-                            >
-                                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent mb-2">
-                                    {metric.value}
-                                </div>
-                                <div className="text-sm text-gray-400 font-medium">
-                                    {metric.label}
-                                </div>
                             </motion.div>
                         ))}
                     </div>

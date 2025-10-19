@@ -351,15 +351,6 @@ export default function KGSTEMEntrepreneursPage(): JSX.Element {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-gray-900 text-white py-16">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="text-4xl font-bold mb-4">K.G. STEM Entrepreneurs</div>
-                    <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto">
-                        Igniting curiosity in young minds through STEM, AI and Creativity
-                    </p>
-                </div>
-            </footer>
         </div>
     );
 }

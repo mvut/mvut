@@ -281,10 +281,14 @@ export default function ApplicationForm(){
                             required
                         >
                             <option value="AI Agents Developer">AI Agents Developer (for Kids)</option>
+                            <option value="AI Agents Developer">AI Agents Developer (for Kids)</option>
                             <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs (for Kids)</option>
                             <option value="Full-Stack AI Engineer">Full-Stack AI Engineer (for Kids)</option>
                             <option value="Mansha Certified Autonomous Systems and Cloud Engineer">Mansha Certified Autonomous Systems and Cloud Engineer - MCASCE (for Graduates) </option>
                             <option value="Office Management, AI and Prompt Engineering">Office Management, AI and Prompt Engineering (for All)</option>
+                            <option value="Certified Synthetic Mind Engineer">Certified Synthetic Mind Engineer - CSME (for All)</option>
+                            <option value="Diploma in Applied Programming Languages">Diploma in Applied Programming Languages - DAPL (for All)</option>
+                            <option value="Certified Micro-Courses">Certified Micro-Courses (for All)</option>
                         </select>
                     </motion.div>
 
@@ -309,7 +313,6 @@ export default function ApplicationForm(){
                             required
                         >
                             <option value="Fall 2025">Fall 2025</option>
-                            <option value="Spring 2026">Spring 2026</option>
                         </select>
                     </motion.div>
 

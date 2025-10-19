@@ -334,41 +334,6 @@ const CollaborationPage = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-16 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                            Transform Your <span className="text-blue-200">Workforce</span> Strategy
-                        </h2>
-                        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Partner with MVIT and ABS International to build your future talent pipeline
-                        </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <motion.button
-                                className="bg-white hover:bg-gray-100 text-blue-800 font-medium py-3 px-8 rounded-lg transition"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Link href={'/pages/partnership'}>Corporate Partnership</Link>
-
-                            </motion.button>
-                            <motion.button
-                                className="bg-transparent hover:bg-white/10 text-white font-medium py-3 px-8 rounded-lg border border-white transition"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Link href={'/pages/careers'}>Student Opportunities</Link>
-                            </motion.button>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
         </div>
     );
 };

@@ -448,12 +448,6 @@ export default function MCASCEPage(): JSX.Element {
                             >
                                 Apply Now
                             </Link>
-                            <Link
-                                href=""
-                                className="rounded-full border border-gray-700 px-6 py-2 text-sm text-gray-300 hover:bg-white/2"
-                            >
-                                Talk to Admissions
-                            </Link>
                         </div>
                         <div className="mt-4 text-xs text-gray-500">
                             24-month program • Part-time options • Career support included

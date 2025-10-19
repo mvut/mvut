@@ -105,27 +105,6 @@ const SOLUTIONS: Solution[] = [
     }
 ];
 
-const TESTIMONIALS: Testimonial[] = [
-    {
-        name: 'Sarah Chen',
-        role: 'CTO',
-        quote: 'The custom AI solution transformed our customer service operations, reducing response time by 80% while maintaining quality.',
-        company: 'TechInnovate Inc.'
-    },
-    {
-        name: 'Marcus Rodriguez',
-        role: 'Operations Director',
-        quote: 'Their agentic AI system automated our complex workflow processes, saving us 200+ hours monthly in manual operations.',
-        company: 'Global Logistics Co.'
-    },
-    {
-        name: 'Dr. Emily Watson',
-        role: 'Research Lead',
-        quote: 'The predictive analytics platform provided insights we never could have uncovered with traditional methods.',
-        company: 'BioResearch Labs'
-    }
-];
-
 const FAQS: FAQ[] = [
     {
         question: 'How long does it take to implement a custom AI solution?',
@@ -420,40 +399,6 @@ export default function AIAgencyLanding() {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Trusted by Industry Leaders
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {TESTIMONIALS.map((testimonial, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
-                            >
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                                        {testimonial.name.charAt(0)}
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                                        <div className="text-sm text-gray-600">{testimonial.role}</div>
-                                        <div className="text-xs text-blue-600">{testimonial.company}</div>
-                                    </div>
-                                </div>
-                                <p className="text-gray-600 italic">&quot;{testimonial.quote}&quot;</p>
                             </motion.div>
                         ))}
                     </div>

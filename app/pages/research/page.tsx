@@ -19,6 +19,7 @@ import {
     FaSeedling
 } from 'react-icons/fa';
 import { Poppins } from 'next/font/google';
+import Link from "next/link";
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -473,7 +474,7 @@ const ResearchPage = () => {
                                 whileTap={{ scale: 0.95 }}
                                 className="border-2 border-blue-600 text-blue-600 font-semibold py-3 px-8 rounded-xl hover:bg-blue-50 transition-colors"
                             >
-                                Submit Research Proposal
+                                <Link href={'/pages/research/proposal'}>Submit Research Proposal</Link>
                             </motion.button>
                         </div>
                     </motion.div>

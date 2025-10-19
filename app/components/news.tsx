@@ -145,22 +145,6 @@ export default function NewsAndEventsPage() {
                     </motion.div>
                 ))}
             </motion.div>
-
-            {/* Footer CTA */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="max-w-6xl mx-auto mt-16 text-center pb-12"
-            >
-                <Link
-                    href="/subscribe"
-                    className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium py-3 px-8 rounded-full hover:shadow-lg transition-all duration-300 hover:from-blue-500 hover:to-indigo-500"
-                >
-                    Subscribe to Updates
-                </Link>
-            </motion.div>
         </div>
     );
 }

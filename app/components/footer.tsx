@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub, FaChevronRight, FaMapMarkerAlt, FaPhone, FaEnvelope, FaShieldAlt, FaRocket, FaBrain, FaCog, FaChartLine } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub, FaChevronRight, FaMapMarkerAlt, FaPhone, FaEnvelope, FaShieldAlt, FaRocket, FaBrain, FaCog, FaChartLine, FaCheck, FaExclamationTriangle } from 'react-icons/fa';
 import { CiYoutube } from 'react-icons/ci';
 import { Inter } from 'next/font/google';
 
@@ -38,6 +38,13 @@ interface Resource {
 }
 
 const FooterComponent: React.FC = () => {
+    const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [subscriptionStatus, setSubscriptionStatus] = useState<{
+        success: boolean;
+        message: string;
+    } | null>(null);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -60,6 +67,63 @@ const FooterComponent: React.FC = () => {
                 damping: 15,
             },
         },
+    };
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!email) {
+            setSubscriptionStatus({
+                success: false,
+                message: 'Please enter your email address.'
+            });
+            return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setSubscriptionStatus({
+                success: false,
+                message: 'Please enter a valid email address.'
+            });
+            return;
+        }
+
+        setLoading(true);
+        setSubscriptionStatus(null);
+
+        try {
+            const response = await fetch('/api/auth/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setSubscriptionStatus({
+                    success: true,
+                    message: result.message
+                });
+                setEmail(''); // Clear the input on success
+            } else {
+                setSubscriptionStatus({
+                    success: false,
+                    message: result.message
+                });
+            }
+        } catch (error) {
+            setSubscriptionStatus({
+                success: false,
+                message: 'Network error. Please try again.'
+            });
+        } finally {
+            setLoading(false);
+        }
     };
 
     const socialLinks: SocialLink[] = [
@@ -100,6 +164,7 @@ const FooterComponent: React.FC = () => {
     const programs: Program[] = [
         { title: 'MCASCE', href: '/pages/mcasce' },
         { title: 'K.G. STEM Entrepreneurs', href: '/pages/kg-ai' },
+        { title: 'Applicants', href: '/pages/admissions' },
     ];
 
     const resources: Resource[] = [
@@ -112,7 +177,6 @@ const FooterComponent: React.FC = () => {
 
     const companyLinks = [
         { title: 'About MVIT', href: '/pages/about' },
-
     ];
 
     return (
@@ -301,16 +365,49 @@ const FooterComponent: React.FC = () => {
 
                         {/* Newsletter Signup */}
                         <motion.div variants={itemVariants} className="flex-1 max-w-md">
-                            <div className="flex gap-2">
-                                <input
-                                    type="email"
-                                    placeholder="Subscribe to AI insights..."
-                                    className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
-                                />
-                                <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/25">
-                                    Subscribe
-                                </button>
-                            </div>
+                            <form onSubmit={handleSubscribe} className="space-y-2">
+                                <div className="flex gap-2">
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Subscribe to AI insights..."
+                                        className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
+                                        disabled={loading}
+                                    />
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                    >
+                                        {loading ? (
+                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        ) : (
+                                            'Subscribe'
+                                        )}
+                                    </button>
+                                </div>
+
+                                {/* Subscription Status Message */}
+                                {subscriptionStatus && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className={`flex items-center gap-2 text-xs ${
+                                            subscriptionStatus.success
+                                                ? 'text-green-400'
+                                                : 'text-red-400'
+                                        }`}
+                                    >
+                                        {subscriptionStatus.success ? (
+                                            <FaCheck className="flex-shrink-0" />
+                                        ) : (
+                                            <FaExclamationTriangle className="flex-shrink-0" />
+                                        )}
+                                        <span>{subscriptionStatus.message}</span>
+                                    </motion.div>
+                                )}
+                            </form>
                         </motion.div>
                     </div>
                 </motion.div>
@@ -334,24 +431,6 @@ const FooterComponent: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-6 text-gray-400">
-                            <Link href="/privacy" className="hover:text-blue-400 transition-colors text-sm">
-                                Privacy Policy
-                            </Link>
-                            <Link href="/terms" className="hover:text-blue-400 transition-colors text-sm">
-                                Terms of Service
-                            </Link>
-                            <Link href="/cookies" className="hover:text-blue-400 transition-colors text-sm">
-                                Cookie Policy
-                            </Link>
-                            <Link
-                                href="https://www.mvitech.org/"
-                                target="_blank"
-                                className="hover:text-blue-400 transition-colors text-sm"
-                            >
-                                Official Website
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </motion.div>

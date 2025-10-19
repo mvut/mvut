@@ -107,7 +107,7 @@ const InstructorProfile = () => {
         name: "Abubakar Siddique",
         title: "President, Co-Founder and Principal Instructor",
         tagline: "Solo Architect of AI-Empowered Learning Revolutions",
-        avatar: "/faculty/abs.PNG",
+        avatar: "/faculty/abs.png",
         bio: "To democratize quality education through technological innovation, empowering learners worldwide with " +
             "cutting-edge AI and software development skills. I am committed to bridging the gap between academic theory and real-world application, " +
             "fostering a generation of ethical technologists who can solve complex global challenges. By creating accessible, adaptive learning experiences and " +
@@ -264,11 +264,10 @@ const InstructorProfile = () => {
         }
     };
 
-    const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-        const target = e.target as HTMLImageElement;
-        target.style.display = 'none';
-        const fallback = target.nextSibling as HTMLElement;
-        if (fallback) fallback.style.display = 'flex';
+    const [imageError, setImageError] = React.useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
     };
 
     return (
@@ -294,7 +293,7 @@ const InstructorProfile = () => {
                         className="max-w-6xl mx-auto"
                     >
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                            {/* Avatar with Enhanced Design */}
+                            {/* Enhanced Avatar Section */}
                             <motion.div
                                 initial={{ scale: 0, rotate: -180 }}
                                 animate={{ scale: 1, rotate: 0 }}
@@ -305,23 +304,34 @@ const InstructorProfile = () => {
                                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-75 animate-pulse"></div>
 
                                 {/* Main Avatar Container */}
-                                <div className="relative w-64 h-64 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full shadow-2xl border-4 border-white/20 backdrop-blur-sm overflow-hidden group hover:scale-105 transition-transform duration-500">
-                                    <Image
-                                        src={instructor.avatar}
-                                        alt={instructor.name}
-                                        width={256}
-                                        height={256}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        onError={handleImageError}
-                                        priority
-                                    />
-                                    {/* Fallback */}
-                                    <div
-                                        className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center"
-                                        style={{ display: 'none' }}
-                                    >
-                                        <FaChalkboardTeacher className="text-white text-8xl" />
-                                    </div>
+                                <div className="relative w-64 h-64 bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+                                    {!imageError ? (
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={instructor.avatar}
+                                                alt={instructor.name}
+                                                width={256}
+                                                height={256}
+                                                className="w-full h-full object-cover"
+                                                onError={handleImageError}
+                                                priority
+                                                quality={100}
+                                            />
+                                            {/* Info overlay that appears on hover */}
+                                            <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                                <p className="text-gray-900 font-semibold text-center">{instructor.name}</p>
+                                                <p className="text-gray-600 text-sm text-center">President MVIT</p>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="w-full h-full bg-gray-50 flex flex-col items-center justify-center p-6 text-center border-2 border-dashed border-gray-300">
+                                            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <FaChalkboardTeacher className="text-blue-600 text-2xl" />
+                                            </div>
+                                            <p className="text-gray-800 font-semibold">{instructor.name}</p>
+                                            <p className="text-gray-500 text-sm mt-1">Faculty Member</p>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Status Indicator */}
@@ -344,13 +354,13 @@ const InstructorProfile = () => {
                                     transition={{ duration: 0.8, delay: 0.4 }}
                                     className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight"
                                 >
-            <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
-              {instructor.name.split(' ')[0]}
-            </span>
+                                    <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
+                                        {instructor.name.split(' ')[0]}
+                                    </span>
                                     <br />
                                     <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-              {instructor.name.split(' ')[1]}
-            </span>
+                                        {instructor.name.split(' ')[1]}
+                                    </span>
                                 </motion.h1>
 
                                 {/* Title */}
@@ -450,7 +460,6 @@ const InstructorProfile = () => {
                             </div>
                         </div>
                     </motion.div>
-
                 </div>
             </section>
 

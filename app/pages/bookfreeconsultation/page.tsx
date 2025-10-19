@@ -20,6 +20,8 @@ const ConsultationPage = () => {
 
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
     const [currentStep, setCurrentStep] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -29,10 +31,50 @@ const ConsultationPage = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+        setLoading(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch('/api/auth/consultations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setSubmitStatus({ success: true, message: result.message });
+                // Reset form on success
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    company: '',
+                    phone: '',
+                    companySize: '',
+                    challenge: '',
+                    preferredDate: '',
+                    preferredTime: '',
+                    budget: ''
+                });
+                setCurrentStep(1);
+                setSelectedSlot(null);
+            } else {
+                setSubmitStatus({ success: false, message: result.message });
+            }
+        } catch (error) {
+            setSubmitStatus({
+                success: false,
+                message: 'Network error. Please try again.'
+            });
+        } finally {
+            setLoading(false);
+        }
     };
 
     const timeSlots = [
@@ -55,25 +97,6 @@ const ConsultationPage = () => {
             icon: FaHeadset,
             title: 'Expert Guidance',
             description: '30-minute session with our senior AI consultants'
-        }
-    ];
-
-    const successStories = [
-        {
-            metric: '40%',
-            description: 'Average efficiency improvement'
-        },
-        {
-            metric: '3.2x',
-            description: 'Average ROI on AI investments'
-        },
-        {
-            metric: '12-16',
-            description: 'Weeks to first AI MVP'
-        },
-        {
-            metric: '98%',
-            description: 'Client satisfaction rate'
         }
     ];
 
@@ -118,6 +141,21 @@ const ConsultationPage = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
                             >
+                                {/* Success/Error Message */}
+                                {submitStatus && (
+                                    <div className={`p-4 ${
+                                        submitStatus.success
+                                            ? 'bg-green-50 border border-green-200'
+                                            : 'bg-red-50 border border-red-200'
+                                    }`}>
+                                        <p className={`text-sm ${
+                                            submitStatus.success ? 'text-green-800' : 'text-red-800'
+                                        }`}>
+                                            {submitStatus.message}
+                                        </p>
+                                    </div>
+                                )}
+
                                 {/* Progress Steps */}
                                 <div className="border-b border-gray-200">
                                     <div className="flex justify-between p-6">
@@ -400,10 +438,20 @@ const ConsultationPage = () => {
                                                 </button>
                                                 <button
                                                     type="submit"
-                                                    className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors flex items-center gap-2"
+                                                    disabled={loading}
+                                                    className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
-                                                    Book Consultation
-                                                    <FaCalendar className="text-sm" />
+                                                    {loading ? (
+                                                        <>
+                                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                                            Booking...
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            Book Consultation
+                                                            <FaCalendar className="text-sm" />
+                                                        </>
+                                                    )}
                                                 </button>
                                             </div>
                                         </motion.div>
@@ -466,7 +514,6 @@ const ConsultationPage = () => {
                     </div>
                 </div>
             </section>
-
         </div>
     );
 };

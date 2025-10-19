@@ -3,7 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCertificate, FaUsers, FaHandsHelping, FaLightbulb, FaMoneyBillWave, FaBook, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
-import Head from 'next/head';
 import MVITLogo from '@/public/mvut_flame.png';
 import AbsAcademyLogo from '@/public/resources/partners/abs-academy.png';
 import Link from "next/link";
@@ -37,24 +36,6 @@ const CollaborationPage: React.FC = () => {
         scale: 1.03,
         boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.2)",
         transition: { duration: 0.3 }
-    };
-
-    const logoAnimation = {
-        hidden: { scale: 0.8, opacity: 0 },
-        visible: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-                delay: 0.2
-            }
-        },
-        hover: {
-            scale: 1.05,
-            transition: { duration: 0.3 }
-        }
     };
 
     const featureItems = [
@@ -116,13 +97,26 @@ const CollaborationPage: React.FC = () => {
         }
     ];
 
+    // Generate unique keys for particles
+    const particles = Array.from({ length: 8 }, (_, i) => ({
+        id: i,
+        width: Math.random() * 10 + 5,
+        height: Math.random() * 10 + 5,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 5,
+        y: Math.random() * 100 - 50,
+        x: Math.random() * 100 - 50
+    }));
+
     return (
         <>
             <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
                 {/* Hero Section */}
                 <div className="relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-red-900/80 z-0" />
-                    <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-cover opacity-10 z-0" />
+                    <div className="absolute inset-0 bg-opacity-10 z-0" />
 
                     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                         <motion.div
@@ -210,7 +204,7 @@ const CollaborationPage: React.FC = () => {
                             >
                                 <div className="absolute inset-0 bg-blue-500/10 rounded-3xl transform group-hover:scale-110 group-hover:opacity-50 blur-md transition duration-500" />
                                 <div className="relative w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 shadow-2xl flex items-center justify-center border border-white/20 overflow-hidden">
-                                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px] opacity-5" />
+                                    <div className="absolute inset-0 bg-opacity-5" />
                                     <motion.div
                                         className="w-full h-full relative"
                                         whileHover={{ scale: 1.05 }}
@@ -221,6 +215,7 @@ const CollaborationPage: React.FC = () => {
                                             alt="MVIT Logo"
                                             fill
                                             className="object-contain"
+                                            priority
                                         />
                                     </motion.div>
                                     <motion.div
@@ -263,7 +258,7 @@ const CollaborationPage: React.FC = () => {
                             >
                                 <div className="absolute inset-0 bg-red-500/10 rounded-3xl transform group-hover:scale-110 group-hover:opacity-50 blur-md transition duration-500" />
                                 <div className="relative w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-6 shadow-2xl flex items-center justify-center border border-white/20 overflow-hidden">
-                                    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px] opacity-5" />
+                                    <div className="absolute inset-0 bg-opacity-5" />
                                     <motion.div
                                         className="w-full h-full relative"
                                         whileHover={{ scale: 1.05 }}
@@ -274,6 +269,7 @@ const CollaborationPage: React.FC = () => {
                                             alt="ABS Academy Logo"
                                             fill
                                             className="object-contain"
+                                            priority
                                         />
                                     </motion.div>
                                     <motion.div
@@ -290,27 +286,27 @@ const CollaborationPage: React.FC = () => {
                         </div>
 
                         {/* Floating particles */}
-                        {[...Array(8)].map((_, i) => (
+                        {particles.map((particle) => (
                             <motion.div
-                                key={i}
+                                key={particle.id}
                                 className="absolute rounded-full bg-white/10 backdrop-blur-sm"
                                 style={{
-                                    width: Math.random() * 10 + 5 + 'px',
-                                    height: Math.random() * 10 + 5 + 'px',
-                                    left: Math.random() * 100 + '%',
-                                    top: Math.random() * 100 + '%'
+                                    width: `${particle.width}px`,
+                                    height: `${particle.height}px`,
+                                    left: `${particle.left}%`,
+                                    top: `${particle.top}%`
                                 }}
                                 initial={{ opacity: 0 }}
                                 animate={{
                                     opacity: [0, 0.6, 0],
-                                    y: [0, Math.random() * 100 - 50],
-                                    x: [0, Math.random() * 100 - 50]
+                                    y: [0, particle.y],
+                                    x: [0, particle.x]
                                 }}
                                 transition={{
-                                    duration: Math.random() * 10 + 10,
+                                    duration: particle.duration,
                                     repeat: Infinity,
                                     ease: "linear",
-                                    delay: Math.random() * 5
+                                    delay: particle.delay
                                 }}
                             />
                         ))}
@@ -400,9 +396,6 @@ const CollaborationPage: React.FC = () => {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <button className="mt-6 w-full py-2 px-4 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition">
-                                            Learn More
-                                        </button>
                                     </div>
                                 </motion.div>
                             ))}
@@ -542,41 +535,6 @@ const CollaborationPage: React.FC = () => {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="py-16 bg-gray-900 text-white">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Ready to <span className="text-blue-400">Transform</span> Your Future?
-                            </h2>
-                            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                                Join thousands of students who have accelerated their careers through our programs
-                            </p>
-                            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <motion.button
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Link href={'/pages/apply'}>Apply Now</Link>
-                                </motion.button>
-                                <motion.button
-                                    className="bg-transparent hover:bg-white/10 text-white font-medium py-3 px-8 rounded-lg border border-white transition"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Link href={'/pages/study/fee'}>Tariff</Link>
-                                </motion.button>
-                            </div>
-                        </motion.div>
                     </div>
                 </section>
             </div>

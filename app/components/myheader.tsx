@@ -92,6 +92,7 @@ export default function Header() {
     const productItems = [
         { title: 'Programs', href: '/pages/study' },
         { title: 'Tariff', href: '/pages/study/fee' },
+        { title: 'Applicants', href: '/pages/admissions' },
         { title: 'Date Sheet', href: '/pages/datesheet' },
         { title: 'Results', href: '/pages/results' },
         { title: 'Verification', href: '/verify' },
@@ -190,11 +191,7 @@ export default function Header() {
                         </nav>
 
                         <div className="hidden md:flex items-center gap-4">
-                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                {/*<Link href="/mlms" className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2 rounded-full font-medium hover:from-blue-600 hover:to-blue-700 transition-all">*/}
-                                {/*    MLMS <FaArrowRight className="text-sm" />*/}
-                                {/*</Link>*/}
-                            </motion.div>
+
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <Link href="/pages/apply" className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2 rounded-full font-medium hover:from-green-600 hover:to-green-700 transition-all">
                                     Get Started

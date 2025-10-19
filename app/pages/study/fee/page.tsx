@@ -24,26 +24,6 @@ const stats = [
     { value: '24/7', label: 'Student Support' }
 ];
 
-const testimonials = [
-    {
-        quote: "The MCASCE certification transformed my career, enabling me to design cloud solutions that slashed costs by 45%.",
-        name: "Sarah Johnson",
-        position: "Cloud Solutions Architect",
-        avatar: "/faculty/awais.jpg"
-    },
-    {
-        quote: "As a career switcher, MCASCE’s hands-on AWS, Azure, and GCP training gave me the edge employers wanted.",
-        name: "Michael Chen",
-        position: "DevOps Engineer",
-        avatar: "/faculty/daha.jpg"
-    },
-    {
-        quote: "MCASCE’s real-world projects landed me a $150k cloud architect role within months of completion.",
-        name: "Jessica Williams",
-        position: "Cloud Architect",
-        avatar: "/faculty/ali.png"
-    }
-];
 
 const careerPaths = [
     {
@@ -278,7 +258,7 @@ const KindergartenFeeStructure = () => {
                     </p>
                 </div>
                 <div className="mt-6 text-center">
-                    <Link href="/usai/apply" legacyBehavior>
+                    <Link href="/pages/apply" legacyBehavior>
                         <a className="bg-purple-600 text-white hover:bg-purple-700 px-6 py-3 rounded-full font-bold text-lg">
                             Apply Online for Kindergarten
                         </a>
@@ -641,39 +621,6 @@ System: 00">{stat.label}</div>
                 </motion.div>
             </section>
 
-            {/* Testimonials Section */}
-            <section className="bg-gray-100 py-16 px-4">
-                <div className="container mx-auto">
-                    <h2 className="text-3xl font-bold text-center text-indigo-900 mb-12">Graduate Success Stories</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {testimonials.map((testimonial, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="bg-white p-8 rounded-xl shadow-lg"
-                            >
-                                <FaQuoteLeft className="text-gray-300 text-xl mb-4" />
-                                <p className="text-gray-700 italic mb-6">&quot;{testimonial.quote}&quot;</p>
-                                <div className="flex items-center">
-                                    <Image
-                                        src={testimonial.avatar}
-                                        alt={testimonial.name}
-                                        className="w-12 h-12 rounded-full mr-4 object-cover"
-                                        height={48}
-                                        width={48}
-                                    />
-                                    <div>
-                                        <p className="font-bold text-gray-900">{testimonial.name}</p>
-                                        <p className="text-sm text-gray-600">{testimonial.position}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* Final CTA */}
             <section className="bg-gradient-to-br from-indigo-900 to-blue-600 rounded-2xl p-12 text-center text-white mx-4 my-16">
@@ -704,14 +651,11 @@ System: 00">{stat.label}</div>
                             Apply for MCASCE
                         </a>
                     </Link>
-                    <Link href="/usai/apply" legacyBehavior>
+                    <Link href="/pages/apply" legacyBehavior>
                         <a className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 rounded-full font-bold text-lg">
                             Apply for Kindergarten
                         </a>
                     </Link>
-                    <button className="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-900 px-8 py-4 rounded-full font-bold text-lg">
-                        Download Syllabus
-                    </button>
                 </motion.div>
             </section>
         </div>
