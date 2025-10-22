@@ -128,7 +128,7 @@ const FooterComponent: React.FC = () => {
 
     const socialLinks: SocialLink[] = [
         { icon: <FaFacebookF size={20} />, href: 'https://web.facebook.com/mvutus', color: 'hover:text-blue-400', label: 'Facebook' },
-        { icon: <FaInstagram size={20} />, href: 'https://www.instagram.com/drsagher/', color: 'hover:text-pink-400', label: 'Instagram' },
+        { icon: <FaInstagram size={20} />, href: 'https://www.instagram.com/mvitech/', color: 'hover:text-pink-400', label: 'Instagram' },
         { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/company/mvut/', color: 'hover:text-blue-400', label: 'LinkedIn' },
         { icon: <CiYoutube size={22} />, href: 'https://www.youtube.com/@mvutus', color: 'hover:text-red-400', label: 'YouTube' },
         { icon: <FaGithub size={20} />, href: 'https://github.com/drsagher/MVIT', color: 'hover:text-gray-300', label: 'GitHub' },

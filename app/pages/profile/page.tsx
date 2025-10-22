@@ -130,11 +130,11 @@ const InstructorProfile = () => {
 
         expertise: [
             { name: "Artificial Intelligence", icon: <FaRobot className="text-purple-500" />, level: 95 },
-            { name: "Machine Learning", icon: <FaBrain className="text-blue-500" />, level: 90 },
+            { name: "C/C++ Programming", icon: <FaBrain className="text-blue-500" />, level: 90 },
             { name: "Software Engineering", icon: <FaCode className="text-green-500" />, level: 92 },
-            { name: "Data Science", icon: <FaChartLine className="text-orange-500" />, level: 88 },
-            { name: "Cloud Computing", icon: <FaCloud className="text-cyan-500" />, level: 85 },
-            { name: "STEM Education", icon: <FaGraduationCap className="text-red-500" />, level: 95 }
+            { name: "Database Management System", icon: <FaChartLine className="text-orange-500" />, level: 88 },
+            { name: "Computer Networks", icon: <FaCloud className="text-cyan-500" />, level: 85 },
+            { name: "Research & Development", icon: <FaGraduationCap className="text-red-500" />, level: 95 }
         ],
 
         achievements: [
@@ -175,22 +175,16 @@ const InstructorProfile = () => {
 
         currentProjects: [
             {
-                title: "AI-Powered Learning Assistant",
+                title: "MVITech.org",
                 description: "Developing an intelligent tutoring system that adapts to individual student learning patterns",
-                technologies: ["Python", "TensorFlow", "React", "FastAPI"],
+                technologies: ["Next/React", "Tailwind CSS", "Vercel", "PostgresSQL","GitHub"],
                 status: "active"
             },
             {
-                title: "STEM Education Platform",
-                description: "Creating an interactive platform for teaching programming and computational thinking",
-                technologies: ["JavaScript", "Node.js", "MongoDB", "AWS"],
+                title: "Mike Litman (Mikeversity)",
+                description: "Creating an interactive platform for Training and Global Thought Leadership",
+                technologies: ["Next/React", "Tailwind CSS", "Vercel", "PostgresSQL","GitHub"],
                 status: "active"
-            },
-            {
-                title: "Research Paper Analytics Tool",
-                description: "AI tool for analyzing research trends and suggesting collaboration opportunities",
-                technologies: ["Python", "NLP", "Data Visualization"],
-                status: "upcoming"
             }
         ],
 
@@ -202,7 +196,7 @@ const InstructorProfile = () => {
                 rating: 4.9
             },
             {
-                course: "Full-Stack AI Engineer",
+                course: "AI & Machine Learning",
                 level: "Intermediate",
                 students: 20,
                 rating: 4.8

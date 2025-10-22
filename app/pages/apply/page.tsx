@@ -6,46 +6,190 @@ import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Logo from '@/public/mvutflame.png'
+
 // Load Google Font
 const montserrat = Montserrat({
     subsets: ["latin"],
     weight: ["400", "600", "700"],
 });
 
+interface ApplicationData {
+    full_name: string;
+    father_name: string;
+    qualification: string;
+    institute: string;
+    total_marks: string;
+    obtained_marks: string;
+    gmail: string;
+    dob: string;
+    whatsapp: string;
+    program: string;
+    campus: string;
+    semester: string;
+    classes: string;
+    country: string;
+}
+
+// Extend CanvasRenderingContext2D interface to include wrapText
+declare global {
+    interface CanvasRenderingContext2D {
+        wrapText(text: string, x: number, y: number, maxWidth: number, lineHeight: number): number;
+    }
+}
+
+// Add wrapText method to CanvasRenderingContext2D prototype
+if (typeof window !== 'undefined') {
+    CanvasRenderingContext2D.prototype.wrapText = function(text: string, x: number, y: number, maxWidth: number, lineHeight: number): number {
+        const words = text.split(' ');
+        let line = '';
+        let testLine = '';
+        let lineArray: [string, number, number][] = [];
+
+        for (let n = 0; n < words.length; n++) {
+            testLine += `${words[n]} `;
+            const metrics = this.measureText(testLine);
+            const testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0) {
+                lineArray.push([line, x, y]);
+                y += lineHeight;
+                line = `${words[n]} `;
+                testLine = `${words[n]} `;
+            } else {
+                line += `${words[n]} `;
+            }
+            if (n === words.length - 1) {
+                lineArray.push([line, x, y]);
+            }
+        }
+
+        for (let i = 0; i < lineArray.length; i++) {
+            this.fillText(lineArray[i][0], lineArray[i][1], lineArray[i][2]);
+        }
+        return y;
+    };
+}
+
 export default function ApplicationForm(){
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submittedData, setSubmittedData] = useState<ApplicationData | null>(null);
+    const [voucherUrl, setVoucherUrl] = useState<string | null>(null);
+
+    // Get IBAN from environment variable with fallback
+    const IBAN_NUMBER = process.env.HBL_ACCOUNT_IBAN || 'PK03HABB0002047992165199';
+
+    const generateFeeVoucher = (data: ApplicationData) => {
+        // Create a canvas to generate the voucher
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        if (!ctx) return null;
+
+        // Set canvas dimensions
+        canvas.width = 600;
+        canvas.height = 400;
+
+        // Background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Border
+        ctx.strokeStyle = '#991b1b';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+
+        // Header
+        ctx.fillStyle = '#991b1b';
+        ctx.font = 'bold 24px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('MVIT FEE VOUCHER', canvas.width / 2, 50);
+
+        // Institution Info
+        ctx.fillStyle = '#000000';
+        ctx.font = '14px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Mansha Virtual Institute of Technologies', canvas.width / 2, 80);
+        ctx.fillText('Admission Fee Voucher', canvas.width / 2, 100);
+
+        // Student Information
+        ctx.textAlign = 'left';
+        ctx.font = 'bold 16px Arial';
+        ctx.fillText('Student Information:', 30, 140);
+
+        ctx.font = '14px Arial';
+        ctx.fillText(`Name: ${data.full_name}`, 30, 165);
+        ctx.fillText(`Program: ${data.program}`, 30, 185);
+        ctx.fillText(`Email: ${data.gmail}`, 30, 205);
+        ctx.fillText(`Campus: ${data.campus}`, 30, 225);
+
+        // Fee Details
+        ctx.font = 'bold 16px Arial';
+        ctx.fillText('Fee Details:', 30, 260);
+
+        ctx.font = '14px Arial';
+        ctx.fillText('Admission Fee: $70', 30, 285);
+
+        // Payment Instructions
+        ctx.font = 'bold 16px Arial';
+        ctx.fillText('Payment Instructions:', 300, 140);
+
+        ctx.font = '14px Arial';
+        const paymentText = "Please deposit $70 admission fee to the following IBAN account. After payment, email the transaction receipt to admissions@mvit.edu";
+
+        // Use the wrapText method
+        ctx.wrapText(paymentText, 300, 165, 250, 20);
+
+        // IBAN Number
+        ctx.font = 'bold 14px Arial';
+        ctx.fillText('IBAN Number:', 300, 240);
+        ctx.font = '14px Arial';
+        ctx.fillText(IBAN_NUMBER, 300, 260);
+
+        // Footer
+        ctx.textAlign = 'center';
+        ctx.font = '12px Arial';
+        ctx.fillStyle = '#666666';
+        ctx.fillText('Generated on: ' + new Date().toLocaleDateString(), canvas.width / 2, 350);
+        ctx.fillText('This is a computer generated voucher', canvas.width / 2, 370);
+
+        return canvas.toDataURL('image/png');
+    };
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
         const formData = new FormData(e.currentTarget);
 
+        const applicationData = {
+            full_name: formData.get("full_name") as string,
+            father_name: formData.get("father_name") as string,
+            qualification: formData.get("qualification") as string,
+            institute: formData.get("institute") as string,
+            total_marks: formData.get("total_marks") as string,
+            obtained_marks: formData.get("obtained_marks") as string,
+            gmail: formData.get("gmail") as string,
+            dob: formData.get("dob") as string,
+            whatsapp: formData.get("whatsapp") as string,
+            program: formData.get("program") as string,
+            campus: formData.get("campus") as string,
+            semester: formData.get("semester") as string,
+            classes: formData.get("classes") as string,
+            country: formData.get("country") as string,
+        };
+
         try {
             const response = await fetch('/api/auth/apply', {
                 method: 'POST',
-                body: JSON.stringify({
-                    full_name: formData.get("full_name"),
-                    father_name: formData.get("father_name"),
-                    qualification: formData.get("qualification"),
-                    institute: formData.get("institute"),
-                    total_marks: formData.get("total_marks"),
-                    obtained_marks: formData.get("obtained_marks"),
-                    gmail: formData.get("gmail"),
-                    dob: formData.get("dob"),
-                    whatsapp: formData.get("whatsapp"),
-                    program: formData.get("program"),
-                    campus: formData.get("campus"),
-                    semester: formData.get("semester"),
-                    classes: formData.get("classes"),
-                    country: formData.get("country"),
-                })
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(applicationData)
             });
 
             if(response.ok){
-                alert('Application submitted successfully!');
-                router.push('/');
-                router.refresh();
+                setSubmittedData(applicationData);
+                const voucherDataUrl = generateFeeVoucher(applicationData);
+                setVoucherUrl(voucherDataUrl);
             } else {
                 throw new Error('Server Error');
             }
@@ -54,6 +198,15 @@ export default function ApplicationForm(){
             console.error(error);
         } finally {
             setIsSubmitting(false);
+        }
+    };
+
+    const downloadVoucher = () => {
+        if (voucherUrl) {
+            const link = document.createElement('a');
+            link.download = `MVIT-Fee-Voucher-${submittedData?.full_name.replace(/\s+/g, '-')}.png`;
+            link.href = voucherUrl;
+            link.click();
         }
     };
 
@@ -76,6 +229,105 @@ export default function ApplicationForm(){
             transition: { type: "spring", stiffness: 80, damping: 12 },
         },
     };
+
+    // Show success message and voucher download if submitted
+    if (submittedData && voucherUrl) {
+        return (
+            <div className={`min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-12 ${montserrat.className}`}>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="container mx-auto text-center mb-8"
+                >
+                    <div className="flex justify-center mb-4">
+                        <Image
+                            src={Logo}
+                            alt="MVIT Logo"
+                            width={120}
+                            height={120}
+                            className="shadow-lg"
+                        />
+                    </div>
+                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Application Submitted Successfully!</h1>
+                    <p className="text-red-200">Your admission form has been received</p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="container mx-auto max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden"
+                >
+                    <div className="bg-gradient-to-r from-green-600 to-green-800 p-6 text-white">
+                        <h2 className="text-2xl font-bold">✓ Submission Complete</h2>
+                        <p className="text-green-200">Thank you for your application</p>
+                    </div>
+
+                    <div className="p-8">
+                        <div className="text-center mb-6">
+                            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                                Download Your Fee Voucher
+                            </h3>
+                            <p className="text-gray-600 mb-2">
+                                <strong>Name:</strong> {submittedData.full_name}
+                            </p>
+                            <p className="text-gray-600 mb-2">
+                                <strong>Program:</strong> {submittedData.program}
+                            </p>
+                            <p className="text-gray-600 mb-4">
+                                <strong>Email:</strong> {submittedData.gmail}
+                            </p>
+                        </div>
+
+                        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                            <h4 className="font-semibold text-yellow-800 mb-2">Payment Instructions:</h4>
+                            <p className="text-yellow-700 text-sm mb-2">
+                                • Admission Fee: <strong>$70</strong>
+                            </p>
+                            <p className="text-yellow-700 text-sm mb-2">
+                                • Please deposit the amount to the following IBAN:
+                            </p>
+                            <p className="text-yellow-800 font-mono text-sm bg-yellow-100 p-2 rounded">
+                                {IBAN_NUMBER}
+                            </p>
+                            <p className="text-yellow-700 text-sm mt-2">
+                                • After payment, email the transaction receipt to: admissions@mvit.edu
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                            <button
+                                onClick={downloadVoucher}
+                                className="px-6 py-3 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition-all duration-300 flex items-center justify-center gap-2"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download Fee Voucher
+                            </button>
+
+                            <Link
+                                href="/"
+                                className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-all duration-300 text-center"
+                            >
+                                Return to Home
+                            </Link>
+                        </div>
+
+                        <div className="mt-6 text-center">
+                            <p className="text-gray-500 text-sm">
+                                Can&apos;t download? <button
+                                onClick={downloadVoucher}
+                                className="text-red-600 hover:text-red-800 underline"
+                            >
+                                Click here to try again
+                            </button>
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        );
+    }
 
     return (
         <div className={`min-h-screen bg-gradient-to-br from-red-900 via-black to-red-900 py-12 ${montserrat.className}`}>
@@ -280,7 +532,6 @@ export default function ApplicationForm(){
                             name="program"
                             required
                         >
-                            <option value="AI Agents Developer">AI Agents Developer (for Kids)</option>
                             <option value="AI Agents Developer">AI Agents Developer (for Kids)</option>
                             <option value="Kindergarten (K.G.) STEM Entrepreneurs">Kindergarten (K.G.) STEM Entrepreneurs (for Kids)</option>
                             <option value="Full-Stack AI Engineer">Full-Stack AI Engineer (for Kids)</option>

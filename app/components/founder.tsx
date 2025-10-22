@@ -4,7 +4,7 @@ import { FaQuoteLeft, FaMedal, FaUniversity, FaLightbulb } from 'react-icons/fa'
 import Image, { StaticImageData } from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Founder from '@/public/faculty/father.png';
+import Founder from '@/public/faculty/Mansha.png';
 import President from '@/public/faculty/abs.png';
 
 interface LeaderCardProps {

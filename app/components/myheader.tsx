@@ -7,8 +7,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FaFacebook, FaLinkedin, FaWhatsapp, FaEnvelope, FaPhoneAlt, FaArrowRight, FaChevronDown } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { IoMdNotifications } from "react-icons/io";
-import { FaGraduationCap } from "react-icons/fa";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -87,6 +85,7 @@ export default function Header() {
         { title: 'Home', href: '/' },
         { title: 'Profile', href: '/pages/profile' },
         { title: 'Services', href: '/pages/services' },
+        { title: 'Trainings', href: '/pages/trainings' },
     ];
 
     const productItems = [
@@ -96,7 +95,6 @@ export default function Header() {
         { title: 'Date Sheet', href: '/pages/datesheet' },
         { title: 'Results', href: '/pages/results' },
         { title: 'Verification', href: '/verify' },
-        { title: 'Trainings', href: '/pages/trainings' },
     ];
 
     const socialLinks = [
@@ -240,30 +238,11 @@ export default function Header() {
                                 </div>
 
                                 <div className="pt-4 flex flex-col gap-3">
-                                    {/*<Link href="/mlms" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-full font-medium">*/}
-                                    {/*    MLMS Login <FaArrowRight />*/}
-                                    {/*</Link>*/}
-                                    <Link href="/pages/apply" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-full font-medium">
-                                        Apply Now <FaArrowRight />
-                                    </Link>
-                                    <Link href="" onClick={() => setIsOpen(false)} className="flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-3 rounded-full font-medium">
-                                        Free Courses <FaArrowRight />
-                                    </Link>
-                                </div>
-
-                                <div className="pt-4 flex justify-center gap-4">
-                                    {socialLinks.map((link, index) => (
-                                        <motion.a
-                                            key={index}
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            whileHover={{ scale: 1.2 }}
-                                            className="text-gray-300 hover:text-white p-2 rounded-full bg-gray-800"
-                                        >
-                                            {link.icon}
-                                        </motion.a>
-                                    ))}
+                                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                        <Link href="/pages/apply" className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2 rounded-full font-medium hover:from-green-600 hover:to-green-700 transition-all">
+                                            Get Started
+                                        </Link>
+                                    </motion.div>
                                 </div>
                             </div>
                         </motion.div>
