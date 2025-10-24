@@ -39,7 +39,7 @@ const highAlerts: FeedItem[] = [
         severity: 'high',
         category: 'Careers',
         gradient: 'from-red-500 to-red-700',
-        link: '',
+        link: '/pages/study',
     },
     {
         id: 'alert-2',
@@ -50,7 +50,7 @@ const highAlerts: FeedItem[] = [
         severity: 'medium',
         category: 'Academic',
         gradient: 'from-orange-500 to-orange-700',
-        link: '',
+        link: '/pages/apply',
     },
 ];
 
@@ -63,7 +63,7 @@ const upcomingEvents: FeedItem[] = [
         type: 'event',
         category: 'Academic',
         gradient: 'from-purple-500 to-purple-700',
-        link: '',
+        link: '/events',
     },
 
 ];
@@ -77,7 +77,7 @@ const generalNews: FeedItem[] = [
         type: 'news',
         category: 'Competition',
         gradient: 'from-blue-500 to-blue-700',
-        link: '/pages/apply',
+        link: '/pages/kg-ai',
     },
     {
         id: 'news-2',
@@ -87,7 +87,7 @@ const generalNews: FeedItem[] = [
         type: 'news',
         category: 'Research',
         gradient: 'from-green-500 to-green-700',
-        link: '/pages/apply',
+        link: '/pages/research',
     },
 
 ];
