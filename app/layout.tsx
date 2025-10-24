@@ -5,7 +5,6 @@ import Template from "@/app/template";
 import MyHeaderComponent from "@/app/components/myheader";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { SessionProvider } from "next-auth/react";
 import { DM_Sans } from "next/font/google";
 
 const poppins = DM_Sans({ subsets: ["latin"], weight: ['400'] });
@@ -19,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <title>MVIT</title>
         </head>
         <body className={`${poppins.className}`}>
-        <SessionProvider>
+
             <Template>
                 {!pathName?.startsWith('/mvut') && !pathName?.startsWith('/mlms/dashboard') && (
                     <MyHeaderComponent />
@@ -29,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <FooterComponent />
                 )}
             </Template>
-        </SessionProvider>
+
         </body>
         </html>
     );
