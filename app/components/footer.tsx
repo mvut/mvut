@@ -164,7 +164,8 @@ const FooterComponent: React.FC = () => {
     const programs: Program[] = [
         { title: 'MCASCE', href: '/pages/mcasce' },
         { title: 'K.G. STEM Entrepreneurs', href: '/pages/kg-ai' },
-        { title: 'Applicants', href: '/pages/admissions' },
+        { title: 'Research', href: '/pages/research' },
+        { title: 'Results', href: '/pages/results' },
     ];
 
     const resources: Resource[] = [
@@ -172,11 +173,14 @@ const FooterComponent: React.FC = () => {
         { title: 'Academic Programs', href: '/pages/study' },
         { title: 'Fee Structure', href: '/pages/study/fee' },
         { title: 'Academic Calendar', href: '/pages/datesheet' },
-        { title: 'Research', href: '/pages/research' },
+        { title: 'Applicants', href: '/pages/admissions' },
+        { title: 'Verification', href: '/verify' },
     ];
 
     const companyLinks = [
         { title: 'About MVIT', href: '/pages/about' },
+        { title: 'Services', href: '/pages/services' },
+        { title: 'Trainings', href: '/pages/trainings' },
     ];
 
     return (

@@ -73,28 +73,19 @@ export default function Header() {
         setShowProducts(false); // Close both dropdowns on link click
     };
 
-    const newsItems = [
-        "Date Sheet Issued Term-I Exam",
-        "Admissions are open now!",
-        "Admission fee: $70",
-        "Monthly fee: $35",
-        "*Online Affordable Education",
-    ];
-
     const mainNavItems = [
-        { title: 'Home', href: '/' },
+        { title: 'Flagship-Program', href: '/pages/mcasce' },
         { title: 'Profile', href: '/pages/profile' },
-        { title: 'Services', href: '/pages/services' },
-        { title: 'Trainings', href: '/pages/trainings' },
+
+
     ];
 
     const productItems = [
         { title: 'Programs', href: '/pages/study' },
         { title: 'Tariff', href: '/pages/study/fee' },
-        { title: 'Applicants', href: '/pages/admissions' },
-        { title: 'Date Sheet', href: '/pages/datesheet' },
-        { title: 'Results', href: '/pages/results' },
-        { title: 'Verification', href: '/verify' },
+
+
+
     ];
 
     const socialLinks = [

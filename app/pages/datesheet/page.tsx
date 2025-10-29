@@ -7,7 +7,7 @@ const examData = [
     { sr: 1, courseCode: 'MRSE-201', courseName: 'HTML Fundamentals', date: '13-10-2025', day: 'Monday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
     { sr: 2, courseCode: 'MRSE-206', courseName: 'Tailwind CSS', date: '16-10-2025', day: 'Thursday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
     { sr: 3, courseCode: 'MRSE-103', courseName: 'Introduction to JavaScript Programming', date: '20-10-2025', day: 'Monday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
-    { sr: 4, courseCode: 'MRSE-04', courseName: 'Introduction to Python Programming', date: '22-10-2025', day: 'Wednesday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
+    { sr: 4, courseCode: 'MRSE-404', courseName: 'Introduction to Python Programming', date: '22-10-2025', day: 'Wednesday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
     { sr: 5, courseCode: 'MRSE-403', courseName: 'React Programming', date: '24-10-2025', day: 'Friday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
     { sr: 6, courseCode: 'MRSE-207', courseName: 'Next.js and Vercel Deployment', date: '27-10-2025', day: 'Monday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
     { sr: 7, courseCode: 'MRSE-307', courseName: 'Structured Query Language', date: '31-10-2025', day: 'Friday', time: '04:00 PM – 06:00 PM', venue: 'MVIT, (Pakpattan) Pakistan' },
@@ -25,7 +25,7 @@ export default function DatasheetPage() {
                     transition={{ duration: 0.6 }}
                 >
 
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800">MVIT MCASCE EXAMINATION</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold text-gray-800">MCASCE EXAMINATION</h1>
                     <p className="text-gray-600">M1 Full-Stack Software Engineer (FSSE) — DATASHEET TERM-I SPRING-2025</p>
                 </motion.div>
 
