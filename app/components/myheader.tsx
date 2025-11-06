@@ -138,7 +138,7 @@ export default function Header() {
                                         aria-label="Toggle Products Dropdown"
                                         aria-expanded={showProducts}
                                     >
-                                        Education
+                                        Courses
                                         <motion.span animate={{ rotate: showProducts ? 180 : 0 }} transition={{ duration: 0.3 }}>
                                             <FaChevronDown className="text-xs mt-0.5" />
                                         </motion.span>
